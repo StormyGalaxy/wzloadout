@@ -9,5 +9,16 @@
         "btn2Text": "Season 2",
         "link2": "where-we-droppin/chapter-six/season-two",
         "disabled2": true
+    },
+    {
+        "title": "OG - Battle Royal",
+        "text": "",
+        "variant": "success",
+        "btn1Text": "Season 1",
+        "link": "where-we-droppin/og/season-one",
+        "disabled": false,
+        "btn2Text": "Season 2",
+        "link2": "where-we-droppin/og/season-two",
+        "disabled2": false
     }
 ]
