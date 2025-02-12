@@ -39,8 +39,8 @@ function Footer() {
             <Nav.Link href="/privacy">Privacy Policy</Nav.Link>
           </Nav.Item>
         </Nav>
-        <span style="display:none">Bana0615</span>
       </footer>
+      <span style="display:none" type="author">Bana0615</span>
     </>
   );
 }
