@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 //Components
 import { Container, Row, Col, Button, Form } from "react-bootstrap";
 import WheelComponent from "react-wheel-of-prizes-react19";
+import { LoadingLetters } from "@/components/_silabs/LoadingLetters";
 //Utils
 import { sendEvent } from "@/utils/gtag";
 
@@ -66,7 +67,14 @@ function FortniteDropSpot({ map, button_key, ga_label, mapInfo }: FortniteDropSp
                                 </Col>
                                 <Col sm className="text-center">
                                     <span className="fw-bolder fs-5">Winner:</span> <br />
-                                    <span className="text-muted fs-6">{spinResult}</span>
+                                    <span className="text-muted fs-6">
+                                        <LoadingLetters
+                                            text={spinResult}
+                                            loadingDuration={5000}
+                                            interval={100}
+                                            className="loading-text"
+                                        />
+                                    </span>
                                 </Col>
                             </Row>
                             <Col
