@@ -1,8 +1,8 @@
 {
-  "id": "YOUR_DOAMIN",
-  "name": "",
-  "short_name": "",
-  "description": "",
+  "id": "fortnite.silocitygames.com",
+  "name": "Silo City Games - Fornite",
+  "short_name": "FortHub",
+  "description": "Your hub for all fortnite tools built by Silo City Games.",
   "lang": "en-US",
   "dir": "ltr",
   "theme_color": "#",
