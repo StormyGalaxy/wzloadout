@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 //Components
-import { Container, Row, Col, Button, Form } from "react-bootstrap";
+import { Container, Row, Col, Button, Spinner } from "react-bootstrap";
 import WheelComponent from "react-wheel-of-prizes-react19";
 import { LoadingLetters } from "@/components/_silabs/LoadingLetters";
 //Utils
@@ -17,6 +17,7 @@ function FortniteDropSpot({ map, button_key, ga_label, mapInfo }: FortniteDropSp
     const ga_button_id = `${button_key}DropSpot_rollSpot`;
     const ga_label_id = `${ga_label}_FortniteDropSpot`;
     const [isLoading, setIsLoading] = useState(false);
+    const [isSpinning, setIsSpinning] = useState(false);
     const [spinResult, setSpinResult] = useState("????");
     const segColors = [
         "#329337",
@@ -28,25 +29,37 @@ function FortniteDropSpot({ map, button_key, ga_label, mapInfo }: FortniteDropSp
     }, []);
 
     const onFinished = (winner: string) => {
+        setSpinResult("");
+        setIsSpinning(true);
         // sendEvent("button_click", {
         //     button_id: ga_button_id,
         //     label: ga_label_id,
         //     category: "FortniteDropSpot",
         // });
 
-        setSpinResult(winner);
+        setTimeout(() => {
+            setSpinResult(winner);
+            setIsSpinning(false);
+        }, 500);
+
     };
 
     const handleClick = async () => {
+        setSpinResult("");
+        setIsSpinning(true);
         // sendEvent("button_click", {
         //     button_id: ga_button_id,
         //     label: ga_label_id,
         //     category: "FortniteDropSpots",
         // });
 
-        setSpinResult(
-            mapInfo[Math.floor(Math.random() * mapInfo.length)]
-        );
+        setTimeout(() => {
+            setSpinResult(
+                mapInfo[Math.floor(Math.random() * mapInfo.length)]
+            );
+            setIsSpinning(false);
+        }, 1000);
+
     };
 
     return (
@@ -67,14 +80,18 @@ function FortniteDropSpot({ map, button_key, ga_label, mapInfo }: FortniteDropSp
                                 </Col>
                                 <Col sm className="text-center">
                                     <span className="fw-bolder fs-5">Winner:</span> <br />
-                                    <span className="text-muted fs-6">
-                                        <LoadingLetters
-                                            text={spinResult}
-                                            loadingDuration={5000}
-                                            interval={100}
-                                            className="loading-text"
-                                        />
-                                    </span>
+                                    {!isSpinning ? (
+                                        <span className="text-muted fs-6">
+                                            <LoadingLetters
+                                                text={spinResult}
+                                                loadingDuration={5000}
+                                                interval={100}
+                                                className="loading-text"
+                                            />
+                                        </span>
+                                    ) : (
+                                        <Spinner animation="border" />
+                                    )}
                                 </Col>
                             </Row>
                             <Col
