@@ -117,10 +117,11 @@ function FortniteDropSpot({ map, button_key, ga_label, mapInfo }: FortniteDropSp
                                 <div className="d-flex justify-content-center">
                                     <Button
                                         variant="success"
-                                        onClick={handleClick}
                                         className="w-50 me-2 d-block d-md-none"
+                                        disabled={isSpinning}
+                                        onClick={isSpinning ? undefined : handleClick}
                                     >
-                                        Randomize Spot
+                                        {isSpinning ? 'Choosing Spot...' : 'Randomize Spot'}
                                     </Button>
                                 </div>
                             </Col>
