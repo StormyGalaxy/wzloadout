@@ -40,7 +40,9 @@ function Footer() {
           </Nav.Item>
         </Nav>
       </footer>
-      <span style="display:none" type="author">Bana0615</span>
+      <span style={{ display: "none" }} attr-type="author">
+        Bana0615
+      </span>
     </>
   );
 }
