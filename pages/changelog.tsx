@@ -10,13 +10,16 @@ export default function Changelog() {
   return (
     <>
       <Head>
-        <title>Changelog - FortHub</title>
+        <title>Changelog - Silo City Games - Fortnite</title>
         <link rel="manifest" href="/manifest.json" />
         <meta
           name="description"
           content="Stay up-to-date on the latest features, bug fixes, and improvements to our Fortnite tools. See what's new and how we're making your loadout experience even better."
         />
-        <meta name="keywords" content="Fortnite, Forthub, location picker, drop spot" />
+        <meta
+          name="keywords"
+          content="Fortnite, hub, location picker, drop spot"
+        />
       </Head>
       <Header />
       <Container fluid>

@@ -10,10 +10,16 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>FortHub</title>
+        <title>Silo City Games - Fortnite</title>
         <link rel="manifest" href="/manifest.json" />
-        <meta name="description" content="Your hub for all fortnite tools built by Silo City Games" />
-        <meta name="keywords" content="Fortnite, Forthub, location picker, drop spot" />
+        <meta
+          name="description"
+          content="Your hub for all fortnite tools built by Silo City Games"
+        />
+        <meta
+          name="keywords"
+          content="Fortnite, hub, location picker, drop spot"
+        />
       </Head>
       <div className="main-container">
         <Header />
