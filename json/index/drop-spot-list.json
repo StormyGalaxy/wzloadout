@@ -3,33 +3,51 @@
     "title": "Chapter 6 - Battle Royal",
     "text": "",
     "variant": "success",
-    "btn1Text": "Season 1",
-    "link": "where-we-droppin/chapter-six/season-one",
-    "disabled": false,
-    "btn2Text": "Season 2",
-    "link2": "where-we-droppin/chapter-six/season-two",
-    "disabled2": true
+    "buttons": [
+      {
+        "link": "where-we-droppin/chapter-six/season-one",
+        "disabled": false,
+        "btnText": "Season 1"
+      },
+      {
+        "link": "where-we-droppin/chapter-six/season-two",
+        "disabled": true,
+        "btnText": "Season 2"
+      }
+    ]
   },
   {
     "title": "OG - Battle Royal",
     "text": "",
     "variant": "success",
-    "btn1Text": "Season 1",
-    "link": "where-we-droppin/og/season-one",
-    "disabled": false,
-    "btn2Text": "Season 2",
-    "link2": "where-we-droppin/og/season-two",
-    "disabled2": false
+    "buttons": [
+      {
+        "link": "where-we-droppin/og/season-one",
+        "disabled": false,
+        "btnText": "Season 1"
+      },
+      {
+        "link": "where-we-droppin/og/season-two",
+        "disabled": false,
+        "btnText": "Season 2"
+      }
+    ]
   },
   {
     "title": "Reload",
     "text": "",
     "variant": "success",
-    "btn1Text": "Oasis",
-    "link": "where-we-droppin/reload/oasis",
-    "disabled": false,
-    "btn2Text": "Venture",
-    "link2": "where-we-droppin/reload/venture",
-    "disabled2": false
+    "buttons": [
+      {
+        "link": "where-we-droppin/reload/oasis",
+        "disabled": false,
+        "btnText": "Oasis"
+      },
+      {
+        "link": "where-we-droppin/reload/venture",
+        "disabled": false,
+        "btnText": "Venture"
+      }
+    ]
   }
 ]
