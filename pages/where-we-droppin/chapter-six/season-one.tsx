@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { Container, Row, Col } from "react-bootstrap";
 import Header from "@/components/Header";
-import FortniteDropSpot from "@/components/FortniteDropSpot";
+import WhereWeDroppin from "@/components/WhereWeDroppin";
 //json
 import mapInfo from "@/json/drop-spot/battle-royal/chapter-six/season-one.json";
 
@@ -25,7 +25,7 @@ export default function WhereWeDroppinCh06S01() {
                     content=""
                 />
             </Head>
-            <Header className="ch-6" navLinks={navLinks} />
+            <Header navLinks={navLinks} />
             <Container fluid>
                 <Row>
                     <Col>
@@ -36,7 +36,7 @@ export default function WhereWeDroppinCh06S01() {
                             Where We Droppin?
                         </h2>
 
-                        <FortniteDropSpot map="Chapter 6 Season 1" button_key="br-ch6-1" ga_label="BrCh6-1" mapInfo={mapInfo} />
+                        <WhereWeDroppin map="Chapter 6 Season 1" button_key="br-ch6-1" ga_label="BrCh6-1" mapInfo={mapInfo} />
                     </Col>
                 </Row>
             </Container>

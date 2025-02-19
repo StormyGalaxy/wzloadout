@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { Container, Row, Col } from "react-bootstrap";
 import Header from "@/components/Header";
-import FortniteDropSpot from "@/components/FortniteDropSpot";
+import WhereWeDroppin from "@/components/WhereWeDroppin";
 //json
 import mapInfo from "@/json/drop-spot/reload/oasis.json";
 
@@ -22,7 +22,7 @@ export default function WhereWeDroppinOasis() {
         />
         <meta name="keywords" content="" />
       </Head>
-      <Header className="reload" navLinks={navLinks} />
+      <Header navLinks={navLinks} />
       <Container fluid>
         <Row>
           <Col>
@@ -33,7 +33,7 @@ export default function WhereWeDroppinOasis() {
               Where We Droppin?
             </h2>
 
-            <FortniteDropSpot
+            <WhereWeDroppin
               map="Reload - Oasis"
               button_key="reload-oasis"
               ga_label="ReloadOasis"

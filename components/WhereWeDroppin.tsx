@@ -6,16 +6,16 @@ import { LoadingLetters } from "@/components/_silabs/LoadingLetters";
 //Utils
 import { sendEvent } from "@/utils/gtag";
 
-interface FortniteDropSpotProps {
+interface WhereWeDroppinProps {
     map: string;
     ga_label: string;
     button_key: string;
     mapInfo: string[];
 }
 
-function FortniteDropSpot({ map, button_key, ga_label, mapInfo }: FortniteDropSpotProps) {
+function WhereWeDroppin({ map, button_key, ga_label, mapInfo }: WhereWeDroppinProps) {
     const ga_button_id = `${button_key}DropSpot_rollSpot`;
-    const ga_label_id = `${ga_label}_FortniteDropSpot`;
+    const ga_label_id = `${ga_label}_WhereWeDroppin`;
     const [isLoading, setIsLoading] = useState(false);
     const [isSpinning, setIsSpinning] = useState(false);
     const [spinResult, setSpinResult] = useState("????");
@@ -31,11 +31,11 @@ function FortniteDropSpot({ map, button_key, ga_label, mapInfo }: FortniteDropSp
     const onFinished = (winner: string) => {
         setSpinResult("");
         setIsSpinning(true);
-        // sendEvent("button_click", {
-        //     button_id: ga_button_id,
-        //     label: ga_label_id,
-        //     category: "FortniteDropSpot",
-        // });
+        sendEvent("button_click", {
+            button_id: ga_button_id,
+            label: ga_label_id,
+            category: "WhereWeDroppin",
+        });
 
         setTimeout(() => {
             setSpinResult(winner);
@@ -47,11 +47,11 @@ function FortniteDropSpot({ map, button_key, ga_label, mapInfo }: FortniteDropSp
     const handleClick = async () => {
         setSpinResult("");
         setIsSpinning(true);
-        // sendEvent("button_click", {
-        //     button_id: ga_button_id,
-        //     label: ga_label_id,
-        //     category: "FortniteDropSpots",
-        // });
+        sendEvent("button_click", {
+            button_id: ga_button_id,
+            label: ga_label_id,
+            category: "WhereWeDroppin",
+        });
 
         setTimeout(() => {
             setSpinResult(
@@ -64,10 +64,7 @@ function FortniteDropSpot({ map, button_key, ga_label, mapInfo }: FortniteDropSp
 
     return (
         <>
-            <Container
-                id="where-we-dropping"
-                className={`shadow-lg p-3 bg-body rounded`}
-            >
+            <Container id="where-we-droppin" className='shadow-lg p-3 bg-body rounded'>
                 <Row className="justify-content-md-center">
                     {isLoading && (
                         <>
@@ -133,4 +130,4 @@ function FortniteDropSpot({ map, button_key, ga_label, mapInfo }: FortniteDropSp
     );
 }
 
-export default FortniteDropSpot;
+export default WhereWeDroppin;

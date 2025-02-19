@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { Container, Row, Col } from "react-bootstrap";
 import Header from "@/components/Header";
-import FortniteDropSpot from "@/components/FortniteDropSpot";
+import WhereWeDroppin from "@/components/WhereWeDroppin";
 //json
 import mapInfo from "@/json/drop-spot/og/season-one.json";
 
@@ -25,7 +25,7 @@ export default function WhereWeDroppinOgS01() {
                     content=""
                 />
             </Head>
-            <Header className="og" navLinks={navLinks} />
+            <Header navLinks={navLinks} />
             <Container fluid>
                 <Row>
                     <Col>
@@ -36,7 +36,7 @@ export default function WhereWeDroppinOgS01() {
                             Where We Droppin?
                         </h2>
 
-                        <FortniteDropSpot map="OG Season One" button_key="br-og-1" ga_label="BrOg-1" mapInfo={mapInfo} />
+                        <WhereWeDroppin map="OG Season One" button_key="br-og-1" ga_label="BrOg-1" mapInfo={mapInfo} />
                     </Col>
                 </Row>
             </Container>
