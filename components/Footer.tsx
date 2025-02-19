@@ -30,7 +30,7 @@ function Footer() {
               padding: "7px",
             }}
           >
-            ©2025 Copyright: Silo City Games
+            ©2025 Copyright: bootstrap-nextjs-github-pages
           </Nav.Item>
           <Nav.Item>
             <Nav.Link href="/terms">Terms</Nav.Link>

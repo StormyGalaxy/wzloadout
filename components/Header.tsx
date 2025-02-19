@@ -8,10 +8,9 @@ interface HeaderProps {
 
 const defaultNavLinks = [
   { label: "Home", href: "/", target: "" },
-  { label: "Changelog", href: "/changelog" },
   {
     label: "GitHub",
-    href: "https://github.com/SiloCityLabs/fortnite.silocitygames.com",
+    href: "https://github.com/Bana0615/bootstrap-nextjs-github-pages",
     target: "_blank",
   },
 ];
@@ -28,7 +27,7 @@ function Header(props: HeaderProps) {
       className={`${className}`}
     >
       <Container>
-        <Navbar.Brand href="/">Fortnite</Navbar.Brand>
+        <Navbar.Brand href="/">bootstrap-nextjs-github-pages</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
