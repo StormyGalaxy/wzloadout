@@ -17,10 +17,15 @@ const defaultNavLinks = [
   },
 ];
 
+const navbarBrand = {
+  title: "bootstrap-nextjs-github-pages",
+  subtitle: "By SiloCityLabs",
+}
+
 function Header(props: HeaderProps) {
   const [isLoading, setIsLoading] = useState(true);
   const { className, navLinks = defaultNavLinks, darkLinks = false } = props;
-  
+
   const params = {
     title: "My New Issue",
     body: "This is a detailed description.\nWith multiple lines.",
@@ -44,7 +49,10 @@ function Header(props: HeaderProps) {
       className={`${className}`}
     >
       <Container>
-        <Navbar.Brand href="/">bootstrap-nextjs-github-pages</Navbar.Brand>
+        <Navbar.Brand href="/">
+          {navbarBrand.title}
+          {!isLoading && navbarBrand.subtitle && <span className="navbar-subtitle">{navbarBrand.subtitle}</span>}
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" className={darkLinks ? 'black-toggler' : ""} />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">

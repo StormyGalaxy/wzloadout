@@ -16,7 +16,7 @@ export default function Home() {
         <Header />
         <Container className="main-content">
           <Row>
-            <h3 className="text-center">Hello World</h3>
+            <h3 className="text-center mt-4">Hello World</h3>
           </Row>
         </Container>
         <Footer />
