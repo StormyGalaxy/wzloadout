@@ -12,11 +12,11 @@ type OptionType = {
 };
 
 const feedback = {
-  title: "Feedback",
+  title: "",
   assignees: [] as OptionType[],
   labels: [] as OptionType[],
   template: "",
-  body: "This is a detailed description.\nWith multiple lines.",
+  body: "",
 };
 
 const githubAssignees: OptionType[] = [
