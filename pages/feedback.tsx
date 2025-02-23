@@ -13,19 +13,22 @@ type OptionType = {
 
 const feedback = {
   title: "Feedback",
-  body: "This is a detailed description.\nWith multiple lines.",
+  assignees: [] as OptionType[],
   labels: [] as OptionType[],
   template: "",
+  body: "This is a detailed description.\nWith multiple lines.",
 };
+
+const githubAssignees: OptionType[] = [
+  { value: 'bana0615', label: 'bana0615' },
+  { value: 'testAsignee', label: 'testAsignee' }
+];
 
 const githubLabels: OptionType[] = [
   { value: 'bug', label: 'Bug' },
   { value: 'help wanted', label: 'Help Wanted' },
   { value: 'feature', label: 'Feature Request' },
   { value: 'enhancement', label: 'Enhancement' }
-];
-const githubAssignees = [
-  "bana0615", "testAsignee"
 ];
 
 const githubTemplates: OptionType[] = [
@@ -43,11 +46,14 @@ export default function Feedback() {
     setFormData({ ...formData, [label]: value });
   };
 
-  const handleChangeSelect = (selectedOptions) => {
-    setFormData({
-      ...formData,
-      labels: selectedOptions as OptionType[],
-    });
+  const handleChangeSelect = (
+    selectedOptions: any,
+    name: 'assignees' | 'labels'
+  ) => {
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: selectedOptions as OptionType[],
+    }));
   };
 
   const handleSubmit = async (e) => {
@@ -55,9 +61,10 @@ export default function Feedback() {
 
     const feedbackData = {
       title: formData.title,
-      body: formData.body,
+      assignees: formData.assignees.map(item => item.value),
       labels: formData.labels.map(item => item.value),
       template: formData.template,
+      body: formData.body,
     };
     const feedbackLink = generateGithubLink("Bana0615", "bootstrap-nextjs-github-pages", feedbackData);
 
@@ -91,6 +98,22 @@ export default function Feedback() {
                   />
                 </Form.Group>
 
+                {githubAssignees.length > 0 && (
+                  <Form.Group controlId="assignees">
+                    <Form.Label>Assignees:</Form.Label>
+                    <Select
+                      isMulti
+                      options={githubAssignees}
+                      value={formData.assignees}
+                      onChange={(selectedOptions) =>
+                        handleChangeSelect(selectedOptions, 'assignees')
+                      }
+                      closeMenuOnSelect={false}
+                      placeholder="None"
+                    />
+                  </Form.Group>
+                )}
+
                 {githubLabels.length > 0 && (
                   <Form.Group controlId="labels">
                     <Form.Label>Labels:</Form.Label>
@@ -98,10 +121,12 @@ export default function Feedback() {
                       isMulti
                       options={githubLabels}
                       value={formData.labels}
-                      onChange={handleChangeSelect}
+                      onChange={(selectedOptions) =>
+                        handleChangeSelect(selectedOptions, 'labels')
+                      }
                       closeMenuOnSelect={false}
+                      placeholder="None"
                     />
-                    <p>Selected (react-select): {formData.labels && formData.labels.length > 0 ? formData.labels.map(opt => opt.label).join(', ') : "None"}</p>
                   </Form.Group>
                 )}
 
@@ -113,7 +138,7 @@ export default function Feedback() {
                       value={formData.template || ''}
                       onChange={handleInputChange}
                     >
-                      <option value="">Select a template...</option>
+                      <option value="">None</option>
                       {githubTemplates.map((template) => (
                         <option key={template.value} value={template.value}>
                           {template.label}
