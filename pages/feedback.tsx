@@ -20,10 +20,7 @@ const feedback = {
   body: "",
 };
 
-const githubAssignees: OptionType[] = [
-  { value: 'bana0615', label: 'Bana0615' },
-  { value: 'ldrrp', label: 'Ldrrp' }
-];
+const githubAssignees: OptionType[] = [];
 
 const githubLabels: OptionType[] = [
   { value: 'bug', label: 'Bug' },
