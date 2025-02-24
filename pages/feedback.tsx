@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Head from "next/head";
+import { useRouter } from "next/router";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import Select from 'react-select';
 import Header from "@/components/Header";
@@ -20,8 +21,8 @@ const feedback = {
 };
 
 const githubAssignees: OptionType[] = [
-  { value: 'bana0615', label: 'bana0615' },
-  { value: 'testAsignee', label: 'testAsignee' }
+  { value: 'bana0615', label: 'Bana0615' },
+  { value: 'ldrrp', label: 'Ldrrp' }
 ];
 
 const githubLabels: OptionType[] = [
@@ -37,8 +38,13 @@ const githubTemplates: OptionType[] = [
 ];
 
 export default function Feedback() {
+  const [isLoading, setIsLoading] = useState(true);
   const [formData, setFormData] = useState(feedback);
+  const router = useRouter();
 
+  useEffect(() => {
+    setIsLoading(false);
+  }, []);
 
   const handleInputChange = (e) => {
     const value = (e.value ? e : e.target.value);
@@ -66,12 +72,13 @@ export default function Feedback() {
       template: formData.template,
       body: formData.body,
     };
-    const feedbackLink = generateGithubLink("Bana0615", "bootstrap-nextjs-github-pages", feedbackData);
 
-    console.log("handleSubmit formData", formData);
-    console.log("handleSubmit feedbackData", feedbackData);
-    console.log("handleSubmit feedbackLink", feedbackLink);
+    router.replace(generateGithubLink("Bana0615", "bootstrap-nextjs-github-pages", feedbackData));
   };
+
+  if (isLoading) {
+    return <div className="text-center">Loading...</div>;
+  }
 
   return (
     <>
