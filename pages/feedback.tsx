@@ -40,6 +40,15 @@ export default function Feedback() {
   const router = useRouter();
 
   useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+
+    setFormData({
+      title: urlParams.get("title") ?? "",
+      assignees: [] as OptionType[],
+      labels: [] as OptionType[],
+      template: urlParams.get("template") ?? "",
+      body: urlParams.get("body") ?? "",
+    })
     setIsLoading(false);
   }, []);
 
