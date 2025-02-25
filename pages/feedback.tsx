@@ -34,6 +34,19 @@ const githubTemplates: OptionType[] = [
   { value: 'feature_request.md', label: 'Feature Request' },
 ];
 
+const parseOptions = (
+  valueString: string,
+  options: OptionType[],
+): OptionType[] => {
+  if (!valueString) return [];
+
+  const uniqueValues = new Set(valueString.split(',').map((v) => v.trim()));
+
+  return Array.from(uniqueValues)
+    .map((value) => options.find((option) => option.value === value))
+    .filter((option): option is OptionType => option !== undefined);
+};
+
 export default function Feedback() {
   const [isLoading, setIsLoading] = useState(true);
   const [formData, setFormData] = useState(feedback);
@@ -41,11 +54,13 @@ export default function Feedback() {
 
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
+    const assigneesString = urlParams.get("assignees") ?? '';
+    const labelsString = urlParams.get('labels') ?? '';
 
     setFormData({
       title: urlParams.get("title") ?? "",
-      assignees: [] as OptionType[],
-      labels: [] as OptionType[],
+      assignees: parseOptions(assigneesString, githubAssignees),
+      labels: parseOptions(labelsString, githubLabels),
       template: urlParams.get("template") ?? "",
       body: urlParams.get("body") ?? "",
     })
