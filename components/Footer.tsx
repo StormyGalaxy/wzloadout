@@ -43,7 +43,7 @@ function Footer() {
           <a
             property="dct:title"
             rel="cc:attributionURL"
-            href={process.env.NEXT_PUBLIC_FOOTER_SITE_URL}
+            href={process.env.NEXT_PUBLIC_APP_URL}
           >
             {process.env.NEXT_PUBLIC_FOOTER_SITE}
           </a>{" "}
