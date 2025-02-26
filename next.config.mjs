@@ -12,7 +12,7 @@ const nextConfig = (phase, { defaultConfig }) => {
   return {
     ...defaultConfig,
     reactStrictMode: true,
-    assetPrefix: process.env.NODE_ENV === 'production' ? '/bootstrap-nextjs-github-pages/' : '',
+    output: 'export',
   };
 };
 
