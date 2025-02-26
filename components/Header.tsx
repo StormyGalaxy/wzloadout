@@ -6,7 +6,7 @@ interface HeaderProps {
   className?: string;
   navLinks?: { label: string; href: string; target?: string }[];
   darkLinks?: boolean;
-  isBeta?: boolean;
+  showBadge?: boolean;
 }
 
 const defaultNavLinks = [
@@ -19,13 +19,8 @@ const defaultNavLinks = [
   },
 ];
 
-const navbarBrand = {
-  title: "bootstrap-nextjs-github-pages",
-  subtitle: "By SiloCityLabs",
-}
-
 function Header(props: HeaderProps) {
-  const { className, navLinks = defaultNavLinks, darkLinks = false, isBeta = false } = props;
+  const { className, navLinks = defaultNavLinks, darkLinks = false, showBadge = false } = props;
 
   return (
     <Navbar
@@ -37,19 +32,19 @@ function Header(props: HeaderProps) {
     >
       <Container>
         <Navbar.Brand href="/" className="position-relative d-flex align-items-center">
-          {isBeta && (
+          {showBadge && (
             <Badge
               bg="warning"
               text="dark"
               style={{ fontSize: ".6rem", marginRight: "0.5rem" }}
             >
-              BETA
+              {process.env.NEXT_PUBLIC_NAVBAR_BRAND_BADGE}
             </Badge>
           )}
           <div>
-            {navbarBrand.title}
-            {navbarBrand.subtitle && (
-              <span className="navbar-subtitle">{navbarBrand.subtitle}</span>
+            {process.env.NEXT_PUBLIC_APP_NAME}
+            {process.env.NEXT_PUBLIC_NAVBAR_BRAND_SUBTITLE && (
+              <span className="navbar-subtitle">{process.env.NEXT_PUBLIC_NAVBAR_BRAND_SUBTITLE}</span>
             )}
           </div>
         </Navbar.Brand>
