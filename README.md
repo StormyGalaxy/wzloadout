@@ -23,6 +23,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser to view the 
 
 ## Website Setup
 
+- Copy .env.example and create .env.local and update values
 - Replace `YOUR_DOAMIN` with your domain
 - Update package.json
 - Update manifest.json
