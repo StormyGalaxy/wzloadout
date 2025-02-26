@@ -1,3 +1,4 @@
+// next.config.mjs
 import { PHASE_DEVELOPMENT_SERVER } from 'next/constants.js';
 import * as dotenv from 'dotenv';
 
@@ -13,6 +14,9 @@ const nextConfig = (phase, { defaultConfig }) => {
     ...defaultConfig,
     reactStrictMode: true,
     output: 'export',
+    images: {
+      unoptimized: true, // Disable image optimization
+    },
   };
 };
 
