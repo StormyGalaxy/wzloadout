@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Concussion",
+    "type": "Tactical",
+    "game": "black-ops-six"
+  },
+  {
+    "name": "Smoke",
+    "type": "Tactical",
+    "game": "black-ops-six"
+  },
+  {
+    "name": "Stim Shot",
+    "type": "Tactical",
+    "game": "black-ops-six"
+  },
+  {
+    "name": "Decoy",
+    "type": "Tactical",
+    "game": "black-ops-six"
+  },
+  {
+    "name": "Shock Charge",
+    "type": "Tactical",
+    "game": "black-ops-six"
+  }
+]

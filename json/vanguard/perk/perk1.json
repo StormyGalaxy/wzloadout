@@ -1,0 +1,37 @@
+[
+  {
+    "name": "Armory",
+    "type": "Perk 1",
+    "game": "vanguard"
+  },
+  {
+    "name": "Serpentine",
+    "type": "Perk 1",
+    "game": "vanguard"
+  },
+  {
+    "name": "Fortified",
+    "type": "Perk 1",
+    "game": "vanguard"
+  },
+  {
+    "name": "Dauntless",
+    "type": "Perk 1",
+    "game": "vanguard"
+  },
+  {
+    "name": "Ghost",
+    "type": "Perk 1",
+    "game": "vanguard"
+  },
+  {
+    "name": "Cold Blooded",
+    "type": "Perk 1",
+    "game": "vanguard"
+  },
+  {
+    "name": "Overkill",
+    "type": "Perk 1",
+    "game": "vanguard"
+  }
+]

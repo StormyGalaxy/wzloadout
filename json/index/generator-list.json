@@ -1,0 +1,156 @@
+[
+  {
+    "title": "Black Ops VI",
+    "text": "",
+    "variant": "black-ops",
+    "buttons": [
+      {
+        "link": "black-ops/six/generator",
+        "disabled": false,
+        "btnText": "Generator"
+      }
+    ]
+  },
+  {
+    "title": "Warzone",
+    "text": "",
+    "variant": "success",
+    "buttons": [
+      {
+        "link": "warzone/generator",
+        "disabled": false,
+        "btnText": "Generator"
+      },
+      {
+        "link": "warzone/where-we-droppin",
+        "disabled": false,
+        "btnText": "Where we Droppin?"
+      }
+    ]
+  },
+  {
+    "title": "Modern Warfare 3 (2023)",
+    "text": "",
+    "variant": "danger",
+    "buttons": [
+      {
+        "link": "modern-warfare/three/generator",
+        "disabled": false,
+        "btnText": "Generator"
+      }
+    ]
+  },
+  {
+    "title": "Modern Warfare 2 (2022)",
+    "text": "",
+    "variant": "mw2",
+    "buttons": [
+      {
+        "link": "modern-warfare/two/generator",
+        "disabled": false,
+        "btnText": "Generator"
+      }
+    ]
+  },
+  {
+    "title": "Vanguard",
+    "text": "",
+    "variant": "danger",
+    "buttons": [
+      {
+        "link": "vanguard/generator",
+        "disabled": false,
+        "btnText": "Generator"
+      }
+    ]
+  },
+  {
+    "title": "Cold War",
+    "text": "",
+    "variant": "danger",
+    "buttons": [
+      {
+        "link": "black-ops/cold-war/generator",
+        "disabled": false,
+        "btnText": "Generator"
+      }
+    ]
+  },
+  {
+    "title": "Black Ops IV",
+    "text": "",
+    "variant": "black-ops",
+    "buttons": [
+      {
+        "link": "black-ops/four/generator",
+        "disabled": false,
+        "btnText": "Generator"
+      }
+    ]
+  },
+  {
+    "title": "World War II",
+    "text": "",
+    "variant": "ww2",
+    "buttons": [
+      {
+        "link": "world-war-two/generator",
+        "disabled": false,
+        "btnText": "Generator"
+      },
+      {
+        "link": "world-war-two/custom-match",
+        "disabled": false,
+        "btnText": "Custom Match Generator"
+      }
+    ]
+  },
+  {
+    "title": "Infinite Warfare",
+    "text": "",
+    "variant": "infinite-warfare",
+    "buttons": [
+      {
+        "link": "infinite-warfare/generator",
+        "disabled": false,
+        "btnText": "Generator"
+      }
+    ]
+  },
+  {
+    "title": "Modern Warfare Remastered",
+    "text": "",
+    "variant": "success",
+    "buttons": [
+      {
+        "link": "modern-warfare/remastered/generator",
+        "disabled": false,
+        "btnText": "Generator"
+      }
+    ]
+  },
+  {
+    "title": "Black Ops III",
+    "text": "",
+    "variant": "black-ops",
+    "buttons": [
+      {
+        "link": "black-ops/three/generator",
+        "disabled": false,
+        "btnText": "Generator"
+      }
+    ]
+  },
+  {
+    "title": "World At War",
+    "text": "",
+    "variant": "secondary",
+    "buttons": [
+      {
+        "link": "world-at-war/generator",
+        "disabled": false,
+        "btnText": "Generator"
+      }
+    ]
+  }
+]

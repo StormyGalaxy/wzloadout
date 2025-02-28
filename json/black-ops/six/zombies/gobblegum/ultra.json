@@ -1,0 +1,33 @@
+[
+  {
+    "name": "Perkaholic",
+    "type": "Ultra",
+    "game": "black-ops-six"
+  },
+  {
+    "name": "Near Death Experience",
+    "type": "Ultra",
+    "game": "black-ops-six"
+  },
+  {
+    "name": "Hidden Power",
+    "type": "Ultra",
+    "game": "black-ops-six"
+  },
+  {
+    "name": "Wonderbar!",
+    "type": "Ultra",
+    "game": "black-ops-six"
+  },
+  {
+    "name": "Reign Drops",
+    "type": "Ultra",
+    "game": "black-ops-six"
+  },
+  {
+    "name": "Time Out",
+    "type": "Ultra",
+    "game": "black-ops-six",
+    "isDlc": true
+  }
+]
