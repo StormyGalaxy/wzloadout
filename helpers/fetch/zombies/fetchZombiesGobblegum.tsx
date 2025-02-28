@@ -1,5 +1,5 @@
 import { getGobblegumList } from "@/helpers/generator/zombies/getGobblegumList";
-import { randomListItem } from "../../randomListItem";
+import { randomListItem } from "@/helpers/_silabs/randomListItem";
 import { Gobblegum } from "@/types/Generator";
 
 export function fetchZombiesGobblegum(

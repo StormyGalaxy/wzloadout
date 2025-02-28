@@ -3,7 +3,10 @@ import { Container, Row, Col, Button, Form } from "react-bootstrap";
 import SimpleGeneratorView from "@/components/generators/cod/SimpleGeneratorView";
 import CodClassName from "@/components/CodClassName";
 //Helpers
-import { setLocalStorage, getLocalStorage } from "@/helpers/localStorage";
+import {
+  setLocalStorage,
+  getLocalStorage,
+} from "@/helpers/_silabs/localStorage";
 import { scrollToTop } from "@/helpers/scrollToTop";
 import { fetchWeapon } from "@/helpers/fetch/fetchWeapon";
 import { fetchEquipment } from "@/helpers/fetch/fetchEquipment";
@@ -15,7 +18,7 @@ import { fetchZombiesPerks } from "@/helpers/fetch/zombies/fetchZombiesPerks";
 //Types
 import { Bo4ZombiesSettings } from "@/types/Generator";
 //Components
-import CustomModal from "@/components/bootstrap/CustomModal";
+import CustomModal from "@/components/_silabs/bootstrap/CustomModal";
 //Utils
 import { sendEvent } from "@/utils/gtag";
 //json
@@ -313,7 +316,7 @@ async function fetchLoadoutData(setData) {
     };
 
     const equipment = {
-      "lethal": fetchEquipment("lethal", game),
+      lethal: fetchEquipment("lethal", game),
     };
 
     const elixers = fetchZombiesGobblegum(game);

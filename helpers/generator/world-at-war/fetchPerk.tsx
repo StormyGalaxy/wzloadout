@@ -2,7 +2,7 @@ import perk1 from "@/json/world-at-war/perk/perk1.json";
 import perk2 from "@/json/world-at-war/perk/perk2.json";
 import perk3 from "@/json/world-at-war/perk/perk3.json";
 import vehiclePerk from "@/json/world-at-war/perk/vehicle-perk.json";
-import { randomListItem } from "@/helpers/randomListItem";
+import { randomListItem } from "@/helpers/_silabs/randomListItem";
 
 const perks: Record<string, any> = {
   perk1: perk1,

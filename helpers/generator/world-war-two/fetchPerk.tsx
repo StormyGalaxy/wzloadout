@@ -1,6 +1,6 @@
 import division from "@/json/world-war-two/division.json";
 import basicTraining from "@/json/world-war-two/basic-training.json";
-import { randomListItem } from "@/helpers/randomListItem";
+import { randomListItem } from "@/helpers/_silabs/randomListItem";
 
 const perks: Record<string, any> = {
   division,

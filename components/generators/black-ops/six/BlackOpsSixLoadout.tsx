@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
-import CodPlaceholder from "@/components/CodPlaceholder";
+import SclPlaceholder from "@/components/_silabs/SclPlaceholder";
 import CodClassName from "@/components/CodClassName";
 import SimpleGeneratorView from "@/components/generators/cod/SimpleGeneratorView";
 //Helpers
@@ -128,7 +128,7 @@ function BlackOpsSixLoadout() {
               <>
                 <br />
                 <span className="text-muted fs-6">
-                  <CodPlaceholder
+                  <SclPlaceholder
                     isLoading={isGenerating}
                     value={equipment.fieldUpgrade2.name}
                   />

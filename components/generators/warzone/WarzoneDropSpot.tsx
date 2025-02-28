@@ -2,10 +2,13 @@ import { useEffect, useState } from "react";
 //Components
 import { Container, Row, Col, Button, Form, Spinner } from "react-bootstrap";
 import WheelComponent from "react-wheel-of-prizes-react19";
-import CustomModal from "@/components/bootstrap/CustomModal";
+import CustomModal from "@/components/_silabs/bootstrap/CustomModal";
 import { LoadingLetters } from "@/components/LoadingLetters";
 //Helpers
-import { setLocalStorage, getLocalStorage } from "@/helpers/localStorage";
+import {
+  setLocalStorage,
+  getLocalStorage,
+} from "@/helpers/_silabs/localStorage";
 //Types
 import { WarzoneDropSpotSettings } from "@/types/Generator";
 //Utils
@@ -96,11 +99,10 @@ function WarzoneDropSpot() {
       category: "COD_Loadouts",
     });
 
-
     setTimeout(() => {
       setSpinResult(
         mapInfo[warzoneMap].dropSpots[
-        Math.floor(Math.random() * mapInfo[warzoneMap].dropSpots.length)
+          Math.floor(Math.random() * mapInfo[warzoneMap].dropSpots.length)
         ]
       );
       setIsSpinning(false);
@@ -195,7 +197,7 @@ function WarzoneDropSpot() {
                     disabled={isSpinning}
                     onClick={isSpinning ? undefined : handleClick}
                   >
-                    {isSpinning ? 'Choosing Spot...' : 'Randomize Spot'}
+                    {isSpinning ? "Choosing Spot..." : "Randomize Spot"}
                   </Button>
                 </div>
               </Col>

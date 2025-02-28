@@ -1,7 +1,7 @@
 import perk1 from "@/json/modern-warfare/remastered/perk/perk1.json";
 import perk2 from "@/json/modern-warfare/remastered/perk/perk2.json";
 import perk3 from "@/json/modern-warfare/remastered/perk/perk3.json";
-import { randomListItem } from "@/helpers/randomListItem";
+import { randomListItem } from "@/helpers/_silabs/randomListItem";
 
 const perks: Record<string, any> = {
   perk1: perk1,

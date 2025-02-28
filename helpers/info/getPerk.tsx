@@ -1,5 +1,5 @@
 import { getPerkList } from "@/helpers/generator/getPerkList";
-import { mergeObjectsWithRekey } from "@/helpers/mergeObjectsWithRekey";
+import { mergeObjectsWithRekey } from "@/helpers/_silabs/mergeObjectsWithRekey";
 //Types
 import { Perk } from "@/types/Generator";
 

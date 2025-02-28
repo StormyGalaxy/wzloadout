@@ -1,4 +1,4 @@
-import { mergeObjectsWithRekey } from "@/helpers/mergeObjectsWithRekey";
+import { mergeObjectsWithRekey } from "@/helpers/_silabs/mergeObjectsWithRekey";
 import bo6Perk1List from "@/json/black-ops/six/perk/perk1.json";
 import bo6Perk2List from "@/json/black-ops/six/perk/perk2.json";
 import bo6Perk3List from "@/json/black-ops/six/perk/perk3.json";
@@ -54,8 +54,6 @@ import wawPerk1List from "@/json/world-at-war/perk/perk1.json";
 import wawPerk2List from "@/json/world-at-war/perk/perk2.json";
 import wawPerk3List from "@/json/world-at-war/perk/perk3.json";
 import wawVehiclePerkList from "@/json/world-at-war/perk/vehicle-perk.json";
-
-
 
 const perks: Record<
   string,

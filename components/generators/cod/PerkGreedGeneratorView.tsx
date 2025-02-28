@@ -1,5 +1,5 @@
 //Components
-import CodPlaceholder from "@/components/CodPlaceholder";
+import SclPlaceholder from "@/components/_silabs/SclPlaceholder";
 import { PerkGreedGeneratorViewProps } from "@/types/GeneratorView";
 
 function PerkGreedGeneratorView({
@@ -15,11 +15,11 @@ function PerkGreedGeneratorView({
       <span className={`${titleClassName} fw-bolder fs-5`}> {title}:</span>{" "}
       <br />
       <span className={`${perkClassName} text-muted fs-6`}>
-        <CodPlaceholder isLoading={isGenerating} value={perk ? perk : "None"} />
+        <SclPlaceholder isLoading={isGenerating} value={perk ? perk : "None"} />
         {perkGreed ? (
           <>
             <br />
-            <CodPlaceholder isLoading={isGenerating} value={perkGreed} />
+            <SclPlaceholder isLoading={isGenerating} value={perkGreed} />
           </>
         ) : null}
       </span>

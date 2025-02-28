@@ -1,5 +1,5 @@
 import { getCharacterList } from "@/helpers/generator/zombies/getCharacterList";
-import { randomListItem } from "../../randomListItem";
+import { randomListItem } from "@/helpers/_silabs/randomListItem";
 import { ZombiesCharacter } from "@/types/Generator";
 
 export function fetchZombiesCharacter(game: string = ""): ZombiesCharacter {

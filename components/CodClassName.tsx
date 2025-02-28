@@ -1,13 +1,17 @@
 import React from "react";
-import CodPlaceholder from "@/components/CodPlaceholder";
+import SclPlaceholder from "@/components/_silabs/SclPlaceholder";
 
 const CodClassName = ({ isGenerating, value }) => {
   return (
     <>
-      <h3 className="text-center">&ldquo;<CodPlaceholder isLoading={isGenerating} value={value} />&rdquo;</h3>
+      <h3 className="text-center">
+        &ldquo;
+        <SclPlaceholder isLoading={isGenerating} value={value} />
+        &rdquo;
+      </h3>
       <hr />
     </>
   );
-}
+};
 
 export default CodClassName;

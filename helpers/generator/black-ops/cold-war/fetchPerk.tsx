@@ -1,7 +1,7 @@
 import perk1 from "@/json/black-ops/cold-war/perk/perk1.json";
 import perk2 from "@/json/black-ops/cold-war/perk/perk2.json";
 import perk3 from "@/json/black-ops/cold-war/perk/perk3.json";
-import { randomListItem } from "@/helpers/randomListItem";
+import { randomListItem } from "@/helpers/_silabs/randomListItem";
 
 const perks: Record<string, any> = {
   perk1: perk1,

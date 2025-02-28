@@ -1,7 +1,7 @@
 import { getPrimaryList } from "@/helpers/generator/weapons/getPrimaryList";
 import { getSecondaryList } from "@/helpers/generator/weapons/getSecondaryList";
 import { getMeleeList } from "@/helpers/generator/weapons/getMeleeList";
-import { mergeObjectsWithRekey } from "@/helpers/mergeObjectsWithRekey";
+import { mergeObjectsWithRekey } from "@/helpers/_silabs/mergeObjectsWithRekey";
 //Types
 import { Weapon } from "@/types/Generator";
 

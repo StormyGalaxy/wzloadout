@@ -1,4 +1,4 @@
-import { randomListItem } from "@/helpers/randomListItem";
+import { randomListItem } from "@/helpers/_silabs/randomListItem";
 import { verifyBO6Attachments } from "@/helpers/generator/black-ops/six/verifyBO6Attachments";
 
 /**

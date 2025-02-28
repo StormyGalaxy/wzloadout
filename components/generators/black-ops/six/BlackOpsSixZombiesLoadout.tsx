@@ -3,7 +3,10 @@ import { Container, Row, Col, Button, Form } from "react-bootstrap";
 //Helpers
 import { implodeObject } from "@/helpers/implodeObject";
 import { scrollToTop } from "@/helpers/scrollToTop";
-import { setLocalStorage, getLocalStorage } from "@/helpers/localStorage";
+import {
+  setLocalStorage,
+  getLocalStorage,
+} from "@/helpers/_silabs/localStorage";
 import { fetchWeapon } from "@/helpers/fetch/fetchWeapon";
 import { fetchAttachments } from "@/helpers/fetch/fetchAttachments";
 import { fetchEquipment } from "@/helpers/fetch/fetchEquipment";
@@ -16,8 +19,8 @@ import { fetchZombiesAugments } from "@/helpers/fetch/zombies/fetchZombiesAugmen
 //Types
 import { Bo6ZombiesSettings } from "@/types/Generator";
 //Components
-import CustomModal from "@/components/bootstrap/CustomModal";
-import CodPlaceholder from "@/components/CodPlaceholder";
+import CustomModal from "@/components/_silabs/bootstrap/CustomModal";
+import SclPlaceholder from "@/components/_silabs/SclPlaceholder";
 import CodClassName from "@/components/CodClassName";
 import SimpleGeneratorView from "@/components/generators/cod/SimpleGeneratorView";
 //Utils
@@ -201,7 +204,7 @@ function BlackOpsSixZombiesLoadout() {
                   <br />
                   <span className="text-muted fs-6">
                     <span className="fw-bolder">Major Augment:</span>{" "}
-                    <CodPlaceholder
+                    <SclPlaceholder
                       isLoading={isGenerating}
                       value={item?.major}
                     />
@@ -209,7 +212,7 @@ function BlackOpsSixZombiesLoadout() {
                   <br />
                   <span className="text-muted fs-6">
                     <span className="fw-bolder">Minor Augment:</span>{" "}
-                    <CodPlaceholder
+                    <SclPlaceholder
                       isLoading={isGenerating}
                       value={item?.minor}
                     />

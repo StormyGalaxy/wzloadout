@@ -1,4 +1,4 @@
-import { mergeObjectsWithRekey } from "@/helpers/mergeObjectsWithRekey";
+import { mergeObjectsWithRekey } from "@/helpers/_silabs/mergeObjectsWithRekey";
 //Black Ops 6
 import bo6GobblegumRareList from "@/json/black-ops/six/zombies/gobblegum/rare.json";
 import bo6GobblegumEpicList from "@/json/black-ops/six/zombies/gobblegum/epic.json";
