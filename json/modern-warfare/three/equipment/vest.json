@@ -1,0 +1,62 @@
+[
+  {
+    "name": "Infantry Vest",
+    "type": "Vest",
+    "game": "modern-warfare-three"
+  },
+  {
+    "name": "Engineer Vest",
+    "type": "Vest",
+    "game": "modern-warfare-three"
+  },
+  {
+    "name": "Gunner Vest",
+    "type": "Vest",
+    "game": "modern-warfare-three"
+  },
+  {
+    "name": "Demolition Vest",
+    "type": "Vest",
+    "game": "modern-warfare-three"
+  },
+  {
+    "name": "CCT Comms Vest",
+    "type": "Vest",
+    "game": "modern-warfare-three"
+  },
+  {
+    "name": "Overkill Vest",
+    "type": "Vest",
+    "game": "modern-warfare-three"
+  },
+  {
+    "name": "Ninja Vest",
+    "type": "Vest",
+    "game": "modern-warfare-three"
+  },
+  {
+    "name": "Assassin Vest",
+    "type": "Vest",
+    "game": "modern-warfare-three"
+  },
+  {
+    "name": "Gunslinger Vest",
+    "type": "Vest",
+    "game": "modern-warfare-three"
+  },
+  {
+    "name": "Mission Control Vest",
+    "type": "Vest",
+    "game": "modern-warfare-three"
+  },
+  {
+    "name": "Modular Assault Rig",
+    "type": "Vest",
+    "game": "modern-warfare-three"
+  },
+  {
+    "name": "Compression Carrier",
+    "type": "Vest",
+    "game": "modern-warfare-three"
+  }
+]

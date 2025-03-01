@@ -1,0 +1,51 @@
+[
+  {
+    "name": "Assassin",
+    "type": "Perk 2",
+    "game": "black-ops-six",
+    "color": "Red"
+  },
+  {
+    "name": "Bruiser",
+    "type": "Perk 2",
+    "game": "black-ops-six",
+    "color": "Red"
+  },
+  {
+    "name": "Engineer",
+    "type": "Perk 2",
+    "game": "black-ops-six",
+    "color": "Blue"
+  },
+  {
+    "name": "Tracker",
+    "type": "Perk 2",
+    "game": "black-ops-six",
+    "color": "Blue"
+  },
+  {
+    "name": "Forward Intel",
+    "type": "Perk 2",
+    "game": "black-ops-six",
+    "color": "Blue"
+  },
+  {
+    "name": "Dispatcher",
+    "type": "Perk 2",
+    "game": "black-ops-six",
+    "color": "Green"
+  },
+  {
+    "name": "Fast Hands",
+    "type": "Perk 2",
+    "game": "black-ops-six",
+    "color": "Green"
+  },
+  {
+    "name": "Shadow",
+    "type": "Perk 2",
+    "game": "black-ops-six",
+    "color": "Green",
+    "isDlc": true
+  }
+]

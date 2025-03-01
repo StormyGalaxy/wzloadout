@@ -1,0 +1,98 @@
+[
+  {
+    "name": "Intel",
+    "type": "Streak",
+    "score": 3,
+    "game": "vanguard"
+  },
+  {
+    "name": "Care Package",
+    "type": "Streak",
+    "score": 4,
+    "game": "vanguard"
+  },
+  {
+    "name": "Spy Plane",
+    "type": "Streak",
+    "score": 4,
+    "game": "vanguard"
+  },
+  {
+    "name": "Counter Spy Plane",
+    "type": "Streak",
+    "score": 4,
+    "game": "vanguard"
+  },
+  {
+    "name": "Glide Bomb",
+    "type": "Streak",
+    "score": 5,
+    "game": "vanguard"
+  },
+  {
+    "name": "Mortar Barrage",
+    "type": "Streak",
+    "score": 5,
+    "game": "vanguard"
+  },
+  {
+    "name": "Warmachine",
+    "type": "Streak",
+    "score": 5,
+    "game": "vanguard"
+  },
+  {
+    "name": "Guard Dog",
+    "type": "Streak",
+    "score": 6,
+    "game": "vanguard"
+  },
+  {
+    "name": "Strafing Run",
+    "type": "Streak",
+    "score": 6,
+    "game": "vanguard"
+  },
+  {
+    "name": "Bombing Run",
+    "type": "Streak",
+    "score": 7,
+    "game": "vanguard"
+  },
+  {
+    "name": "Deathmachine",
+    "type": "Streak",
+    "score": 7,
+    "game": "vanguard"
+  },
+  {
+    "name": "Emergency Airdrop",
+    "type": "Streak",
+    "score": 8,
+    "game": "vanguard"
+  },
+  {
+    "name": "Flamenaut",
+    "type": "Streak",
+    "score": 9,
+    "game": "vanguard"
+  },
+  {
+    "name": "Attack Dogs",
+    "type": "Streak",
+    "score": 10,
+    "game": "vanguard"
+  },
+  {
+    "name": "Firebombing Run",
+    "type": "Streak",
+    "score": 10,
+    "game": "vanguard"
+  },
+  {
+    "name": "Local Informants",
+    "type": "Streak",
+    "score": 12,
+    "game": "vanguard"
+  }
+]

@@ -1,15 +1,28 @@
 {
-  "id": "SiloCityPages",
-  "name": "Silo City Pages",
-  "short_name": "Silo City Pages",
-  "description": "SiloCityPages: A framework by SiloCityLabs leveraging Bootstrap, React, and Next.js for efficient static site development. Deploy seamlessly to GitHub Pages.",
+  "id": "https://codrcg.com",
+  "name": "CODRCG",
+  "short_name": "CODRCG",
+  "description": "Your hub for all call of duty random class generators past, present and future.",
   "lang": "en-US",
   "dir": "ltr",
-  "theme_color": "#000000",
-  "background_color": "#000000",
+  "theme_color": "#ff7800",
+  "background_color": "#ff7800",
   "display": "fullscreen",
   "orientation": "portrait",
   "scope": "/",
   "start_url": "/",
-  "icons": []
+  "icons": [
+    {
+      "purpose": "maskable",
+      "sizes": "512x512",
+      "src": "icon512_maskable.png",
+      "type": "image/png"
+    },
+    {
+      "purpose": "any",
+      "sizes": "512x512",
+      "src": "icon512_rounded.png",
+      "type": "image/png"
+    }
+  ]
 }
