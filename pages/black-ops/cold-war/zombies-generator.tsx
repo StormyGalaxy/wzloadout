@@ -2,8 +2,6 @@ import Head from "next/head";
 import { Container, Row, Col } from "react-bootstrap";
 import Header from "@/components/Header";
 import ColdWarZombiesLoadout from "@/components/generators/black-ops/cold-war/ColdWarZombiesLoadout";
-//Styles
-import styles from "@/public/styles/components/Loadout.module.css";
 
 export default function ColdWarZombies() {
   const navLinks = [
@@ -31,10 +29,10 @@ export default function ColdWarZombies() {
         />
       </Head>
       <Header className="cold-war" navLinks={navLinks} />
-      <Container className={styles.generator} fluid>
+      <Container fluid>
         <Row>
           <Col>
-            <h2>
+            <h2 className="text-center mb-4">
               Cold War Zombies
               <span className="d-none d-sm-inline-block">&nbsp;-&nbsp;</span>
               <br className="d-block d-sm-none" />

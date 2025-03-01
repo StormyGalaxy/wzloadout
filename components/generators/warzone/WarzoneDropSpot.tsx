@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Container, Row, Col, Button, Form, Spinner } from "react-bootstrap";
 import WheelComponent from "react-wheel-of-prizes-react19";
 import CustomModal from "@/components/_silabs/bootstrap/CustomModal";
-import { LoadingLetters } from "@/components/LoadingLetters";
+import { LoadingLetters } from "@/components/_silabs/LoadingLetters";
 //Helpers
 import {
   setLocalStorage,

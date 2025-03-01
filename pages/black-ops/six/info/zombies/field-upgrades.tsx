@@ -6,8 +6,6 @@ import Header from "@/components/Header";
 import InfoList from "@/components/info/InfoList";
 //Helpers
 import { getZombiesFieldUpgrade } from "@/helpers/info/zombies/getZombiesFieldUpgrade";
-//Styles
-import styles from "@/public/styles/components/Loadout.module.css";
 
 export default function BlackOpsSixZombiesArtifacts() {
   const navLinks = [
@@ -47,10 +45,10 @@ export default function BlackOpsSixZombiesArtifacts() {
         />
       </Head>
       <Header className="black-ops" navLinks={navLinks} />
-      <Container className={styles.generator} fluid>
+      <Container fluid>
         <Row>
           <Col>
-            <h2>
+            <h2 className="text-center mb-4">
               Black Ops 6
               <span className="d-none d-sm-inline-block">&nbsp;-&nbsp;</span>
               <br className="d-block d-sm-none" />

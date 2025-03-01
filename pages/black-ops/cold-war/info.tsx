@@ -2,8 +2,6 @@ import Head from "next/head";
 import { Container, Row, Col } from "react-bootstrap";
 import Header from "@/components/Header";
 import SclCard from "@/components/_silabs/SclCard";
-//Styles
-import styles from "@/public/styles/components/Loadout.module.css";
 
 export default function ColdWarInfo() {
   const navLinks = [

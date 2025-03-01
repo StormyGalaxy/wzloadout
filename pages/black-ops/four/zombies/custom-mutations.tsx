@@ -18,8 +18,6 @@ import systemsSettings from "@/json/black-ops/four/zombies/custom-mutations/syst
 import weaponSettings from "@/json/black-ops/four/zombies/custom-mutations/weapons.json";
 import enemiesSettings from "@/json/black-ops/four/zombies/custom-mutations/enemies.json";
 import playerSettings from "@/json/black-ops/four/zombies/custom-mutations/player.json";
-//Styles
-import styles from "@/public/styles/components/Loadout.module.css";
 
 export default function CustomMutations() {
   const [isLoading, setIsLoading] = useState(true);
@@ -66,10 +64,10 @@ export default function CustomMutations() {
         />
       </Head>
       <Header className="black-ops" navLinks={navLinks} />
-      <Container className={styles.generator} fluid>
+      <Container fluid>
         <Row>
           <Col>
-            <h2>
+            <h2 className="text-center mb-4">
               Black Ops 4
               <span className="d-none d-sm-inline-block">&nbsp;-&nbsp;</span>
               <br className="d-block d-sm-none" />

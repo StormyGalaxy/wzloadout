@@ -2,8 +2,6 @@ import Head from "next/head";
 import { Container, Row, Col } from "react-bootstrap";
 import Header from "@/components/Header";
 import BlackOpsThreeLoadout from "@/components/generators/black-ops/three/BlackOpsThreeLoadout";
-//Styles
-import styles from "@/public/styles/components/Loadout.module.css";
 
 export default function BlackOpsThree() {
   const navLinks = [
@@ -30,10 +28,10 @@ export default function BlackOpsThree() {
         />
       </Head>
       <Header className="black-ops" navLinks={navLinks} />
-      <Container className={styles.generator} fluid>
+      <Container fluid>
         <Row>
           <Col>
-            <h2>
+            <h2 className="text-center mb-4">
               Black Ops 3
               <span className="d-none d-sm-inline-block">&nbsp;-&nbsp;</span>
               <br className="d-block d-sm-none" />

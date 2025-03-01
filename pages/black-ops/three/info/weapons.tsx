@@ -6,8 +6,6 @@ import Header from "@/components/Header";
 import InfoList from "@/components/info/InfoList";
 //Helpers
 import { getWeapon } from "@/helpers/info/getWeapon";
-//Styles
-import styles from "@/public/styles/components/Loadout.module.css";
 
 export default function BlackOpsThreeWeapons() {
   const navLinks = [
@@ -58,10 +56,10 @@ export default function BlackOpsThreeWeapons() {
         />
       </Head>
       <Header className="black-ops" navLinks={navLinks} />
-      <Container className={styles.generator} fluid>
+      <Container fluid>
         <Row>
           <Col>
-            <h2>
+            <h2 className="text-center mb-4">
               Black Ops 3
               <span className="d-none d-sm-inline-block">&nbsp;-&nbsp;</span>
               <br className="d-block d-sm-none" />
@@ -69,7 +67,12 @@ export default function BlackOpsThreeWeapons() {
             </h2>
 
             {!isLoading && (
-              <InfoList data={data} dataKeys={dataKeys} types={types} url="/black-ops/three/info/weapon" />
+              <InfoList
+                data={data}
+                dataKeys={dataKeys}
+                types={types}
+                url="/black-ops/three/info/weapon"
+              />
             )}
           </Col>
         </Row>

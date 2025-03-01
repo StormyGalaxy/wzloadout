@@ -6,8 +6,6 @@ import Header from "@/components/Header";
 import InfoList from "@/components/info/InfoList";
 //Helpers
 import { getWeapon } from "@/helpers/info/getWeapon";
-//Styles
-import styles from "@/public/styles/components/Loadout.module.css";
 
 export default function ColdWarWeapons() {
   const navLinks = [
@@ -62,10 +60,10 @@ export default function ColdWarWeapons() {
         />
       </Head>
       <Header className="cold-war" navLinks={navLinks} />
-      <Container className={styles.generator} fluid>
+      <Container fluid>
         <Row>
           <Col>
-            <h2>
+            <h2 className="text-center mb-4">
               Cold War
               <span className="d-none d-sm-inline-block">&nbsp;-&nbsp;</span>
               <br className="d-block d-sm-none" />

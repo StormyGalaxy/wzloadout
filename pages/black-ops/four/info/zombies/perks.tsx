@@ -6,8 +6,6 @@ import Header from "@/components/Header";
 import InfoList from "@/components/info/InfoList";
 //Helpers
 import { getPerk } from "@/helpers/info/getPerk";
-//Styles
-import styles from "@/public/styles/components/Loadout.module.css";
 
 export default function BlackOpsFourPerks() {
   const navLinks = [
@@ -51,10 +49,10 @@ export default function BlackOpsFourPerks() {
         />
       </Head>
       <Header className="black-ops" navLinks={navLinks} />
-      <Container className={styles.generator} fluid>
+      <Container fluid>
         <Row>
           <Col>
-            <h2>
+            <h2 className="text-center mb-4">
               Black Ops 4
               <span className="d-none d-sm-inline-block">&nbsp;-&nbsp;</span>
               <br className="d-block d-sm-none" />
