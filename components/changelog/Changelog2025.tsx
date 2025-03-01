@@ -19,6 +19,10 @@ function Changelog2025() {
             issues on our github page
           </p>
           <p>
+            2/28/2025: <a href="black-ops/six/generator">Black Ops VI:</a> Added
+            new D1.3 Sector weapon!
+          </p>
+          <p>
             2/28/2025: <a href="warzone/generator">Warzone:</a> Added Low
             Profile Perk
           </p>
