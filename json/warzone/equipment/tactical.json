@@ -1,0 +1,52 @@
+[
+  {
+    "name": "Concussion",
+    "type": "Tactical",
+    "game": "warzone"
+  },
+  {
+    "name": "Flashbang",
+    "type": "Tactical",
+    "game": "warzone"
+  },
+  {
+    "name": "Smoke Grenade",
+    "type": "Tactical",
+    "game": "warzone"
+  },
+  {
+    "name": "Experimental Gas",
+    "type": "Tactical",
+    "game": "warzone"
+  },
+  {
+    "name": "Snapshot Grenade",
+    "type": "Tactical",
+    "game": "warzone"
+  },
+  {
+    "name": "Shock Charge",
+    "type": "Tactical",
+    "game": "warzone"
+  },
+  {
+    "name": "Decoy",
+    "type": "Tactical",
+    "game": "warzone"
+  },
+  {
+    "name": "Neurogas",
+    "type": "Tactical",
+    "game": "warzone"
+  },
+  {
+    "name": "Stim Shot",
+    "type": "Tactical",
+    "game": "warzone"
+  },
+  {
+    "name": "Spy Camera",
+    "type": "Tactical",
+    "game": "warzone"
+  }
+]

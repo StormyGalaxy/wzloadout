@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Concussion",
+    "type": "Equipment",
+    "game": "black-ops-four"
+  },
+  {
+    "name": "Trophy System",
+    "type": "Equipment",
+    "game": "black-ops-four"
+  },
+  {
+    "name": "Combat Axe",
+    "type": "Equipment",
+    "game": "black-ops-four"
+  },
+  {
+    "name": "Frag",
+    "type": "Equipment",
+    "game": "black-ops-four"
+  },
+  {
+    "name": "Molotov",
+    "type": "Equipment",
+    "game": "black-ops-four"
+  }
+]

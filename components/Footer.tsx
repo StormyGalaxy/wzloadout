@@ -33,6 +33,9 @@ function Footer() {
             ©2025 Copyright: {process.env.NEXT_PUBLIC_FOOTER_COPYRIGHT}
           </Nav.Item>
           <Nav.Item>
+            <Nav.Link href="/aboutus">About Us</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
             <Nav.Link href="/terms">Terms</Nav.Link>
           </Nav.Item>
           <Nav.Item>
