@@ -49,7 +49,7 @@ export default function ModernWarfareTwoInfo() {
           mw2, modern warfare 2, modern warfare 2 rcg, modern warfare 2 random class generator, modern warfare rcg, modern warfare random class generator"
         />
       </Head>
-      <Header className="mw2" navLinks={navLinks} />
+      <Header className="mw2" navLinks={navLinks} showBadge={true} />
       <Container className="information">
         <h2 className="text-center mb-4">
           Modern Warfare 2

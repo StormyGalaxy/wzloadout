@@ -48,7 +48,7 @@ export default function ModernWarfareTwoWeapon() {
           mw2, modern warfare 2, modern warfare 2 rcg, modern warfare 2 random class generator, modern warfare rcg, modern warfare random class generator"
         />
       </Head>
-      <Header className="mw2" navLinks={navLinks} />
+      <Header className="mw2" navLinks={navLinks} showBadge={true} />
       <Container fluid>
         <Row>
           <Col>
