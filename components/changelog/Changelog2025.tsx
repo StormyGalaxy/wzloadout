@@ -6,6 +6,19 @@ function Changelog2025() {
       <Row>
         <Col>
           <p>
+            3/02/2025: Updated our site to leverage our powerful framework{" "}
+            <a
+              href="https://github.com/SiloCityLabs/SiloCityPages"
+              target="_blank"
+            >
+              SiloCityPages
+            </a>
+          </p>
+          <p>
+            3/01/2025: Added <a href="feedback">feedback page</a> to create
+            issues on our github page
+          </p>
+          <p>
             2/20/2025: <a href="black-ops-6/generator">Black Ops VI:</a> Added
             Full Auto Mod to AEK-973
           </p>
