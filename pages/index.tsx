@@ -8,7 +8,6 @@ export default function Home() {
     <>
       <Head>
         <title>{process.env.NEXT_PUBLIC_APP_NAME}</title>
-        <link rel="manifest" href="/manifest.json" />
         <meta
           name="description"
           content="SiloCityPages: A framework by SiloCityLabs leveraging Bootstrap, React, and Next.js for efficient static site development. Deploy seamlessly to GitHub Pages."
