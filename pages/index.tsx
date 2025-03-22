@@ -12,11 +12,6 @@ export default function Home() {
     <>
       <Head>
         <title>Call Of Duty Random Class Generators</title>
-        <link rel="manifest" href="/manifest.json" />
-        <meta
-          name="description"
-          content="Your hub for all call of duty random class generators past, present and future."
-        />
         <meta
           name="keywords"
           content="call of duty, cod, random class generator, rcg, multiplayer, call of duty random class generator,
