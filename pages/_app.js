@@ -4,6 +4,8 @@ import { useRouter } from "next/router";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "@/public/styles/_fw.css";
 import "@/public/styles/main.css";
+//DB
+import { DatabaseProvider } from "@/contexts/DatabaseContext";
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
@@ -53,7 +55,9 @@ function MyApp({ Component, pageProps }) {
           />
         </>
       )}
-      <Component {...pageProps} />
+      <DatabaseProvider>
+        <Component {...pageProps} />
+      </DatabaseProvider>
     </>
   );
 }
