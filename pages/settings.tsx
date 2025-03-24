@@ -3,10 +3,10 @@ import Head from "next/head";
 import { Container, Row, Col, Tabs, Tab } from "react-bootstrap";
 import Header from "@/components/Header";
 //Components
-import MainSettings from "@/components/settings/MainSettings";
+import Warzone from "@/components/settings/Warzone";
 
 export default function Settings() {
-  const [key, setKey] = useState<string>("settings");
+  const [key, setKey] = useState<string>("warzone");
 
   return (
     <>
@@ -21,11 +21,11 @@ export default function Settings() {
               <Tabs
                 id="controlled-tab-example"
                 activeKey={key}
-                onSelect={(k) => setKey(k ?? "settings")}
+                onSelect={(k) => setKey(k ?? "warzone")}
                 className="mb-3"
               >
-                <Tab eventKey="settings" title="Settings">
-                  <MainSettings />
+                <Tab eventKey="warzone" title="Warzone">
+                  <Warzone />
                 </Tab>
               </Tabs>
             </Container>

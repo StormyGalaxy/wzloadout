@@ -12,6 +12,7 @@ interface HeaderProps {
 const defaultNavLinks = [
   { label: "Home", href: "/", target: "" },
   { label: "Changelog", href: "/changelog", target: "" },
+  { label: "Settings", href: "/settings", target: "" },
   { label: "Feedback", href: "/feedback", target: "" },
   {
     label: "GitHub",
