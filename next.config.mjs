@@ -28,12 +28,6 @@ const nextConfig = (phase, { defaultConfig }) => {
         };
       }
 
-      // Add rule to handle .css files
-      config.module.rules.push({
-        test: /\.css$/,
-        use: ["style-loader", "css-loader"],
-      });
-
       return config;
     },
   };
