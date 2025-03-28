@@ -1,4 +1,3 @@
-// next.config.mjs
 import { PHASE_DEVELOPMENT_SERVER } from "next/constants.js";
 import * as dotenv from "dotenv";
 
@@ -28,6 +27,12 @@ const nextConfig = (phase, { defaultConfig }) => {
           ],
         };
       }
+
+      // Add rule to handle .css files
+      config.module.rules.push({
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"],
+      });
 
       return config;
     },
