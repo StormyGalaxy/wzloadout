@@ -22,7 +22,7 @@
     "pouchdb-adapter-idb": "^9.0.0",
     "pouchdb-find": "^9.0.0",
     "react": "^19.0.0",
-    "react-bootstrap": "^2.10.3",
+    "react-bootstrap": "^2.10.9",
     "react-content-loader": "^7.0.2",
     "react-dom": "^19.0.0",
     "react-gtm-module": "^2.0.11",
