@@ -9,8 +9,8 @@ function MyApp({ Component, pageProps }) {
   const router = useRouter();
   const GA_TRACKING_ID = process.env.NEXT_PUBLIC_APP_GA_TRACKING_ID;
 
-  if (GA_TRACKING_ID !== "") {
-    useEffect(() => {
+  useEffect(() => {
+    if (GA_TRACKING_ID !== "") {
       const handleRouteChange = (url) => {
         window.gtag("config", GA_TRACKING_ID, {
           page_path: url,
@@ -22,8 +22,8 @@ function MyApp({ Component, pageProps }) {
       return () => {
         router.events.off("routeChangeComplete", handleRouteChange);
       };
-    }, [router.events]);
-  }
+    }
+  }, [router.events, GA_TRACKING_ID]);
 
   return (
     <>
@@ -42,13 +42,13 @@ function MyApp({ Component, pageProps }) {
           <script
             dangerouslySetInnerHTML={{
               __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${GA_TRACKING_ID}', {
-              page_path: window.location.pathname,
-            });
-          `,
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${GA_TRACKING_ID}', {
+                  page_path: window.location.pathname,
+                });
+              `,
             }}
           />
         </>

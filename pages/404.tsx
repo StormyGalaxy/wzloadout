@@ -6,7 +6,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 const redirects: Record<string, string> = {
-  //Example
+  // Example
   "/old": "/new",
 };
 
@@ -14,11 +14,12 @@ export default function NotFoundPage() {
   const router = useRouter();
 
   useEffect(() => {
-    const newPath = redirects[window.location.pathname];
+    const currentPath = window.location.pathname;
+    const newPath = redirects[currentPath];
     if (newPath) {
       router.replace(newPath);
     }
-  }, []);
+  }, [router]);
 
   return (
     <>
