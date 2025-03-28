@@ -17,7 +17,7 @@
     "bootstrap": "^5.3.3",
     "dotenv": "^16.4.7",
     "joi": "^17.13.3",
-    "next": "^15.2.3",
+    "next": "^15.2.4",
     "pouchdb": "^9.0.0",
     "pouchdb-adapter-idb": "^9.0.0",
     "pouchdb-find": "^9.0.0",
