@@ -80,14 +80,13 @@ function WarzoneDropSpot() {
 
   useEffect(() => {
     const storedSettings =
-      getLocalStorage("warzoneDropSpotSettings") ?? settings;
+      getLocalStorage("warzoneDropSpotSettings") ?? defaultSettings;
     const completeSettings = { ...defaultSettings, ...storedSettings };
 
     setSettings(completeSettings);
     setWarzoneMap(completeSettings.warzoneMap);
 
     setIsLoading(true);
-    // setIsSpinning(true);
   }, []);
 
   const handleClick = async () => {

@@ -240,7 +240,7 @@ async function fetchLoadoutData(setData) {
     const perkObj = { ...initialPerks, ...perkGreed };
 
     const streaks = fetchStreaks(game);
-    let weapons = {
+    const weapons = {
       primary: {
         weapon: loadoutFrame.primary
           ? fetchWeapon("primary", game)
@@ -308,16 +308,20 @@ async function fetchLoadoutData(setData) {
       );
     }
 
-    let equipment = {
+    const equipment = {
       tactical:
-        loadoutFrame.tactical > 0 ? fetchEquipment("tactical", game) : {
-          "name": "",
-          "type": ""
-        },
-      lethal: loadoutFrame.lethal ? fetchEquipment("lethal", game) : {
-        "name": "",
-        "type": ""
-      },
+        loadoutFrame.tactical > 0
+          ? fetchEquipment("tactical", game)
+          : {
+              name: "",
+              type: "",
+            },
+      lethal: loadoutFrame.lethal
+        ? fetchEquipment("lethal", game)
+        : {
+            name: "",
+            type: "",
+          },
     };
     //Check for x2 tacticals
     equipment.tactical.name += loadoutFrame.tacticalx2 ? " x2" : "";
@@ -339,8 +343,12 @@ async function fetchLoadoutData(setData) {
       wildcards,
       combat_rig,
     });
-  } catch (error: any) {
-    console.error(error); // Handle errors centrally
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      console.error(error.message);
+    } else {
+      console.error("An unknown error occurred.");
+    }
   }
 }
 

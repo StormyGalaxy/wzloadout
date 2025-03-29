@@ -48,16 +48,22 @@ function WeaponInfo({ value, game }: WeaponInfoProps) {
     }
 
     setIsLoading(false);
-  }, [value]);
+  }, [value, game]);
 
-  function isWeapon(obj: any): obj is Weapon {
-    return (
-      typeof obj === "object" &&
-      obj !== null &&
-      typeof obj.name === "string" &&
-      typeof obj.type === "string" &&
-      typeof obj.game === "string"
-    );
+  function isWeapon(obj: unknown): obj is Weapon {
+    if (typeof obj === "object" && obj !== null) {
+      const weaponLike = obj as {
+        name?: unknown;
+        type?: unknown;
+        game?: unknown;
+      };
+      return (
+        typeof weaponLike.name === "string" &&
+        typeof weaponLike.type === "string" &&
+        typeof weaponLike.game === "string"
+      );
+    }
+    return false;
   }
 
   return (

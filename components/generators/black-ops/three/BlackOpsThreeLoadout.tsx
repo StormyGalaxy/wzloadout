@@ -240,7 +240,7 @@ async function fetchLoadoutData(setData) {
     const perkObj = { ...initialPerks, ...perkGreed };
 
     const streaks = fetchStreaks(game);
-    let weapons = {
+    const weapons = {
       primary: {
         weapon: loadoutFrame.primary
           ? fetchWeapon("primary", game)
@@ -310,21 +310,33 @@ async function fetchLoadoutData(setData) {
 
     const lethalType = loadoutFrame.tactician ? "tactical" : "lethal";
 
-    let equipment = {
+    const equipment = {
       tactical:
-        loadoutFrame.tactical > 0 ? fetchEquipment("tactical", game) : {
-          "name": "",
-          "type": ""
-        },
-      lethal: loadoutFrame.lethal || loadoutFrame.tactician ? fetchEquipment(lethalType, game) : {
-        "name": "",
-        "type": ""
-      },
+        loadoutFrame.tactical > 0
+          ? fetchEquipment("tactical", game)
+          : {
+              name: "",
+              type: "",
+            },
+      lethal:
+        loadoutFrame.lethal || loadoutFrame.tactician
+          ? fetchEquipment(lethalType, game)
+          : {
+              name: "",
+              type: "",
+            },
     };
     //Check for x2 tacticals
-    equipment.tactical.name += loadoutFrame.tactical === 2 && !equipment.tactical.name.includes("x2") ? " x2" : "";
+    equipment.tactical.name +=
+      loadoutFrame.tactical === 2 && !equipment.tactical.name.includes("x2")
+        ? " x2"
+        : "";
     //Check for danger close
-    equipment.lethal.name += (loadoutFrame.dangerClose || loadoutFrame.tactician === 2) && !equipment.lethal.name.includes("x2") ? " x2" : "";
+    equipment.lethal.name +=
+      (loadoutFrame.dangerClose || loadoutFrame.tactician === 2) &&
+      !equipment.lethal.name.includes("x2")
+        ? " x2"
+        : "";
 
     const wildcards = loadoutFrame?.wildcards.join(", ");
     const specialist = fetchSpecialist(game);
@@ -338,8 +350,12 @@ async function fetchLoadoutData(setData) {
       wildcards,
       specialist,
     });
-  } catch (error: any) {
-    console.error(error.message); // Handle errors centrally
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      console.error(error.message);
+    } else {
+      console.error("An unknown error occurred.");
+    }
   }
 }
 

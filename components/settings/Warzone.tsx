@@ -8,27 +8,19 @@ import styles from "@/public/styles/components/Settings.module.css";
 import getAllSettings from "@/helpers/database/settings/getAllSettings";
 import saveSettings from "@/helpers/database/settings/saveSettings";
 import { useDatabase } from "@/contexts/DatabaseContext";
+//Types
+import { sclSettings } from "@/types/global";
 
-const warzoneGames = [
-  "Black Ops 6",
-  "Modern Warfare 3",
-  "Modern Warfare 2",
-];
-
-const warzoneTypes = [
-  "Primary",
-  "Secondary",
-  "Melee",
-];
+const warzoneGames = ["Black Ops 6", "Modern Warfare 3", "Modern Warfare 2"];
+const warzoneTypes = ["Primary", "Secondary", "Melee"];
 
 export default function Warzone() {
   const { dbs, isReady } = useDatabase();
   const [isSpinning, setIsSpinning] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const [data, setData] = useState<{ [key: string]: any }>({});
-  const [error, setError] = useState<string | null>(null);
+  const [data, setData] = useState<sclSettings>({});
   const [showAlert, setShowAlert] = useState(false);
-  const [alertVariant, setAlertVariant] = useState("success"); // Initialize with success
+  const [alertVariant, setAlertVariant] = useState("success");
   const [alertMessage, setAlertMessage] = useState("");
 
   useEffect(() => {
@@ -52,11 +44,9 @@ export default function Warzone() {
         } catch (err: unknown) {
           const errorMessage =
             err instanceof Error ? err.message : "Failed to fetch settings.";
-          setError(errorMessage);
           setAlertVariant("danger"); // Set alert variant to danger on error
           setAlertMessage(errorMessage);
           setShowAlert(true);
-
         } finally {
           setIsLoading(false);
         }
@@ -67,7 +57,11 @@ export default function Warzone() {
     }
   }, [dbs, isReady]);
 
-  const handleCheckboxChange = (type: string, header: string, isChecked: boolean) => {
+  const handleCheckboxChange = (
+    type: string,
+    header: string,
+    isChecked: boolean
+  ) => {
     setData((prevData) => {
       const newData = { ...prevData };
       if (!newData[`wz${type}Weapons`]) {
@@ -97,12 +91,13 @@ export default function Warzone() {
       setShowAlert(true);
     } catch (error: unknown) {
       console.error("Error saving settings:", error);
-      const errorMessage = error instanceof Error ? error.message : "An unknown error occurred while saving settings.";
-      setError(errorMessage);
+      const errorMessage =
+        error instanceof Error
+          ? error.message
+          : "An unknown error occurred while saving settings.";
       setAlertVariant("danger");
       setAlertMessage(errorMessage);
       setShowAlert(true);
-
     } finally {
       setIsSpinning(false);
     }

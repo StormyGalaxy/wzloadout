@@ -342,8 +342,12 @@ async function fetchLoadoutData(setData) {
       zombieMap,
       zombiePerks,
     });
-  } catch (error: any) {
-    console.error(error.message); // Handle errors centrally
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      console.error(error.message);
+    } else {
+      console.error("An unknown error occurred.");
+    }
   }
 }
 

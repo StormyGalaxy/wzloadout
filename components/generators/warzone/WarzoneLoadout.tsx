@@ -155,7 +155,7 @@ async function fetchLoadoutData(setData) {
     const primAttachCount = wildcard.name === "Gunfighter" ? 8 : 5;
 
     const perks = fetchPerks(game);
-    let weapons = {
+    const weapons = {
       primary: {
         weapon: fetchWeapon("primary", game),
         attachments: "",
@@ -186,7 +186,7 @@ async function fetchLoadoutData(setData) {
       );
     }
 
-    let equipment = {
+    const equipment = {
       tactical: fetchEquipment("tactical", game),
       lethal: fetchEquipment("lethal", game),
     };
@@ -198,9 +198,12 @@ async function fetchLoadoutData(setData) {
       equipment,
       wildcard,
     });
-  } catch (error: any) {
-    console.error("Error", error); // Handle errors centrally
-    console.error(error.message); // Handle errors centrally
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      console.error(error.message);
+    } else {
+      console.error("An unknown error occurred.");
+    }
   }
 }
 

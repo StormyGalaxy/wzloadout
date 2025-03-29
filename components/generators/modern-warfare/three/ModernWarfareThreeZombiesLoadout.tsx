@@ -131,7 +131,7 @@ async function fetchLoadoutData(setData) {
   try {
     const game = "modern-warfare-three-zombies";
     const randClassName = fetchClassName();
-    let weapons = {
+    const weapons = {
       primary: {
         weapon: fetchWeapon("all", "modern-warfare-three"),
         attachments: "",
@@ -161,7 +161,7 @@ async function fetchLoadoutData(setData) {
       );
     }
     //Get Equipment
-    let equipment = {
+    const equipment = {
       tactical: fetchEquipment("tactical", game),
       lethal: fetchEquipment("lethal", game),
       fieldUpgrade: fetchEquipment("field_upgrade", game),
@@ -172,8 +172,12 @@ async function fetchLoadoutData(setData) {
       weapons,
       equipment,
     });
-  } catch (error: any) {
-    console.error(error.message); // Handle errors centrally
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      console.error(error.message);
+    } else {
+      console.error("An unknown error occurred.");
+    }
   }
 }
 
