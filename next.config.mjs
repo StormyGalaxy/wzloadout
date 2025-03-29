@@ -31,7 +31,7 @@ const nextConfig = (phase, { defaultConfig }) => {
       // Add the exclusion for _fw.css
       config.module.rules.forEach((rule) => {
         if (rule.test && rule.test.toString().includes(".css")) {
-          rule.exclude = [/_fw\.css$/, /bootstrap\.min\.css$/];
+          rule.exclude = [/_fw\.css$/, /bootstrap\.min\.css$/, /main\.css$/];
         }
       });
 
