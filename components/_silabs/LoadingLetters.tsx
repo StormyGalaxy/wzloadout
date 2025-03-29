@@ -18,8 +18,6 @@ export function LoadingLetters({
   const [displayText, setDisplayText] = React.useState<string>(
     placeholderChar.repeat(text.length)
   );
-  const [intervalId, setIntervalId] = React.useState<number | null>(null);
-  const [timeoutId, setTimeoutId] = React.useState<number | null>(null);
   const validLetters =
     "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
@@ -53,21 +51,18 @@ export function LoadingLetters({
     };
 
     const id = window.setInterval(randomizeLetters, interval);
-    setIntervalId(id);
 
     const timeout = window.setTimeout(() => {
       window.clearInterval(id);
-      setIntervalId(null);
       setDisplayText(text);
     }, loadingDuration);
-    setTimeoutId(timeout);
 
     return () => {
-      if (intervalId) {
-        window.clearInterval(intervalId);
+      if (id) {
+        window.clearInterval(id);
       }
-      if (timeoutId) {
-        window.clearTimeout(timeoutId);
+      if (timeout) {
+        window.clearTimeout(timeout);
       }
     };
   }, [text, loadingDuration, interval, placeholderChar]);

@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "@/public/styles/_fw.css";
+import "@/public/styles/main.css";
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
