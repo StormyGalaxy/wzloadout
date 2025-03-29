@@ -68,7 +68,7 @@ export function LoadingLetters({
         window.clearTimeout(timeoutId);
       }
     };
-  }, [text, loadingDuration, interval, placeholderChar]); // Re-run the effect if these props change.  Crucial!
+  }, [text, loadingDuration, interval, placeholderChar, intervalId, timeoutId]);
 
   return <span className={className}>{displayText}</span>;
 }
