@@ -39,13 +39,16 @@ export function LoadingLetters({
       }
       setDisplayText(newText);
 
-      if (currentText[currentIndex] === text[currentIndex]) {
+      if (
+        currentIndex < text.length &&
+        currentText[currentIndex] === text[currentIndex]
+      ) {
         currentIndex++;
       }
 
       currentText =
         currentText.substring(0, currentIndex) +
-        text[currentIndex] +
+        (currentIndex < text.length ? text[currentIndex] : "") +
         currentText.substring(currentIndex + 1);
     };
 
@@ -53,13 +56,12 @@ export function LoadingLetters({
     setIntervalId(id);
 
     const timeout = window.setTimeout(() => {
-      window.clearInterval(id); // Stop the interval
+      window.clearInterval(id);
       setIntervalId(null);
-      setDisplayText(text); // Ensure the final text is displayed
+      setDisplayText(text);
     }, loadingDuration);
     setTimeoutId(timeout);
 
-    // Cleanup function: Clear the interval and timeout when the component unmounts or when loadingDuration/interval changes
     return () => {
       if (intervalId) {
         window.clearInterval(intervalId);
@@ -68,7 +70,7 @@ export function LoadingLetters({
         window.clearTimeout(timeoutId);
       }
     };
-  }, [text, loadingDuration, interval, placeholderChar, intervalId, timeoutId]);
+  }, [text, loadingDuration, interval, placeholderChar]);
 
   return <span className={className}>{displayText}</span>;
 }
