@@ -8,8 +8,10 @@ import styles from "@/public/styles/components/Settings.module.css";
 import getAllSettings from "@/helpers/database/settings/getAllSettings";
 import saveSettings from "@/helpers/database/settings/saveSettings";
 import { useDatabase } from "@/contexts/DatabaseContext";
-//Types
-import { sclSettings } from "@/types/global";
+
+type sclSettings = {
+  [key: string]: string | number | boolean | object;
+};
 
 const warzoneGames = ["Black Ops 6", "Modern Warfare 3", "Modern Warfare 2"];
 const warzoneTypes = ["Primary", "Secondary", "Melee"];
@@ -40,11 +42,10 @@ export default function Warzone() {
             });
           }
           setData(allData);
-          // console.log("allData", allData); // Consider removing in production
         } catch (err: unknown) {
           const errorMessage =
             err instanceof Error ? err.message : "Failed to fetch settings.";
-          setAlertVariant("danger"); // Set alert variant to danger on error
+          setAlertVariant("danger");
           setAlertMessage(errorMessage);
           setShowAlert(true);
         } finally {

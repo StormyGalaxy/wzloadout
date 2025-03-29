@@ -176,7 +176,7 @@ async function fetchLoadoutData(setData) {
       },
     };
 
-    const equipment = {
+    let equipment = {
       tactical: fetchEquipment("tactical", game),
       lethal: fetchEquipment("lethal", game),
     };
