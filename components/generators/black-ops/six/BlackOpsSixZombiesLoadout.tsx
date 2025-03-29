@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react"; //Import useRef
 import { Container, Row, Col, Button, Form } from "react-bootstrap";
 //Helpers
 import { implodeObject } from "@/helpers/implodeObject";
@@ -43,18 +43,28 @@ function BlackOpsSixZombiesLoadout() {
   const [rollAugments, setRollAugments] = useState(settings.rollAugments);
   const [rollGobblegum, setRollGobblegum] = useState(settings.rollGobblegum);
   const [showModal, setShowModal] = useState(false);
+  const settingsRef = useRef(settings); // Added useRef
 
   //Data
   const [data, setData] = useState(defaultData);
 
   useEffect(() => {
-    const storedSettings = getLocalStorage("bo6ZombiesSettings") ?? settings;
+    const storedSettings =
+      getLocalStorage("bo6ZombiesSettings") ?? defaultSettings;
     const completeSettings = { ...defaultSettings, ...storedSettings };
 
-    setSettings(completeSettings);
-    setRollMap(completeSettings.rollMap);
-    setRollGobblegum(completeSettings.rollGobblegum);
-    setRollAugments(completeSettings.rollAugments);
+    //Compare relevant properties
+    if (
+      settingsRef.current.rollMap !== completeSettings.rollMap ||
+      settingsRef.current.rollGobblegum !== completeSettings.rollGobblegum ||
+      settingsRef.current.rollAugments !== completeSettings.rollAugments
+    ) {
+      setSettings(completeSettings);
+      setRollMap(completeSettings.rollMap);
+      setRollGobblegum(completeSettings.rollGobblegum);
+      setRollAugments(completeSettings.rollAugments);
+    }
+    settingsRef.current = completeSettings;
 
     fetchLoadoutData(setData);
 

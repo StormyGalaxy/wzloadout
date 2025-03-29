@@ -33,7 +33,7 @@ export default function WorldAtWarWeapon() {
     setValue(valueParam);
 
     setIsLoading(false);
-  }, []);
+  }, [router]);
 
   return (
     <>

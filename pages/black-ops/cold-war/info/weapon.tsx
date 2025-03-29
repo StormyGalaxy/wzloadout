@@ -34,7 +34,7 @@ export default function ColdWarWeapon() {
     setValue(valueParam);
 
     setIsLoading(false);
-  }, []);
+  }, [router]);
 
   return (
     <>

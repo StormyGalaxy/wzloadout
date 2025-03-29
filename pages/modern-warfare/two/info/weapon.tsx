@@ -30,7 +30,7 @@ export default function ModernWarfareTwoWeapon() {
     setValue(valueParam);
 
     setIsLoading(false);
-  }, []);
+  }, [router]);
 
   return (
     <>

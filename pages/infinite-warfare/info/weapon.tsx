@@ -30,7 +30,7 @@ export default function InfiniteWarfareWeapon() {
     setValue(valueParam);
 
     setIsLoading(false);
-  }, []);
+  }, [router]);
 
   return (
     <>

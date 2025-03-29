@@ -34,7 +34,7 @@ export default function ModernWarfareThreeWeapon() {
     setValue(valueParam);
 
     setIsLoading(false);
-  }, []);
+  }, [router]);
 
   return (
     <>

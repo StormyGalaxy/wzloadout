@@ -44,7 +44,8 @@ function BlackOpsFourZombiesLoadout() {
   const [data, setData] = useState(defaultData);
 
   useEffect(() => {
-    const storedSettings = getLocalStorage("bo4ZombiesSettings") ?? settings;
+    const storedSettings =
+      getLocalStorage("bo4ZombiesSettings") ?? defaultSettings;
     const completeSettings = { ...defaultSettings, ...storedSettings };
 
     setSettings(completeSettings);
@@ -321,7 +322,7 @@ async function fetchLoadoutData(setData) {
 
     const elixers = fetchZombiesGobblegum(game);
     const talisman = fetchZombiesGobblegum(`${game}-talismans`, 1);
-    let zombieMap = fetchZombiesMap(`${story_key}-${game}`);
+    const zombieMap = fetchZombiesMap(`${story_key}-${game}`);
 
     if (zombieMap?.mode === "Classic/Rush") {
       const zombiesMode = fetchZombiesMode();

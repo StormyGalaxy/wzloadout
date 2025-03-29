@@ -33,7 +33,7 @@ export default function ModernWarfareRemasteredWeapon() {
     setValue(valueParam);
 
     setIsLoading(false);
-  }, []);
+  }, [router]);
 
   return (
     <>

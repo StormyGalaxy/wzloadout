@@ -32,7 +32,7 @@ export default function WorldWarTwoWeapon() {
     setValue(valueParam);
 
     setIsLoading(false);
-  }, []);
+  }, [router]);
 
   return (
     <>

@@ -30,7 +30,7 @@ export default function BlackOpsThreeWeapon() {
     setValue(valueParam);
 
     setIsLoading(false);
-  }, []);
+  }, [router]);
 
   return (
     <>

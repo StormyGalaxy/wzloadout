@@ -35,7 +35,7 @@ export default function BlackOpsFourWeapon() {
     setValue(valueParam);
 
     setIsLoading(false);
-  }, []);
+  }, [router]);
 
   return (
     <>

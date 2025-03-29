@@ -31,7 +31,7 @@ export default function WarzoneWeapon() {
     setValue(valueParam);
 
     setIsLoading(false);
-  }, []);
+  }, [router]);
 
   return (
     <>

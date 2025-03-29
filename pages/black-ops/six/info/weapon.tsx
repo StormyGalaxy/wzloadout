@@ -31,7 +31,7 @@ export default function BlackOpsSixWeapon() {
     setValue(valueParam);
 
     setIsLoading(false);
-  }, []);
+  }, [router]);
 
   return (
     <>
