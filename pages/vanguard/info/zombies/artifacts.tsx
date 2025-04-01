@@ -31,7 +31,6 @@ export default function VanguardZombiesArtifacts() {
     <>
       <Head>
         <title>Vanguard Zombies Artifacts</title>
-        <link rel="manifest" href="/manifest.json" />
         <meta
           name="description"
           content="View all zombies artifacts in Vanguard."

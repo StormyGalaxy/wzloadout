@@ -31,7 +31,6 @@ export default function VanguardEquipment() {
     <>
       <Head>
         <title>Vanguard Equipment</title>
-        <link rel="manifest" href="/manifest.json" />
         <meta name="description" content="View all equipment in Vanguard." />
         <meta
           name="keywords"

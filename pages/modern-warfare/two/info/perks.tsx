@@ -30,7 +30,6 @@ export default function ModernWarfareTwoPerks() {
     <>
       <Head>
         <title>Modern Warfare 2 Perks</title>
-        <link rel="manifest" href="/manifest.json" />
         <meta
           name="description"
           content="View all perks in Modern Warfare 2."

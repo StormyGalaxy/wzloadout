@@ -33,7 +33,6 @@ export default function ModernWarfareRemasteredEquipment() {
     <>
       <Head>
         <title>Modern Warfare Remastered Equipment</title>
-        <link rel="manifest" href="/manifest.json" />
         <meta
           name="description"
           content="View all equipment in Modern Warfare Remastered."

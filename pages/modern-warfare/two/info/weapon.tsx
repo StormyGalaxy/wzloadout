@@ -35,8 +35,7 @@ export default function ModernWarfareTwoWeapon() {
   return (
     <>
       <Head>
-        <title>Modern Warfare 2 Weapon - {value}</title>
-        <link rel="manifest" href="/manifest.json" />
+        <title>{`Modern Warfare 2 Weapon - ${value}`}</title>
         <meta
           name="description"
           content="View information for a weapon in Modern Warfare 2. View all attachments."

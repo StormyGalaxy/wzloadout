@@ -34,7 +34,6 @@ export default function ColdWarStreaks() {
     <>
       <Head>
         <title>Cold War Streaks</title>
-        <link rel="manifest" href="/manifest.json" />
         <meta name="description" content="View all streaks in Cold War." />
         <meta
           name="keywords"

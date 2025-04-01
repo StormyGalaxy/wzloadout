@@ -50,7 +50,6 @@ export default function CustomMutations() {
     <>
       <Head>
         <title>Black Ops 4 Random Custom Mutations Generator</title>
-        <link rel="manifest" href="/manifest.json" />
         <meta
           name="description"
           content="Spice up your COD gameplay! Generate unique random custum mutations settings for Black Ops 4 Zombies. Discover new ways to play."

@@ -18,7 +18,6 @@ export default function ColdWar() {
     <>
       <Head>
         <title>Cold War Random Class Generator</title>
-        <link rel="manifest" href="/manifest.json" />
         <meta
           name="description"
           content="Spice up your COD gameplay! Generate unique random loadouts for Call of Duty Cold War. Discover new weapons, perks, and gear combinations."

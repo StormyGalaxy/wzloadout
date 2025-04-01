@@ -31,7 +31,6 @@ export default function VanguardZombiesMaps() {
     <>
       <Head>
         <title>Vanguard Zombies Maps</title>
-        <link rel="manifest" href="/manifest.json" />
         <meta name="description" content="View all zombies maps in Vanguard." />
         <meta
           name="keywords"

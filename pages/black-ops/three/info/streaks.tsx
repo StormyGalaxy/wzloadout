@@ -30,7 +30,6 @@ export default function BlackOpsThreeStreaks() {
     <>
       <Head>
         <title>Black Ops 3 Streaks</title>
-        <link rel="manifest" href="/manifest.json" />
         <meta name="description" content="View all streaks in Black Ops 3." />
         <meta
           name="keywords"

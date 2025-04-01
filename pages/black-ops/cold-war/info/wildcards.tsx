@@ -34,7 +34,6 @@ export default function ColdWarWildcards() {
     <>
       <Head>
         <title>Cold War Wildcards</title>
-        <link rel="manifest" href="/manifest.json" />
         <meta name="description" content="View all wildcards in Cold War." />
         <meta
           name="keywords"

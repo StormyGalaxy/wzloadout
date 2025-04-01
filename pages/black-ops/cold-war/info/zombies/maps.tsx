@@ -34,7 +34,6 @@ export default function ColdWarZombiesMaps() {
     <>
       <Head>
         <title>Cold War Zombies Maps</title>
-        <link rel="manifest" href="/manifest.json" />
         <meta name="description" content="View all zombies maps in Cold War." />
         <meta
           name="keywords"

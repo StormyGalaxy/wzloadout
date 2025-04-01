@@ -15,7 +15,6 @@ export default function ColdWarZombies() {
     <>
       <Head>
         <title>Cold War Zombies Random Class Generator</title>
-        <link rel="manifest" href="/manifest.json" />
         <meta
           name="description"
           content="Spice up your COD Zombies gameplay! Generate unique random loadouts for Call of Duty Cold War Zombies. Discover new weapons, perks, and gear combinations."

@@ -46,7 +46,6 @@ export default function ModernWarfareThreeInfo() {
     <>
       <Head>
         <title>Modern Warfare 3 Loadout Information</title>
-        <link rel="manifest" href="/manifest.json" />
         <meta
           name="description"
           content="Loadout Information for Modern Warfare 3 (2023). Checkout all the weapons, vests, perks, equipment, field upgrades, streaks and zombies field upgrades."

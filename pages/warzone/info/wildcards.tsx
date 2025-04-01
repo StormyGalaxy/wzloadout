@@ -31,7 +31,6 @@ export default function WarzoneWildcards() {
     <>
       <Head>
         <title>Warzone Wildcards</title>
-        <link rel="manifest" href="/manifest.json" />
         <meta name="description" content="View all wildcards in Warzone." />
         <meta
           name="keywords"

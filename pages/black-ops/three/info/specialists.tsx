@@ -30,7 +30,6 @@ export default function BlackOpsThreeSpecialists() {
     <>
       <Head>
         <title>Black Ops 3 Specialists</title>
-        <link rel="manifest" href="/manifest.json" />
         <meta
           name="description"
           content="View all specialists in Black Ops 3."

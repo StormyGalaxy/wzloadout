@@ -35,7 +35,6 @@ export default function BlackOpsFourEquipment() {
     <>
       <Head>
         <title>Black Ops 4 Equipment</title>
-        <link rel="manifest" href="/manifest.json" />
         <meta name="description" content="View all equipment in Black Ops 4." />
         <meta
           name="keywords"

@@ -30,7 +30,6 @@ export default function InfiniteWarfareStreaks() {
     <>
       <Head>
         <title>Infinite Warfare Streaks</title>
-        <link rel="manifest" href="/manifest.json" />
         <meta
           name="description"
           content="View all streaks in Infinite Warfare."

@@ -35,7 +35,6 @@ export default function WorldAtWarInfo() {
     <>
       <Head>
         <title>World At War Loadout Information</title>
-        <link rel="manifest" href="/manifest.json" />
         <meta
           name="description"
           content="Loadout Information for World At War. Checkout all the weapons, perks, equipment."

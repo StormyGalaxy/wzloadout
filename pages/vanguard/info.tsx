@@ -48,7 +48,6 @@ export default function VanguardInfo() {
     <>
       <Head>
         <title>Vanguard Loadout Information</title>
-        <link rel="manifest" href="/manifest.json" />
         <meta
           name="description"
           content="Loadout Information for Call of Duty: Vanguard. Checkout all the weapons, perks, equipment, wildcards, streaks and zombies maps, ammo mods and gobblegums."

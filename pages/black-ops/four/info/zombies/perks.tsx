@@ -35,7 +35,6 @@ export default function BlackOpsFourPerks() {
     <>
       <Head>
         <title>Black Ops 4 Zombies Perks</title>
-        <link rel="manifest" href="/manifest.json" />
         <meta
           name="description"
           content="View all perks in Black Ops 4 Zombies."

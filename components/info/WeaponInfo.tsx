@@ -159,7 +159,7 @@ function WeaponInfo({ value, game }: WeaponInfoProps) {
               </Tabs>
             ) : weaponData?.no_attach_info ? (
               <h3 className="text-center">
-                We have no attachment info for this weapon:(
+                We have no attachment info for this weapon :(
               </h3>
             ) : (
               <h3 className="text-center">No attachments</h3>

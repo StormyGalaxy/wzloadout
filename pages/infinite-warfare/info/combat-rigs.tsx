@@ -40,7 +40,6 @@ export default function InfiniteWarfareCombatRigs() {
     <>
       <Head>
         <title>Infinite Warfare Combat Rigs</title>
-        <link rel="manifest" href="/manifest.json" />
         <meta
           name="description"
           content="View all combat rigs in Infinite Warfare."

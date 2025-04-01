@@ -56,7 +56,6 @@ export default function ColdWarInfo() {
     <>
       <Head>
         <title>Cold War Loadout Information</title>
-        <link rel="manifest" href="/manifest.json" />
         <meta
           name="description"
           content="Loadout Information for Cold War. Checkout all the weapons, perks, equipment, wildcards, streaks and zombies maps, ammo mods and gobblegums."

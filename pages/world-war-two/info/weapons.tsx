@@ -44,7 +44,6 @@ export default function WorldWarTwoWeapons() {
     <>
       <Head>
         <title>World War Two Weapons</title>
-        <link rel="manifest" href="/manifest.json" />
         <meta
           name="description"
           content="View information for weapons in World War Two. View all attachments."

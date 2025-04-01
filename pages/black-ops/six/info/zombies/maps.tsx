@@ -31,7 +31,6 @@ export default function BlackOpsSixZombiesMaps() {
     <>
       <Head>
         <title>Black Ops 6 Zombies Maps</title>
-        <link rel="manifest" href="/manifest.json" />
         <meta
           name="description"
           content="View all zombies maps in Black Ops 6."

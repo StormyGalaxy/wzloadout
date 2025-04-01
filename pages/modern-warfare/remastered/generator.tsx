@@ -14,7 +14,6 @@ export default function ModernWarfareRemastered() {
     <>
       <Head>
         <title>Modern Warfare Remastered Random Class Generator</title>
-        <link rel="manifest" href="/manifest.json" />
         <meta
           name="description"
           content="Spice up your COD Zombies gameplay! Generate unique random loadouts for Modern Warfare Remastered. Discover new weapons, perks, and gear combinations."

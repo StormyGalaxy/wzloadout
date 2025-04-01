@@ -51,7 +51,6 @@ export default function BlackOpsSixZombiesAugments() {
     <>
       <Head>
         <title>Black Ops 6 Zombies Augments</title>
-        <link rel="manifest" href="/manifest.json" />
         <meta
           name="description"
           content="View all zombies augments in Black Ops 6."

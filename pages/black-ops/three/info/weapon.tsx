@@ -35,8 +35,7 @@ export default function BlackOpsThreeWeapon() {
   return (
     <>
       <Head>
-        <title>Black Ops 3 Weapon - {value}</title>
-        <link rel="manifest" href="/manifest.json" />
+        <title>{`Black Ops 3 Weapon - ${value}`}</title>
         <meta
           name="description"
           content="View information for a weapon in Black Ops 3. View all attachments."

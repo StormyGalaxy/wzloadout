@@ -42,7 +42,6 @@ export default function InfiniteWarfareWeapons() {
     <>
       <Head>
         <title>Infinite Warfare Weapons</title>
-        <link rel="manifest" href="/manifest.json" />
         <meta
           name="description"
           content="View information for weapons in Infinite Warfare. View all attachments."

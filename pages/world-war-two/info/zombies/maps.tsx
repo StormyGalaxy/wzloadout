@@ -32,7 +32,6 @@ export default function WorldWarTwoZombiesMaps() {
     <>
       <Head>
         <title>World War Two Zombies Maps</title>
-        <link rel="manifest" href="/manifest.json" />
         <meta
           name="description"
           content="View all zombies maps in World War Two."

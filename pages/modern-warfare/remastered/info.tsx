@@ -35,7 +35,6 @@ export default function ModernWarfareRemasteredInfo() {
     <>
       <Head>
         <title>Modern Warfare Remastered Loadout Information</title>
-        <link rel="manifest" href="/manifest.json" />
         <meta
           name="description"
           content="Loadout Information for Modern Warfare Remastered. Checkout all the weapons, perks, equipment."

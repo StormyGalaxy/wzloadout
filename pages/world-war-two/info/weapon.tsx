@@ -37,8 +37,7 @@ export default function WorldWarTwoWeapon() {
   return (
     <>
       <Head>
-        <title>World War Two Weapon - {value}</title>
-        <link rel="manifest" href="/manifest.json" />
+        <title>{`World War Two Weapon - ${value}`}</title>
         <meta
           name="description"
           content="View information for a weapon in World War Two. View all attachments."

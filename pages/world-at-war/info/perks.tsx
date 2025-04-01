@@ -33,7 +33,6 @@ export default function WorldAtWarPerks() {
     <>
       <Head>
         <title>World At War Perks</title>
-        <link rel="manifest" href="/manifest.json" />
         <meta name="description" content="View all perks in World At War." />
         <meta
           name="keywords"

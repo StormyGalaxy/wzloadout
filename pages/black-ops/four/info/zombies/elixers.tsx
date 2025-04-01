@@ -35,7 +35,6 @@ export default function BlackOpsFourZombiesElixers() {
     <>
       <Head>
         <title>Black Ops 4 Zombies Elixers</title>
-        <link rel="manifest" href="/manifest.json" />
         <meta
           name="description"
           content="View all zombies elixers in Black Ops 4."

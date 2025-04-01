@@ -30,7 +30,6 @@ export default function ModernWarfareTwoEquipment() {
     <>
       <Head>
         <title>Modern Warfare 2 Equipment</title>
-        <link rel="manifest" href="/manifest.json" />
         <meta
           name="description"
           content="View all equipment in Modern Warfare 2."

@@ -34,7 +34,6 @@ export default function ColdWarEquipment() {
     <>
       <Head>
         <title>Cold War Equipment</title>
-        <link rel="manifest" href="/manifest.json" />
         <meta name="description" content="View all equipment in Cold War." />
         <meta
           name="keywords"

@@ -43,7 +43,6 @@ export default function VanguardWeapons() {
     <>
       <Head>
         <title>Vanguard Weapons</title>
-        <link rel="manifest" href="/manifest.json" />
         <meta
           name="description"
           content="View information for weapons in Vanguard. View all attachments."

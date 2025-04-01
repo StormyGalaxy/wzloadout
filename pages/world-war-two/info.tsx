@@ -54,7 +54,6 @@ export default function WorldWarTwoInfo() {
     <>
       <Head>
         <title>World War 2 Loadout Information</title>
-        <link rel="manifest" href="/manifest.json" />
         <meta name="description" content="" />
         <meta
           name="keywords"

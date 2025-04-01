@@ -38,8 +38,7 @@ export default function WorldAtWarWeapon() {
   return (
     <>
       <Head>
-        <title>World At War Weapon - {value}</title>
-        <link rel="manifest" href="/manifest.json" />
+        <title>{`World At War Weapon - ${value}`}</title>
         <meta
           name="description"
           content="View information for a weapon in World At War. View all attachments."

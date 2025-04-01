@@ -15,7 +15,6 @@ export default function WhereWeDroppin() {
     <>
       <Head>
         <title>Warzone - Where We Droppin?</title>
-        <link rel="manifest" href="/manifest.json" />
         <meta
           name="description"
           content="Spice up your COD gameplay! Randomly roll where you should land in warzone. This includes all current maps including regular battle royal and resurgence."

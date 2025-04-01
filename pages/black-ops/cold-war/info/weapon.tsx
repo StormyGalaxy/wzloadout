@@ -39,8 +39,7 @@ export default function ColdWarWeapon() {
   return (
     <>
       <Head>
-        <title>Cold War Weapon - {value}</title>
-        <link rel="manifest" href="/manifest.json" />
+        <title>{`Cold War Weapon - ${value}`}</title>
         <meta
           name="description"
           content="View information for a weapon in Cold War. View all attachments."
