@@ -8,10 +8,8 @@ import styles from "@/public/styles/components/Settings.module.css";
 import getAllSettings from "@/helpers/database/settings/getAllSettings";
 import saveSettings from "@/helpers/database/settings/saveSettings";
 import { useDatabase } from "@/contexts/DatabaseContext";
-
-type sclSettings = {
-  [key: string]: string | number | boolean | object;
-};
+//Types
+import { sclSettings } from "@/types/_fw";
 
 const warzoneGames = ["Black Ops 6", "Modern Warfare 3", "Modern Warfare 2"];
 const warzoneTypes = ["Primary", "Secondary", "Melee"];
