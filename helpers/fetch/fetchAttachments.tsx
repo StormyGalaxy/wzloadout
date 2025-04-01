@@ -8,6 +8,8 @@ import { getWorldWarTwoAttachments } from "../generator/world-war-two/getWorldWa
 import { getBO4Attachments } from "../generator/black-ops/four/getBO4Attachments";
 import { getIwAttachments } from "../generator/infinite-warfare/getIwAttachments";
 import { getWAWAttachments } from "../generator/world-at-war/getWAWAttachments";
+//Helpers
+import { noAttachInfoLink } from "@/helpers/generator/noAttachInfoLink";
 //Types
 import { Weapon } from "@/types/Generator";
 
@@ -24,12 +26,12 @@ const attachmentGetters: Record<
   "world-war-two": getWorldWarTwoAttachments,
   "black-ops-four": getBO4Attachments,
   "infinite-warfare": getIwAttachments,
-  "world-at-war": getWAWAttachments
+  "world-at-war": getWAWAttachments,
 };
 
 export function fetchAttachments(weapon: Weapon, count: number = 5): any {
   if (weapon?.no_attach_info) {
-    return [`No attachment info. Randomly select ${count}.`];
+    return noAttachInfoLink(weapon, count);
   }
 
   const gun = weapon.name.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();

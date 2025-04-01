@@ -1,10 +1,12 @@
 import { getMWRAttachments } from "./getMWRAttachments";
+//Helpers
+import { noAttachInfoLink } from "@/helpers/generator/noAttachInfoLink";
 //Types
 import { Weapon } from "@/types/Generator";
 
 export function fetchAttachments(weapon: Weapon, count: number = 1): any {
   if (weapon?.no_attach_info) {
-    return [`No attachment info. Randomly select ${count}.`];
+    return noAttachInfoLink(weapon, count);
   }
 
   const gun = weapon.name.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
