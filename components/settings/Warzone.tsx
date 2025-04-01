@@ -131,7 +131,7 @@ export default function Warzone() {
                       type="checkbox"
                       id={`checkbox-${header.replace(/\s/g, "")}-${type}`} // Added type to the ID
                       label={header}
-                      className="me-2"
+                      className={`me-2 custom-checkbox ${styles.wzCheckbox}`}
                       checked={data[`wz${type}Weapons`]?.[header] || false} // Use optional chaining
                       onChange={(e) =>
                         handleCheckboxChange(type, header, e.target.checked)

@@ -1,27 +1,20 @@
-.warzoneSettings .form-check-input {
-    transform: scale(1.2);
-    border: 2px solid red;
-    /* Default Bootstrap primary color */
-    cursor: pointer;
+.wzCheckbox :global(.form-check-input) {
+  transform: scale(1.2);
+  border: 2px solid #28a745;
+  cursor: pointer;
 }
 
-.custom-checkbox .form-check-input:checked {
-    background-color: #007bff;
-    /* Default Bootstrap primary color */
-    border-color: red;
+.wzCheckbox :global(.form-check-label) {
+  cursor: pointer;
+  user-select: none;
 }
 
-.custom-checkbox .form-check-input:focus {
-    border-color: #80bdff;
-    /* Lighter shade for focus */
-    outline: 0;
-    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, .25);
-    /* Bootstrap's focus shadow style */
+.wzCheckbox :global(.form-check-input:checked) {
+  background-color: #28a745;
+  border-color: #28a745;
 }
 
-
-.custom-checkbox .form-check-label {
-    cursor: pointer;
-    user-select: none;
-    /* Prevent text selection */
+.wzCheckbox :global(.form-check-input:focus) {
+  border-color: #28a745;
+  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
 }
