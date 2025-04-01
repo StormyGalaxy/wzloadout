@@ -1,15 +1,58 @@
+import { useEffect, useState, } from "react";
 import Head from "next/head";
 import { Container, Row, Col } from "react-bootstrap";
 import Header from "@/components/Header";
+//Components
 import WarzoneLoadout from "@/components/generators/warzone/WarzoneLoadout";
+//DB
+import getDocumentByColumn from "@/helpers/_silabs/pouchDb/getDocumentByColumn";
+import saveSettings from "@/helpers/database/settings/saveSettings";
+import { useDatabase } from "@/contexts/DatabaseContext";
+//Types
+import { sclSettings } from "@/types/_fw";
 
 export default function Warzone() {
+  const { dbs, isReady } = useDatabase();
+  const [isLoading, setIsLoading] = useState(true);
+  const [settings, setSettings] = useState<sclSettings>({});
   const navLinks = [
     { label: "Home", href: "/" },
     { label: "Where We Droppin?", href: "/warzone/where-we-droppin" },
     { label: "Loadout Info", href: "/warzone/info" },
     { label: "Changelog", href: "/changelog" },
   ];
+
+  useEffect(() => {
+    async function fetchData() {
+      if (dbs.settings) {
+        try {
+          const wzSettings = await getDocumentByColumn(
+            dbs.settings,
+            "name",
+            "warzone",
+            "settings"
+          );
+          console.log("wzSettings", wzSettings);
+          if (wzSettings && wzSettings.value !== "") {
+            setSettings(JSON.parse(wzSettings.value));
+          }
+        } catch (err: unknown) {
+          const errorMessage =
+            err instanceof Error ? err.message : "Failed to fetch settings.";
+          console.warn(errorMessage);
+        } finally {
+          setIsLoading(false);
+        }
+      }
+    }
+    if (isReady) {
+      fetchData();
+    }
+  }, [dbs, isReady]);
+
+  if (!isReady || isLoading) {
+    return <div className="text-center">Loading database...</div>;
+  }
 
   return (
     <>
@@ -38,7 +81,7 @@ export default function Warzone() {
               Random Class Generator
             </h2>
 
-            <WarzoneLoadout />
+            <WarzoneLoadout settings={settings} />
           </Col>
         </Row>
       </Container>

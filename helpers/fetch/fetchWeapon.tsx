@@ -2,7 +2,6 @@ import { getPrimaryList } from "@/helpers/generator/weapons/getPrimaryList";
 import { getSecondaryList } from "@/helpers/generator/weapons/getSecondaryList";
 import { getMeleeList } from "@/helpers/generator/weapons/getMeleeList";
 import { randomListItem } from "@/helpers/_silabs/randomListItem";
-import { fetchGame } from "@/helpers/fetch/fetchGame";
 import { mergeObjectsWithRekey } from "@/helpers/_silabs/mergeObjectsWithRekey";
 //Types
 import { Weapon } from "@/types/Generator";
@@ -21,16 +20,16 @@ export function fetchWeapon(
   excludeWeapon: string = "",
   needsAttachments: boolean = false
 ): Weapon {
-  game = game === "" ? fetchGame() : game;
   const getWeaponList = weaponListGetters[type];
   let rollAgain = false;
 
   if (getWeaponList) {
     let data: Weapon;
+    const list = getWeaponList(game);
 
     do {
       rollAgain = false;
-      data = randomListItem(getWeaponList(game));
+      data = randomListItem(list);
 
       //Roll a weapon that has attachments\
       if (needsAttachments && data.no_attach) {

@@ -22,12 +22,14 @@ export default function Settings() {
   const [isLoading, setIsLoading] = useState(true);
   const [isSpinning, setIsSpinning] = useState(false);
 
-
   useEffect(() => {
     async function fetchData() {
       if (dbs.settings) {
         try {
           const allData = await getAllSettings(dbs.settings);
+          if (!allData?.warzone) {
+            allData.warzone = {};
+          }
           setData(allData);
         } catch (err: unknown) {
           const errorMessage =

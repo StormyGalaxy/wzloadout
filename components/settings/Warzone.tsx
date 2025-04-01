@@ -7,7 +7,7 @@ import styles from "@/public/styles/components/Settings.module.css";
 //Types
 import { sclSettings } from "@/types/_fw";
 
-const warzoneGames = ["Black Ops 6", "Modern Warfare 3", "Modern Warfare 2"];
+const warzoneGames = [{ key: "black-ops-six", value: "Black Ops 6" }, { key: "modern-warfare-three-wz", value: "Modern Warfare 3" }];
 const warzoneTypes = ["Primary", "Secondary", "Melee"];
 
 interface WarzoneProps {
@@ -27,17 +27,16 @@ export default function Warzone({ db, settingsData, onDataChange }: WarzoneProps
     if (db) {
       try {
         const allData = structuredClone(wzData);
-        if (!allData.wzPrimaryWeapons) {
-          allData.wzPrimaryWeapons = {};
-          allData.wzSecondaryWeapons = {};
-          allData.wzMeleeWeapons = {};
-          warzoneGames.forEach((header) => {
-            allData.wzPrimaryWeapons[header] = true;
-            allData.wzSecondaryWeapons[header] = true;
-            allData.wzMeleeWeapons[header] = true;
+        if (!allData.warzone.weapons) {
+          allData.warzone.weapons = { primary: {}, secondary: {}, melee: {} };
+          warzoneGames.forEach((data) => {
+            allData.warzone.weapons.primary[data.key] = false;
+            allData.warzone.weapons.secondary[data.key] = false;
+            allData.warzone.weapons.melee[data.key] = false;
           });
+          onDataChange(allData);
         }
-        onDataChange(allData);
+        console.log("allData", allData);
         setWzData(allData);
       } catch (err: unknown) {
         const errorMessage =
@@ -58,10 +57,7 @@ export default function Warzone({ db, settingsData, onDataChange }: WarzoneProps
   ) => {
     setWzData((prevData) => {
       const newData = { ...prevData };
-      if (!newData[`wz${type}Weapons`]) {
-        newData[`wz${type}Weapons`] = {};
-      }
-      newData[`wz${type}Weapons`][header] = isChecked;
+      newData.warzone.weapons[type][header] = isChecked;
       onDataChange(newData);
       return newData;
     });
@@ -86,20 +82,20 @@ export default function Warzone({ db, settingsData, onDataChange }: WarzoneProps
             <hr />
             <Row className="justify-content-center mb-5">
               <Col className="d-flex flex-wrap justify-content-center">
-                {warzoneGames.map((header) => (
+                {warzoneGames.map((data) => (
                   <div
-                    key={header}
+                    key={data.key}
                     className="d-flex"
                     style={{ width: "50%", maxWidth: "200px" }}
                   >
                     <Form.Check
                       type="checkbox"
-                      id={`checkbox-${header.replace(/\s/g, "")}-${type}`} // Added type to the ID
-                      label={header}
+                      id={`checkbox-${data.key}-${type}`}
+                      label={data.value}
                       className={`me-2 custom-checkbox ${styles.wzCheckbox}`}
-                      checked={wzData[`wz${type}Weapons`]?.[header] || false} // Use optional chaining
+                      checked={wzData.warzone.weapons[type.toLowerCase()]?.[data.key] || false}
                       onChange={(e) =>
-                        handleCheckboxChange(type, header, e.target.checked)
+                        handleCheckboxChange(type.toLowerCase(), data.key, e.target.checked)
                       }
                     />
                   </div>

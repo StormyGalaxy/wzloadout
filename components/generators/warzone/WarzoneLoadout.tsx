@@ -11,18 +11,24 @@ import { fetchAttachments } from "@/helpers/fetch/fetchAttachments";
 import { fetchEquipment } from "@/helpers/fetch/fetchEquipment";
 import { fetchWildcard } from "@/helpers/fetch/fetchWildcard";
 import { fetchClassName } from "@/helpers/fetch/fetchClassName";
+import { getEnabledGames } from "@/helpers/generator/getEnabledGames";
 //Utils
 import { sendEvent } from "@/utils/gtag";
-//json
+//JSON
 import defaultData from "@/json/cod/default-generator-info.json";
+//Types
+import { sclSettings } from "@/types/_fw";
 
-function WarzoneLoadout() {
+interface WarzoneProps {
+  settings: sclSettings;
+}
+function WarzoneLoadout({ settings }: WarzoneProps) {
   const [isLoading, setIsLoading] = useState(true);
   const [isGenerating, setIsGenerating] = useState(true);
   const [data, setData] = useState(defaultData);
 
   useEffect(() => {
-    fetchLoadoutData(setData);
+    fetchLoadoutData(setData, settings);
     setIsGenerating(false);
     setIsLoading(false);
   }, []);
@@ -31,7 +37,7 @@ function WarzoneLoadout() {
     setIsGenerating(true);
 
     setTimeout(() => {
-      fetchLoadoutData(setData);
+      fetchLoadoutData(setData, settings);
       setIsGenerating(false);
       scrollToTop();
     }, 1000);
@@ -140,7 +146,7 @@ function WarzoneLoadout() {
   );
 }
 
-async function fetchLoadoutData(setData) {
+async function fetchLoadoutData(setData, settings) {
   sendEvent("button_click", {
     button_id: "warzone_fetchLoadoutData",
     label: "Warzone",
@@ -153,18 +159,22 @@ async function fetchLoadoutData(setData) {
     const wildcard = fetchWildcard(game);
     //Figure out primary attachment count
     const primAttachCount = wildcard.name === "Gunfighter" ? 8 : 5;
+    console.log("settings.weapons", settings.weapons);
+    const primGame = settings?.weapons ? getEnabledGames(settings.weapons.primary) : 'black-ops-six';
+    const secGame = settings?.weapons ? getEnabledGames(settings.weapons.secondary) : 'black-ops-six';
+    const meleeGame = settings?.weapons ? getEnabledGames(settings.weapons.melee) : 'black-ops-six';
 
     const perks = fetchPerks(game);
     const weapons = {
       primary: {
-        weapon: fetchWeapon("primary", game),
+        weapon: fetchWeapon("primary", primGame),
         attachments: "",
       },
       secondary: {
-        weapon: fetchWeapon("secondary", game),
+        weapon: fetchWeapon("secondary", secGame),
         attachments: "",
       },
-      melee: fetchWeapon("melee", game),
+      melee: fetchWeapon("melee", meleeGame),
     };
     //Get Primary Attachments
     //TODO: I think you can only get gunfighter for BO6 Weapons (8 attachments)
@@ -175,7 +185,7 @@ async function fetchLoadoutData(setData) {
     if (wildcard.name === "Overkill") {
       weapons.secondary.weapon = fetchWeapon(
         "primary",
-        "",
+        primGame,
         weapons.primary.weapon.name
       );
     }
