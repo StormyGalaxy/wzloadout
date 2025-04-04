@@ -1,5 +1,5 @@
-import Head from "next/head";
 import { Container, Row, Col } from "react-bootstrap";
+import Head from "next/head";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SclCard from "@/components/_silabs/SclCard";
