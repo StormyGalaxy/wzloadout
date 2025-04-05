@@ -22,7 +22,6 @@ export function fetchWeapon(
 ): Weapon {
   const getWeaponList = weaponListGetters[type];
   let rollAgain = false;
-
   if (getWeaponList) {
     let data: Weapon;
     const list = getWeaponList(game);

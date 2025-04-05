@@ -12,6 +12,12 @@ import { useDatabase } from "@/contexts/DatabaseContext";
 //Types
 import { sclSettings } from "@/types/_fw";
 
+// Define outside component if static
+const warzoneGames = [
+  { key: "black-ops-six", value: "Black Ops 6" },
+  { key: "modern-warfare-three-wz", value: "Modern Warfare 3" },
+];
+
 export default function Settings() {
   const { dbs, isReady } = useDatabase();
   const [key, setKey] = useState<string>("warzone");
@@ -25,28 +31,63 @@ export default function Settings() {
   useEffect(() => {
     async function fetchData() {
       if (dbs.settings) {
+        setIsLoading(true);
         try {
-          const allData = await getAllSettings(dbs.settings);
-          if (!allData?.warzone) {
+          let allData: sclSettings | null = await getAllSettings(dbs.settings);
+
+          // Initialize default structure if DB is empty or lacks necessary keys
+          if (!allData) {
+            allData = {};
+          }
+          if (!allData.warzone) {
             allData.warzone = {};
           }
+          if (!allData.warzone.weapons) {
+            allData.warzone.weapons = { primary: {}, secondary: {}, melee: {} };
+            warzoneGames.forEach((game) => {
+              // Use non-null assertion (!) carefully, ensure object exists
+              allData!.warzone!.weapons!.primary[game.key] = false;
+              allData!.warzone!.weapons!.secondary[game.key] = false;
+              allData!.warzone!.weapons!.melee[game.key] = false;
+            });
+          } else {
+            const weaponTypes = ["primary", "secondary", "melee"] as const;
+            weaponTypes.forEach((type) => {
+              if (!allData.warzone!.weapons![type]) {
+                allData.warzone!.weapons![type] = {};
+              }
+              warzoneGames.forEach((game) => {
+                if (allData!.warzone!.weapons![type][game.key] === undefined) {
+                  allData!.warzone!.weapons![type][game.key] = false;
+                }
+              });
+            });
+          }
+
           setData(allData);
         } catch (err: unknown) {
           const errorMessage =
             err instanceof Error ? err.message : "Failed to fetch settings.";
+          console.error("Error fetching settings:", err);
           setAlertVariant("danger");
           setAlertMessage(errorMessage);
           setShowAlert(true);
+          setData({});
         } finally {
           setIsLoading(false);
         }
+      } else {
+        if (!isReady) setIsLoading(true);
+        else setIsLoading(false);
       }
     }
+
     if (isReady) {
       fetchData();
+    } else {
+      setIsLoading(true);
     }
   }, [dbs, isReady]);
-
 
   const save = async () => {
     if (!dbs.settings) {
@@ -54,11 +95,11 @@ export default function Settings() {
       setAlertVariant("danger");
       setAlertMessage("Database is not initialized.");
       setShowAlert(true);
-
       return;
     }
 
     setIsSpinning(true);
+    setShowAlert(false); // Hide previous alert before saving
 
     try {
       await saveSettings(dbs.settings, data);
@@ -83,8 +124,12 @@ export default function Settings() {
     setData(updatedData);
   };
 
-  if (!isReady || isLoading) {
-    return <div className="text-center">Loading database...</div>;
+  if (isLoading) {
+    return <div className="text-center p-5">Loading Settings...</div>;
+  }
+
+  if (!isLoading && !dbs.settings) {
+    return <div className="text-center p-5 text-danger">Loading...</div>;
   }
 
   return (
@@ -96,6 +141,7 @@ export default function Settings() {
       <Container className="shadow-lg p-3 mt-4 bg-body rounded">
         <Row>
           <Col>
+            {/* Alert is managed and displayed by the parent */}
             <CustomAlert
               variant={alertVariant}
               message={alertMessage}
@@ -110,8 +156,14 @@ export default function Settings() {
                 className="mb-3"
               >
                 <Tab eventKey="warzone" title="Warzone">
-                  <Warzone db={dbs.settings} settingsData={data} onDataChange={handleWarzoneDataChange} />
+                  {/* Pass only necessary props to Warzone */}
+                  <Warzone
+                    // db={dbs.settings} // Removed, Warzone doesn't need it
+                    settingsData={data} // Pass the current state data
+                    onDataChange={handleWarzoneDataChange} // Pass the callback
+                  />
                 </Tab>
+                {/* Add other setting tabs here if needed */}
               </Tabs>
             </Container>
           </Col>
@@ -122,10 +174,10 @@ export default function Settings() {
               <Button
                 variant="success"
                 className="w-100"
-                disabled={isSpinning}
+                disabled={isSpinning || isLoading} // Disable if loading or saving
                 onClick={save}
               >
-                Save Settings
+                {isSpinning ? "Saving..." : "Save Settings"}
               </Button>
             </div>
           </Col>

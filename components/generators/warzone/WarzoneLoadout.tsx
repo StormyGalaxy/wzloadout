@@ -31,7 +31,7 @@ function WarzoneLoadout({ settings }: WarzoneProps) {
     fetchLoadoutData(setData, settings);
     setIsGenerating(false);
     setIsLoading(false);
-  }, []);
+  }, [settings]);
 
   const handleClick = async () => {
     setIsGenerating(true);
@@ -154,27 +154,33 @@ async function fetchLoadoutData(setData, settings) {
   });
 
   try {
+    console.clear();
     const game = "warzone";
     const randClassName = fetchClassName();
     const wildcard = fetchWildcard(game);
     //Figure out primary attachment count
     const primAttachCount = wildcard.name === "Gunfighter" ? 8 : 5;
-    console.log("settings.weapons", settings.weapons);
-    const primGame = settings?.weapons ? getEnabledGames(settings.weapons.primary) : 'black-ops-six';
-    const secGame = settings?.weapons ? getEnabledGames(settings.weapons.secondary) : 'black-ops-six';
-    const meleeGame = settings?.weapons ? getEnabledGames(settings.weapons.melee) : 'black-ops-six';
+    const primGame = settings?.weapons
+      ? getEnabledGames(settings.weapons.primary)
+      : "";
+    const secGame = settings?.weapons
+      ? getEnabledGames(settings.weapons.secondary)
+      : "";
+    const meleeGame = settings?.weapons
+      ? getEnabledGames(settings.weapons.melee)
+      : "";
 
     const perks = fetchPerks(game);
     const weapons = {
       primary: {
-        weapon: fetchWeapon("primary", primGame),
+        weapon: fetchWeapon("primary", primGame ? primGame : "black-ops-six"),
         attachments: "",
       },
       secondary: {
-        weapon: fetchWeapon("secondary", secGame),
+        weapon: fetchWeapon("secondary", secGame ? secGame : "black-ops-six"),
         attachments: "",
       },
-      melee: fetchWeapon("melee", meleeGame),
+      melee: fetchWeapon("melee", meleeGame ? meleeGame : "black-ops-six"),
     };
     //Get Primary Attachments
     //TODO: I think you can only get gunfighter for BO6 Weapons (8 attachments)
@@ -185,7 +191,7 @@ async function fetchLoadoutData(setData, settings) {
     if (wildcard.name === "Overkill") {
       weapons.secondary.weapon = fetchWeapon(
         "primary",
-        primGame,
+        primGame ? primGame : "black-ops-six",
         weapons.primary.weapon.name
       );
     }

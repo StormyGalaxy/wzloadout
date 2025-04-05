@@ -1,4 +1,4 @@
-import { useEffect, useState, } from "react";
+import { useEffect, useState } from "react";
 import Head from "next/head";
 import { Container, Row, Col } from "react-bootstrap";
 import Header from "@/components/Header";
@@ -6,7 +6,6 @@ import Header from "@/components/Header";
 import WarzoneLoadout from "@/components/generators/warzone/WarzoneLoadout";
 //DB
 import getDocumentByColumn from "@/helpers/_silabs/pouchDb/getDocumentByColumn";
-import saveSettings from "@/helpers/database/settings/saveSettings";
 import { useDatabase } from "@/contexts/DatabaseContext";
 //Types
 import { sclSettings } from "@/types/_fw";
@@ -32,7 +31,6 @@ export default function Warzone() {
             "warzone",
             "settings"
           );
-          console.log("wzSettings", wzSettings);
           if (wzSettings && wzSettings.value !== "") {
             setSettings(JSON.parse(wzSettings.value));
           }
