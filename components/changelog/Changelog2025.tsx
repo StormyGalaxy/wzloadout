@@ -7,6 +7,10 @@ function Changelog2025() {
         <Col>
           <p>
             4/05/2025: <a href="black-ops/six/generator">Black Ops VI:</a> Added
+            Death Machine Streak
+          </p>
+          <p>
+            4/05/2025: <a href="black-ops/six/generator">Black Ops VI:</a> Added
             Close Shave Perk
           </p>
           <p>
