@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Container, Row, Col, Tabs, Tab, Badge, Table } from "react-bootstrap";
+import Link from "next/link";
 //Helpers
 import { getWeapon } from "@/helpers/info/getWeapon";
 import { fetchAttachments } from "@/helpers/fetch/fetchAttachments";
@@ -37,15 +38,17 @@ function WeaponInfo({ value, game }: WeaponInfoProps) {
       setWeponData(dataList);
       const gitGame = capitalizeFirstLetter(dataList.game as string, "-");
       const type = capitalizeFirstLetter(dataList.type as string, "_");
-      setGithubLink(generateGithubLink(
-        process.env.NEXT_PUBLIC_APP_GITHUB_OWNER,
-        process.env.NEXT_PUBLIC_APP_GITHUB_REPO,
-        {
-          title: `[${gitGame}] - Manage Weapon Attachments - [${dataList.name} - ${type}]`,
-          labels: "enhancement",
-          template: "manage-weapon-attachments-template.md",
-        }
-      ));
+      setGithubLink(
+        generateGithubLink(
+          process.env.NEXT_PUBLIC_APP_GITHUB_OWNER,
+          process.env.NEXT_PUBLIC_APP_GITHUB_REPO,
+          {
+            title: `[${gitGame}] - Manage Weapon Attachments - [${dataList.name} - ${type}]`,
+            labels: "enhancement",
+            template: "manage-weapon-attachments-template.md",
+          }
+        )
+      );
 
       if (!dataList.no_attach_info && !dataList.no_attach) {
         let attachments = fetchAttachments(dataList, -1);
@@ -177,7 +180,9 @@ function WeaponInfo({ value, game }: WeaponInfoProps) {
                   We have no attachment info for this weapon :(
                 </h3>
                 <h5 className="text-center mt-4">
-                  <a href={githubLink} target="_blank">Help us out, suggest attachments</a>
+                  <Link href={githubLink} target="_blank">
+                    Help us out, suggest attachments
+                  </Link>
                 </h5>
               </>
             ) : (
@@ -185,9 +190,8 @@ function WeaponInfo({ value, game }: WeaponInfoProps) {
             )}
           </Row>
         </>
-      )
-      }
-    </Container >
+      )}
+    </Container>
   );
 }
 

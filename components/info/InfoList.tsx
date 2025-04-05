@@ -9,6 +9,7 @@ import {
   Dropdown,
   Badge,
 } from "react-bootstrap";
+import Link from "next/link";
 import { InfoListProps } from "@/types/Info";
 
 function InfoList({ data, dataKeys, types, url }: InfoListProps) {
@@ -62,7 +63,7 @@ function InfoList({ data, dataKeys, types, url }: InfoListProps) {
     if (typeof value === "boolean" || boolArr.includes(key)) {
       return value ? "Yes" : "-";
     } else if (key === "name" && url) {
-      return <a href={`${url}?value=${value}`}>{value}</a>;
+      return <Link href={`${url}?value=${value}`}>{value}</Link>;
     }
 
     return value;
