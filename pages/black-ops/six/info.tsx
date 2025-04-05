@@ -68,7 +68,6 @@ export default function BlackOpsSixInfo() {
     <>
       <Head>
         <title>Black Ops 6 Loadout Information</title>
-        <link rel="manifest" href="/manifest.json" />
         <meta
           name="description"
           content="Loadout Information for Black Ops 6. Checkout all the weapons, perks, equipment, wildcards, streaks and zombies maps, ammo mods and gobblegums."

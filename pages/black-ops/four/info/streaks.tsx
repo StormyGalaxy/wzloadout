@@ -35,7 +35,6 @@ export default function BlackOpsFourStreaks() {
     <>
       <Head>
         <title>Black Ops 4 Streaks</title>
-        <link rel="manifest" href="/manifest.json" />
         <meta name="description" content="View all streaks in Black Ops 4." />
         <meta
           name="keywords"

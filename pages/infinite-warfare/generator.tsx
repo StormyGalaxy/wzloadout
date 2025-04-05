@@ -14,7 +14,6 @@ export default function InfiniteWarfare() {
     <>
       <Head>
         <title>Infinite Warfare Random Class Generator</title>
-        <link rel="manifest" href="/manifest.json" />
         <meta
           name="description"
           content="Spice up your COD gameplay! Generate unique random loadouts for InfiniteWarfare Warfare. Discover new weapons, perks, and gear combinations."

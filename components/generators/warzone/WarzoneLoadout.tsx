@@ -11,27 +11,33 @@ import { fetchAttachments } from "@/helpers/fetch/fetchAttachments";
 import { fetchEquipment } from "@/helpers/fetch/fetchEquipment";
 import { fetchWildcard } from "@/helpers/fetch/fetchWildcard";
 import { fetchClassName } from "@/helpers/fetch/fetchClassName";
+import { getEnabledGames } from "@/helpers/generator/getEnabledGames";
 //Utils
 import { sendEvent } from "@/utils/gtag";
-//json
+//JSON
 import defaultData from "@/json/cod/default-generator-info.json";
+//Types
+import { sclSettings } from "@/types/_fw";
 
-function WarzoneLoadout() {
+interface WarzoneProps {
+  settings: sclSettings;
+}
+function WarzoneLoadout({ settings }: WarzoneProps) {
   const [isLoading, setIsLoading] = useState(true);
   const [isGenerating, setIsGenerating] = useState(true);
   const [data, setData] = useState(defaultData);
 
   useEffect(() => {
-    fetchLoadoutData(setData);
+    fetchLoadoutData(setData, settings);
     setIsGenerating(false);
     setIsLoading(false);
-  }, []);
+  }, [settings]);
 
   const handleClick = async () => {
     setIsGenerating(true);
 
     setTimeout(() => {
-      fetchLoadoutData(setData);
+      fetchLoadoutData(setData, settings);
       setIsGenerating(false);
       scrollToTop();
     }, 1000);
@@ -140,7 +146,7 @@ function WarzoneLoadout() {
   );
 }
 
-async function fetchLoadoutData(setData) {
+async function fetchLoadoutData(setData, settings) {
   sendEvent("button_click", {
     button_id: "warzone_fetchLoadoutData",
     label: "Warzone",
@@ -153,18 +159,27 @@ async function fetchLoadoutData(setData) {
     const wildcard = fetchWildcard(game);
     //Figure out primary attachment count
     const primAttachCount = wildcard.name === "Gunfighter" ? 8 : 5;
+    const primGame = settings?.weapons
+      ? getEnabledGames(settings.weapons.primary)
+      : "";
+    const secGame = settings?.weapons
+      ? getEnabledGames(settings.weapons.secondary)
+      : "";
+    const meleeGame = settings?.weapons
+      ? getEnabledGames(settings.weapons.melee)
+      : "";
 
     const perks = fetchPerks(game);
-    let weapons = {
+    const weapons = {
       primary: {
-        weapon: fetchWeapon("primary", game),
+        weapon: fetchWeapon("primary", primGame ? primGame : "black-ops-six"),
         attachments: "",
       },
       secondary: {
-        weapon: fetchWeapon("secondary", game),
+        weapon: fetchWeapon("secondary", secGame ? secGame : "black-ops-six"),
         attachments: "",
       },
-      melee: fetchWeapon("melee", game),
+      melee: fetchWeapon("melee", meleeGame ? meleeGame : "black-ops-six"),
     };
     //Get Primary Attachments
     //TODO: I think you can only get gunfighter for BO6 Weapons (8 attachments)
@@ -175,7 +190,7 @@ async function fetchLoadoutData(setData) {
     if (wildcard.name === "Overkill") {
       weapons.secondary.weapon = fetchWeapon(
         "primary",
-        "",
+        primGame ? primGame : "black-ops-six",
         weapons.primary.weapon.name
       );
     }
@@ -186,7 +201,7 @@ async function fetchLoadoutData(setData) {
       );
     }
 
-    let equipment = {
+    const equipment = {
       tactical: fetchEquipment("tactical", game),
       lethal: fetchEquipment("lethal", game),
     };
@@ -198,9 +213,12 @@ async function fetchLoadoutData(setData) {
       equipment,
       wildcard,
     });
-  } catch (error: any) {
-    console.error("Error", error); // Handle errors centrally
-    console.error(error.message); // Handle errors centrally
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      console.error(error.message);
+    } else {
+      console.error("An unknown error occurred.");
+    }
   }
 }
 

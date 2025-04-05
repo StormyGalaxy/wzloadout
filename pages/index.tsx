@@ -1,5 +1,5 @@
-import Head from "next/head";
 import { Container, Row, Col } from "react-bootstrap";
+import Head from "next/head";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SclCard from "@/components/_silabs/SclCard";
@@ -12,11 +12,6 @@ export default function Home() {
     <>
       <Head>
         <title>Call Of Duty Random Class Generators</title>
-        <link rel="manifest" href="/manifest.json" />
-        <meta
-          name="description"
-          content="Your hub for all call of duty random class generators past, present and future."
-        />
         <meta
           name="keywords"
           content="call of duty, cod, random class generator, rcg, multiplayer, call of duty random class generator,

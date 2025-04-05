@@ -39,5 +39,11 @@
     "type": "Rare",
     "game": "black-ops-six",
     "isDlc": true
+  },
+  {
+    "name": "Tactical Diffusion",
+    "type": "Rare",
+    "game": "black-ops-six",
+    "isDlc": true
   }
 ]

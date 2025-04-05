@@ -48,7 +48,6 @@ export default function CustomMatch() {
     <>
       <Head>
         <title>World War Two Random Custom Match Generator</title>
-        <link rel="manifest" href="/manifest.json" />
         <meta
           name="description"
           content="Spice up your COD gameplay! Generate unique random custum match settings for World War Two. Discover new ways to play."

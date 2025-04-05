@@ -35,7 +35,6 @@ export default function BlackOpsFourZombiesTalisman() {
     <>
       <Head>
         <title>Black Ops 4 Zombies Talisman</title>
-        <link rel="manifest" href="/manifest.json" />
         <meta
           name="description"
           content="View all zombies talismans in Black Ops 4."

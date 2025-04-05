@@ -8,7 +8,6 @@ export default function AboutUs() {
     <>
       <Head>
         <title>About Us - Call Of Duty Random Class Generator</title>
-        <link rel="manifest" href="/manifest.json" />
         <meta name="description" content="This is the about us for codrcg." />
         <meta
           name="keywords"

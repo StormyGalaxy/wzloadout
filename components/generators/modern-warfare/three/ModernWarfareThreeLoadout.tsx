@@ -166,7 +166,7 @@ async function fetchLoadoutData(setData) {
     let primaryType = "primary";
     let secondaryType = "secondary";
     const streaks = fetchStreaks(game);
-    let equipment = {
+    const equipment = {
       tactical: fetchEquipment("tactical", game),
       lethal: fetchEquipment("lethal", game),
       fieldUpgrade: fetchEquipment("field_upgrade", game),
@@ -209,7 +209,7 @@ async function fetchLoadoutData(setData) {
 
     const perks = fetchPerks(allowGear2);
 
-    let weapons = {
+    const weapons = {
       primary: {
         weapon: fetchWeapon(primaryType, game),
         attachments: "",
@@ -238,8 +238,12 @@ async function fetchLoadoutData(setData) {
       weapons,
       equipment,
     });
-  } catch (error: any) {
-    console.error(error.message); // Handle errors centrally
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      console.error(error.message);
+    } else {
+      console.error("An unknown error occurred.");
+    }
   }
 }
 

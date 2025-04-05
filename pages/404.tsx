@@ -42,18 +42,18 @@ export default function NotFoundPage() {
   const router = useRouter();
 
   useEffect(() => {
-    const newPath = redirects[window.location.pathname];
+    const currentPath = window.location.pathname;
+    const newPath = redirects[currentPath];
     if (newPath) {
       router.replace(newPath);
     }
-  }, []);
+  }, [router]);
 
   return (
     <>
       <Head>
         <title>Page Not Found</title>
         <meta name="description" content="This page could not be found." />
-        <link rel="manifest" href="/manifest.json" />
       </Head>
       <div className="main-container">
         <Header />

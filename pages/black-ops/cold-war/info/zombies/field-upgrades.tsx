@@ -34,7 +34,6 @@ export default function ColdWarZombiesFieldUpgrades() {
     <>
       <Head>
         <title>Cold War Zombies Field Upgrades</title>
-        <link rel="manifest" href="/manifest.json" />
         <meta
           name="description"
           content="View all zombies field upgrades in Cold War."

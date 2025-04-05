@@ -34,7 +34,6 @@ export default function ModernWarfareThreeStreaks() {
     <>
       <Head>
         <title>Modern Warfare 3 Streaks</title>
-        <link rel="manifest" href="/manifest.json" />
         <meta
           name="description"
           content="View all streaks in Modern Warfare 3."

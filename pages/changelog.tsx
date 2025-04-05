@@ -12,7 +12,6 @@ export default function Changelog() {
     <>
       <Head>
         <title>Changelog - Call Of Duty Random Class Generator</title>
-        <link rel="manifest" href="/manifest.json" />
         <meta
           name="description"
           content="Stay up-to-date on the latest features, bug fixes, and improvements to our Call of Duty random class generator. See what's new and how we're making your loadout experience even better."

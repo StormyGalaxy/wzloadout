@@ -15,7 +15,6 @@ export default function Vanguard() {
     <>
       <Head>
         <title>Vanguard Random Class Generator</title>
-        <link rel="manifest" href="/manifest.json" />
         <meta
           name="description"
           content="Spice up your COD gameplay! Generate unique random loadouts for Call of Duty Vanguard. Discover new weapons, perks, and gear combinations."

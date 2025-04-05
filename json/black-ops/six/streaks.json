@@ -44,7 +44,7 @@
   {
     "name": "Napalm Strike",
     "type": "Streak",
-    "score": 900,
+    "score": 850,
     "game": "black-ops-six"
   },
   {
@@ -118,6 +118,13 @@
     "name": "War Machine",
     "type": "Streak",
     "score": 1300,
+    "game": "black-ops-six",
+    "isDlc": true
+  },
+  {
+    "name": "Death Machine",
+    "type": "Streak",
+    "score": 825,
     "game": "black-ops-six",
     "isDlc": true
   }

@@ -31,13 +31,12 @@ export default function VanguardWeapon() {
     setValue(valueParam);
 
     setIsLoading(false);
-  }, []);
+  }, [router]);
 
   return (
     <>
       <Head>
-        <title>Vanguard Weapon - {value}</title>
-        <link rel="manifest" href="/manifest.json" />
+        <title>{`Vanguard Weapon - ${value}`}</title>
         <meta
           name="description"
           content="View information for a weapon in Vanguard. View all attachments."

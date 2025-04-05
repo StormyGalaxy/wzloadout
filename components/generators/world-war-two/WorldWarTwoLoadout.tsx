@@ -158,14 +158,14 @@ async function fetchLoadoutData(setData) {
     const game = "world-war-two";
     const randClassName = fetchClassName();
     const division = fetchPerk("division");
-    let basic = fetchPerk("basic-training");
+    const basic = fetchPerk("basic-training");
     const secondaryNeedsAttach = basic === "Shifty" ? true : false;
     const isBlitzkrieg = basic === "Blitzkrieg" ? true : false;
     let streaks = fetchStreaks(game, isBlitzkrieg);
     let primAttactCount = division === "Infantry" ? 4 : 3;
     let secondaryAttactCount = division === "Infantry" ? 2 : 1;
 
-    let weapons = {
+    const weapons = {
       primary: {
         weapon: fetchWeapon("primary", game),
         attachments: "",
@@ -287,8 +287,12 @@ async function fetchLoadoutData(setData) {
       division,
       basic,
     });
-  } catch (error: any) {
-    console.error(error.message); // Handle errors centrally
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      console.error(error.message);
+    } else {
+      console.error("An unknown error occurred.");
+    }
   }
 }
 

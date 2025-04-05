@@ -32,7 +32,6 @@ export default function WorldWarTwoStreaks() {
     <>
       <Head>
         <title>World War Two Streaks</title>
-        <link rel="manifest" href="/manifest.json" />
         <meta name="description" content="View all streaks in World War Two." />
         <meta
           name="keywords"

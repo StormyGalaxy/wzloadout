@@ -15,7 +15,6 @@ export default function VanguardZombies() {
     <>
       <Head>
         <title>Vanguard Zombies Random Class Generator</title>
-        <link rel="manifest" href="/manifest.json" />
         <meta
           name="description"
           content="Spice up your COD Zombies gameplay! Generate unique random loadouts for Call of Duty Vanguard Zombies. Discover new weapons, perks, and gear combinations."

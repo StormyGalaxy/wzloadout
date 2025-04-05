@@ -30,7 +30,6 @@ export default function InfiniteWarfarePerks() {
     <>
       <Head>
         <title>Infinite Warfare Perks</title>
-        <link rel="manifest" href="/manifest.json" />
         <meta
           name="description"
           content="View all perks in Infinite Warfare."

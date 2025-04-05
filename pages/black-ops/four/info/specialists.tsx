@@ -35,7 +35,6 @@ export default function BlackOpsFourSpecialists() {
     <>
       <Head>
         <title>Black Ops 4 Specialists</title>
-        <link rel="manifest" href="/manifest.json" />
         <meta
           name="description"
           content="View all specialists in Black Ops 4."

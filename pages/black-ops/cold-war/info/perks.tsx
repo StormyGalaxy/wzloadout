@@ -34,7 +34,6 @@ export default function ColdWarPerks() {
     <>
       <Head>
         <title>Cold War Perks</title>
-        <link rel="manifest" href="/manifest.json" />
         <meta name="description" content="View all perks in Cold War." />
         <meta
           name="keywords"

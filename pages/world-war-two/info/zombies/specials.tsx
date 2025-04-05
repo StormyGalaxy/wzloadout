@@ -32,7 +32,6 @@ export default function WorldWarTwoZombiesArtifacts() {
     <>
       <Head>
         <title>World War Two Zombies Specials</title>
-        <link rel="manifest" href="/manifest.json" />
         <meta
           name="description"
           content="View all zombies specials in World War Two."

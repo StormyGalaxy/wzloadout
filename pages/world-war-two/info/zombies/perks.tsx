@@ -31,7 +31,6 @@ export default function WorldWarTwoPerks() {
     <>
       <Head>
         <title>World War Two Zombies Perks</title>
-        <link rel="manifest" href="/manifest.json" />
         <meta
           name="description"
           content="View all perks in World War Two Zombies."

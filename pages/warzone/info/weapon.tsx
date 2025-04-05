@@ -31,13 +31,12 @@ export default function WarzoneWeapon() {
     setValue(valueParam);
 
     setIsLoading(false);
-  }, []);
+  }, [router]);
 
   return (
     <>
       <Head>
-        <title>Warzone Weapon - {value}</title>
-        <link rel="manifest" href="/manifest.json" />
+        <title>{`Warzone Weapon - ${value}`}</title>
         <meta
           name="description"
           content="View information for a weapon in Warzone. View all attachments."

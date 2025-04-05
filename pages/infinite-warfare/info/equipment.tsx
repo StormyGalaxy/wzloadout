@@ -30,7 +30,6 @@ export default function InfiniteWarfareEquipment() {
     <>
       <Head>
         <title>Infinite Warfare Equipment</title>
-        <link rel="manifest" href="/manifest.json" />
         <meta
           name="description"
           content="View all equipment in Infinite Warfare."

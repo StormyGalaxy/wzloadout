@@ -43,7 +43,6 @@ export default function BlackOpsSixWeapons() {
     <>
       <Head>
         <title>Black Ops 6 Weapons</title>
-        <link rel="manifest" href="/manifest.json" />
         <meta
           name="description"
           content="View information for weapons in Black Ops 6. View all attachments."

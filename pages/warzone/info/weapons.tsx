@@ -50,7 +50,6 @@ export default function WarzoneWeapons() {
     <>
       <Head>
         <title>Warzone Weapons</title>
-        <link rel="manifest" href="/manifest.json" />
         <meta
           name="description"
           content="View information for weapons in Warzone. View all attachments."

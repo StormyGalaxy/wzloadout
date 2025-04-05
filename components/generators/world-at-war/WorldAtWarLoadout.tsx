@@ -79,14 +79,23 @@ function WorldAtWarLoadoutLoadout() {
             <SimpleGeneratorView
               isGenerating={isGenerating}
               title="Primary Grenade"
-              value={lethalMap[perkObj.perk1] || (perkObj.perk1 === "2x Primary Grenades" ? `${equipment.lethal.name} x2` : equipment.lethal.name)}
+              value={
+                lethalMap[perkObj.perk1] ||
+                (perkObj.perk1 === "2x Primary Grenades"
+                  ? `${equipment.lethal.name} x2`
+                  : equipment.lethal.name)
+              }
             />
           </Col>
           <Col sm className="text-center mb-3 mb-md-0">
             <SimpleGeneratorView
               isGenerating={isGenerating}
               title="Special Grenade"
-              value={perkObj.perk1 === "3x Special Grenades" ? "Smoke x3" : equipment.tactical.name}
+              value={
+                perkObj.perk1 === "3x Special Grenades"
+                  ? "Smoke x3"
+                  : equipment.tactical.name
+              }
             />
           </Col>
         </Row>
@@ -139,8 +148,8 @@ function WorldAtWarLoadoutLoadout() {
 
 const lethalMap = {
   "2x Satchel Charge": "Satchel Charge x2",
-  "2x Bouncing Betty": "Bouncing Betty x2"
-}
+  "2x Bouncing Betty": "Bouncing Betty x2",
+};
 
 async function fetchLoadoutData(setData) {
   sendEvent("button_click", {
@@ -159,12 +168,12 @@ async function fetchLoadoutData(setData) {
       vehiclePerk: fetchPerk("vehicle-perk"),
     };
 
-    let equipment = {
+    const equipment = {
       tactical: fetchEquipment("tactical", game),
       lethal: fetchEquipment("lethal", game),
     };
 
-    let weapons = {
+    const weapons = {
       primary: {
         weapon: fetchWeapon("primary", game),
         attachments: "",
@@ -172,7 +181,7 @@ async function fetchLoadoutData(setData) {
       secondary: {
         weapon: fetchWeapon("secondary", game),
         attachments: "",
-      }
+      },
     };
 
     weapons.primary.attachments = implodeObject(
@@ -193,8 +202,12 @@ async function fetchLoadoutData(setData) {
       weapons,
       equipment,
     });
-  } catch (error: any) {
-    console.error(error.message); // Handle errors centrally
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      console.error(error.message);
+    } else {
+      console.error("An unknown error occurred.");
+    }
   }
 }
 

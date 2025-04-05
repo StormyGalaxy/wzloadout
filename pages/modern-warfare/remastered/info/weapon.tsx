@@ -33,13 +33,12 @@ export default function ModernWarfareRemasteredWeapon() {
     setValue(valueParam);
 
     setIsLoading(false);
-  }, []);
+  }, [router]);
 
   return (
     <>
       <Head>
-        <title>Modern Warfare Remastered Weapon - {value}</title>
-        <link rel="manifest" href="/manifest.json" />
+        <title>{`Modern Warfare Remastered Weapon - ${value}`}</title>
         <meta
           name="description"
           content="View information for a weapon in Modern Warfare Remastered. View all attachments."

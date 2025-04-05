@@ -30,13 +30,12 @@ export default function InfiniteWarfareWeapon() {
     setValue(valueParam);
 
     setIsLoading(false);
-  }, []);
+  }, [router]);
 
   return (
     <>
       <Head>
-        <title>Infinite Warfare Weapon - {value}</title>
-        <link rel="manifest" href="/manifest.json" />
+        <title>{`Infinite Warfare Weapon - ${value}`}</title>
         <meta
           name="description"
           content="View information for a weapon in Infinite Warfare. View all attachments."

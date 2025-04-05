@@ -59,5 +59,12 @@
     "game": "black-ops-six",
     "no_attach": true,
     "isDlc": true
+  },
+  {
+    "name": "Kali Sticks",
+    "type": "melee",
+    "game": "black-ops-six",
+    "no_attach": true,
+    "isDlc": true
   }
 ]

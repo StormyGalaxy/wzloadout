@@ -16,7 +16,6 @@ export default function WorldWarTwo() {
     <>
       <Head>
         <title>World War 2 Random Class Generator</title>
-        <link rel="manifest" href="/manifest.json" />
         <meta
           name="description"
           content="Spice up your COD gameplay! Generate unique random loadouts for Call of Duty World War 2. Discover new weapons, perks, and gear combinations."

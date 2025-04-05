@@ -34,13 +34,12 @@ export default function ModernWarfareThreeWeapon() {
     setValue(valueParam);
 
     setIsLoading(false);
-  }, []);
+  }, [router]);
 
   return (
     <>
       <Head>
-        <title>Modern Warfare 3 Weapon - {value}</title>
-        <link rel="manifest" href="/manifest.json" />
+        <title>{`Modern Warfare 3 Weapon - ${value}`}</title>
         <meta
           name="description"
           content="View information for a weapon in Modern Warfare 3. View all attachments."

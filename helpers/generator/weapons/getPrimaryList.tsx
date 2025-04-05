@@ -18,12 +18,13 @@ import ww2ZombieList from "@/json/world-war-two/zombies/weapon.json";
 import iwList from "@/json/infinite-warfare/weapon/primary.json";
 import wawList from "@/json/world-at-war/weapon/primary.json";
 
-const primaryWeapons: Record<string, any> = {
+const weapons: Record<string, any> = {
   // warzone: mergeObjectsWithRekey(bo6List, mw3List, mw2List),
   warzone: mergeObjectsWithRekey(bo6List, mw3List),
   "black-ops-six": bo6List,
   // "modern-warfare-three": mergeObjectsWithRekey(mw2RiotList, mw3List, mw2List),
   "modern-warfare-three": mergeObjectsWithRekey(mw2RiotList, mw3List),
+  "modern-warfare-three-wz": mw3List,
   "modern-warfare-two": mw2List,
   vanguard: vanguardList,
   "cold-war": coldWarList,
@@ -40,5 +41,11 @@ const primaryWeapons: Record<string, any> = {
 };
 
 export function getPrimaryList(game: string): any {
-  return primaryWeapons[game] || {};
+  if (game.includes(",")) {
+    const gameList = game.split(",").map((g) => g.trim());
+    const weaponLists = gameList.map((g) => weapons[g] || {});
+    return mergeObjectsWithRekey(...weaponLists);
+  } else {
+    return weapons[game] || {};
+  }
 }

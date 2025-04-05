@@ -40,5 +40,12 @@
     "type": "Perk 1",
     "game": "black-ops-six",
     "color": "Green"
+  },
+  {
+    "name": "Close Shave",
+    "type": "Perk 1",
+    "game": "black-ops-six",
+    "color": "Red",
+    "isDlc": true
   }
 ]

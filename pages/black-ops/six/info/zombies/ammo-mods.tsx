@@ -31,7 +31,6 @@ export default function BlackOpsSixZombiesAmmoMods() {
     <>
       <Head>
         <title>Black Ops 6 Zombies Ammo Mods</title>
-        <link rel="manifest" href="/manifest.json" />
         <meta
           name="description"
           content="View all zombies ammo mods in Black Ops 6."

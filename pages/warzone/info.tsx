@@ -38,7 +38,6 @@ export default function WarzoneInfo() {
     <>
       <Head>
         <title>Warzone Loadout Information</title>
-        <link rel="manifest" href="/manifest.json" />
         <meta
           name="description"
           content="Loadout Information for Warzone. Checkout all the weapons, perks, equipment, wildcards."

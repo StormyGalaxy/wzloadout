@@ -15,7 +15,7 @@ import ww2MeleeList from "@/json/world-war-two/weapon/melee.json";
 import iwList from "@/json/infinite-warfare/weapon/secondary.json";
 import wawList from "@/json/world-at-war/weapon/side_arm.json";
 
-const secondaryWeapons: Record<string, any> = {
+const weapons: Record<string, any> = {
   warzone: mergeObjectsWithRekey(bo6List, mw3List),
   "black-ops-six": bo6List,
   // "modern-warfare-three": mergeObjectsWithRekey(
@@ -24,6 +24,7 @@ const secondaryWeapons: Record<string, any> = {
   //   mw3MeleeList,
   //   mw2MeleeList
   // ),
+  "modern-warfare-three-wz": mw3List,
   "modern-warfare-three": mergeObjectsWithRekey(
     mw3List,
     mw3MeleeList,
@@ -39,7 +40,12 @@ const secondaryWeapons: Record<string, any> = {
   "infinite-warfare": iwList,
   "world-at-war": wawList,
 };
-
 export function getSecondaryList(game: string): any {
-  return secondaryWeapons[game] || {};
+  if (game.includes(",")) {
+    const gameList = game.split(",").map((g) => g.trim());
+    const weaponLists = gameList.map((g) => weapons[g] || {});
+    return mergeObjectsWithRekey(...weaponLists);
+  } else {
+    return weapons[game] || {};
+  }
 }

@@ -14,7 +14,6 @@ export default function BlackOpsThree() {
     <>
       <Head>
         <title>Black Ops 3 Random Class Generator</title>
-        <link rel="manifest" href="/manifest.json" />
         <meta
           name="description"
           content="Spice up your COD gameplay! Generate unique random loadouts for Black Ops 3. Discover new weapons, perks, and gear combinations."

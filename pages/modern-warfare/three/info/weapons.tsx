@@ -46,7 +46,6 @@ export default function ModernWarfareThreeWeapons() {
     <>
       <Head>
         <title>Modern Warfare 3 Weapons</title>
-        <link rel="manifest" href="/manifest.json" />
         <meta
           name="description"
           content="View information for weapons in Modern Warfare 3. View all attachments."

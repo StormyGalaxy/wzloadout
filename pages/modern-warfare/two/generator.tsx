@@ -14,7 +14,6 @@ export default function ModernWarfareTwo() {
     <>
       <Head>
         <title>Modern Warfare 2 Random Class Generator</title>
-        <link rel="manifest" href="/manifest.json" />
         <meta
           name="description"
           content="Spice up your COD gameplay! Generate unique random loadouts for Modern Warfare 2. Discover new weapons, perks, and gear combinations."

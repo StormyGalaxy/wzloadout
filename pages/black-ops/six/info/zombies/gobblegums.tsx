@@ -31,7 +31,6 @@ export default function BlackOpsSixZombiesGobblegums() {
     <>
       <Head>
         <title>Black Ops 6 Zombies Gobblegums</title>
-        <link rel="manifest" href="/manifest.json" />
         <meta
           name="description"
           content="View all zombies gobblegums in Black Ops 6."

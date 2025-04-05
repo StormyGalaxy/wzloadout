@@ -31,7 +31,6 @@ export default function WarzonePerks() {
     <>
       <Head>
         <title>Warzone Perks</title>
-        <link rel="manifest" href="/manifest.json" />
         <meta name="description" content="View all perks in Warzone." />
         <meta
           name="keywords"

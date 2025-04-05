@@ -40,5 +40,11 @@
     "type": "Legendary",
     "game": "black-ops-six",
     "isDlc": true
+  },
+  {
+    "name": "Support Group",
+    "type": "Legendary",
+    "game": "black-ops-six",
+    "isDlc": true
   }
 ]

@@ -30,7 +30,6 @@ export default function ModernWarfareTwoStreaks() {
     <>
       <Head>
         <title>Modern Warfare 2 Streaks</title>
-        <link rel="manifest" href="/manifest.json" />
         <meta
           name="description"
           content="View all streaks in Modern Warfare 2."

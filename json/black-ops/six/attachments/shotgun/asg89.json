@@ -18,7 +18,13 @@
     "K&S Thermal Holo",
     "Pinpoint Hybrid"
   ],
-  "muzzle": ["Suppressor", "Full Choke", "Modified Choke", "Muzzle Brake"],
+  "muzzle": [
+    "Suppressor",
+    "Full Choke",
+    "Modified Choke",
+    "Muzzle Brake",
+    "Monolithic Suppressor"
+  ],
   "barrel": [
     "Gain-Twist Barrel",
     "Long Barrel",

@@ -19,7 +19,6 @@ export default function BlackOpsFour() {
     <>
       <Head>
         <title>Black Ops 4 Random Class Generator</title>
-        <link rel="manifest" href="/manifest.json" />
         <meta
           name="description"
           content="Spice up your COD gameplay! Generate unique random loadouts for Black Ops 4. Discover new weapons, perks, and gear combinations."

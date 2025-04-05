@@ -52,7 +52,6 @@ export default function ModernWarfareRemasteredWeapons() {
     <>
       <Head>
         <title>Modern Warfare Remastered Weapons</title>
-        <link rel="manifest" href="/manifest.json" />
         <meta
           name="description"
           content="View information for weapons in Modern Warfare Remastered. View all attachments."

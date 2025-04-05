@@ -25,7 +25,13 @@
     "Otero Thermal 2x",
     "Thermal 6x"
   ],
-  "muzzle": ["Suppressor", "Compensator", "Ported Compensator", "Muzzle Brake"],
+  "muzzle": [
+    "Suppressor",
+    "Compensator",
+    "Ported Compensator",
+    "Muzzle Brake",
+    "Monolithic Suppressor"
+  ],
   "barrel": [
     "Gain-Twist Barrel",
     "Long Barrel",
@@ -71,6 +77,7 @@
     "Rapid Fire",
     "5.56 NATO Overpressured",
     "Recoil Springs",
-    "5.56 NATO FMJ"
+    "5.56 NATO FMJ",
+    "Swat 5.56 Grau Conversion"
   ]
 }

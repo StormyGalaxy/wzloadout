@@ -35,10 +35,12 @@ function CustomSettingsSimple({ data, count }: CustomSettingsProps) {
         data.values[Math.floor(Math.random() * data.values.length)];
 
       setValue(tmpValue);
+    } else {
+      setValue(data.default);
     }
 
     setIsLoading(true);
-  }, [count]);
+  }, [count, data]);
 
   return (
     isLoading && (

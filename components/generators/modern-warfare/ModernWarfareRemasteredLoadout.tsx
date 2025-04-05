@@ -152,11 +152,11 @@ async function fetchLoadoutData(setData) {
       perk2: fetchPerk("perk2"),
       perk3: fetchPerk("perk3"),
     };
-    let equipment = {
+    const equipment = {
       tactical: fetchEquipment("tactical", game),
     };
 
-    let weapons = {
+    const weapons = {
       primary: {
         weapon: fetchWeapon("primary", game),
         attachments: "",
@@ -193,8 +193,12 @@ async function fetchLoadoutData(setData) {
       weapons,
       equipment,
     });
-  } catch (error: any) {
-    console.error(error.message); // Handle errors centrally
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      console.error(error.message);
+    } else {
+      console.error("An unknown error occurred.");
+    }
   }
 }
 

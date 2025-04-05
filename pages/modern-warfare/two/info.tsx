@@ -37,7 +37,6 @@ export default function ModernWarfareTwoInfo() {
     <>
       <Head>
         <title>Modern Warfare 2 Loadout Information</title>
-        <link rel="manifest" href="/manifest.json" />
         <meta
           name="description"
           content="Loadout Information for Modern Warfare 2 (2022). Checkout all the weapons, vests, perks, equipment, field upgrades, and streaks."

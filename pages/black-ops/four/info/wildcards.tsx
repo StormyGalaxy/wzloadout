@@ -35,7 +35,6 @@ export default function BlackOpsFourWildcards() {
     <>
       <Head>
         <title>Black Ops 4 Wildcards</title>
-        <link rel="manifest" href="/manifest.json" />
         <meta name="description" content="View all wildcards in Black Ops 4." />
         <meta
           name="keywords"

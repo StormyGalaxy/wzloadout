@@ -31,7 +31,6 @@ export default function VanguardStreaks() {
     <>
       <Head>
         <title>Vanguard Streaks</title>
-        <link rel="manifest" href="/manifest.json" />
         <meta name="description" content="View all streaks in Vanguard." />
         <meta
           name="keywords"

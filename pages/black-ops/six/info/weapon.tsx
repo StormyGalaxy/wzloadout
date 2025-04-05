@@ -31,13 +31,12 @@ export default function BlackOpsSixWeapon() {
     setValue(valueParam);
 
     setIsLoading(false);
-  }, []);
+  }, [router]);
 
   return (
     <>
       <Head>
-        <title>Black Ops 6 Weapon - {value}</title>
-        <link rel="manifest" href="/manifest.json" />
+        <title>{`Black Ops 6 Weapon - ${value}`}</title>
         <meta
           name="description"
           content="View information for a weapon in Black Ops 6. View all attachments."

@@ -33,7 +33,6 @@ export default function WorldAtWarEquipment() {
     <>
       <Head>
         <title>World At War Equipment</title>
-        <link rel="manifest" href="/manifest.json" />
         <meta
           name="description"
           content="View all equipment in World At War."

@@ -31,7 +31,6 @@ export default function BlackOpsSixZombiesArtifacts() {
     <>
       <Head>
         <title>Black Ops 6 Zombies Field Upgrades</title>
-        <link rel="manifest" href="/manifest.json" />
         <meta
           name="description"
           content="View all zombies field upgrades in Black Ops 6."
