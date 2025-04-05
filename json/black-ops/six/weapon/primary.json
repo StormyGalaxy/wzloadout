@@ -183,5 +183,11 @@
     "type": "assault_rifle",
     "game": "black-ops-six",
     "isDlc": true
+  },
+  {
+    "name": "HDR",
+    "type": "sniper",
+    "game": "black-ops-six",
+    "isDlc": true
   }
 ]

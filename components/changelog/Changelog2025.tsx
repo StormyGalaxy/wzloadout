@@ -11,7 +11,7 @@ function Changelog2025() {
           </p>
           <p>
             4/05/2025: <a href="black-ops/six/generator">Black Ops VI:</a> Added
-            new Kilo 141, CR-56 Amax
+            new Kilo 141, CR-56 Amax, HDR
           </p>
           <p>
             3/02/2025: Updated our site to leverage our powerful framework{" "}
