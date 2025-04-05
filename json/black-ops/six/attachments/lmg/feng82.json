@@ -24,7 +24,13 @@
     "Redwell Custom Zoom",
     "Otero Thermal 2x"
   ],
-  "muzzle": ["Suppressor", "Compensator", "Muzzle Brake", "Ported Compensator"],
+  "muzzle": [
+    "Suppressor",
+    "Compensator",
+    "Muzzle Brake",
+    "Ported Compensator",
+    "Monolithic Suppressor"
+  ],
   "barrel": [
     "Gain-Twist Barrel",
     "Long Barrel",

@@ -26,7 +26,13 @@
     "Thermal 6x",
     "SVD Scope"
   ],
-  "muzzle": ["Suppressor", "Compensator", "Ported Compensator", "Muzzle Brake"],
+  "muzzle": [
+    "Suppressor",
+    "Compensator",
+    "Ported Compensator",
+    "Muzzle Brake",
+    "Monolithic Suppressor"
+  ],
   "barrel": [
     "Gain-Twist Barrel",
     "Long Barrel",

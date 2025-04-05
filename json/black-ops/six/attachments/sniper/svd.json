@@ -23,7 +23,13 @@
     "Otero Thermal 2x",
     "Thermal 6x"
   ],
-  "muzzle": ["Suppressor", "Compensator", "Muzzle Brake", "Ported Compensator"],
+  "muzzle": [
+    "Suppressor",
+    "Compensator",
+    "Muzzle Brake",
+    "Ported Compensator",
+    "Monolithic Suppressor"
+  ],
   "barrel": [
     "Gain-Twist Barrel",
     "Long Barrel",

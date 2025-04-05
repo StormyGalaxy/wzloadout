@@ -27,7 +27,13 @@
     "Otero Thermal 2x",
     "Hawker Hybrid"
   ],
-  "muzzle": ["Suppressor", "Compensator", "Ported Compensator", "Muzzle Brake"],
+  "muzzle": [
+    "Suppressor",
+    "Compensator",
+    "Ported Compensator",
+    "Muzzle Brake",
+    "Monolithic Suppressor"
+  ],
   "barrel": [
     "Gain-Twist Barrel",
     "Long Barrel",

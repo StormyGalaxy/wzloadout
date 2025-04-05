@@ -1,9 +1,15 @@
 {
   "optic": [
+    "Remuda Mini Reflex",
+    "Otero Micro Dot",
     "Kepler Microflex",
+    "Merlin Mini",
     "PrismaTech Reflex",
     "Volzhskiy Reflex",
+    "Merlin Reflex",
     "Redwell Reflex",
+    "Dobrych MF Reflex",
+    "Accu-Spot Reflex",
     "K&S Red Dot",
     "Kepler Red Dot",
     "Otero Red Dot",
@@ -14,16 +20,12 @@
     "Willis 3x",
     "PrismaTech 4x",
     "Dobrych 4x",
-    "K&S Thermal Holo",
     "Pinpoint Hybrid",
     "PrismaPoint Hybrid",
     "R&K Multizoom",
-    "Remuda Range Finder",
-    "Remuda Dual Zoom",
-    "VMF Variable Scope",
-    "Redwell Custom Zoom",
+    "Blandwell 7x Scope",
     "Otero Thermal 2x",
-    "Thermal 6x"
+    "Hawker Hybrid"
   ],
   "muzzle": [
     "Suppressor",
@@ -51,7 +53,12 @@
     "Launcher - Drill Charge",
     "Crossbow"
   ],
-  "magazine": ["Extended Mag I", "Fast Mag I", "Extended Mag II", "Flip Mag"],
+  "magazine": [
+    "Extended Mag I",
+    "Flip Mag",
+    "Extended Mag II",
+    "Extended Mag III"
+  ],
   "rear_grip": [
     "Quickdraw Grip",
     "Assault Grip",
@@ -60,7 +67,7 @@
     "CQB Grip"
   ],
   "stock": [
-    "Light Stock",
+    "No Stock",
     "Infiltrator Stock",
     "Heavy Stock",
     "Balanced Stock",
@@ -75,8 +82,8 @@
   ],
   "fire_mods": [
     "Rapid Fire",
-    "5.56 NATO Overpressured",
+    "5.56 Nato Overpressured",
     "Recoil Springs",
-    "5.56 NATO FMJ"
+    "5.56 Nato FMJ"
   ]
 }

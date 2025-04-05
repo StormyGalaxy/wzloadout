@@ -171,5 +171,17 @@
     "type": "marksman_rifle",
     "game": "black-ops-six",
     "isDlc": true
+  },
+  {
+    "name": "Kilo 141",
+    "type": "assault_rifle",
+    "game": "black-ops-six",
+    "isDlc": true
+  },
+  {
+    "name": "CR-56 Amax",
+    "type": "assault_rifle",
+    "game": "black-ops-six",
+    "isDlc": true
   }
 ]
