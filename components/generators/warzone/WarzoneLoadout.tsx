@@ -154,7 +154,6 @@ async function fetchLoadoutData(setData, settings) {
   });
 
   try {
-    console.clear();
     const game = "warzone";
     const randClassName = fetchClassName();
     const wildcard = fetchWildcard(game);

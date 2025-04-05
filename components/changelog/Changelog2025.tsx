@@ -13,7 +13,7 @@ function Changelog2025() {
           <p>
             4/05/2025:{" "}
             <a href="black-ops/six/zombies-generator">Black Ops VI Zombies:</a>{" "}
-            Added season 03 gobblegums &amp; and double tap augments
+            Added season 03 gobblegums &amp; double tap augments
           </p>
           <p>
             4/05/2025: <a href="black-ops/six/generator">Black Ops VI:</a> Added
@@ -147,7 +147,7 @@ function Changelog2025() {
           <p>
             1/28/2024:{" "}
             <a href="black-ops/six/zombies-generator">Black Ops VI Zombies:</a>{" "}
-            Added season 02 gobblegums &amp; and death perception augments
+            Added season 02 gobblegums &amp; death perception augments
           </p>
           <p>
             1/24/2025: <a href="warzone/info">Warzone Generator Information</a>
