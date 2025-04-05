@@ -17,6 +17,7 @@ import { sendEvent } from "@/utils/gtag";
 import area99Spots from "@/json/warzone/drop_spots/area99.json";
 import rebirthIslandSpots from "@/json/warzone/drop_spots/rebirth_island.json";
 import urzikstanSpots from "@/json/warzone/drop_spots/urzikstan.json";
+import verdanskSpots from "@/json/warzone/drop_spots/verdansk.json";
 
 const defaultSettings: WarzoneDropSpotSettings = {
   warzoneMap: "urzikstan",
@@ -34,6 +35,10 @@ const mapInfo = {
   rebirth_island: {
     name: "Rebirth Island",
     dropSpots: rebirthIslandSpots,
+  },
+  verdansk: {
+    name: "Verdansk",
+    dropSpots: verdanskSpots,
   },
 };
 

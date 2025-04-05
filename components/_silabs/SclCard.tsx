@@ -1,4 +1,5 @@
 import { Card, Button } from "react-bootstrap";
+import Link from "next/link";
 
 type CardProps = {
   title: string;
@@ -23,15 +24,26 @@ function SclCard(props: CardProps) {
         <Card.Text className="mb-3">{props.text}</Card.Text>
         <div className="d-grid gap-2 mt-auto">
           {props.buttons.map((button, index) => (
-            <Button
-              key={index}
-              variant={props.variant}
-              href={button.link}
-              size="sm"
-              disabled={button.disabled}
-            >
-              {button.btnText}
-            </Button>
+            <Link href={button.link} passHref>
+              <Button
+                key={index}
+                variant={props.variant}
+                size="sm"
+                disabled={button.disabled}
+                className="w-100"
+              >
+                {button.btnText}
+              </Button>
+            </Link>
+            // <Button
+            //   key={index}
+            //   variant={props.variant}
+            //   href={button.link}
+            //   size="sm"
+            //   disabled={button.disabled}
+            // >
+            //   {button.btnText}
+            // </Button>
           ))}
         </div>
       </Card.Body>

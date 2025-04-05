@@ -8,6 +8,13 @@ function Changelog2025() {
         <Col>
           <p>
             4/05/2025:{" "}
+            <Link href="warzone/where-we-droppin">
+              Warzone - Where We Droppin?
+            </Link>{" "}
+            Added Verdansk!
+          </p>
+          <p>
+            4/05/2025:{" "}
             <Link href="black-ops/six/zombies-generator">
               Black Ops VI Zombies:
             </Link>{" "}
