@@ -6,6 +6,16 @@ function Changelog2025() {
       <Row>
         <Col>
           <p>
+            4/05/2025:{" "}
+            <a href="black-ops/six/zombies-generator">Black Ops VI Zombies:</a>{" "}
+            Added Shattered Veil
+          </p>
+          <p>
+            4/05/2025:{" "}
+            <a href="black-ops/six/zombies-generator">Black Ops VI Zombies:</a>{" "}
+            Added season 03 gobblegums &amp; and double tap augments
+          </p>
+          <p>
             4/05/2025: <a href="black-ops/six/generator">Black Ops VI:</a> Added
             Death Machine Streak
           </p>

@@ -20,5 +20,11 @@
     "type": "Map",
     "game": "black-ops-six",
     "isDlc": true
+  },
+  {
+    "name": "Shattered Veil",
+    "type": "Map",
+    "game": "black-ops-six",
+    "isDlc": true
   }
 ]

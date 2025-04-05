@@ -21,5 +21,11 @@
     "type": "Whimsical",
     "game": "black-ops-six",
     "isDlc": true
+  },
+  {
+    "name": "Die Pitched",
+    "type": "Whimsical",
+    "game": "black-ops-six",
+    "isDlc": true
   }
 ]
