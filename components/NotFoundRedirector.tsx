@@ -21,7 +21,7 @@ export default function NotFoundRedirector() {
                 router.replace(newPath);
             }
         }
-    }, []);
+    }, [router]);
 
     return null;
 }
