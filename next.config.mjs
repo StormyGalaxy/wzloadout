@@ -7,7 +7,6 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  // Webpack function completely removed
 };
 
 export default nextConfig;

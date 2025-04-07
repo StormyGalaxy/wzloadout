@@ -12,49 +12,50 @@ import GoogleAnalytics from "@/components/_silabs/GoogleAnalytics";
 const GA_TRACKING_ID = process.env.NEXT_PUBLIC_APP_GA_TRACKING_ID;
 const APP_NAME = process.env.NEXT_PUBLIC_APP_NAME || "SiloCityPages";
 const APP_DESC = process.env.NEXT_PUBLIC_APP_DESC || "Default description";
-const APP_KEYWORDS = process.env.NEXT_PUBLIC_APP_KEYWORDS || "default, keywords";
+const APP_KEYWORDS =
+  process.env.NEXT_PUBLIC_APP_KEYWORDS || "default, keywords";
 
 // --- Metadata ---
 // Define static metadata for the entire application
 export const metadata: Metadata = {
-    title: {
-        default: APP_NAME,
-        template: `%s | ${APP_NAME}`, // Example: "About | SiloCityPages"
-    },
-    description: APP_DESC,
-    keywords: APP_KEYWORDS?.split(",").map((k) => k.trim()),
-    manifest: "/manifest.json",
+  title: {
+    default: APP_NAME,
+    template: `%s | ${APP_NAME}`, // Example: "About | SiloCityPages"
+  },
+  description: APP_DESC,
+  keywords: APP_KEYWORDS?.split(",").map((k) => k.trim()),
+  manifest: "/manifest.json",
 };
 
 // --- Viewport ---
 export const viewport: Viewport = {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 1,
-    // themeColor: "#ffffff", // Optional: Add theme color
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  // themeColor: "#ffffff", // Optional: Add theme color
 };
 
 // Setup a font (example using Inter)
 const inter = Inter({ subsets: ["latin"] });
 
 export default function RootLayout({
-    children,
+  children,
 }: Readonly<{
-    children: React.ReactNode;
+  children: React.ReactNode;
 }>) {
-    return (
-        <html lang="en">
-            {GA_TRACKING_ID && <GoogleAnalytics gaId={GA_TRACKING_ID} />}
+  return (
+    <html lang="en">
+      {GA_TRACKING_ID && <GoogleAnalytics gaId={GA_TRACKING_ID} />}
 
-            <body className={inter.className}>
-                <div className="main-container">
-                    <Header />
-                    <main className="main-content">
-                        {children} {/* Page content */}
-                    </main>
-                    <Footer />
-                </div>
-            </body>
-        </html>
-    );
+      <body className={inter.className}>
+        <div className="main-container">
+          <Header />
+          <main className="main-content">
+            {children} {/* Page content */}
+          </main>
+          <Footer />
+        </div>
+      </body>
+    </html>
+  );
 }
