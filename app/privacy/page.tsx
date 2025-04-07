@@ -1,41 +1,33 @@
 import type { Metadata } from 'next';
-import Link from 'next/link'; // Keep Link for internal navigation
+import Link from 'next/link';
 import { Container, Row, Col } from 'react-bootstrap';
 
-// Define metadata for this specific page (replaces <Head>)
 export const metadata: Metadata = {
     title: 'Privacy Policy',
-    description: 'Privacy policy outlining how Techreanimate collects, uses, maintains and discloses user information.', // More specific description
-    keywords: ['privacy policy', 'data collection', 'user data', 'cookies', 'techreanimate'], // Add relevant keywords
+    description: 'Privacy policy outlining how Techreanimate collects, uses, maintains and discloses user information.',
+    keywords: ['privacy policy', 'data collection', 'user data', 'cookies', 'techreanimate'],
 };
 
-// Page component (Server Component by default)
 export default function PrivacyPage() {
-    // Layout components (Header/Footer) and wrappers (main-container) are handled by app/layout.tsx
-
-    // Access environment variable directly in Server Components
-    const appUrl = process.env.NEXT_PUBLIC_APP_URL || ''; // Use fallback
+    const appUrl = process.env.NEXT_PUBLIC_APP_URL || '';
 
     return (
-        <Container className="main-content py-3 py-md-5" fluid> {/* Added padding */}
+        <Container className="main-content py-3 py-md-5" fluid>
             <Row>
                 <Col>
-                    {/* Container for the main privacy policy box */}
                     <Container
                         id="privacy-policy-content-wrapper"
-                        className="shadow-lg p-3 p-md-4 mb-5 bg-body rounded" // Added responsive padding
+                        className="shadow-lg p-3 p-md-4 mb-5 bg-body rounded"
                     >
                         <Row className="justify-content-md-center">
-                            {/* Constrain width for better readability */}
                             <Col lg={9} xl={8}>
                                 <h1 className="text-center mb-4">Privacy Policy</h1>
                                 <hr className="mb-4" />
 
-                                <p className="lead mb-4"> {/* Added lead class */}
+                                <p className="lead mb-4">
                                     This Privacy Policy governs the manner in which Techreanimate
                                     collects, uses, maintains and discloses information collected
                                     from users (each, a &quot;User&quot;) of the{' '}
-                                    {/* Use a standard anchor tag if appUrl is an external/absolute URL */}
                                     <a href={appUrl} target="_blank" rel="noopener noreferrer">
                                         {appUrl}
                                     </a>{' '}
@@ -64,9 +56,8 @@ export default function PrivacyPage() {
                                         Any of the information we collect from you may be used in one
                                         of the following ways:
                                     </p>
-                                    {/* Using Bootstrap list classes for potentially better styling */}
                                     <ul className="list-group list-group-flush mt-3 mb-3">
-                                        <li className="list-group-item ps-0"> {/* Removed padding start */}
+                                        <li className="list-group-item ps-0">
                                             <strong>To personalize your experience:</strong> Your
                                             information helps us to better respond to your individual
                                             needs.
@@ -143,7 +134,6 @@ export default function PrivacyPage() {
                                         site interaction so that we can offer better site experiences
                                         and tools in the future.
                                     </p>
-                                    {/* Removed shopping cart specific cookie example unless applicable */}
                                 </section>
 
                                 <section className="mt-4">
@@ -183,7 +173,6 @@ export default function PrivacyPage() {
                                         Privacy Protection Act. We therefore will not distribute your
                                         personal information to outside parties without your consent.
                                     </p>
-                                    {/* Removed the 'My Account' part unless you actually have that feature */}
                                 </section>
 
                                 <section className="mt-4">
@@ -211,7 +200,7 @@ export default function PrivacyPage() {
                                         Please also visit our Terms and Conditions section establishing
                                         the use, disclaimers, and limitations of liability governing
                                         the use of our website at{' '}
-                                        <Link href="/terms">Terms and Conditions</Link>. {/* Use Link for internal /terms route */}
+                                        <Link href="/terms">Terms and Conditions</Link>.
                                     </p>
                                 </section>
 
@@ -234,17 +223,13 @@ export default function PrivacyPage() {
                                     </p>
                                 </section>
 
-                                <section className="mt-5 border-top pt-4"> {/* Add separator */}
+                                <section className="mt-5 border-top pt-4">
                                     <h2>Contacting Us</h2>
                                     <p>
                                         If there are any questions regarding this privacy policy you may
                                         contact us.
                                     </p>
-                                    {/* Provide clearer contact info if possible */}
                                     <address className="mt-3">
-                                        {/* Example: */}
-                                        {/* Techreanimate */}
-                                        {/* info@techreanimate.com */}
                                         <abbr title="Phone">P:</abbr> 716-698-9236
                                     </address>
                                 </section>

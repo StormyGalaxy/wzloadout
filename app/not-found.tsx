@@ -1,17 +1,13 @@
-'use client'; // ** IMPORTANT: Make this a Client Component **
+'use client';
 
 import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation'; // Use App Router hook
+import { useRouter } from 'next/navigation';
 import { Container, Row, Col, Button, Spinner } from 'react-bootstrap';
 import Link from 'next/link';
 
-// Define your redirects here or import from JSON
 const redirects: Record<string, string> = {
     // Example: Key is the OLD path, Value is the NEW path
     "/old": "/new",
-    "/old-page": "/new-destination",
-    "/another-old": "/another-new",
-    // Add all your necessary redirects
 };
 
 // NOTE: You cannot export 'metadata' directly from a Client Component.

@@ -1,6 +1,5 @@
 import { Container, Row, Col } from "react-bootstrap";
 
-// This is now a Server Component by default (unless you add 'use client')
 export default function HomePage() {
     return (
         <Container className="main-content mt-3 mb-3">

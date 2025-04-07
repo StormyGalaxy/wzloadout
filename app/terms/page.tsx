@@ -1,36 +1,31 @@
-// app/terms/page.tsx
 import type { Metadata } from 'next';
-import { Container, Row, Col } from 'react-bootstrap'; // Keep Bootstrap imports
+import { Container, Row, Col } from 'react-bootstrap';
 
-// Define metadata for this specific page (replaces <Head>)
 export const metadata: Metadata = {
     title: 'Terms And Conditions',
-    description: 'This is the terms and conditions for using our website.', // Slightly improved description
-    keywords: ['terms and conditions', 'legal', 'privacy policy'], // Use an array for keywords
+    description: 'This is the terms and conditions for using our website.',
+    keywords: ['terms and conditions', 'legal', 'privacy policy'],
 };
 
 export default function TermsPage() {
     return (
-        // Container for the main content specific to this page
-        <Container className="main-content py-3 py-md-5" fluid> {/* Added padding top/bottom */}
+        <Container className="main-content py-3 py-md-5" fluid>
             <Row>
                 <Col>
-                    {/* Inner container for styling the terms box */}
                     <Container
-                        id="terms-content-wrapper" // Renamed ID slightly
-                        className="shadow-lg p-3 p-md-4 mb-5 bg-body rounded" // Added responsive padding
+                        id="terms-content-wrapper"
+                        className="shadow-lg p-3 p-md-4 mb-5 bg-body rounded"
                     >
                         <Row className="justify-content-md-center">
-                            {/* Limit width for readability */}
                             <Col lg={9} xl={8}>
-                                <div style={{ padding: '10px' }}> {/* Original inner padding div */}
-                                    <h1 className="text-center mb-4"> {/* Added margin bottom */}
+                                <div style={{ padding: '10px' }}>
+                                    <h1 className="text-center mb-4">
                                         Web Site Terms and Conditions of Use
                                     </h1>
-                                    <hr className="mb-4" /> {/* Added margin bottom */}
+                                    <hr className="mb-4" />
 
                                     {/* --- TERMS CONTENT --- */}
-                                    <section> {/* Use semantic sections */}
+                                    <section>
                                         <h3>1. Terms</h3>
                                         <p>
                                             By accessing this web site, you are agreeing to be bound
@@ -44,7 +39,7 @@ export default function TermsPage() {
                                         </p>
                                     </section>
 
-                                    <section className="mt-4"> {/* Added margin top */}
+                                    <section className="mt-4">
                                         <h3>2. Use License</h3>
                                         <ol type="a">
                                             <li>
@@ -54,7 +49,7 @@ export default function TermsPage() {
                                                 non-commercial transitory viewing only. This is the
                                                 grant of a license, not a transfer of title, and under
                                                 this license you may not:
-                                                <ol type="i" className="mt-2 mb-2"> {/* Added margins */}
+                                                <ol type="i" className="mt-2 mb-2">
                                                     <li>modify or copy the materials;</li>
                                                     <li>
                                                         use the materials for any commercial purpose, or
@@ -178,8 +173,8 @@ export default function TermsPage() {
                                     </section>
 
                                     {/* --- PRIVACY POLICY CONTENT --- */}
-                                    <section className="mt-5"> {/* Added more top margin */}
-                                        <h2 className="text-center mb-4">Privacy Policy</h2> {/* Centered heading */}
+                                    <section className="mt-5">
+                                        <h2 className="text-center mb-4">Privacy Policy</h2>
                                         <hr className="mb-4" />
                                         <p>
                                             Your privacy is very important to us. Accordingly, we
@@ -188,8 +183,8 @@ export default function TermsPage() {
                                             and make use of personal information. The following
                                             outlines our privacy policy.
                                         </p>
-                                        <ul className="list-unstyled mt-3"> {/* Use list-unstyled for cleaner look maybe */}
-                                            <li className="mb-2"> {/* Added margin bottom to list items */}
+                                        <ul className="list-unstyled mt-3">
+                                            <li className="mb-2">
                                                 <span className="fw-semibold">Purpose Identification:</span> Before or at the time of collecting personal
                                                 information, we will identify the purposes for which
                                                 information is being collected.
@@ -236,8 +231,8 @@ export default function TermsPage() {
                                         </p>
                                     </section>
 
-                                    <hr className="mt-5" /> {/* Separator before timestamp */}
-                                    <p className="text-muted text-center mt-3 small"> {/* Styled timestamp */}
+                                    <hr className="mt-5" />
+                                    <p className="text-muted text-center mt-3 small">
                                         This document was last updated on October 26, 2013 4:17PM EST
                                     </p>
 
