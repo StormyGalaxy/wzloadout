@@ -28,10 +28,12 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>{process.env.NEXT_PUBLIC_APP_NAME}</title>
         <link rel="manifest" href="/manifest.json" />
         <meta name="description" content={process.env.NEXT_PUBLIC_APP_DESC} />
         <meta name="keywords" content={process.env.NEXT_PUBLIC_APP_KEYWORDS} />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
       </Head>
       {GA_TRACKING_ID !== "" && (
         <>
