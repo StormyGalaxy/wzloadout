@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "@/public/styles/_fw.css";
+import "./globals.css";
 import GoogleAnalytics from "@/components/_silabs/GoogleAnalytics";
 
 // --- Environment Variables ---
