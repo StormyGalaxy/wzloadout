@@ -52,7 +52,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <ClientDatabaseProviderWrapper>
-          <div className="main-container">
+          <div className="cod-container">
             <Header />
             <main className="main-content">
               {children} {/* Page content */}
