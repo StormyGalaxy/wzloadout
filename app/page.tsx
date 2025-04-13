@@ -1,20 +1,55 @@
 import { Container, Row, Col } from "react-bootstrap";
+// --- Components ---
+import SclCard from "@/components/_silabs/SclCard";
+// --- Data ---
+import generatorList from "@/json/index/generator-list.json";
+import zombieGeneratorList from "@/json/index/zombie-generator-list.json";
 
 export default function HomePage() {
   return (
-    <Container className="mt-3 mb-3">
-      <h3 className="text-center my-3">SiloCityPages</h3>
+    <Container className="my-3">
       <Row className="shadow-lg p-3 bg-body rounded">
-        <Col lg={8} className="mx-auto">
-          SiloCityPages, developed by SiloCityLabs, is a streamlined framework
-          designed to accelerate the development and deployment of static
-          websites. Leveraging the power of Bootstrap for responsive design,
-          React for component-driven architecture, and Next.js for efficient
-          rendering, SiloCityPages provides a robust foundation for building
-          modern web applications. Optimized for seamless deployment to GitHub
-          Pages, this framework simplifies the process of creating and hosting
-          performant, visually appealing websites, allowing developers to focus
-          on content and functionality rather than complex configurations.
+        <Col className="mx-auto">
+          <Row>
+            <h3 className="text-center">Multiplayer</h3>
+            <hr />
+            {generatorList.map((card, index) => (
+              <Col
+                key={index}
+                xl={3}
+                lg={4}
+                md={6}
+                className="text-center mb-4"
+              >
+                <SclCard
+                  title={card.title}
+                  text={card.text}
+                  variant={card.variant}
+                  buttons={card.buttons}
+                />
+              </Col>
+            ))}
+          </Row>
+          <Row className="mt-5">
+            <h3 className="text-center">Zombies</h3>
+            <hr />
+            {zombieGeneratorList.map((card, index) => (
+              <Col
+                key={index}
+                xl={3}
+                lg={4}
+                md={6}
+                className="text-center mb-4"
+              >
+                <SclCard
+                  title={card.title}
+                  text={card.text}
+                  variant={card.variant}
+                  buttons={card.buttons}
+                />
+              </Col>
+            ))}
+          </Row>
         </Col>
       </Row>
     </Container>
