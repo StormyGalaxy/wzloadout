@@ -6,6 +6,7 @@ import { Inter } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import GoogleAnalytics from "@/components/_silabs/GoogleAnalytics";
+import ClientDatabaseProviderWrapper from "@/components/ClientDatabaseProviderWrapper";
 
 // --- Styles ---
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -50,13 +51,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="main-container">
-          <Header />
-          <main className="main-content">
-            {children} {/* Page content */}
-          </main>
-          <Footer />
-        </div>
+        <ClientDatabaseProviderWrapper>
+          <div className="main-container">
+            <Header />
+            <main className="main-content">
+              {children} {/* Page content */}
+            </main>
+            <Footer />
+          </div>
+        </ClientDatabaseProviderWrapper>
 
         {GA_TRACKING_ID && (
           <Suspense fallback={null}>
