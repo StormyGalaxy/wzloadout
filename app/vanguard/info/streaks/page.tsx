@@ -4,12 +4,12 @@ import type { Metadata } from "next";
 // --- Layout ---
 import PageLayout from "@/components/PageLayout";
 // --- Components ---
-import PerkList from "@/components/info/PerkList";
+import StreakList from "@/components/info/StreakList";
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: "Vanguard Perks",
-  description: "View all perks in Vanguard.",
+  title: "Vanguard Streaks",
+  description: "View all streaks in Vanguard.",
   keywords: [
     "Call of duty",
     "call",
@@ -48,7 +48,7 @@ const navLinks = [
   { label: "Changelog", href: "/changelog" },
 ];
 
-export default function VanguardPerksPage() {
+export default function VanguardStreaksPage() {
   return (
     <PageLayout navLinks={navLinks} headerClassName="vanguard">
       <Container>
@@ -56,11 +56,11 @@ export default function VanguardPerksPage() {
           Vanguard
           <span className="d-none d-sm-inline-block">&nbsp;-&nbsp;</span>
           <br className="d-block d-sm-none" />
-          Perks
+          Streaks
         </h2>
         <Row className="shadow-lg p-3 bg-body rounded mb-4">
           <Col>
-            <PerkList game="vanguard" />
+            <StreakList game="vanguard" />
           </Col>
         </Row>
       </Container>
