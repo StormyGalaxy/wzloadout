@@ -3,154 +3,79 @@
     "title": "Black Ops VI",
     "text": "",
     "variant": "black-ops",
-    "buttons": [
-      {
-        "link": "black-ops/six/generator",
-        "disabled": false,
-        "btnText": "Generator"
-      }
-    ]
+    "badgeOverwrite": "bgBlackOps",
+    "link": "black-ops/six/generator"
   },
   {
     "title": "Warzone",
     "text": "",
     "variant": "success",
-    "buttons": [
-      {
-        "link": "warzone/generator",
-        "disabled": false,
-        "btnText": "Generator"
-      },
-      {
-        "link": "warzone/where-we-droppin",
-        "disabled": false,
-        "btnText": "Where we Droppin?"
-      }
-    ]
+    "link": "warzone/generator"
   },
   {
     "title": "Modern Warfare 3 (2023)",
     "text": "",
     "variant": "danger",
-    "buttons": [
-      {
-        "link": "modern-warfare/three/generator",
-        "disabled": false,
-        "btnText": "Generator"
-      }
-    ]
+    "link": "modern-warfare/three/generator"
   },
   {
-    "title": "Modern Warfare 2 (2022)",
+    "title": "[BETA] Modern Warfare 2 (2022)",
     "text": "",
     "variant": "mw2",
-    "buttons": [
-      {
-        "link": "modern-warfare/two/generator",
-        "disabled": false,
-        "btnText": "[BETA] Generator"
-      }
-    ]
+    "badgeOverwrite": "bgMw2",
+    "link": "modern-warfare/two/generator"
   },
   {
     "title": "Vanguard",
     "text": "",
     "variant": "danger",
-    "buttons": [
-      {
-        "link": "vanguard/generator",
-        "disabled": false,
-        "btnText": "Generator"
-      }
-    ]
+    "link": "vanguard/generator"
   },
   {
     "title": "Cold War",
     "text": "",
     "variant": "danger",
-    "buttons": [
-      {
-        "link": "black-ops/cold-war/generator",
-        "disabled": false,
-        "btnText": "Generator"
-      }
-    ]
+    "link": "black-ops/cold-war/generator"
   },
   {
     "title": "Black Ops IV",
     "text": "",
     "variant": "black-ops",
-    "buttons": [
-      {
-        "link": "black-ops/four/generator",
-        "disabled": false,
-        "btnText": "Generator"
-      }
-    ]
+    "badgeOverwrite": "bgBlackOps",
+    "link": "black-ops/four/generator"
   },
   {
     "title": "World War II",
     "text": "",
     "variant": "ww2",
-    "buttons": [
-      {
-        "link": "world-war-two/generator",
-        "disabled": false,
-        "btnText": "Generator"
-      },
-      {
-        "link": "world-war-two/custom-match",
-        "disabled": false,
-        "btnText": "Custom Match Generator"
-      }
-    ]
+    "badgeOverwrite": "bgWw2",
+    "link": "world-war-two/generator"
   },
   {
     "title": "Infinite Warfare",
     "text": "",
     "variant": "infinite-warfare",
-    "buttons": [
-      {
-        "link": "infinite-warfare/generator",
-        "disabled": false,
-        "btnText": "Generator"
-      }
-    ]
+    "badgeOverwrite": "bgInfiniteWarfare",
+    "textDark": true,
+    "link": "infinite-warfare/generator"
   },
   {
     "title": "Modern Warfare Remastered",
     "text": "",
     "variant": "success",
-    "buttons": [
-      {
-        "link": "modern-warfare/remastered/generator",
-        "disabled": false,
-        "btnText": "Generator"
-      }
-    ]
+    "link": "modern-warfare/remastered/generator"
   },
   {
     "title": "Black Ops III",
     "text": "",
     "variant": "black-ops",
-    "buttons": [
-      {
-        "link": "black-ops/three/generator",
-        "disabled": false,
-        "btnText": "Generator"
-      }
-    ]
+    "badgeOverwrite": "bgBlackOps",
+    "link": "black-ops/three/generator"
   },
   {
     "title": "World At War",
     "text": "",
     "variant": "secondary",
-    "buttons": [
-      {
-        "link": "world-at-war/generator",
-        "disabled": false,
-        "btnText": "Generator"
-      }
-    ]
+    "link": "world-at-war/generator"
   }
 ]
