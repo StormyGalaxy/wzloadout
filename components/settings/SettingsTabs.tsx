@@ -1,8 +1,8 @@
+"use client";
+
 import { useEffect, useState } from "react";
-import Head from "next/head";
-import { Container, Row, Col, Tabs, Tab, Button } from "react-bootstrap";
-import Header from "@/components/Header";
-//Components
+import { Row, Col, Tabs, Tab, Button } from "react-bootstrap";
+// --- Components ---
 import CustomAlert from "@/components/_silabs/bootstrap/CustomAlert";
 import Warzone from "@/components/settings/Warzone";
 //DB
@@ -18,9 +18,9 @@ const warzoneGames = [
   { key: "modern-warfare-three-wz", value: "Modern Warfare 3" },
 ];
 
-export default function Settings() {
-  const { dbs, isReady } = useDatabase();
+export default function SettingsTabs() {
   const [key, setKey] = useState<string>("warzone");
+  const { dbs, isReady } = useDatabase();
   const [data, setData] = useState<sclSettings>({});
   const [showAlert, setShowAlert] = useState(false);
   const [alertVariant, setAlertVariant] = useState("success");
@@ -134,55 +134,39 @@ export default function Settings() {
 
   return (
     <>
-      <Head>
-        <title>Settings - Call Of Duty Random Class Generator</title>
-      </Head>
-      <Header />
-      <Container className="shadow-lg p-3 mt-4 bg-body rounded">
-        <Row>
-          <Col>
-            {/* Alert is managed and displayed by the parent */}
-            <CustomAlert
-              variant={alertVariant}
-              message={alertMessage}
-              show={showAlert}
-              onClose={() => setShowAlert(false)}
-            />
-            <Container>
-              <Tabs
-                id="controlled-tab-example"
-                activeKey={key}
-                onSelect={(k) => setKey(k ?? "warzone")}
-                className="mb-3"
-              >
-                <Tab eventKey="warzone" title="Warzone">
-                  {/* Pass only necessary props to Warzone */}
-                  <Warzone
-                    // db={dbs.settings} // Removed, Warzone doesn't need it
-                    settingsData={data} // Pass the current state data
-                    onDataChange={handleWarzoneDataChange} // Pass the callback
-                  />
-                </Tab>
-                {/* Add other setting tabs here if needed */}
-              </Tabs>
-            </Container>
-          </Col>
-        </Row>
-        <Row className="mt-5 justify-content-center">
-          <Col xs={12} sm={6} md={3}>
-            <div className="d-flex justify-content-center">
-              <Button
-                variant="success"
-                className="w-100"
-                disabled={isSpinning || isLoading} // Disable if loading or saving
-                onClick={save}
-              >
-                {isSpinning ? "Saving..." : "Save Settings"}
-              </Button>
-            </div>
-          </Col>
-        </Row>
-      </Container>
+      <CustomAlert
+        variant={alertVariant}
+        message={alertMessage}
+        show={showAlert}
+        onClose={() => setShowAlert(false)}
+      />
+      <Tabs
+        id="controlled-tab-example"
+        activeKey={key}
+        onSelect={(k) => setKey(k ?? "warzone")}
+        className="mb-3"
+      >
+        <Tab eventKey="warzone" title="Warzone">
+          <Warzone
+            settingsData={data} // Pass the current state data
+            onDataChange={handleWarzoneDataChange} // Pass the callback
+          />
+        </Tab>
+      </Tabs>
+      <Row className="mt-5 justify-content-center">
+        <Col xs={12} sm={6} md={3}>
+          <div className="d-flex justify-content-center">
+            <Button
+              variant="success"
+              className="w-100"
+              disabled={isSpinning || isLoading} // Disable if loading or saving
+              onClick={save}
+            >
+              {isSpinning ? "Saving..." : "Save Settings"}
+            </Button>
+          </div>
+        </Col>
+      </Row>
     </>
   );
 }
