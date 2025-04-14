@@ -40,7 +40,7 @@ function Footer() {
             </Nav.Item>
           )}
           <Nav.Item>
-            <Nav.Link href="/aboutus">About Us</Nav.Link>
+            <Nav.Link href="/about">About Us</Nav.Link>
           </Nav.Item>
           <Nav.Item>
             <Nav.Link href="/terms">Terms</Nav.Link>
