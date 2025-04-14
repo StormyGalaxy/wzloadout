@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Container, Row, Col, Button } from "react-bootstrap";
+import { Row, Col, Button } from "react-bootstrap";
 // --- Components ---
 import SimpleGeneratorView from "@/components/generators/cod/SimpleGeneratorView";
 import CodClassName from "@/components/CodClassName";

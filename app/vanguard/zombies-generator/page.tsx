@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 // --- Layout ---
 import PageLayout from "@/components/PageLayout";
 // --- Loadout ---
-import VanguardLoadout from "@/components/generators/vanguard/VanguardLoadout";
+import VanguardZombiesLoadout from "@/components/generators/vanguard/VanguardZombiesLoadout";
 
 // --- Metadata ---
 export const metadata: Metadata = {
@@ -48,7 +48,7 @@ const navLinks = [
   { label: "Changelog", href: "/changelog" },
 ];
 
-export default function VanguardGeneratorPage() {
+export default function VanguardZombiesGeneratorPage() {
   return (
     <PageLayout navLinks={navLinks} headerClassName="vanguard">
       <Container>
@@ -60,7 +60,7 @@ export default function VanguardGeneratorPage() {
         </h2>
         <Row className="shadow-lg p-3 bg-body rounded mb-4">
           <Col className="mx-auto">
-            <VanguardLoadout />
+            <VanguardZombiesLoadout />
           </Col>
         </Row>
       </Container>
