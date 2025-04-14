@@ -106,7 +106,8 @@ export default function VanguardInfoPage() {
             </p>
           </Col>
           <Col lg={5}>
-            <h4 className="text-center mb-3">Links</h4>
+            <h4 className="text-center">Links</h4>
+            <hr />
             <div className="d-flex flex-wrap gap-2">
               {infoCards.map((item) => (
                 <Link
