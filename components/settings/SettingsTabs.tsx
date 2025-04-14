@@ -141,7 +141,6 @@ export default function SettingsTabs() {
         onClose={() => setShowAlert(false)}
       />
       <Tabs
-        id="controlled-tab-example"
         activeKey={key}
         onSelect={(k) => setKey(k ?? "warzone")}
         className="mb-3"

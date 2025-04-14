@@ -125,7 +125,6 @@ function WeaponInfo({ value, game }: WeaponInfoProps) {
               typeof attachmentInfo === "object" &&
               Object.keys(attachmentInfo).length > 0 ? ( // Correct condition for object
               <Tabs
-                id="controlled-tab-example"
                 activeKey={key}
                 onSelect={(k) => setKey(k ?? "")}
                 className="mb-3"

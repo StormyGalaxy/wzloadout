@@ -82,7 +82,6 @@ export default function CustomMutations() {
               ) : (
                 <>
                   <Tabs
-                    id="controlled-tab-example"
                     activeKey={key}
                     onSelect={(k) => setKey(k ?? "general")}
                     className="mb-3"
