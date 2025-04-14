@@ -4,12 +4,12 @@ import type { Metadata } from "next";
 // --- Layout ---
 import PageLayout from "@/components/PageLayout";
 // --- Components ---
-import WeaponList from "@/components/info/WeaponList";
+import ZombiesMapsList from "@/components/info/ZombiesMapsList";
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: "Vanguard Weapons",
-  description: "View all weapons in Vanguard.",
+  title: "Vanguard Zombies Maps",
+  description: "View all zombies maps in Vanguard.",
   keywords: [
     "Call of duty",
     "call",
@@ -48,7 +48,7 @@ const navLinks = [
   { label: "Changelog", href: "/changelog" },
 ];
 
-export default function VanguardWeaponsPage() {
+export default function VanguardZombiesMapsPage() {
   return (
     <PageLayout navLinks={navLinks} headerClassName="vanguard">
       <Container>
@@ -56,11 +56,11 @@ export default function VanguardWeaponsPage() {
           Vanguard
           <span className="d-none d-sm-inline-block">&nbsp;-&nbsp;</span>
           <br className="d-block d-sm-none" />
-          Weapons
+          Zombies Maps
         </h2>
         <Row className="shadow-lg p-3 bg-body rounded mb-4">
           <Col>
-            <WeaponList game="vanguard" />
+            <ZombiesMapsList game="vanguard-zombies" />
           </Col>
         </Row>
       </Container>
