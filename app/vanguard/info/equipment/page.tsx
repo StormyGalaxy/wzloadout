@@ -1,15 +1,16 @@
 import { Container, Row, Col } from "react-bootstrap";
+// --- Next ---
 import type { Metadata } from "next";
+import Link from "next/link";
 // --- Layout ---
 import PageLayout from "@/components/PageLayout";
-// --- Loadout ---
-import VanguardZombiesLoadout from "@/components/generators/vanguard/VanguardZombiesLoadout";
+// --- Components ---
+import EquipmentList from "@/components/info/EquipmentList";
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: "Vanguard Zombies",
-  description:
-    "Spice up your COD Zombies gameplay! Generate unique random loadouts for Call of Duty Vanguard Zombies. Discover new weapons, perks, and gear combinations.",
+  title: "Vanguard Equipment",
+  description: "View all equipment in Vanguard.",
   keywords: [
     "Call of duty",
     "call",
@@ -48,19 +49,19 @@ const navLinks = [
   { label: "Changelog", href: "/changelog" },
 ];
 
-export default function VanguardZombiesGeneratorPage() {
+export default function VanguardEquipmentPage() {
   return (
     <PageLayout navLinks={navLinks} headerClassName="vanguard">
       <Container>
         <h2 className="text-center mb-4">
-          Vanguard Zombies
+          Vanguard
           <span className="d-none d-sm-inline-block">&nbsp;-&nbsp;</span>
           <br className="d-block d-sm-none" />
-          Random Class Generator
+          Equipment
         </h2>
         <Row className="shadow-lg p-3 bg-body rounded mb-4">
-          <Col className="mx-auto">
-            <VanguardZombiesLoadout />
+          <Col>
+            <EquipmentList game="vanguard" />
           </Col>
         </Row>
       </Container>

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import {
-  Container,
   Row,
   Col,
   Table,
@@ -13,7 +12,6 @@ import Link from "next/link";
 import { InfoListProps } from "@/types/Info";
 
 function InfoList({ data, dataKeys, types, url }: InfoListProps) {
-  // Allow types to be null
   const [filteredData, setFilteredData] = useState(data);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedType, setSelectedType] = useState("");
@@ -102,61 +100,56 @@ function InfoList({ data, dataKeys, types, url }: InfoListProps) {
   );
 
   return (
-    <Container id="data-list" className="shadow-lg p-3 bg-body rounded">
-      <Row className="justify-content-md-center">
-        <Col sm className="text-center">
-          <Form className="mb-3 d-flex">
-            <FormControl
-              type="text"
-              placeholder="Search"
-              value={searchTerm}
-              onChange={handleSearchChange}
-              className="me-2"
-            />
-            {types && (
-              <Dropdown>
-                <Dropdown.Toggle
-                  variant="outline-secondary"
-                  id="dropdown-basic"
-                >
-                  {selectedType || "Select Type"}
-                </Dropdown.Toggle>
-                <Dropdown.Menu>
-                  <Dropdown.Item onClick={() => handleTypeSelect("")}>
-                    All Types
+    <Row className="justify-content-md-center">
+      <Col sm className="text-center">
+        <Form className="mb-3 d-flex">
+          <FormControl
+            type="text"
+            placeholder="Search"
+            value={searchTerm}
+            onChange={handleSearchChange}
+            className="me-2"
+          />
+          {types && (
+            <Dropdown>
+              <Dropdown.Toggle variant="outline-secondary" id="dropdown-basic">
+                {selectedType || "Select Type"}
+              </Dropdown.Toggle>
+              <Dropdown.Menu>
+                <Dropdown.Item onClick={() => handleTypeSelect("")}>
+                  All Types
+                </Dropdown.Item>
+                {types.map((type) => (
+                  <Dropdown.Item
+                    key={type}
+                    onClick={() => handleTypeSelect(type)}
+                  >
+                    {type}
                   </Dropdown.Item>
-                  {types.map((type) => (
-                    <Dropdown.Item
-                      key={type}
-                      onClick={() => handleTypeSelect(type)}
-                    >
-                      {type}
-                    </Dropdown.Item>
-                  ))}
-                </Dropdown.Menu>
-              </Dropdown>
-            )}
-          </Form>
+                ))}
+              </Dropdown.Menu>
+            </Dropdown>
+          )}
+        </Form>
 
-          <div className="table-responsive">
-            <Table striped bordered hover size="sm">
-              {renderTableHeader()}
-              <tbody>
-                {Object.values(filteredData).length > 0 ? (
-                  Object.values(filteredData).map(renderTableRow)
-                ) : (
-                  <tr>
-                    <td colSpan={dataKeys.length} className="text-center">
-                      No data found.
-                    </td>
-                  </tr>
-                )}
-              </tbody>
-            </Table>
-          </div>
-        </Col>
-      </Row>
-    </Container>
+        <div className="table-responsive">
+          <Table striped bordered hover size="sm">
+            {renderTableHeader()}
+            <tbody>
+              {Object.values(filteredData).length > 0 ? (
+                Object.values(filteredData).map(renderTableRow)
+              ) : (
+                <tr>
+                  <td colSpan={dataKeys.length} className="text-center">
+                    No data found.
+                  </td>
+                </tr>
+              )}
+            </tbody>
+          </Table>
+        </div>
+      </Col>
+    </Row>
   );
 }
 
