@@ -4,12 +4,12 @@ import type { Metadata } from "next";
 // --- Layout ---
 import PageLayout from "@/components/PageLayout";
 // --- Components ---
-import EquipmentList from "@/components/info/EquipmentList";
+import PerkList from "@/components/info/PerkList";
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: "Vanguard Equipment",
-  description: "View all equipment in Vanguard.",
+  title: "Vanguard Perks",
+  description: "View all perks in Vanguard.",
   keywords: [
     "Call of duty",
     "call",
@@ -56,11 +56,11 @@ export default function VanguardEquipmentPage() {
           Vanguard
           <span className="d-none d-sm-inline-block">&nbsp;-&nbsp;</span>
           <br className="d-block d-sm-none" />
-          Equipment
+          Perks
         </h2>
         <Row className="shadow-lg p-3 bg-body rounded mb-4">
           <Col>
-            <EquipmentList game="vanguard" />
+            <PerkList game="vanguard" />
           </Col>
         </Row>
       </Container>
