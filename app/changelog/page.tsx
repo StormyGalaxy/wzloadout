@@ -1,5 +1,7 @@
 import { Container, Row, Col } from "react-bootstrap";
 import type { Metadata } from "next";
+// --- Layout ---
+import PageLayout from "@/components/PageLayout";
 // --- Components ---
 import ChangelogTabs from "@/components/ChangelogTabs";
 
@@ -11,12 +13,14 @@ export const metadata: Metadata = {
 
 export default function ChangelogPage() {
   return (
-    <Container className="mt-3 mb-3">
-      <Row className="shadow-lg p-3 bg-body rounded">
-        <Col>
-          <ChangelogTabs />
-        </Col>
-      </Row>
-    </Container>
+    <PageLayout>
+      <Container className="mt-3 mb-3">
+        <Row className="shadow-lg p-3 bg-body rounded">
+          <Col>
+            <ChangelogTabs />
+          </Col>
+        </Row>
+      </Container>
+    </PageLayout>
   );
 }
