@@ -13,7 +13,7 @@ interface ListProps {
 
 const defaultDataKeys = ["name", "type", "game"];
 
-export default function ZombiesArtifactsList({
+export default function ZombiesFieldUpgradeList({
   game,
   dataKeys = defaultDataKeys,
 }: ListProps) {

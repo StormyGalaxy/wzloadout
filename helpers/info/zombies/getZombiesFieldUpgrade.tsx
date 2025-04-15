@@ -1,11 +1,11 @@
 import { getFieldUpgradeList } from "@/helpers/generator/zombies/getFieldUpgradeList";
-import { Artifact } from "@/types/Generator";
+import { ZombiesFieldUpgrade } from "@/types/Generator";
 
 export function getZombiesFieldUpgrade(
   game: string = "all",
   value: string = ""
-): Artifact | Record<string, Artifact> {
-  const data = getFieldUpgradeList(game) as Record<string, Artifact>;
+): ZombiesFieldUpgrade | Record<string, ZombiesFieldUpgrade> {
+  const data = getFieldUpgradeList(game) as Record<string, ZombiesFieldUpgrade>;
 
   return data;
 }
