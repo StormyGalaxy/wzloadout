@@ -21,7 +21,7 @@ const defaultNavLinks = [
   },
 ];
 
-function Header({
+export default function Header({
   className,
   navLinks = defaultNavLinks,
   darkLinks = false,
@@ -81,5 +81,3 @@ function Header({
     </Navbar>
   );
 }
-
-export default Header;
