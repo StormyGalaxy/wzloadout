@@ -56,7 +56,7 @@ export default function VanguardWeaponPage() {
   return (
     <PageLayout navLinks={navLinks} headerClassName={game}>
       <Container fluid>
-        <Row className="shadow-lg p-3 bg-body rounded mb-4">
+        <Row>
           <Suspense
             fallback={
               <Col>

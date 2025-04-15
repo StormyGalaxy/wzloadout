@@ -8,8 +8,8 @@ import PerkList from "@/components/info/PerkList";
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: "Vanguard Perks",
-  description: "View all perks in Vanguard.",
+  title: "World At War Perks",
+  description: "View all perks in World At War.",
   keywords: [
     "Call of duty",
     "call",
@@ -44,25 +44,25 @@ export const metadata: Metadata = {
 
 const navLinks = [
   { label: "Home", href: "/" },
-  { label: "Multiplayer Generator", href: "/vanguard/generator" },
-  { label: "Zombies Generator", href: "/vanguard/zombies-generator" },
-  { label: "Loadout Info", href: "/vanguard/info" },
+  { label: "Multiplayer Generator", href: "/world-at-war/generator" },
+
+  { label: "Loadout Info", href: "/world-at-war/info" },
   { label: "Changelog", href: "/changelog" },
 ];
 
-export default function VanguardPerksPage() {
+export default function WorldAtWarPerksPage() {
   return (
-    <PageLayout navLinks={navLinks} headerClassName="vanguard">
+    <PageLayout navLinks={navLinks} headerClassName="waw">
       <Container>
         <h2 className="text-center mb-4">
-          Vanguard
+          World At War
           <span className="d-none d-sm-inline-block">&nbsp;-&nbsp;</span>
           <br className="d-block d-sm-none" />
           Perks
         </h2>
         <Row className="shadow-lg p-3 bg-body rounded mb-4">
           <Col>
-            <PerkList game="vanguard" />
+            <PerkList game="world-at-war" />
           </Col>
         </Row>
       </Container>

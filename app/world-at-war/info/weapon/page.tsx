@@ -44,19 +44,19 @@ export async function generateMetadata({
 
 const navLinks = [
   { label: "Home", href: "/" },
-  { label: "Multiplayer Generator", href: "/vanguard/generator" },
-  { label: "Zombies Generator", href: "/vanguard/zombies-generator" },
-  { label: "Loadout Info", href: "/vanguard/info" },
+  { label: "Multiplayer Generator", href: "/world-at-war/generator" },
+
+  { label: "Loadout Info", href: "/world-at-war/info" },
   { label: "Changelog", href: "/changelog" },
 ];
 
 export default function WorldAtWarWeaponPage() {
-  const game = "vanguard";
+  const game = "world-at-war";
 
   return (
     <PageLayout navLinks={navLinks} headerClassName={game}>
       <Container fluid>
-        <Row className="shadow-lg p-3 bg-body rounded mb-4">
+        <Row>
           <Suspense
             fallback={
               <Col>

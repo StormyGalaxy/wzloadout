@@ -45,7 +45,7 @@ export default function WeaponList({
           data={data}
           dataKeys={dataKeys}
           types={types}
-          url="/vanguard/info/weapon"
+          url={`/${game}/info/weapon`}
         />
       )}
     </>

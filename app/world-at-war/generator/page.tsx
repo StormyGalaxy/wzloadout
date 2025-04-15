@@ -49,7 +49,7 @@ const navLinks = [
   { label: "Changelog", href: "/changelog" },
 ];
 
-export default function VanguardGeneratorPage() {
+export default function WorldAtWarGeneratorPage() {
   return (
     <PageLayout navLinks={navLinks} headerClassName="waw">
       <Container>

@@ -46,8 +46,8 @@ export const metadata: Metadata = {
 
 const navLinks = [
   { label: "Home", href: "/" },
-  { label: "Multiplayer Generator", href: "/vanguard/generator" },
-  { label: "Loadout Info", href: "/vanguard/info" },
+  { label: "Multiplayer Generator", href: "/world-at-war/generator" },
+  { label: "Loadout Info", href: "/world-at-war/info" },
   { label: "Changelog", href: "/changelog" },
 ];
 

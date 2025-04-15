@@ -8,8 +8,8 @@ import EquipmentList from "@/components/info/EquipmentList";
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: "Vanguard Equipment",
-  description: "View all equipment in Vanguard.",
+  title: "World At War Equipment",
+  description: "View all equipment in World At War.",
   keywords: [
     "Call of duty",
     "call",
@@ -44,25 +44,24 @@ export const metadata: Metadata = {
 
 const navLinks = [
   { label: "Home", href: "/" },
-  { label: "Multiplayer Generator", href: "/vanguard/generator" },
-  { label: "Zombies Generator", href: "/vanguard/zombies-generator" },
-  { label: "Loadout Info", href: "/vanguard/info" },
+  { label: "Multiplayer Generator", href: "/world-at-war/generator" },
+  { label: "Loadout Info", href: "/world-at-war/info" },
   { label: "Changelog", href: "/changelog" },
 ];
 
-export default function VanguardEquipmentPage() {
+export default function WorldAtWarEquipmentPage() {
   return (
-    <PageLayout navLinks={navLinks} headerClassName="vanguard">
+    <PageLayout navLinks={navLinks} headerClassName="waw">
       <Container>
         <h2 className="text-center mb-4">
-          Vanguard
+          World At War
           <span className="d-none d-sm-inline-block">&nbsp;-&nbsp;</span>
           <br className="d-block d-sm-none" />
           Equipment
         </h2>
         <Row className="shadow-lg p-3 bg-body rounded mb-4">
           <Col>
-            <EquipmentList game="vanguard" />
+            <EquipmentList game="world-at-war" />
           </Col>
         </Row>
       </Container>
