@@ -9,7 +9,7 @@ import ZombiesArtifactsList from "@/components/info/ZombiesArtifactsList";
 // --- Metadata ---
 export const metadata: Metadata = {
   title: "Vanguard Zombies Artifacts",
-  description: "View all zombies artifacts in Vanguard.",
+  description: "View all artifacts in Vanguard Zombies.",
   keywords: [
     "Call of duty",
     "call",

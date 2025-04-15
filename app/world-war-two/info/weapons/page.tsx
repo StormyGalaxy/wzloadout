@@ -4,12 +4,12 @@ import type { Metadata } from "next";
 // --- Layout ---
 import PageLayout from "@/components/PageLayout";
 // --- Components ---
-import ZombiesMapsList from "@/components/info/ZombiesMapsList";
+import WeaponList from "@/components/info/WeaponList";
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: "Vanguard Zombies Maps",
-  description: "View all maps in Vanguard Zombies.",
+  title: "World War Two Weapons",
+  description: "View all weapons in World War Two.",
   keywords: [
     "Call of duty",
     "call",
@@ -26,41 +26,40 @@ export const metadata: Metadata = {
     "mp",
     "multiplayer",
     "call of duty random class generator",
-    "COD Vanguard RCG",
-    "vanguard random class generator",
-    "vanguard",
-    "vanguard rcg",
-    "vanguard random class generator",
+    "COD World War Two RCG",
+    "world war two random class generator",
+    "world war two",
+    "world war two rcg",
+    "world war two random class generator",
     "class generator",
     "zombies",
-    "treyarch zombies",
-    "vanguard zombies",
-    "vanguard rcg",
-    "vanguard random class generator",
+    "world war two zombies",
   ],
 };
 
 const navLinks = [
   { label: "Home", href: "/" },
-  { label: "Multiplayer Generator", href: "/vanguard/generator" },
-  { label: "Zombies Generator", href: "/vanguard/zombies-generator" },
-  { label: "Loadout Info", href: "/vanguard/info" },
+  { label: "Multiplayer Generator", href: "/world-war-two/generator" },
+  { label: "Zombies Generator", href: "/world-war-two/zombies-generator" },
+  { label: "Custom Match", href: "/world-war-two/custom-match" },
+  { label: "Loadout Info", href: "/world-war-two/info" },
   { label: "Changelog", href: "/changelog" },
 ];
 
-export default function VanguardZombiesMapsPage() {
+export default function WorldWarTwoWeaponsPage() {
+  const dataKeys = ["name", "type", "game", "no_attach", "no_attach_info"];
   return (
-    <PageLayout navLinks={navLinks} headerClassName="vanguard">
+    <PageLayout navLinks={navLinks} headerClassName="ww2">
       <Container>
         <h2 className="text-center mb-4">
-          Vanguard
+          World War Two
           <span className="d-none d-sm-inline-block">&nbsp;-&nbsp;</span>
           <br className="d-block d-sm-none" />
-          Zombies Maps
+          Weapons
         </h2>
         <Row className="shadow-lg p-3 bg-body rounded mb-4">
           <Col>
-            <ZombiesMapsList game="vanguard-zombies" />
+            <WeaponList game="world-war-two" dataKeys={dataKeys} />
           </Col>
         </Row>
       </Container>

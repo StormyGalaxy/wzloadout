@@ -20,7 +20,7 @@ export async function generateMetadata({
   const displayWeaponName = Array.isArray(weaponName)
     ? weaponName[0]
     : weaponName;
-  const gameName = "Vanguard";
+  const gameName = "World War Two";
 
   return {
     title: `${gameName} Weapon - ${displayWeaponName}`,
@@ -44,17 +44,18 @@ export async function generateMetadata({
 
 const navLinks = [
   { label: "Home", href: "/" },
-  { label: "Multiplayer Generator", href: "/vanguard/generator" },
-  { label: "Zombies Generator", href: "/vanguard/zombies-generator" },
-  { label: "Loadout Info", href: "/vanguard/info" },
+  { label: "Multiplayer Generator", href: "/world-war-two/generator" },
+  { label: "Zombies Generator", href: "/world-war-two/zombies-generator" },
+  { label: "Custom Match", href: "/world-war-two/custom-match" },
+  { label: "Loadout Info", href: "/world-war-two/info" },
   { label: "Changelog", href: "/changelog" },
 ];
 
-export default function VanguardWeaponPage() {
-  const game = "vanguard";
+export default function WorldWarTwoWeaponPage() {
+  const game = "world-war-two";
 
   return (
-    <PageLayout navLinks={navLinks} headerClassName="vanguard">
+    <PageLayout navLinks={navLinks} headerClassName="ww2">
       <Container fluid>
         <Row>
           <Suspense
