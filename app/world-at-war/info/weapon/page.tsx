@@ -20,7 +20,7 @@ export async function generateMetadata({
   const displayWeaponName = Array.isArray(weaponName)
     ? weaponName[0]
     : weaponName;
-  const gameName = "Vanguard";
+  const gameName = "World At War";
 
   return {
     title: `${gameName} Weapon - ${displayWeaponName}`,
@@ -50,7 +50,7 @@ const navLinks = [
   { label: "Changelog", href: "/changelog" },
 ];
 
-export default function VanguardWeaponPage() {
+export default function WorldAtWarWeaponPage() {
   const game = "vanguard";
 
   return (

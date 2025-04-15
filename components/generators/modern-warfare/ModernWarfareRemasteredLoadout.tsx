@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useState } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import SimpleGeneratorView from "@/components/generators/cod/SimpleGeneratorView";
@@ -16,7 +18,7 @@ import { sendEvent } from "@/utils/gtag";
 //json
 import defaultData from "@/json/cod/default-generator-info.json";
 
-function ModernWarfareRemasteredLoadout() {
+export default function ModernWarfareRemasteredLoadout() {
   const [isLoading, setIsLoading] = useState(true);
   const [isGenerating, setIsGenerating] = useState(true);
   const [data, setData] = useState(defaultData);
@@ -201,5 +203,3 @@ async function fetchLoadoutData(setData) {
     }
   }
 }
-
-export default ModernWarfareRemasteredLoadout;

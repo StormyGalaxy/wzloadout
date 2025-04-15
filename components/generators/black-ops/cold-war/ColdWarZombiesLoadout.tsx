@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useState } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import SimpleGeneratorView from "@/components/generators/cod/SimpleGeneratorView";
@@ -16,7 +18,7 @@ import { sendEvent } from "@/utils/gtag";
 //json
 import defaultData from "@/json/cod/default-zombies-generator-info.json";
 
-function VanguardZombiesLoadout() {
+export default function ColdWarZombiesLoadout() {
   const [isLoading, setIsLoading] = useState(true);
   const [isGenerating, setIsGenerating] = useState(true);
 
@@ -147,5 +149,3 @@ async function fetchLoadoutData(setData) {
     }
   }
 }
-
-export default VanguardZombiesLoadout;

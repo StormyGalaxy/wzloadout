@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useState } from "react";
 import { Container, Row, Col, Button, Form } from "react-bootstrap";
 import SimpleGeneratorView from "@/components/generators/cod/SimpleGeneratorView";
@@ -30,7 +32,7 @@ const defaultSettings: Bo4ZombiesSettings = {
   rollTalisman: true,
 };
 
-function BlackOpsFourZombiesLoadout() {
+export default function BlackOpsFourZombiesLoadout() {
   const [isLoading, setIsLoading] = useState(true);
   const [isGenerating, setIsGenerating] = useState(true);
   //Settings
@@ -367,5 +369,3 @@ function fetchZombiesMode() {
     difficulty: difficulties[Math.floor(Math.random() * difficulties.length)],
   };
 }
-
-export default BlackOpsFourZombiesLoadout;

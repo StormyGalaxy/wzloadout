@@ -1,4 +1,6 @@
-import { useEffect, useState, useRef } from "react"; 
+"use client";
+
+import { useEffect, useState, useRef } from "react";
 import { Container, Row, Col, Button, Form } from "react-bootstrap";
 //Helpers
 import { implodeObject } from "@/helpers/implodeObject";
@@ -34,7 +36,7 @@ const defaultSettings: Bo6ZombiesSettings = {
   rollAugments: true,
 };
 
-function BlackOpsSixZombiesLoadout() {
+export default function BlackOpsSixZombiesLoadout() {
   const [isLoading, setIsLoading] = useState(true);
   const [isGenerating, setIsGenerating] = useState(true);
   //Settings
@@ -346,5 +348,3 @@ async function fetchLoadoutData(setData) {
     }
   }
 }
-
-export default BlackOpsSixZombiesLoadout;

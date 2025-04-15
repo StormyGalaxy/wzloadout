@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useState } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import SimpleGeneratorView from "@/components/generators/cod/SimpleGeneratorView";
@@ -22,7 +24,7 @@ import { sclSettings } from "@/types/_fw";
 interface WarzoneProps {
   settings: sclSettings;
 }
-function WarzoneLoadout({ settings }: WarzoneProps) {
+export default function WarzoneLoadout({ settings }: WarzoneProps) {
   const [isLoading, setIsLoading] = useState(true);
   const [isGenerating, setIsGenerating] = useState(true);
   const [data, setData] = useState(defaultData);
@@ -221,5 +223,3 @@ async function fetchLoadoutData(setData, settings) {
     }
   }
 }
-
-export default WarzoneLoadout;

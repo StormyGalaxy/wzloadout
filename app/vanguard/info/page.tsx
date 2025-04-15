@@ -50,7 +50,7 @@ const navLinks = [
   { label: "Changelog", href: "/changelog" },
 ];
 
-const infoCards = [
+const badges = [
   {
     title: "Equipment",
     link: "/vanguard/info/equipment",
@@ -109,7 +109,7 @@ export default function VanguardInfoPage() {
             <h4 className="text-center">Links</h4>
             <hr />
             <div className="d-flex flex-wrap gap-2">
-              {infoCards.map((item) => (
+              {badges.map((item) => (
                 <Link
                   key={item.title}
                   href={item.link}
