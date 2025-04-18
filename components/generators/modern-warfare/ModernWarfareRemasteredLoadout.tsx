@@ -47,7 +47,7 @@ export default function ModernWarfareRemasteredLoadout() {
 
   return (
     <>
-      <Container id="random-class" className="shadow-lg p-3 bg-body rounded">
+      <Container id="random-class">
         <CodClassName isGenerating={isGenerating} value={randClassName} />
         <Row className="justify-content-md-center">
           <Col sm className="text-center mb-3 mb-md-0">

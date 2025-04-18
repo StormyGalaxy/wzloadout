@@ -8,6 +8,7 @@ import { getWeapon } from "@/helpers/info/getWeapon";
 
 interface ListProps {
   game: string;
+  link?: string;
   dataKeys?: Array<string>;
 }
 
@@ -15,11 +16,13 @@ const defaultDataKeys = ["name", "type", "game", "no_attach"];
 
 export default function WeaponList({
   game,
+  link = "",
   dataKeys = defaultDataKeys,
 }: ListProps) {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState({});
   const [types, setTypes] = useState<string[]>([]);
+  const weaponUrl = link ? `/${link}/info/weapon` : `/${game}/info/weapon`;
 
   useEffect(() => {
     const tmp_types: string[] = [];
@@ -45,7 +48,7 @@ export default function WeaponList({
           data={data}
           dataKeys={dataKeys}
           types={types}
-          url={`/${game}/info/weapon`}
+          url={weaponUrl}
         />
       )}
     </>
