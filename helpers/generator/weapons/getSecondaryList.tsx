@@ -16,7 +16,7 @@ import iwList from "@/json/infinite-warfare/weapon/secondary.json";
 import wawList from "@/json/world-at-war/weapon/side_arm.json";
 
 const weapons: Record<string, any> = {
-  warzone: mergeObjectsWithRekey(bo6List, mw3List),
+  warzone: mergeObjectsWithRekey(bo6List, mw3List, mw2List),
   "black-ops-six": bo6List,
   // "modern-warfare-three": mergeObjectsWithRekey(
   //   mw3List,

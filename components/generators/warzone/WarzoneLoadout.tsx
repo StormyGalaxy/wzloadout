@@ -2,9 +2,10 @@
 
 import { useEffect, useState } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
+// --- Components ---
 import SimpleGeneratorView from "@/components/generators/cod/SimpleGeneratorView";
 import CodClassName from "@/components/CodClassName";
-//Helpers
+// --- Helpers ---
 import { implodeObject } from "../../../helpers/implodeObject";
 import { scrollToTop } from "@/helpers/scrollToTop";
 import { fetchWeapon } from "../../../helpers/fetch/fetchWeapon";
@@ -14,20 +15,49 @@ import { fetchEquipment } from "@/helpers/fetch/fetchEquipment";
 import { fetchWildcard } from "@/helpers/fetch/fetchWildcard";
 import { fetchClassName } from "@/helpers/fetch/fetchClassName";
 import { getEnabledGames } from "@/helpers/generator/getEnabledGames";
-//Utils
+// --- Utils ---
 import { sendEvent } from "@/utils/gtag";
-//JSON
+// --- Data ---
 import defaultData from "@/json/cod/default-generator-info.json";
-//Types
+// --- DB ---
+import getDocumentByColumn from "@/helpers/_silabs/pouchDb/getDocumentByColumn";
+import { useDatabase } from "@/contexts/DatabaseContext";
+// --- Types ---
 import { sclSettings } from "@/types/_fw";
 
-interface WarzoneProps {
-  settings: sclSettings;
-}
-export default function WarzoneLoadout({ settings }: WarzoneProps) {
+export default function WarzoneLoadout() {
+  const { dbs, isReady } = useDatabase();
   const [isLoading, setIsLoading] = useState(true);
   const [isGenerating, setIsGenerating] = useState(true);
   const [data, setData] = useState(defaultData);
+  const [settings, setSettings] = useState<sclSettings>({});
+
+  useEffect(() => {
+    async function fetchData() {
+      if (dbs.settings) {
+        try {
+          const wzSettings = await getDocumentByColumn(
+            dbs.settings,
+            "name",
+            "warzone",
+            "settings"
+          );
+          if (wzSettings && wzSettings.value !== "") {
+            setSettings(JSON.parse(wzSettings.value));
+          }
+        } catch (err: unknown) {
+          const errorMessage =
+            err instanceof Error ? err.message : "Failed to fetch settings.";
+          console.warn(errorMessage);
+        } finally {
+          setIsLoading(false);
+        }
+      }
+    }
+    if (isReady) {
+      fetchData();
+    }
+  }, [dbs, isReady]);
 
   useEffect(() => {
     fetchLoadoutData(setData, settings);
@@ -47,13 +77,13 @@ export default function WarzoneLoadout({ settings }: WarzoneProps) {
 
   const { randClassName, perks, weapons, equipment, wildcard } = data;
 
-  if (isLoading) {
+  if (!isReady || isLoading) {
     return <div className="text-center">Loading...</div>;
   }
 
   return (
     <>
-      <Container id="random-class" className="shadow-lg p-3 bg-body rounded">
+      <Container id="random-class">
         <CodClassName isGenerating={isGenerating} value={randClassName} />
         <Row className="justify-content-md-center">
           <Col sm className="text-center mb-3 mb-md-0">
