@@ -24,7 +24,6 @@ export const metadata: Metadata = {
     "rcg,free",
     "mp",
     "multiplayer",
-    "call of duty random class generator",
     "COD Warzone RCG",
     "warzone random class generator",
     "warzone",

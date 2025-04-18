@@ -13,21 +13,6 @@ export const metadata: Metadata = {
   description:
     "Spice up your COD gameplay! Generate unique random loadouts for Call of Duty World War Two. Discover new weapons, perks, and gear combinations.",
   keywords: [
-    "Call of duty",
-    "call",
-    "of",
-    "duty",
-    "cod",
-    "call of duty",
-    "random",
-    "class",
-    "generator",
-    "random class generator",
-    "rcg",
-    "free",
-    "mp",
-    "multiplayer",
-    "call of duty random class generator",
     "COD World War Two RCG",
     "world war two random class generator",
     "world war two",
@@ -50,33 +35,33 @@ const navLinks = [
 
 const badges = [
   {
-      title: "Equipment",
-      link: "/world-war-two/info/equipment",
-    },
-    {
-      title: "Perks",
-      link: "/world-war-two/info/perks",
-    },
-    {
-      title: "Streaks",
-      link: "/world-war-two/info/streaks",
-    },
-    {
-      title: "Weapons",
-      link: "/world-war-two/info/weapons",
-    },
-    {
-      title: "Zombies Maps",
-      link: "/world-war-two/info/zombies/maps",
-    },
-    {
-      title: "Zombies Perks",
-      link: "/world-war-two/info/zombies/perks",
-    },
-    {
-      title: "Zombies Specials",
-      link: "/world-war-two/info/zombies/specials",
-    },
+    title: "Equipment",
+    link: "/world-war-two/info/equipment",
+  },
+  {
+    title: "Perks",
+    link: "/world-war-two/info/perks",
+  },
+  {
+    title: "Streaks",
+    link: "/world-war-two/info/streaks",
+  },
+  {
+    title: "Weapons",
+    link: "/world-war-two/info/weapons",
+  },
+  {
+    title: "Zombies Maps",
+    link: "/world-war-two/info/zombies/maps",
+  },
+  {
+    title: "Zombies Perks",
+    link: "/world-war-two/info/zombies/perks",
+  },
+  {
+    title: "Zombies Specials",
+    link: "/world-war-two/info/zombies/specials",
+  },
 ];
 
 export default function WorldWarTwoInfoPage() {
@@ -102,8 +87,8 @@ export default function WorldWarTwoInfoPage() {
               covered with details on the chilling <strong>Zombies Maps</strong>
               , crucial <strong>Zombies Perks</strong>, and powerful{" "}
               <strong>Zombies Special Abilities</strong> to aid your fight
-              against the undead legions. Use the links on this page to access all the
-              intel.
+              against the undead legions. Use the links on this page to access
+              all the intel.
             </p>
           </Col>
           <Col lg={5}>
