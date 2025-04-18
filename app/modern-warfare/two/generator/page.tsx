@@ -9,7 +9,7 @@ import ModernWarfareTwoLoadout from "@/components/generators/modern-warfare/Mode
 export const metadata: Metadata = {
   title: "Modern Warfare Two",
   description:
-    "Spice up your COD Zombies gameplay! Generate unique random loadouts for Modern Warfare Two. Discover new weapons, perks, and gear combinations.",
+    "Spice up your COD gameplay! Generate unique random loadouts for Modern Warfare Two. Discover new weapons, perks, and gear combinations.",
   keywords: [
     "Call of duty",
     "call",

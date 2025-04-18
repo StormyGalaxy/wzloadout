@@ -11,7 +11,7 @@ import CodBadge from "@/components/CodBadge";
 export const metadata: Metadata = {
   title: "Loadout Information",
   description:
-    "Spice up your COD Zombies gameplay! Generate unique random loadouts for Modern Warfare Three. Discover new weapons, perks, and gear combinations.",
+    "Spice up your COD gameplay! Generate unique random loadouts for Modern Warfare Three. Discover new weapons, perks, and gear combinations.",
   keywords: [
     "Call of duty",
     "call",
