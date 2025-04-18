@@ -1,6 +1,6 @@
 {
   "name": "codrcg.com",
-  "version": "2.0.1",
+  "version": "2.5.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -25,6 +25,7 @@
     "react-content-loader": "^7.0.2",
     "react-dom": "^19.0.0",
     "react-select": "^5.10.1",
+    "react-wheel-of-prizes-react19": "^1.0.13",
     "uuid": "^11.1.0"
   },
   "devDependencies": {

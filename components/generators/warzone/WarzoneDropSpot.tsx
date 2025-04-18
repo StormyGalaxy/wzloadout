@@ -132,10 +132,7 @@ export default function WarzoneDropSpot() {
 
   return (
     <>
-      <Container
-        id="where-we-dropping"
-        className={`shadow-lg p-3 bg-body rounded`}
-      >
+      <Container id="where-we-dropping">
         <Row className="justify-content-md-center">
           {isLoading && (
             <>
