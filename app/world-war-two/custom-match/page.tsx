@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 // --- Layout ---
 import PageLayout from "@/components/PageLayout";
 // --- Loadout ---
-import CustomMatchClient from "@/components/generators/world-war-two/CustomMatchClient";
+import CustomMatch from "@/components/generators/world-war-two/CustomMatch";
 
 // --- Metadata ---
 export const metadata: Metadata = {
@@ -43,7 +43,7 @@ export default function WorldWarTwoCustomMatchPage() {
         </h2>
         <Row className="shadow-lg p-3 bg-body rounded mb-4">
           <Col className="mx-auto">
-            <CustomMatchClient />
+            <CustomMatch />
           </Col>
         </Row>
       </Container>

@@ -1,15 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import {
-  Container,
-  Row,
-  Col,
-  Tabs,
-  Tab,
-  Button,
-  Spinner,
-} from "react-bootstrap";
+import { Row, Col, Tabs, Tab, Button, Spinner } from "react-bootstrap";
 // --- Components ---
 import CustomSettingsGeneral from "@/components/generators/cod/custom-settings/CustomSettingsGeneral";
 import CustomSettingsSection from "@/components/generators/cod/custom-settings/CustomSettingsSection";
@@ -17,7 +9,7 @@ import CustomSettingsSection from "@/components/generators/cod/custom-settings/C
 import generalSettings from "@/json/world-war-two/custom-match/general.json";
 import rulesSettings from "@/json/world-war-two/custom-match/rules.json";
 
-export default function CustomMatchClient() {
+export default function CustomMatch() {
   const [isLoading, setIsLoading] = useState(true);
   const [key, setKey] = useState<string>("general");
   const [count, setCount] = useState(0);
@@ -39,8 +31,8 @@ export default function CustomMatchClient() {
   };
 
   return (
-    <Container>
-      {isLoading ? ( // Conditional rendering based on isLoading
+    <>
+      {isLoading ? (
         <div className="text-center">
           <Spinner animation="border" role="status">
             <span className="visually-hidden">Loading...</span>
@@ -69,6 +61,6 @@ export default function CustomMatchClient() {
           </Row>
         </>
       )}
-    </Container>
+    </>
   );
 }
