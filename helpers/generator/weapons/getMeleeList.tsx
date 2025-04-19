@@ -9,7 +9,7 @@ const weapons: Record<string, any> = {
   warzone: mergeObjectsWithRekey(bo6List, mw3List, mw2List),
   "black-ops-six": bo6List,
   "modern-warfare-three-wz": mw3List,
-  "modern-warfare-two": mw2List,
+  "modern-warfare-two-wz": mw2List,
   "modern-warfare-remastered": mwrList,
 };
 

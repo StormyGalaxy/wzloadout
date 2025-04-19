@@ -1,9 +1,13 @@
+"use client";
+
 import React from "react";
 import { Nav } from "react-bootstrap";
 import Image from "next/image";
 
-function Footer() {
-  const showLicense = process.env.NEXT_PUBLIC_FOOTER_SITE !== "" && process.env.NEXT_PUBLIC_FOOTER_COPYRIGHT_URL !== "";
+export default function Footer() {
+  const showLicense =
+    process.env.NEXT_PUBLIC_FOOTER_SITE !== "" &&
+    process.env.NEXT_PUBLIC_FOOTER_COPYRIGHT_URL !== "";
   const images = [
     {
       src: "https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1",
@@ -36,7 +40,7 @@ function Footer() {
             </Nav.Item>
           )}
           <Nav.Item>
-            <Nav.Link href="/aboutus">About Us</Nav.Link>
+            <Nav.Link href="/about">About Us</Nav.Link>
           </Nav.Item>
           <Nav.Item>
             <Nav.Link href="/terms">Terms</Nav.Link>
@@ -95,5 +99,3 @@ function Footer() {
     </>
   );
 }
-
-export default Footer;

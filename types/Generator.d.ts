@@ -92,7 +92,7 @@ export type Gobblegum = {
   isDlc: boolean;
 };
 
-export type Artifact = {
+export type ZombiesFieldUpgrade = {
   name: string;
   type: string;
   game: string;

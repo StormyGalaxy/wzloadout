@@ -1,28 +1,30 @@
-import React, { createContext, useContext, useState, useEffect } from "react";
-import PouchDB from "pouchdb";
-import PouchDBFind from "pouchdb-find";
-import idbAdapter from "pouchdb-adapter-idb";
-import { initializeSettingsDB } from "@/helpers/database/settings/initializeSettingsDB";
+"use client";
 
-PouchDB.plugin(PouchDBFind);
-PouchDB.plugin(idbAdapter);
+import React, {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  ReactNode,
+} from "react";
+import { getDatabases } from "@/utils/db";
 
+// --- Context Definition ---
 interface DatabaseContextProps {
   dbs: { [key: string]: PouchDB.Database | null };
   isReady: boolean;
+  error: string | null;
 }
-
 const DatabaseContext = createContext<DatabaseContextProps>({
   dbs: {},
   isReady: false,
+  error: null,
 });
-
 export const useDatabase = () => useContext(DatabaseContext);
 
 interface DatabaseProviderProps {
-  children: React.ReactNode;
+  children: ReactNode;
 }
-
 export const DatabaseProvider: React.FC<DatabaseProviderProps> = ({
   children,
 }) => {
@@ -30,27 +32,47 @@ export const DatabaseProvider: React.FC<DatabaseProviderProps> = ({
     {}
   );
   const [isReady, setIsReady] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const initializeDBs = async () => {
-      try {
-        const settingsDb = await initializeSettingsDB();
+    let isMounted = true;
 
-        setDbs({
-          settings: settingsDb,
-        });
-        setIsReady(true);
-      } catch (error) {
-        console.error("Database initialization or destruction error:", error);
-        setIsReady(true);
-      }
+    getDatabases()
+      .then((initializedDbs) => {
+        // Set state only if the component is still mounted
+        if (isMounted) {
+          setDbs(initializedDbs);
+          setIsReady(true);
+          setError(null);
+        }
+      })
+      .catch((initError) => {
+        if (isMounted) {
+          console.error(
+            "DatabaseProvider: Error getting singleton DBs:",
+            initError
+          );
+          setError(
+            initError instanceof Error ? initError.message : String(initError)
+          );
+          setDbs({});
+          setIsReady(true);
+        } else {
+          console.error(
+            "DatabaseProvider: Component unmounted after DB init error:",
+            initError
+          );
+        }
+      });
+
+    // Cleanup function just needs to handle the mount flag
+    return () => {
+      isMounted = false;
     };
-
-    initializeDBs();
   }, []);
 
   return (
-    <DatabaseContext.Provider value={{ dbs, isReady }}>
+    <DatabaseContext.Provider value={{ dbs, isReady, error }}>
       {children}
     </DatabaseContext.Provider>
   );

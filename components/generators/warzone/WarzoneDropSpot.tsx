@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useState } from "react";
 //Components
 import { Container, Row, Col, Button, Form, Spinner } from "react-bootstrap";
@@ -42,7 +44,7 @@ const mapInfo = {
   },
 };
 
-function WarzoneDropSpot() {
+export default function WarzoneDropSpot() {
   const [isLoading, setIsLoading] = useState(false);
   const [isSpinning, setIsSpinning] = useState(false);
   const [spinResult, setSpinResult] = useState("????");
@@ -130,10 +132,7 @@ function WarzoneDropSpot() {
 
   return (
     <>
-      <Container
-        id="where-we-dropping"
-        className={`shadow-lg p-3 bg-body rounded`}
-      >
+      <Container id="where-we-dropping">
         <Row className="justify-content-md-center">
           {isLoading && (
             <>
@@ -237,5 +236,3 @@ function WarzoneDropSpot() {
     </>
   );
 }
-
-export default WarzoneDropSpot;

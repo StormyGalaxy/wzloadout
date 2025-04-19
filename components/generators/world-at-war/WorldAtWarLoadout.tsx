@@ -1,5 +1,7 @@
+"use client";
+
 import { useEffect, useState } from "react";
-import { Container, Row, Col, Button } from "react-bootstrap";
+import { Row, Col, Button } from "react-bootstrap";
 import SimpleGeneratorView from "@/components/generators/cod/SimpleGeneratorView";
 import CodClassName from "@/components/CodClassName";
 //Helpers
@@ -16,7 +18,7 @@ import { sendEvent } from "@/utils/gtag";
 //json
 import defaultData from "@/json/cod/default-generator-info.json";
 
-function WorldAtWarLoadoutLoadout() {
+export default function WorldAtWarLoadoutLoadout() {
   const [isLoading, setIsLoading] = useState(true);
   const [isGenerating, setIsGenerating] = useState(true);
   const [data, setData] = useState(defaultData);
@@ -45,103 +47,101 @@ function WorldAtWarLoadoutLoadout() {
 
   return (
     <>
-      <Container id="random-class" className="shadow-lg p-3 bg-body rounded">
-        <CodClassName isGenerating={isGenerating} value={randClassName} />
-        <Row className="justify-content-md-center">
-          <Col sm className="text-center mb-3 mb-md-0">
-            <SimpleGeneratorView
-              isGenerating={isGenerating}
-              title="Primary"
-              value={weapons.primary.weapon.name}
-            />
-            <br />
-            <SimpleGeneratorView
-              isGenerating={isGenerating}
-              title="Primary Attachment"
-              value={
-                weapons.primary.weapon.no_attach
-                  ? "No Attachment"
-                  : weapons.primary.attachments
-              }
-            />
-          </Col>
-          <Col sm className="text-center mb-3 mb-md-0">
-            <SimpleGeneratorView
-              isGenerating={isGenerating}
-              title="Sidearm"
-              value={weapons.secondary.weapon.name}
-            />
-          </Col>
-        </Row>
-        <hr />
-        <Row className="justify-content-md-center mb-4">
-          <Col sm className="text-center mb-3 mb-md-0">
-            <SimpleGeneratorView
-              isGenerating={isGenerating}
-              title="Primary Grenade"
-              value={
-                lethalMap[perkObj.perk1] ||
-                (perkObj.perk1 === "2x Primary Grenades"
-                  ? `${equipment.lethal.name} x2`
-                  : equipment.lethal.name)
-              }
-            />
-          </Col>
-          <Col sm className="text-center mb-3 mb-md-0">
-            <SimpleGeneratorView
-              isGenerating={isGenerating}
-              title="Special Grenade"
-              value={
-                perkObj.perk1 === "3x Special Grenades"
-                  ? "Smoke x3"
-                  : equipment.tactical.name
-              }
-            />
-          </Col>
-        </Row>
-        <hr />
-        <Row className="justify-content-md-center mb-4">
-          <Col sm className="text-center mb-3 mb-md-0">
-            <SimpleGeneratorView
-              isGenerating={isGenerating}
-              title="Perk 1"
-              value={perkObj.perk1 ? perkObj.perk1 : "None"}
-            />
-          </Col>
-          <Col sm className="text-center mb-3 mb-md-0">
-            <SimpleGeneratorView
-              isGenerating={isGenerating}
-              title="Perk 2"
-              value={perkObj.perk2 ? perkObj.perk2 : "None"}
-            />
-          </Col>
-          <Col sm className="text-center mb-3 mb-md-0">
-            <SimpleGeneratorView
-              isGenerating={isGenerating}
-              title="Perk 3"
-              value={perkObj.perk3 ? perkObj.perk3 : "None"}
-            />
-          </Col>
-          <Col sm className="text-center mb-3 mb-md-0">
-            <SimpleGeneratorView
-              isGenerating={isGenerating}
-              title="Vehicle Perk"
-              value={perkObj.vehiclePerk ? perkObj.vehiclePerk : "None"}
-            />
-          </Col>
-        </Row>
-        <Row id="button-row">
-          <Col className="text-center">
-            <Button
-              variant="secondary"
-              disabled={isGenerating}
-              onClick={isGenerating ? undefined : handleClick}
-            >
-              {isGenerating ? "Generating Loadout..." : "Generate Loadout"}
-            </Button>
-          </Col>
-        </Row>
-      </Container>
+      <CodClassName isGenerating={isGenerating} value={randClassName} />
+      <Row className="justify-content-md-center">
+        <Col sm className="text-center mb-3 mb-md-0">
+          <SimpleGeneratorView
+            isGenerating={isGenerating}
+            title="Primary"
+            value={weapons.primary.weapon.name}
+          />
+          <br />
+          <SimpleGeneratorView
+            isGenerating={isGenerating}
+            title="Primary Attachment"
+            value={
+              weapons.primary.weapon.no_attach
+                ? "No Attachment"
+                : weapons.primary.attachments
+            }
+          />
+        </Col>
+        <Col sm className="text-center mb-3 mb-md-0">
+          <SimpleGeneratorView
+            isGenerating={isGenerating}
+            title="Sidearm"
+            value={weapons.secondary.weapon.name}
+          />
+        </Col>
+      </Row>
+      <hr />
+      <Row className="justify-content-md-center mb-4">
+        <Col sm className="text-center mb-3 mb-md-0">
+          <SimpleGeneratorView
+            isGenerating={isGenerating}
+            title="Primary Grenade"
+            value={
+              lethalMap[perkObj.perk1] ||
+              (perkObj.perk1 === "2x Primary Grenades"
+                ? `${equipment.lethal.name} x2`
+                : equipment.lethal.name)
+            }
+          />
+        </Col>
+        <Col sm className="text-center mb-3 mb-md-0">
+          <SimpleGeneratorView
+            isGenerating={isGenerating}
+            title="Special Grenade"
+            value={
+              perkObj.perk1 === "3x Special Grenades"
+                ? "Smoke x3"
+                : equipment.tactical.name
+            }
+          />
+        </Col>
+      </Row>
+      <hr />
+      <Row className="justify-content-md-center mb-4">
+        <Col sm className="text-center mb-3 mb-md-0">
+          <SimpleGeneratorView
+            isGenerating={isGenerating}
+            title="Perk 1"
+            value={perkObj.perk1 ? perkObj.perk1 : "None"}
+          />
+        </Col>
+        <Col sm className="text-center mb-3 mb-md-0">
+          <SimpleGeneratorView
+            isGenerating={isGenerating}
+            title="Perk 2"
+            value={perkObj.perk2 ? perkObj.perk2 : "None"}
+          />
+        </Col>
+        <Col sm className="text-center mb-3 mb-md-0">
+          <SimpleGeneratorView
+            isGenerating={isGenerating}
+            title="Perk 3"
+            value={perkObj.perk3 ? perkObj.perk3 : "None"}
+          />
+        </Col>
+        <Col sm className="text-center mb-3 mb-md-0">
+          <SimpleGeneratorView
+            isGenerating={isGenerating}
+            title="Vehicle Perk"
+            value={perkObj.vehiclePerk ? perkObj.vehiclePerk : "None"}
+          />
+        </Col>
+      </Row>
+      <Row id="button-row">
+        <Col className="text-center">
+          <Button
+            variant="secondary"
+            disabled={isGenerating}
+            onClick={isGenerating ? undefined : handleClick}
+          >
+            {isGenerating ? "Generating Loadout..." : "Generate Loadout"}
+          </Button>
+        </Col>
+      </Row>
     </>
   );
 }
@@ -210,5 +210,3 @@ async function fetchLoadoutData(setData) {
     }
   }
 }
-
-export default WorldAtWarLoadoutLoadout;
