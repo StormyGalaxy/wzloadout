@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Container, Row, Col, Button } from "react-bootstrap";
+import { Row, Col, Button } from "react-bootstrap";
 import SimpleGeneratorView from "@/components/generators/cod/SimpleGeneratorView";
 import CodClassName from "@/components/CodClassName";
 //Helpers
@@ -49,63 +49,61 @@ export default function ColdWarZombiesLoadout() {
 
   return (
     <>
-      <Container id="random-class">
-        <CodClassName isGenerating={isGenerating} value={randClassName} />
-        <Row className="justify-content-md-center mb-4">
-          <Col xs md="8" lg="6" className="text-center">
-            <SimpleGeneratorView
-              isGenerating={isGenerating}
-              title="Primary"
-              value={weapons.primary.weapon.name}
-            />
-            <br />
-            <SimpleGeneratorView
-              isGenerating={isGenerating}
-              title="Primary Attachments"
-              value={
-                weapons.primary.weapon.no_attach
-                  ? "No Attachments"
-                  : weapons.primary.attachments
-              }
-            />
-          </Col>
-        </Row>
-        <hr />
-        <Row className="justify-content-md-center mb-4">
-          <Col xs="12" md="4" lg="3" className="text-center mb-2">
-            <SimpleGeneratorView
-              isGenerating={isGenerating}
-              title="Field Upgrade"
-              value={field_upgrade}
-            />
-          </Col>
-          <Col xs="12" md="4" lg="3" className="text-center mb-2">
-            <SimpleGeneratorView
-              isGenerating={isGenerating}
-              title="Mode"
-              value={zombieMap.mode}
-            />
-          </Col>
-          <Col xs="12" md="4" lg="3" className="text-center mb-2">
-            <SimpleGeneratorView
-              isGenerating={isGenerating}
-              title="Map"
-              value={zombieMap.name}
-            />
-          </Col>
-        </Row>
-        <Row className="justify-content-md-center">
-          <Col xs md="8" lg="6" className="text-center">
-            <Button
-              variant="danger"
-              disabled={isGenerating}
-              onClick={isGenerating ? undefined : handleClick}
-            >
-              {isGenerating ? "Generating Loadout..." : "Generate Loadout"}
-            </Button>
-          </Col>
-        </Row>
-      </Container>
+      <CodClassName isGenerating={isGenerating} value={randClassName} />
+      <Row className="justify-content-md-center mb-4">
+        <Col xs md="8" lg="6" className="text-center">
+          <SimpleGeneratorView
+            isGenerating={isGenerating}
+            title="Primary"
+            value={weapons.primary.weapon.name}
+          />
+          <br />
+          <SimpleGeneratorView
+            isGenerating={isGenerating}
+            title="Primary Attachments"
+            value={
+              weapons.primary.weapon.no_attach
+                ? "No Attachments"
+                : weapons.primary.attachments
+            }
+          />
+        </Col>
+      </Row>
+      <hr />
+      <Row className="justify-content-md-center mb-4">
+        <Col xs="12" md="4" lg="3" className="text-center mb-2">
+          <SimpleGeneratorView
+            isGenerating={isGenerating}
+            title="Field Upgrade"
+            value={field_upgrade}
+          />
+        </Col>
+        <Col xs="12" md="4" lg="3" className="text-center mb-2">
+          <SimpleGeneratorView
+            isGenerating={isGenerating}
+            title="Mode"
+            value={zombieMap.mode}
+          />
+        </Col>
+        <Col xs="12" md="4" lg="3" className="text-center mb-2">
+          <SimpleGeneratorView
+            isGenerating={isGenerating}
+            title="Map"
+            value={zombieMap.name}
+          />
+        </Col>
+      </Row>
+      <Row className="justify-content-md-center">
+        <Col xs md="8" lg="6" className="text-center">
+          <Button
+            variant="danger"
+            disabled={isGenerating}
+            onClick={isGenerating ? undefined : handleClick}
+          >
+            {isGenerating ? "Generating Loadout..." : "Generate Loadout"}
+          </Button>
+        </Col>
+      </Row>
     </>
   );
 }

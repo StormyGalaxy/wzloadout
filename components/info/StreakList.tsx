@@ -25,6 +25,6 @@ export default function StreakList({
     setData(dataList);
 
     setIsLoading(false);
-  }, []);
+  }, [game]);
   return <>{!isLoading && <InfoList data={data} dataKeys={dataKeys} />}</>;
 }

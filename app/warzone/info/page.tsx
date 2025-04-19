@@ -69,14 +69,15 @@ export default function WarzoneInfoPage() {
             <p>
               Drop into the massive battle royale arenas of Call of Duty:
               Warzone fully prepared with our tactical guide. This section
-              provides crucial intel for survival and victory across Warzone's
-              ever-evolving battlegrounds. Explore detailed information on the
-              meta <strong>Weapons</strong>, essential <strong>Perks</strong>,
-              powerful <strong>Wildcards</strong> to enhance your loadouts,
-              vital tactical and lethal <strong>Equipment</strong>, and
-              strategic breakdowns of key <strong>Drop Spots</strong> across all
-              current Warzone maps. Use the links on this page to gear up, plan
-              your drop, and dominate your next match.
+              provides crucial intel for survival and victory across
+              Warzone&apos;s ever-evolving battlegrounds. Explore detailed
+              information on the meta <strong>Weapons</strong>, essential{" "}
+              <strong>Perks</strong>, powerful <strong>Wildcards</strong> to
+              enhance your loadouts, vital tactical and lethal{" "}
+              <strong>Equipment</strong>, and strategic breakdowns of key{" "}
+              <strong>Drop Spots</strong> across all current Warzone maps. Use
+              the links on this page to gear up, plan your drop, and dominate
+              your next match.
             </p>
           </Col>
           <Col lg={5}>

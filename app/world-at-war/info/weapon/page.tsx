@@ -8,7 +8,7 @@ import PageLayout from "@/components/PageLayout";
 import WeaponDisplayClient from "@/components/info/WeaponDisplayClient";
 
 type Props = {
-  params: {};
+  params: object;
   searchParams: { [key: string]: string | string[] | undefined };
 };
 

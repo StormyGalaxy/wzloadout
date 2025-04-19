@@ -40,7 +40,7 @@ export default function WeaponList({
     setTypes(tmp_types);
 
     setIsLoading(false);
-  }, []);
+  }, [game]);
   return (
     <>
       {!isLoading && (

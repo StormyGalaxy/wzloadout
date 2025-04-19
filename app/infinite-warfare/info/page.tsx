@@ -76,7 +76,7 @@ export default function InfiniteWarfareInfoPage() {
               powerful <strong>Scorestreaks</strong>, and the unique{" "}
               <strong>Combat Rigs</strong> system with their specialized
               Payloads and Traits. Find all the links you need on this page to
-              master Infinite Warfare's multiplayer arena.
+              master Infinite Warfare&apos;s multiplayer arena.
             </p>
           </Col>
           <Col lg={5}>

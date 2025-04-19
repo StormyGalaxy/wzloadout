@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Container, Row, Col, Button } from "react-bootstrap";
+import { Row, Col, Button } from "react-bootstrap";
 import SimpleGeneratorView from "@/components/generators/cod/SimpleGeneratorView";
 import PerkGreedGeneratorView from "@/components/generators/cod/PerkGreedGeneratorView";
 import CodClassName from "@/components/CodClassName";
@@ -63,144 +63,138 @@ export default function InfiniteWarfareLoadout() {
 
   return (
     <>
-      <Container id="random-class">
-        <CodClassName isGenerating={isGenerating} value={randClassName} />
-        <Row className="justify-content-md-center">
-          <Col sm className="text-center mb-3 mb-md-0">
-            <SimpleGeneratorView
-              isGenerating={isGenerating}
-              title="Primary"
-              value={
-                weapons.primary.weapon.name
-                  ? weapons.primary.weapon.name
-                  : "None"
-              }
-            />
-            <br />
-            <SimpleGeneratorView
-              isGenerating={isGenerating}
-              title="Primary Optic"
-              value={weapons.primary.optic ? weapons.primary.optic : "None"}
-            />
-            <br />
-            <SimpleGeneratorView
-              isGenerating={isGenerating}
-              title="Primary Attachments"
-              value={
-                weapons.primary.attachments
-                  ? weapons.primary.attachments
-                  : "None"
-              }
-            />
-          </Col>
-          <Col sm className="text-center mb-3 mb-md-0">
-            <SimpleGeneratorView
-              isGenerating={isGenerating}
-              title="Secondary"
-              value={
-                weapons.secondary.weapon.name
-                  ? weapons.secondary.weapon.name
-                  : "None"
-              }
-            />
-            <br />
-            <SimpleGeneratorView
-              isGenerating={isGenerating}
-              title="Secondary Optic"
-              value={weapons.secondary.optic ? weapons.secondary.optic : "None"}
-            />
-            <br />
-            <SimpleGeneratorView
-              isGenerating={isGenerating}
-              title="Secondary Attachments"
-              value={
-                weapons.secondary.attachments
-                  ? weapons.secondary.attachments
-                  : "None"
-              }
-            />
-          </Col>
-        </Row>
-        <hr />
-        <Row className="justify-content-md-center">
-          <Col sm className="text-center mb-3 mb-md-0">
-            <SimpleGeneratorView
-              isGenerating={isGenerating}
-              title="Lethal"
-              value={equipment.lethal.name ? equipment.lethal.name : "None"}
-            />
-          </Col>
-          <Col sm className="text-center mb-3 mb-md-0">
-            <SimpleGeneratorView
-              isGenerating={isGenerating}
-              title="Tactical"
-              value={equipment.tactical.name ? equipment.tactical.name : "None"}
-            />
-          </Col>
-        </Row>
-        <hr />
-        <Row className="justify-content-md-center">
-          <Col sm className="text-center">
-            <PerkGreedGeneratorView
-              isGenerating={isGenerating}
-              title="Perk 1"
-              perk={perkObj.perk1}
-              perkGreed={perkObj.perk1Greed}
-            />
-          </Col>
-          <Col sm className="text-center">
-            <PerkGreedGeneratorView
-              isGenerating={isGenerating}
-              title="Perk 2"
-              perk={perkObj.perk2}
-              perkGreed={perkObj.perk2Greed}
-            />
-          </Col>
-          <Col sm className="text-center">
-            <PerkGreedGeneratorView
-              isGenerating={isGenerating}
-              title="Perk 3"
-              perk={perkObj.perk3}
-              perkGreed={perkObj.perk3Greed}
-            />
-          </Col>
-        </Row>
-        <hr />
-        <Row className="mb-5">
-          <Col sm className="text-center">
-            <SimpleGeneratorView
-              isGenerating={isGenerating}
-              title="Combat Rig"
-              value={combat_rig ? combat_rig : "None"}
-            />
-          </Col>
-          <Col sm className="text-center">
-            <SimpleGeneratorView
-              isGenerating={isGenerating}
-              title="Wildcards"
-              value={wildcards ? wildcards : "None"}
-            />
-          </Col>
-          <Col sm className="text-center">
-            <SimpleGeneratorView
-              isGenerating={isGenerating}
-              title="Streaks"
-              value={streaks}
-            />
-          </Col>
-        </Row>
-        <Row id="button-row">
-          <Col className="text-center">
-            <Button
-              variant="infinite-warfare"
-              disabled={isGenerating}
-              onClick={isGenerating ? undefined : handleClick}
-            >
-              {isGenerating ? "Generating Loadout..." : "Generate Loadout"}
-            </Button>
-          </Col>
-        </Row>
-      </Container>
+      <CodClassName isGenerating={isGenerating} value={randClassName} />
+      <Row className="justify-content-md-center">
+        <Col sm className="text-center mb-3 mb-md-0">
+          <SimpleGeneratorView
+            isGenerating={isGenerating}
+            title="Primary"
+            value={
+              weapons.primary.weapon.name ? weapons.primary.weapon.name : "None"
+            }
+          />
+          <br />
+          <SimpleGeneratorView
+            isGenerating={isGenerating}
+            title="Primary Optic"
+            value={weapons.primary.optic ? weapons.primary.optic : "None"}
+          />
+          <br />
+          <SimpleGeneratorView
+            isGenerating={isGenerating}
+            title="Primary Attachments"
+            value={
+              weapons.primary.attachments ? weapons.primary.attachments : "None"
+            }
+          />
+        </Col>
+        <Col sm className="text-center mb-3 mb-md-0">
+          <SimpleGeneratorView
+            isGenerating={isGenerating}
+            title="Secondary"
+            value={
+              weapons.secondary.weapon.name
+                ? weapons.secondary.weapon.name
+                : "None"
+            }
+          />
+          <br />
+          <SimpleGeneratorView
+            isGenerating={isGenerating}
+            title="Secondary Optic"
+            value={weapons.secondary.optic ? weapons.secondary.optic : "None"}
+          />
+          <br />
+          <SimpleGeneratorView
+            isGenerating={isGenerating}
+            title="Secondary Attachments"
+            value={
+              weapons.secondary.attachments
+                ? weapons.secondary.attachments
+                : "None"
+            }
+          />
+        </Col>
+      </Row>
+      <hr />
+      <Row className="justify-content-md-center">
+        <Col sm className="text-center mb-3 mb-md-0">
+          <SimpleGeneratorView
+            isGenerating={isGenerating}
+            title="Lethal"
+            value={equipment.lethal.name ? equipment.lethal.name : "None"}
+          />
+        </Col>
+        <Col sm className="text-center mb-3 mb-md-0">
+          <SimpleGeneratorView
+            isGenerating={isGenerating}
+            title="Tactical"
+            value={equipment.tactical.name ? equipment.tactical.name : "None"}
+          />
+        </Col>
+      </Row>
+      <hr />
+      <Row className="justify-content-md-center">
+        <Col sm className="text-center">
+          <PerkGreedGeneratorView
+            isGenerating={isGenerating}
+            title="Perk 1"
+            perk={perkObj.perk1}
+            perkGreed={perkObj.perk1Greed}
+          />
+        </Col>
+        <Col sm className="text-center">
+          <PerkGreedGeneratorView
+            isGenerating={isGenerating}
+            title="Perk 2"
+            perk={perkObj.perk2}
+            perkGreed={perkObj.perk2Greed}
+          />
+        </Col>
+        <Col sm className="text-center">
+          <PerkGreedGeneratorView
+            isGenerating={isGenerating}
+            title="Perk 3"
+            perk={perkObj.perk3}
+            perkGreed={perkObj.perk3Greed}
+          />
+        </Col>
+      </Row>
+      <hr />
+      <Row className="mb-5">
+        <Col sm className="text-center">
+          <SimpleGeneratorView
+            isGenerating={isGenerating}
+            title="Combat Rig"
+            value={combat_rig ? combat_rig : "None"}
+          />
+        </Col>
+        <Col sm className="text-center">
+          <SimpleGeneratorView
+            isGenerating={isGenerating}
+            title="Wildcards"
+            value={wildcards ? wildcards : "None"}
+          />
+        </Col>
+        <Col sm className="text-center">
+          <SimpleGeneratorView
+            isGenerating={isGenerating}
+            title="Streaks"
+            value={streaks}
+          />
+        </Col>
+      </Row>
+      <Row id="button-row">
+        <Col className="text-center">
+          <Button
+            variant="infinite-warfare"
+            disabled={isGenerating}
+            onClick={isGenerating ? undefined : handleClick}
+          >
+            {isGenerating ? "Generating Loadout..." : "Generate Loadout"}
+          </Button>
+        </Col>
+      </Row>
     </>
   );
 }

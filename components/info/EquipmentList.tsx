@@ -25,6 +25,6 @@ export default function EquipmentList({
     setData(dataList);
 
     setIsLoading(false);
-  }, []);
+  }, [game]);
   return <>{!isLoading && <InfoList data={data} dataKeys={dataKeys} />}</>;
 }

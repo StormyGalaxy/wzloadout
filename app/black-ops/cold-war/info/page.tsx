@@ -78,13 +78,14 @@ export default function ColdWarInfoPage() {
           <Col lg={7} className="text-center">
             <p>
               Welcome to your central hub for all essential Call of Duty: Black
-              Ops Cold War data! Whether you're fine-tuning your multiplayer
-              strategy or preparing to face the undead hordes, we've compiled
-              the information you need. Our loadout section details every
-              multiplayer <strong>weapon</strong>, <strong>perk</strong>, piece
-              of <strong>equipment</strong>, <strong>wildcard</strong>, and{" "}
-              <strong>killstreak</strong> available. For Zombies slayers,
-              explore the available <strong>maps</strong>, discover the powerful{" "}
+              Ops Cold War data! Whether you&apos;re fine-tuning your
+              multiplayer strategy or preparing to face the undead hordes,
+              we&apos;ve compiled the information you need. Our loadout section
+              details every multiplayer <strong>weapon</strong>,{" "}
+              <strong>perk</strong>, piece of <strong>equipment</strong>,{" "}
+              <strong>wildcard</strong>, and <strong>killstreak</strong>{" "}
+              available. For Zombies slayers, explore the available{" "}
+              <strong>maps</strong>, discover the powerful{" "}
               <strong>Artifacts</strong> to aid your survival, and learn about
               the various <strong>Covenants</strong> you can acquire at the
               Altar, including those that function like{" "}

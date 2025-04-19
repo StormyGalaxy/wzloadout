@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Container, Row, Col, Button, Form } from "react-bootstrap";
+import { Row, Col, Button, Form } from "react-bootstrap";
 import SimpleGeneratorView from "@/components/generators/cod/SimpleGeneratorView";
 import CodClassName from "@/components/CodClassName";
 //Helpers
@@ -116,143 +116,141 @@ export default function BlackOpsFourZombiesLoadout() {
 
   return (
     <>
-      <Container id="random-class">
-        <CodClassName isGenerating={isGenerating} value={randClassName} />
-        <Row className="justify-content-md-center mb-4">
-          <Col sm className="text-center">
-            <SimpleGeneratorView
-              isGenerating={isGenerating}
-              title="Story"
-              value={story.display}
-            />
-          </Col>
-          <Col sm className="text-center">
-            <SimpleGeneratorView
-              isGenerating={isGenerating}
-              title="Special Weapon"
-              value={weapons.special.name}
-            />
-          </Col>
-          <Col sm className="text-center">
-            <SimpleGeneratorView
-              isGenerating={isGenerating}
-              title="Equipment"
-              value={equipment.lethal.name}
-            />
-          </Col>
-          <Col sm className="text-center">
-            <SimpleGeneratorView
-              isGenerating={isGenerating}
-              title="Starting Weapon"
-              value={weapons.starting.name}
-            />
-          </Col>
-        </Row>
-        <hr />
-        <Row className="justify-content-md-center mb-4">
-          <Col sm className="text-center">
-            <SimpleGeneratorView
-              isGenerating={isGenerating}
-              title={story.key === "chaos_story" ? "DANU" : "BREW"}
-              value={zombiePerks[0]}
-            />
-          </Col>
-          <Col sm className="text-center">
-            <SimpleGeneratorView
-              isGenerating={isGenerating}
-              title={story.key === "chaos_story" ? "RA" : "COLA"}
-              value={zombiePerks[1]}
-            />
-          </Col>
-          <Col sm className="text-center">
-            <SimpleGeneratorView
-              isGenerating={isGenerating}
-              title={story.key === "chaos_story" ? "ZEUS" : "SODA"}
-              value={zombiePerks[2]}
-            />
-          </Col>
-          <Col sm className="text-center">
-            <SimpleGeneratorView
-              isGenerating={isGenerating}
-              title={story.key === "chaos_story" ? "ODIN" : "TONIC"}
-              value={zombiePerks[3]}
-            />
-          </Col>
-        </Row>
-        {rollMap && (
-          <>
-            <hr />
-            <Row className="justify-content-md-center mb-4">
+      <CodClassName isGenerating={isGenerating} value={randClassName} />
+      <Row className="justify-content-md-center mb-4">
+        <Col sm className="text-center">
+          <SimpleGeneratorView
+            isGenerating={isGenerating}
+            title="Story"
+            value={story.display}
+          />
+        </Col>
+        <Col sm className="text-center">
+          <SimpleGeneratorView
+            isGenerating={isGenerating}
+            title="Special Weapon"
+            value={weapons.special.name}
+          />
+        </Col>
+        <Col sm className="text-center">
+          <SimpleGeneratorView
+            isGenerating={isGenerating}
+            title="Equipment"
+            value={equipment.lethal.name}
+          />
+        </Col>
+        <Col sm className="text-center">
+          <SimpleGeneratorView
+            isGenerating={isGenerating}
+            title="Starting Weapon"
+            value={weapons.starting.name}
+          />
+        </Col>
+      </Row>
+      <hr />
+      <Row className="justify-content-md-center mb-4">
+        <Col sm className="text-center">
+          <SimpleGeneratorView
+            isGenerating={isGenerating}
+            title={story.key === "chaos_story" ? "DANU" : "BREW"}
+            value={zombiePerks[0]}
+          />
+        </Col>
+        <Col sm className="text-center">
+          <SimpleGeneratorView
+            isGenerating={isGenerating}
+            title={story.key === "chaos_story" ? "RA" : "COLA"}
+            value={zombiePerks[1]}
+          />
+        </Col>
+        <Col sm className="text-center">
+          <SimpleGeneratorView
+            isGenerating={isGenerating}
+            title={story.key === "chaos_story" ? "ZEUS" : "SODA"}
+            value={zombiePerks[2]}
+          />
+        </Col>
+        <Col sm className="text-center">
+          <SimpleGeneratorView
+            isGenerating={isGenerating}
+            title={story.key === "chaos_story" ? "ODIN" : "TONIC"}
+            value={zombiePerks[3]}
+          />
+        </Col>
+      </Row>
+      {rollMap && (
+        <>
+          <hr />
+          <Row className="justify-content-md-center mb-4">
+            <Col xs md="4" lg="3" className="text-center">
+              <SimpleGeneratorView
+                isGenerating={isGenerating}
+                title="Mode"
+                value={zombieMap?.mode}
+              />
+            </Col>
+            <Col xs md="4" lg="3" className="text-center">
+              <SimpleGeneratorView
+                isGenerating={isGenerating}
+                title="Map"
+                value={zombieMap.name}
+              />
+            </Col>
+            {zombieMap?.mode === "Classic" && (
               <Col xs md="4" lg="3" className="text-center">
                 <SimpleGeneratorView
                   isGenerating={isGenerating}
-                  title="Mode"
-                  value={zombieMap?.mode}
+                  title="Difficulty"
+                  value={zombieMap.difficulty}
                 />
               </Col>
-              <Col xs md="4" lg="3" className="text-center">
-                <SimpleGeneratorView
-                  isGenerating={isGenerating}
-                  title="Map"
-                  value={zombieMap.name}
-                />
-              </Col>
-              {zombieMap?.mode === "Classic" && (
-                <Col xs md="4" lg="3" className="text-center">
-                  <SimpleGeneratorView
-                    isGenerating={isGenerating}
-                    title="Difficulty"
-                    value={zombieMap.difficulty}
-                  />
-                </Col>
-              )}
-            </Row>
-          </>
+            )}
+          </Row>
+        </>
+      )}
+      {(rollElixers || rollTalisman) && <hr />}
+      <Row className="justify-content-md-center mb-4">
+        {rollTalisman && (
+          <Col xs md="4" lg="3" className="text-center">
+            <SimpleGeneratorView
+              isGenerating={isGenerating}
+              title="Talisman"
+              value={talisman}
+            />
+          </Col>
         )}
-        {(rollElixers || rollTalisman) && <hr />}
-        <Row className="justify-content-md-center mb-4">
-          {rollTalisman && (
-            <Col xs md="4" lg="3" className="text-center">
-              <SimpleGeneratorView
-                isGenerating={isGenerating}
-                title="Talisman"
-                value={talisman}
-              />
-            </Col>
-          )}
-          {rollElixers && (
-            <Col xs md="4" lg="3" className="text-center">
-              <SimpleGeneratorView
-                isGenerating={isGenerating}
-                title="Elixers"
-                value={elixers}
-              />
-            </Col>
-          )}
-        </Row>
-        <Row className="justify-content-md-center">
-          <Col xs md="8" lg="6" className="text-center">
-            <div className="d-flex justify-content-center">
-              <Button
-                variant="black-ops"
-                disabled={isGenerating}
-                onClick={isGenerating ? undefined : handleModal}
-                className="w-50 me-2"
-              >
-                Settings
-              </Button>
-              <Button
-                variant="black-ops"
-                disabled={isGenerating}
-                onClick={isGenerating ? undefined : handleClick}
-                className="w-50 me-2"
-              >
-                {isGenerating ? "Generating Loadout..." : "Generate Loadout"}
-              </Button>
-            </div>
+        {rollElixers && (
+          <Col xs md="4" lg="3" className="text-center">
+            <SimpleGeneratorView
+              isGenerating={isGenerating}
+              title="Elixers"
+              value={elixers}
+            />
           </Col>
-        </Row>
-      </Container>
+        )}
+      </Row>
+      <Row className="justify-content-md-center">
+        <Col xs md="8" lg="6" className="text-center">
+          <div className="d-flex justify-content-center">
+            <Button
+              variant="black-ops"
+              disabled={isGenerating}
+              onClick={isGenerating ? undefined : handleModal}
+              className="w-50 me-2"
+            >
+              Settings
+            </Button>
+            <Button
+              variant="black-ops"
+              disabled={isGenerating}
+              onClick={isGenerating ? undefined : handleClick}
+              className="w-50 me-2"
+            >
+              {isGenerating ? "Generating Loadout..." : "Generate Loadout"}
+            </Button>
+          </div>
+        </Col>
+      </Row>
 
       <CustomModal
         variant="black-ops"

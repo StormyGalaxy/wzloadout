@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
-import { Container, Row, Col, Button, Form } from "react-bootstrap";
+import { Row, Col, Button, Form } from "react-bootstrap";
 //Helpers
 import { implodeObject } from "@/helpers/implodeObject";
 import { scrollToTop } from "@/helpers/scrollToTop";
@@ -121,142 +121,140 @@ export default function BlackOpsSixZombiesLoadout() {
 
   return (
     <>
-      <Container id="random-class">
-        <CodClassName isGenerating={isGenerating} value={randClassName} />
-        <Row className="justify-content-md-center mb-4">
-          <Col xs md="8" lg="6" className="text-center">
+      <CodClassName isGenerating={isGenerating} value={randClassName} />
+      <Row className="justify-content-md-center mb-4">
+        <Col xs md="8" lg="6" className="text-center">
+          <SimpleGeneratorView
+            isGenerating={isGenerating}
+            title="Primary"
+            value={weapons.primary.weapon.name}
+          />
+          <br />
+          <SimpleGeneratorView
+            isGenerating={isGenerating}
+            title="Ammo Mod"
+            value={weapons.primary.ammoMod}
+          />
+          <br />
+          <SimpleGeneratorView
+            isGenerating={isGenerating}
+            title="Primary Attachments"
+            value={
+              weapons.primary.weapon.no_attach
+                ? "No Attachments"
+                : weapons.primary.attachments
+            }
+          />
+        </Col>
+      </Row>
+      <hr />
+      <Row className="justify-content-md-center mb-4">
+        <Col xs={6} sm={6} md="3" lg="3" className="text-center">
+          <SimpleGeneratorView
+            isGenerating={isGenerating}
+            title="Melee"
+            value={weapons.melee.name}
+          />
+        </Col>
+        <Col xs={6} sm={6} md="3" lg="3" className="text-center">
+          <SimpleGeneratorView
+            isGenerating={isGenerating}
+            title="Field Upgrade"
+            value={equipment.fieldUpgrade.name}
+          />
+        </Col>
+        <Col xs={6} md="3" lg="3" className="text-center">
+          <SimpleGeneratorView
+            isGenerating={isGenerating}
+            title="Tactical"
+            value={equipment.tactical.name}
+          />
+        </Col>
+        <Col xs={6} md="3" lg="3" className="text-center">
+          <SimpleGeneratorView
+            isGenerating={isGenerating}
+            title="Lethal"
+            value={equipment.lethal.name}
+          />
+        </Col>
+      </Row>
+      {(rollGobblegum || rollMap) && <hr />}
+      <Row className="justify-content-md-center mb-4">
+        {rollGobblegum && (
+          <Col xs md="4" lg="3" className="text-center">
             <SimpleGeneratorView
               isGenerating={isGenerating}
-              title="Primary"
-              value={weapons.primary.weapon.name}
-            />
-            <br />
-            <SimpleGeneratorView
-              isGenerating={isGenerating}
-              title="Ammo Mod"
-              value={weapons.primary.ammoMod}
-            />
-            <br />
-            <SimpleGeneratorView
-              isGenerating={isGenerating}
-              title="Primary Attachments"
-              value={
-                weapons.primary.weapon.no_attach
-                  ? "No Attachments"
-                  : weapons.primary.attachments
-              }
+              title="Gobblegum"
+              value={gobblegum}
             />
           </Col>
-        </Row>
-        <hr />
-        <Row className="justify-content-md-center mb-4">
-          <Col xs={6} sm={6} md="3" lg="3" className="text-center">
-            <SimpleGeneratorView
-              isGenerating={isGenerating}
-              title="Melee"
-              value={weapons.melee.name}
-            />
-          </Col>
-          <Col xs={6} sm={6} md="3" lg="3" className="text-center">
-            <SimpleGeneratorView
-              isGenerating={isGenerating}
-              title="Field Upgrade"
-              value={equipment.fieldUpgrade.name}
-            />
-          </Col>
-          <Col xs={6} md="3" lg="3" className="text-center">
-            <SimpleGeneratorView
-              isGenerating={isGenerating}
-              title="Tactical"
-              value={equipment.tactical.name}
-            />
-          </Col>
-          <Col xs={6} md="3" lg="3" className="text-center">
-            <SimpleGeneratorView
-              isGenerating={isGenerating}
-              title="Lethal"
-              value={equipment.lethal.name}
-            />
-          </Col>
-        </Row>
-        {(rollGobblegum || rollMap) && <hr />}
-        <Row className="justify-content-md-center mb-4">
-          {rollGobblegum && (
-            <Col xs md="4" lg="3" className="text-center">
-              <SimpleGeneratorView
-                isGenerating={isGenerating}
-                title="Gobblegum"
-                value={gobblegum}
-              />
-            </Col>
-          )}
-          {rollMap && (
-            <Col xs md="4" lg="3" className="text-center">
-              <SimpleGeneratorView
-                isGenerating={isGenerating}
-                title="Map"
-                value={zombieMap.name}
-              />
-            </Col>
-          )}
-        </Row>
-        {rollAugments && (
-          <>
-            <hr />
-            <Row className="mb-4">
-              {Object.values(augments).map((item) => (
-                <Col
-                  key={item?.name}
-                  xs={12}
-                  md="4"
-                  lg="3"
-                  className="text-center mb-3"
-                >
-                  <span className="fw-bolder fs-5">{item?.name}:</span>
-                  <br />
-                  <span className="text-muted fs-6">
-                    <span className="fw-bolder">Major Augment:</span>{" "}
-                    <SclPlaceholder
-                      isLoading={isGenerating}
-                      value={item?.major}
-                    />
-                  </span>
-                  <br />
-                  <span className="text-muted fs-6">
-                    <span className="fw-bolder">Minor Augment:</span>{" "}
-                    <SclPlaceholder
-                      isLoading={isGenerating}
-                      value={item?.minor}
-                    />
-                  </span>
-                </Col>
-              ))}
-            </Row>
-          </>
         )}
-        <Row className="justify-content-md-center">
-          <Col xs md="8" lg="6" className="text-center">
-            <div className="d-flex justify-content-center">
-              <Button
-                variant="black-ops"
-                disabled={isGenerating}
-                onClick={isGenerating ? undefined : handleModal}
-                className="w-50 me-2"
-              >
-                Settings
-              </Button>
-              <Button
-                variant="black-ops"
-                className="w-50 me-2"
-                disabled={isGenerating}
-                onClick={isGenerating ? undefined : handleClick}
-              >
-                {isGenerating ? "Generating Loadout..." : "Generate Loadout"}
-              </Button>
-            </div>
+        {rollMap && (
+          <Col xs md="4" lg="3" className="text-center">
+            <SimpleGeneratorView
+              isGenerating={isGenerating}
+              title="Map"
+              value={zombieMap.name}
+            />
           </Col>
-        </Row>
-      </Container>
+        )}
+      </Row>
+      {rollAugments && (
+        <>
+          <hr />
+          <Row className="mb-4">
+            {Object.values(augments).map((item) => (
+              <Col
+                key={item?.name}
+                xs={12}
+                md="4"
+                lg="3"
+                className="text-center mb-3"
+              >
+                <span className="fw-bolder fs-5">{item?.name}:</span>
+                <br />
+                <span className="text-muted fs-6">
+                  <span className="fw-bolder">Major Augment:</span>{" "}
+                  <SclPlaceholder
+                    isLoading={isGenerating}
+                    value={item?.major}
+                  />
+                </span>
+                <br />
+                <span className="text-muted fs-6">
+                  <span className="fw-bolder">Minor Augment:</span>{" "}
+                  <SclPlaceholder
+                    isLoading={isGenerating}
+                    value={item?.minor}
+                  />
+                </span>
+              </Col>
+            ))}
+          </Row>
+        </>
+      )}
+      <Row className="justify-content-md-center">
+        <Col xs md="8" lg="6" className="text-center">
+          <div className="d-flex justify-content-center">
+            <Button
+              variant="black-ops"
+              disabled={isGenerating}
+              onClick={isGenerating ? undefined : handleModal}
+              className="w-50 me-2"
+            >
+              Settings
+            </Button>
+            <Button
+              variant="black-ops"
+              className="w-50 me-2"
+              disabled={isGenerating}
+              onClick={isGenerating ? undefined : handleClick}
+            >
+              {isGenerating ? "Generating Loadout..." : "Generate Loadout"}
+            </Button>
+          </div>
+        </Col>
+      </Row>
 
       <CustomModal
         variant="black-ops"

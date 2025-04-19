@@ -83,9 +83,10 @@ export default function WorldWarTwoInfoPage() {
               available <strong>Weapons</strong>, tactical{" "}
               <strong>Equipment</strong>, essential <strong>Perks</strong>{" "}
               (Basic Training), and game-changing <strong>Scorestreaks</strong>.
-              If you're facing the horrors of Nazi Zombies, we've got you
-              covered with details on the chilling <strong>Zombies Maps</strong>
-              , crucial <strong>Zombies Perks</strong>, and powerful{" "}
+              If you&apos;re facing the horrors of Nazi Zombies, we&apos;ve got
+              you covered with details on the chilling{" "}
+              <strong>Zombies Maps</strong>, crucial{" "}
+              <strong>Zombies Perks</strong>, and powerful{" "}
               <strong>Zombies Special Abilities</strong> to aid your fight
               against the undead legions. Use the links on this page to access
               all the intel.

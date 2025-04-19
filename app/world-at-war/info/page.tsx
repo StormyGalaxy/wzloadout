@@ -68,7 +68,7 @@ export default function WorldAtWarInfoPage() {
           <Col lg={7} className="text-center">
             <p>
               Step back into the gritty battlefields of World War II with our
-              Call of Duty: World at War data resource. Here you'll find
+              Call of Duty: World at War data resource. Here you&apos;ll find
               essential information to refine your tactics for this classic
               title. Access detailed breakdowns of all available multiplayer{" "}
               <strong>weapons</strong>, <strong>perks</strong>, and{" "}
