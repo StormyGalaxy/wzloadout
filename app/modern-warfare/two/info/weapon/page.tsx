@@ -7,40 +7,19 @@ import PageLayout from "@/components/PageLayout";
 // --- Components ---
 import WeaponDisplayClient from "@/components/info/WeaponDisplayClient";
 
-type Props = {
-  params: object;
-  searchParams: { [key: string]: string | string[] | undefined };
+// --- Metadata ---
+export const metadata: Metadata = {
+  title: "Modern Warfare Two Weapons",
+  description:
+    "View information and all available attachments for the weapon in Modern Warfare Two.",
+  keywords: [
+    "COD Modern Warfare Two RCG",
+    "modern warfare two random class generator",
+    "modern warfare two",
+    "modern warfare two rcg",
+    "class generator",
+  ],
 };
-
-// --- Dynamic Metadata Generation ---
-export async function generateMetadata({
-  searchParams,
-}: Props): Promise<Metadata> {
-  const weaponName = searchParams?.value || "Unknown Weapon";
-  const displayWeaponName = Array.isArray(weaponName)
-    ? weaponName[0]
-    : weaponName;
-  const gameName = "Modern Warfare Two";
-
-  return {
-    title: `${gameName} Weapon - ${displayWeaponName}`,
-    description: `View information and all available attachments for the ${displayWeaponName} weapon in Call of Duty: ${gameName}.`,
-    keywords: [
-      "Call of duty",
-      gameName.toLowerCase(),
-      "weapon",
-      "info",
-      "attachments",
-      displayWeaponName,
-      "random class generator",
-      "rcg",
-      "cod",
-      "loadout",
-      "multiplayer",
-      "zombies",
-    ],
-  };
-}
 
 const navLinks = [
   { label: "Home", href: "/" },

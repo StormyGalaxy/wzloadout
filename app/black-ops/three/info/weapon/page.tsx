@@ -7,40 +7,23 @@ import PageLayout from "@/components/PageLayout";
 // --- Components ---
 import WeaponDisplayClient from "@/components/info/WeaponDisplayClient";
 
-type Props = {
-  params: object;
-  searchParams: { [key: string]: string | string[] | undefined };
+// --- Metadata ---
+export const metadata: Metadata = {
+  title: "Black Ops Three Weapons",
+  description:
+    "View information and all available attachments for the weapon in Black Ops Three.",
+  keywords: [
+    "COD Black Ops Three RCG",
+    "black ops three random class generator",
+    "black ops three",
+    "black ops three rcg",
+    "class generator",
+    "zombies",
+    "treyarch zombies",
+    "black ops three zombies",
+    "black ops three rcg",
+  ],
 };
-
-// --- Dynamic Metadata Generation ---
-export async function generateMetadata({
-  searchParams,
-}: Props): Promise<Metadata> {
-  const weaponName = searchParams?.value || "Unknown Weapon";
-  const displayWeaponName = Array.isArray(weaponName)
-    ? weaponName[0]
-    : weaponName;
-  const gameName = "Black Ops Three";
-
-  return {
-    title: `${gameName} Weapon - ${displayWeaponName}`,
-    description: `View information and all available attachments for the ${displayWeaponName} weapon in Call of Duty: ${gameName}.`,
-    keywords: [
-      "Call of duty",
-      gameName.toLowerCase(),
-      "weapon",
-      "info",
-      "attachments",
-      displayWeaponName,
-      "random class generator",
-      "rcg",
-      "cod",
-      "loadout",
-      "multiplayer",
-      "zombies",
-    ],
-  };
-}
 
 const navLinks = [
   { label: "Home", href: "/" },

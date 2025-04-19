@@ -7,40 +7,27 @@ import PageLayout from "@/components/PageLayout";
 // --- Components ---
 import WeaponDisplayClient from "@/components/info/WeaponDisplayClient";
 
-type Props = {
-  params: object;
-  searchParams: { [key: string]: string | string[] | undefined };
+// --- Metadata ---
+export const metadata: Metadata = {
+  title: "World At War Weapons",
+  description:
+    "View information and all available attachments for the weapon in World At War.",
+  keywords: [
+    "COD World At War RCG",
+    "COD WAW RCG",
+    "waw random class generator",
+    "waw",
+    "world at war",
+    "world at war rcg",
+    "world at war random class generator",
+    "class generator",
+    "zombies",
+    "world at war zombies",
+    "world at war zombies",
+    "world at war rcg",
+    "world at war random class generator",
+  ],
 };
-
-// --- Dynamic Metadata Generation ---
-export async function generateMetadata({
-  searchParams,
-}: Props): Promise<Metadata> {
-  const weaponName = searchParams?.value || "Unknown Weapon";
-  const displayWeaponName = Array.isArray(weaponName)
-    ? weaponName[0]
-    : weaponName;
-  const gameName = "World At War";
-
-  return {
-    title: `${gameName} Weapon - ${displayWeaponName}`,
-    description: `View information and all available attachments for the ${displayWeaponName} weapon in Call of Duty: ${gameName}.`,
-    keywords: [
-      "Call of duty",
-      gameName.toLowerCase(),
-      "weapon",
-      "info",
-      "attachments",
-      displayWeaponName,
-      "random class generator",
-      "rcg",
-      "cod",
-      "loadout",
-      "multiplayer",
-      "zombies",
-    ],
-  };
-}
 
 const navLinks = [
   { label: "Home", href: "/" },

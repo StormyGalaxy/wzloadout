@@ -7,40 +7,25 @@ import PageLayout from "@/components/PageLayout";
 // --- Components ---
 import WeaponDisplayClient from "@/components/info/WeaponDisplayClient";
 
-type Props = {
-  params: object;
-  searchParams: { [key: string]: string | string[] | undefined };
+// --- Metadata ---
+export const metadata: Metadata = {
+  title: "Warzone Weapons",
+  description:
+    "View information and all available attachments for the weapon in Warzone.",
+  keywords: [
+    "COD Warzone RCG",
+    "warzone random class generator",
+    "warzone",
+    "warzone rcg",
+    "warzone random class generator",
+    "class generator",
+    "warzone rcg",
+    "warzone random class generator",
+    "black ops 6",
+    "modern warfare 3",
+    "modern warfare 2",
+  ],
 };
-
-// --- Dynamic Metadata Generation ---
-export async function generateMetadata({
-  searchParams,
-}: Props): Promise<Metadata> {
-  const weaponName = searchParams?.value || "Unknown Weapon";
-  const displayWeaponName = Array.isArray(weaponName)
-    ? weaponName[0]
-    : weaponName;
-  const gameName = "Warzone";
-
-  return {
-    title: `${gameName} Weapon - ${displayWeaponName}`,
-    description: `View information and all available attachments for the ${displayWeaponName} weapon in Call of Duty: ${gameName}.`,
-    keywords: [
-      "Call of duty",
-      gameName.toLowerCase(),
-      "weapon",
-      "info",
-      "attachments",
-      displayWeaponName,
-      "random class generator",
-      "rcg",
-      "cod",
-      "loadout",
-      "multiplayer",
-      "zombies",
-    ],
-  };
-}
 
 const navLinks = [
   { label: "Home", href: "/" },
