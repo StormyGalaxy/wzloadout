@@ -8,42 +8,47 @@ import WildcardList from "@/components/info/WildcardList";
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: "Black Ops Cold War Wildcards",
-  description: "View all wildcards in Black Ops Cold War.",
+  title: "Black Ops Four Wildcards",
+  description: "View all wildcards in Black Ops Four.",
   keywords: [
-    "COD Black Ops Cold War RCG",
-    "black ops cold war random class generator",
-    "black ops cold war",
-    "black ops cold war rcg",
+    "COD Black Ops Four RCG",
+    "black ops four random class generator",
+    "black ops four",
+    "black ops four rcg",
     "class generator",
     "zombies",
     "treyarch zombies",
-    "black ops cold war zombies",
-    "black ops cold war rcg",
+    "black ops four zombies",
+    "black ops four rcg",
   ],
 };
 
 const navLinks = [
   { label: "Home", href: "/" },
-  { label: "Multiplayer Generator", href: "/black-ops/cold-war/generator" },
-  { label: "Zombies Generator", href: "/black-ops/cold-war/zombies-generator" },
-  { label: "Loadout Info", href: "/black-ops/cold-war/info" },
+  { label: "Multiplayer Generator", href: "/black-ops/four/generator" },
+  { label: "Zombies Generator", href: "/black-ops/four/zombies-generator" },
+  {
+    label: "Zombies Custom Mutations",
+    href: "/black-ops/four/zombies/custom-mutations",
+  },
+  { label: "Loadout Info", href: "/black-ops/four/info" },
   { label: "Changelog", href: "/changelog" },
 ];
 
-export default function ColdWarWildcardPage() {
+export default function BlackOpsFourWildcardPage() {
+  const dataKeys = ["name", "description", "type", "game"];
   return (
-    <PageLayout navLinks={navLinks} headerClassName="cold-war">
+    <PageLayout navLinks={navLinks} headerClassName="black-ops">
       <Container>
         <h2 className="text-center mb-4">
-          Black Ops Cold War
+          Black Ops Four
           <span className="d-none d-sm-inline-block">&nbsp;-&nbsp;</span>
           <br className="d-block d-sm-none" />
           Wildcards
         </h2>
         <Row className="shadow-lg p-3 bg-body rounded mb-4">
           <Col>
-            <WildcardList game="cold-war" />
+            <WildcardList game="black-ops-four" dataKeys={dataKeys} />
           </Col>
         </Row>
       </Container>

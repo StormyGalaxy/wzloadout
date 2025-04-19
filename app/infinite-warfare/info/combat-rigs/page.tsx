@@ -8,8 +8,8 @@ import SpecialistList from "@/components/info/SpecialistList";
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: "Infinite Warfare Specialists",
-  description: "View all equipment in Infinite Warfare.",
+  title: "Infinite Warfare Combat Rigs",
+  description: "View all combat rigs in Infinite Warfare.",
   keywords: [
     "COD Infinite Warfare RCG",
     "COD IW RCG",
