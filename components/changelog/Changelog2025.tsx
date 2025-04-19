@@ -7,6 +7,10 @@ function Changelog2025() {
       <Row>
         <Col>
           <p>
+            4/19/2025: <Link href="warzone/generator">Warzone</Link> Added
+            Thermite!
+          </p>
+          <p>
             4/05/2025:{" "}
             <Link href="warzone/where-we-droppin">
               Warzone - Where We Droppin?

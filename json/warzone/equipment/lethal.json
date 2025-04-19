@@ -53,5 +53,11 @@
     "name": "Combat Axe",
     "type": "Lethal",
     "game": "warzone"
+  },
+  {
+    "name": "Thermite",
+    "type": "Lethal",
+    "game": "warzone",
+    "isDlc": true
   }
 ]
