@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 // --- Layout ---
 import PageLayout from "@/components/PageLayout";
 // --- Loadout ---
-import VanguardLoadout from "@/components/generators/vanguard/VanguardLoadout";
+import ColdWarLoadout from "@/components/generators/black-ops/cold-war/ColdWarLoadout";
 
 // --- Metadata ---
 export const metadata: Metadata = {
@@ -12,30 +12,28 @@ export const metadata: Metadata = {
     "Spice up your COD gameplay! Generate unique random loadouts for Call of Duty Black Ops Cold War. Discover new weapons, perks, and gear combinations.",
   keywords: [
     "COD Black Ops Cold War RCG",
-    "vanguard random class generator",
-    "vanguard",
-    "vanguard rcg",
-    "vanguard random class generator",
+    "black ops cold war random class generator",
+    "black ops cold war",
+    "black ops cold war rcg",
     "class generator",
     "zombies",
     "treyarch zombies",
-    "vanguard zombies",
-    "vanguard rcg",
-    "vanguard random class generator",
+    "black ops cold war zombies",
+    "black ops cold war rcg",
   ],
 };
 
 const navLinks = [
   { label: "Home", href: "/" },
-  { label: "Multiplayer Generator", href: "/vanguard/generator" },
-  { label: "Zombies Generator", href: "/vanguard/zombies-generator" },
-  { label: "Loadout Info", href: "/vanguard/info" },
+  { label: "Multiplayer Generator", href: "/black-ops/cold-war/generator" },
+  { label: "Zombies Generator", href: "/black-ops/cold-war/zombies-generator" },
+  { label: "Loadout Info", href: "/black-ops/cold-war/info" },
   { label: "Changelog", href: "/changelog" },
 ];
 
-export default function VanguardGeneratorPage() {
+export default function ColdWarGeneratorPage() {
   return (
-    <PageLayout navLinks={navLinks} headerClassName="vanguard">
+    <PageLayout navLinks={navLinks} headerClassName="cold-war">
       <Container>
         <h2 className="text-center mb-4">
           Black Ops Cold War
@@ -45,7 +43,7 @@ export default function VanguardGeneratorPage() {
         </h2>
         <Row className="shadow-lg p-3 bg-body rounded mb-4">
           <Col className="mx-auto">
-            <VanguardLoadout />
+            <ColdWarLoadout />
           </Col>
         </Row>
       </Container>

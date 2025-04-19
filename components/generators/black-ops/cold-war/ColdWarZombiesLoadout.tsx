@@ -49,7 +49,7 @@ export default function ColdWarZombiesLoadout() {
 
   return (
     <>
-      <Container id="random-class" className="shadow-lg p-3 bg-body rounded">
+      <Container id="random-class">
         <CodClassName isGenerating={isGenerating} value={randClassName} />
         <Row className="justify-content-md-center mb-4">
           <Col xs md="8" lg="6" className="text-center">

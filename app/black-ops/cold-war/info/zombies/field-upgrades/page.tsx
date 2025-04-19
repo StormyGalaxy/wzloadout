@@ -8,44 +8,42 @@ import ZombiesFieldUpgradeList from "@/components/info/ZombiesFieldUpgradeList";
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: "Black Ops Cold War Zombies Artifacts",
-  description: "View all artifacts in Black Ops Cold War Zombies.",
+  title: "Black Ops Cold War Zombies Field Upgrades",
+  description: "View all field upgrades in Black Ops Cold War Zombies.",
   keywords: [
     "COD Black Ops Cold War RCG",
-    "vanguard random class generator",
-    "vanguard",
-    "vanguard rcg",
-    "vanguard random class generator",
+    "black ops cold war random class generator",
+    "black ops cold war",
+    "black ops cold war rcg",
     "class generator",
     "zombies",
     "treyarch zombies",
-    "vanguard zombies",
-    "vanguard rcg",
-    "vanguard random class generator",
+    "black ops cold war zombies",
+    "black ops cold war rcg",
   ],
 };
 
 const navLinks = [
   { label: "Home", href: "/" },
-  { label: "Multiplayer Generator", href: "/vanguard/generator" },
-  { label: "Zombies Generator", href: "/vanguard/zombies-generator" },
-  { label: "Loadout Info", href: "/vanguard/info" },
+  { label: "Multiplayer Generator", href: "/black-ops/cold-war/generator" },
+  { label: "Zombies Generator", href: "/black-ops/cold-war/zombies-generator" },
+  { label: "Loadout Info", href: "/black-ops/cold-war/info" },
   { label: "Changelog", href: "/changelog" },
 ];
 
-export default function VanguardZombiesArtifactsPage() {
+export default function ColdWarZombiesFieldUpgradesPage() {
   return (
-    <PageLayout navLinks={navLinks} headerClassName="vanguard">
+    <PageLayout navLinks={navLinks} headerClassName="cold-war">
       <Container>
         <h2 className="text-center mb-4">
           Black Ops Cold War
           <span className="d-none d-sm-inline-block">&nbsp;-&nbsp;</span>
           <br className="d-block d-sm-none" />
-          Zombies Artifacts
+          Zombies Field Upgrades
         </h2>
         <Row className="shadow-lg p-3 bg-body rounded mb-4">
           <Col>
-            <ZombiesFieldUpgradeList game="vanguard" />
+            <ZombiesFieldUpgradeList game="cold-war" />
           </Col>
         </Row>
       </Container>

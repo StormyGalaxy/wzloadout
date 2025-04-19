@@ -4,12 +4,12 @@ import type { Metadata } from "next";
 // --- Layout ---
 import PageLayout from "@/components/PageLayout";
 // --- Components ---
-import StreakList from "@/components/info/StreakList";
+import WildcardList from "@/components/info/WildcardList";
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: "Black Ops Cold War Streaks",
-  description: "View all streaks in Black Ops Cold War.",
+  title: "Black Ops Cold War Wildcards",
+  description: "View all wildcards in Black Ops Cold War.",
   keywords: [
     "COD Black Ops Cold War RCG",
     "black ops cold war random class generator",
@@ -25,13 +25,13 @@ export const metadata: Metadata = {
 
 const navLinks = [
   { label: "Home", href: "/" },
-  { label: "Multiplayer Generator", href: "/black-ops/cold-war/generator" },
-  { label: "Zombies Generator", href: "/black-ops/cold-war/zombies-generator" },
-  { label: "Loadout Info", href: "/black-ops/cold-war/info" },
+  { label: "Generator", href: "/warzone/generator" },
+  { label: "Where We Droppin?", href: "/warzone/where-we-droppin" },
+  { label: "Loadout Info", href: "/warzone/info" },
   { label: "Changelog", href: "/changelog" },
 ];
 
-export default function ColdWarStreaksPage() {
+export default function ColdWarWildcardPage() {
   return (
     <PageLayout navLinks={navLinks} headerClassName="cold-war">
       <Container>
@@ -39,11 +39,11 @@ export default function ColdWarStreaksPage() {
           Black Ops Cold War
           <span className="d-none d-sm-inline-block">&nbsp;-&nbsp;</span>
           <br className="d-block d-sm-none" />
-          Streaks
+          Wildcards
         </h2>
         <Row className="shadow-lg p-3 bg-body rounded mb-4">
           <Col>
-            <StreakList game="cold-war" />
+            <WildcardList game="cold-war" />
           </Col>
         </Row>
       </Container>

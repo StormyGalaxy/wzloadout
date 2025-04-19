@@ -44,17 +44,17 @@ export async function generateMetadata({
 
 const navLinks = [
   { label: "Home", href: "/" },
-  { label: "Multiplayer Generator", href: "/vanguard/generator" },
-  { label: "Zombies Generator", href: "/vanguard/zombies-generator" },
-  { label: "Loadout Info", href: "/vanguard/info" },
+  { label: "Multiplayer Generator", href: "/black-ops/cold-war/generator" },
+  { label: "Zombies Generator", href: "/black-ops/cold-war/zombies-generator" },
+  { label: "Loadout Info", href: "/black-ops/cold-war/info" },
   { label: "Changelog", href: "/changelog" },
 ];
 
-export default function VanguardWeaponPage() {
-  const game = "vanguard";
+export default function ColdWarWeaponPage() {
+  const game = "cold-war";
 
   return (
-    <PageLayout navLinks={navLinks} headerClassName="vanguard">
+    <PageLayout navLinks={navLinks} headerClassName="cold-war">
       <Container fluid>
         <Row>
           <Suspense

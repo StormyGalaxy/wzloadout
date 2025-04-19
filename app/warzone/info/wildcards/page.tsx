@@ -9,21 +9,8 @@ import WildcardList from "@/components/info/WildcardList";
 // --- Metadata ---
 export const metadata: Metadata = {
   title: "Warzone Wildcards",
-  description: "View all equipment in Warzone.",
+  description: "View all wildcards in Warzone.",
   keywords: [
-    "Call of duty",
-    "call",
-    "of",
-    "duty",
-    "cod",
-    "call of duty",
-    "random",
-    "class",
-    "generator",
-    "random class generator",
-    "rcg,free",
-    "mp",
-    "multiplayer",
     "COD Warzone RCG",
     "warzone random class generator",
     "warzone",
