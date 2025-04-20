@@ -41,5 +41,12 @@
     "type": "special",
     "game": "black-ops-six",
     "isDlc": true
+  },
+  {
+    "name": "Nail Gun",
+    "type": "special",
+    "game": "black-ops-six",
+    "no_attach": true,
+    "isDlc": true
   }
 ]
