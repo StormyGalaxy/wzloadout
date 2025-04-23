@@ -1,4 +1,4 @@
-import { randomListItem } from "../randomListItem";
+import { randomListItem } from "@/helpers/_silabs/randomListItem";
 
 describe("randomListItem", () => {
   it("should return a value from the object", () => {
