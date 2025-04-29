@@ -1,8 +1,22 @@
 # SiloCityPages
 
-This is a project to run a website, leveraging [Next.js](https://nextjs.org/), [React Bootstrap](https://react-bootstrap.netlify.app/) and hosted on GitHub Pages.
+Welcome to SiloCityPages, a modern and efficient website built using Next.js, React Bootstrap, and TypeScript, designed for optimal performance and easy maintainability. This project leverages the power of GitHub Pages for seamless deployment and hosting. It also uses json files to hold project metadata and custom components to keep the project organized.
+
+## Table of Contents
+
+1.  [Getting Started](#getting-started)
+2.  [Website Setup](#website-setup)
+3.  [Deployment](#deployment)
+4.  [Editing the Website](#editing-the-website)
+5.  [Features](#features)
+6.  [Contribution](#contribution)
 
 ## Getting Started
+
+To get started with the SiloCityPages project and run it locally, follow these steps:
+
+1.  **Clone the Repository:**
+
 
 To run the project locally:
 
