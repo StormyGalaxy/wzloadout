@@ -1,6 +1,6 @@
 # SiloCityPages
 
-Welcome to SiloCityPages, a modern and efficient website built using Next.js, React Bootstrap, and TypeScript, designed for optimal performance and easy maintainability. This project leverages the power of GitHub Pages for seamless deployment and hosting. It also uses json files to hold project metadata and custom components to keep the project organized.
+Welcome to SiloCityPages, a modern and efficient website framework built using Next.js, React Bootstrap, and TypeScript, designed for optimal performance and easy maintainability. This project leverages the power of GitHub Pages for seamless deployment and hosting. It also uses json files to hold project metadata and custom components to keep the project organized.
 
 ## Table of Contents
 
