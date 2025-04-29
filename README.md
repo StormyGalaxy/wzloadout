@@ -9,7 +9,6 @@ Welcome to SiloCityPages, a modern and efficient website built using Next.js, Re
 3.  [Deployment](#deployment)
 4.  [Editing the Website](#editing-the-website)
 5.  [Features](#features)
-6.  [Contribution](#contribution)
 
 ## Getting Started
 
