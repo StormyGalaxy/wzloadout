@@ -40,6 +40,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser to view the 
 - Update manifest.json
 - Update sitemap.xml
 - Update GA_TRACKING_ID to implement Google Analytics
+- Update .prettierrc to your style needs!
 
 ## Editing the Website
 
