@@ -48,7 +48,6 @@ jobs:
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         uses: peter-evans/create-pull-request@v6
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: Apply Prettier formatting
           title: 'Apply Prettier formatting'
           body: |
@@ -59,3 +58,4 @@ jobs:
           branch-suffix: timestamp
           delete-branch: true
           add-paths: . # Add all changes
+
