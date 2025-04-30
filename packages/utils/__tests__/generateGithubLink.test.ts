@@ -1,4 +1,4 @@
-import { generateGithubLink } from '@/helpers/_silabs/generateGithubLink';
+import { generateGithubLink } from '../src/generateGithubLink';
 
 describe('generateGithubLink', () => {
   it('Correctly generates a link with a title, body, single label, and single assignee', () => {

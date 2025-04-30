@@ -22,6 +22,9 @@ importers:
       '@silocitypages/ui-core':
         specifier: workspace:^1.0.0
         version: link:packages/ui-core
+      '@silocitypages/utils':
+        specifier: workspace:^1.0.0
+        version: link:packages/utils
       bootstrap:
         specifier: ^5.3.3
         version: 5.3.5(@popperjs/core@2.11.8)
@@ -46,6 +49,9 @@ importers:
       react-bootstrap:
         specifier: ^2.10.9
         version: 2.10.9(@types/react@19.1.2)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      react-content-loader:
+        specifier: ^7.0.2
+        version: 7.0.2(react@19.1.0)
       react-dom:
         specifier: ^19.0.0
         version: 19.1.0(react@19.1.0)
@@ -171,9 +177,6 @@ importers:
         specifier: ^5.10.1
         version: 5.10.1(@types/react@19.1.2)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
     devDependencies:
-      '@types/node':
-        specifier: ^22.13.14
-        version: 22.15.3
       '@types/react':
         specifier: ^19.0.12
         version: 19.1.2
@@ -185,12 +188,22 @@ importers:
         version: 5.8.3
 
   packages/utils:
+    dependencies:
+      joi:
+        specifier: ^17.13.3
+        version: 17.13.3
+      uuid:
+        specifier: ^11.1.0
+        version: 11.1.0
     devDependencies:
       '@types/node':
-        specifier: ^20.x.x
-        version: 20.17.32
+        specifier: ^22.13.14
+        version: 22.15.3
+      '@types/uuid':
+        specifier: ^10.0.0
+        version: 10.0.0
       typescript:
-        specifier: ^5.x.x
+        specifier: ^5.8.2
         version: 5.8.3
 
 packages:

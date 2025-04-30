@@ -8,7 +8,7 @@ import Select, { MultiValue } from 'react-select';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 // --- Helpers ---
-import { generateGithubLink } from '@/helpers/_silabs/generateGithubLink';
+import { generateGithubLink } from '@silocitypages/utils';
 // --- Data ---
 import githubLabels from '@/json/github/labels.json';
 import githubAssignees from '@/json/github/assignees.json';

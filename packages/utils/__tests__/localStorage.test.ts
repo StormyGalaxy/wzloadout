@@ -1,4 +1,4 @@
-import { setLocalStorage, getLocalStorage } from '@/helpers/_silabs/localStorage';
+import { setLocalStorage, getLocalStorage } from '../src/localStorage';
 
 describe('localStorage', () => {
   beforeEach(() => {

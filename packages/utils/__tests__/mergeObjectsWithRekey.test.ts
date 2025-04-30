@@ -1,4 +1,4 @@
-import { mergeObjectsWithRekey } from '@/helpers/_silabs/mergeObjectsWithRekey';
+import { mergeObjectsWithRekey } from '../src/mergeObjectsWithRekey';
 
 describe('mergeObjectsWithRekey', () => {
   it('should merge multiple objects with rekeyed properties', () => {

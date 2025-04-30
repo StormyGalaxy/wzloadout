@@ -1,4 +1,4 @@
-import { capitalizeFirstLetter } from '@/helpers/_silabs/capitalizeFirstLetter';
+import { capitalizeFirstLetter } from '../src/capitalizeFirstLetter';
 
 describe('capitalizeFirstLetter', () => {
   it('should return an empty string for an empty string input', () => {
