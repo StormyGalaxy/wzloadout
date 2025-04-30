@@ -3,15 +3,13 @@ name: Prettier Format and Commit
 on:
   push:
   pull_request:
-    branches:
-      - main # Or your default branch
+    branches: [main] # Or your default branch
 
 jobs:
   format:
     runs-on: ubuntu-latest
     permissions:
       contents: write # This grants permission to write files in the repository
-      workflows: write # This grants permission to write workflow files
 
     steps:
       - name: Checkout code
