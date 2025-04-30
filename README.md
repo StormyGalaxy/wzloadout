@@ -16,7 +16,6 @@ To get started with the SiloCityPages project and run it locally, follow these s
 
 1.  **Clone the Repository:**
 
-
 To run the project locally:
 
 ```bash
