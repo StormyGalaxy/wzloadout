@@ -4,12 +4,12 @@ import Badge from 'react-bootstrap/Badge';
 // --- Next ---
 import Image from 'next/image';
 // --- Helpers ---
-import { capitalizeFirstLetter } from '@/helpers/_silabs/capitalizeFirstLetter';
+import { capitalizeFirstLetter } from '@silocitypages/utils';
 // --- Font Awesome ---
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 // --- Styles ---
-import styles from '@/public/styles/components/SclBadges.module.css';
+import styles from '../styles/components/SclBadges.module.css';
 
 type SclBadgeProps = {
   name: string;

@@ -1,0 +1,22 @@
+{
+  "name": "@silocitypages/eslint-config",
+  "version": "1.0.0",
+  "description": "Core eslint config functions for SiloCityPages projects",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc --outDir dist --declaration true",
+    "watch": "tsc --watch --outDir dist --declaration true"
+  },
+  "devDependencies": {
+    "typescript": "^5.x.x",
+    "@types/node": "^20.x.x"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

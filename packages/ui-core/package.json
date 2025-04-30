@@ -1,0 +1,37 @@
+{
+  "name": "@silocitypages/ui-core",
+  "version": "1.0.0",
+  "description": "Core UI components and hooks for SiloCityPages projects",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc --outDir dist",
+    "build:types": "tsc --emitDeclarationOnly --outDir dist",
+    "watch": "tsc --watch --outDir dist"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.7.2",
+    "@fortawesome/free-brands-svg-icons": "^6.7.2",
+    "@fortawesome/free-solid-svg-icons": "^6.7.2",
+    "@fortawesome/react-fontawesome": "^0.2.2",
+    "@silocitypages/utils": "workspace:^1.0.0",
+    "bootstrap": "^5.3.3",
+    "react-bootstrap": "^2.10.9",
+    "react-content-loader": "^7.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.14",
+    "@types/react": "^19.0.12",
+    "@types/react-dom": "^19.0.4",
+    "typescript": "^5.8.2"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "next": "^15.3.1"
+  }
+}

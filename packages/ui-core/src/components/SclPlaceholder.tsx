@@ -1,5 +1,4 @@
 // --- React ---
-import React from 'react';
 import ContentLoader from 'react-content-loader';
 
 const SclPlaceholder = ({ isLoading, value }: { isLoading: boolean; value: string }) => {
