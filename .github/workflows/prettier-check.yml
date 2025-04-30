@@ -9,9 +9,10 @@ jobs:
   format:
     runs-on: ubuntu-latest
     permissions:
-      contents: write # Allows the job to write to the repository content (including workflow files indirectly when pushing)
-      actions: write # Allows the job to interact with GitHub Actions
-      pull-requests: write # Needed to create the pull request
+      contents: write
+      actions: write
+      pull-requests: write
+      packages: write
 
     steps:
       - name: Checkout code
