@@ -1,7 +1,7 @@
 name: CI (Lint & Build)
 
 on:
-  push:
+  push: # Trigger on push to *any* branch (original behavior)
   pull_request:
     branches: [main] # Trigger on pull requests targeting the main branch
 
@@ -18,25 +18,41 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Cache dependencies
+      # Get the path to the pnpm content-addressable store
+      # This is necessary for caching pnpm dependencies correctly
+      - name: Get pnpm store path
+        id: pnpm-cache
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path)" >> "$GITHUB_OUTPUT"
+
+      - name: Cache pnpm dependencies
         uses: actions/cache@v4
         with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          # Cache the pnpm store directory on the runner
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          # Key based on the runner OS, explicit Node version, and the hash of your pnpm-lock.yaml
+          key: ${{ runner.os }}-node-20-${{ hashFiles('**/pnpm-lock.yaml') }}
+          # Restore keys for cache hits when the lock file might have minor changes
           restore-keys: |
-            ${{ runner.os }}-node-
+            ${{ runner.os }}-node-20-
+            ${{ runner.os }}- # Fallback key
 
       - name: Install dependencies
-        run: npm ci
+        # Use pnpm install to install all dependencies across the monorepo
+        # --frozen-lockfile ensures a deterministic install based on pnpm-lock.yaml, similar to npm ci
+        run: pnpm install --frozen-lockfile
 
       - name: Lint
-        run: npm run lint
+        # Use pnpm run to execute the 'lint' script defined in your root package.json
+        run: pnpm run lint
 
       - name: Type check
-        run: npx tsc --noEmit
+        run: pnpm exec tsc --noEmit
 
       - name: Build
-        run: npm run build
+        # Use pnpm run to execute the 'build' script defined in your root package.json
+        run: pnpm run build
 
       - name: Run Unit Tests
-        run: npm test
+        run: pnpm run test
