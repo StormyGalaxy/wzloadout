@@ -53,6 +53,7 @@ jobs:
             This PR applies automated Prettier formatting changes.
 
             Co-authored-by: Bana0615 <aelbaneh0615@gmail.com>
-          branch: 'prettier-formatting-{{ github.run_id }}' # Create a new branch for the PR
+          branch: prettier-formatting
+          branch-suffix: timestamp
           delete-branch: true
           add-paths: . # Add all changes
