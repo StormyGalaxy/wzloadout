@@ -1,21 +1,22 @@
-name: Prettier Format and Commit
+name: Prettier Format
 
 on:
   push:
   pull_request:
-    branches: [main] # Or your default branch
+    branches: [main]
 
 jobs:
   format:
     runs-on: ubuntu-latest
     permissions:
-      contents: write # This grants permission to write files in the repository
+      contents: write
+      actions: write
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          fetch-depth: 0 # Fetch all history for git operations
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
@@ -28,10 +29,30 @@ jobs:
       - name: Run Prettier format
         run: npx prettier . --write
 
-      - name: Commit changes
+      # Step to commit and push changes directly on non-main branches
+      - name: Commit and push changes (non-main branches)
+        # Only run this step if the current branch is NOT 'main' and NOT a pull request
+        if: github.ref != 'refs/heads/main' && github.event_name == 'push'
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: |
             Apply Prettier formatting
 
             Co-authored-by: Bana0615 <aelbaneh0615@gmail.com>
+
+      # Step to create a pull request if pushing directly to main
+      - name: Create Pull Request (push to main)
+        # Only run this step if the current branch IS 'main' and it's a push event
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: Apply Prettier formatting
+          title: 'Apply Prettier formatting'
+          body: |
+            This PR applies automated Prettier formatting changes.
+
+            Co-authored-by: Bana0615 <aelbaneh0615@gmail.com>
+          branch: 'prettier-formatting-{{ github.sha }}' # Create a new branch for the PR
+          delete-branch: true
+          add-paths: . # Add all changes
