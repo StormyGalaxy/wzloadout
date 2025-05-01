@@ -17,6 +17,20 @@ const config = {
       files: ['packages/**/__tests__/**/*.{js,jsx,ts,tsx}', 'packages/**/*.test.{js,jsx,ts,tsx}'],
       rules: { 'jest/valid-expect': 'off' },
     },
+    {
+      // --- Added Override to Apply TypeScript Parser to JS/TS/JSX Files ---
+      files: ['**/*.{js,jsx,ts,tsx}'],
+      parser: '@typescript-eslint/parser',
+      parserOptions: {
+        project: './tsconfig.json',
+        ecmaFeatures: {
+          jsx: true, // Enable JSX parsing
+        },
+        ecmaVersion: 'latest',
+        sourceType: 'module',
+      },
+      rules: {},
+    },
   ],
 
   // Shared ignore patterns - these will apply relative to the monorepo root
