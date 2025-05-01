@@ -19,6 +19,12 @@ importers:
       '@fortawesome/react-fontawesome':
         specifier: ^0.2.2
         version: 0.2.2(@fortawesome/fontawesome-svg-core@6.7.2)(react@19.1.0)
+      '@silocitypages/data-access':
+        specifier: workspace:^1.0.0
+        version: link:packages/data-access
+      '@silocitypages/eslint-config':
+        specifier: workspace:^1.0.0
+        version: link:packages/eslint-config
       '@silocitypages/ui-core':
         specifier: workspace:^1.0.0
         version: link:packages/ui-core
@@ -137,12 +143,16 @@ importers:
         version: 5.8.3
 
   packages/eslint-config:
+    dependencies:
+      eslint:
+        specifier: ^9.0.0
+        version: 9.25.1
+      eslint-config-next:
+        specifier: 15.3.1
+        version: 15.3.1(eslint@9.25.1)(typescript@5.8.3)
     devDependencies:
-      '@types/node':
-        specifier: ^20.x.x
-        version: 20.17.32
       typescript:
-        specifier: ^5.x.x
+        specifier: ^5.8.2
         version: 5.8.3
 
   packages/ui-core:
@@ -1447,12 +1457,6 @@ packages:
     resolution:
       {
         integrity: sha512-GsCCIZDE/p3i96vtEqx+7dBUGXrc7zeSK3wwPHIaRThS+9OhWIXRqzs4d6k1SVU8g91DrNRWxWUGhp5KXQb2VA==,
-      }
-
-  '@types/node@20.17.32':
-    resolution:
-      {
-        integrity: sha512-zeMXFn8zQ+UkjK4ws0RiOC9EWByyW1CcVmLe+2rQocXRsGEDxUCwPEIVgpsGcLHS/P8JkT0oa3839BRABS0oPw==,
       }
 
   '@types/node@22.15.3':
@@ -6742,12 +6746,6 @@ packages:
     peerDependencies:
       react: '>=16.14.0'
 
-  undici-types@6.19.8:
-    resolution:
-      {
-        integrity: sha512-ve2KP6f/JnbPBFyobGHuerC9g1FYGn/F8n1LWTwNxCEzd6IfqTwUQcNXgEtmmQ6DlRrC1hrSrBnCZPokRrDHjw==,
-      }
-
   undici-types@6.21.0:
     resolution:
       {
@@ -7928,10 +7926,6 @@ snapshots:
   '@types/json5@0.0.29': {}
 
   '@types/ms@2.1.0': {}
-
-  '@types/node@20.17.32':
-    dependencies:
-      undici-types: 6.19.8
 
   '@types/node@22.15.3':
     dependencies:
@@ -11657,8 +11651,6 @@ snapshots:
   uncontrollable@8.0.4(react@19.1.0):
     dependencies:
       react: 19.1.0
-
-  undici-types@6.19.8: {}
 
   undici-types@6.21.0: {}
 

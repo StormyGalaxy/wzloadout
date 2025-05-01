@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "build": "pnpm run --recursive --if-present build && next build",
+    "build:turbo": "pnpm run --recursive --if-present build && next build --turbo",
     "dev": "next dev",
     "dev:turbo": "next dev --turbo",
     "lint": "next lint",
@@ -16,6 +17,8 @@
     "test:coverage": "jest --coverage"
   },
   "dependencies": {
+    "@silocitypages/data-access": "workspace:^1.0.0",
+    "@silocitypages/eslint-config": "workspace:^1.0.0",
     "@silocitypages/ui-core": "workspace:^1.0.0",
     "@silocitypages/utils": "workspace:^1.0.0",
     "@fortawesome/fontawesome-svg-core": "^6.7.2",

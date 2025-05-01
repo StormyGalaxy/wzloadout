@@ -84,20 +84,36 @@ When you run `pnpm install` from the root, pnpm links these local packages toget
 
 ## Linting Configuration (Important for Forks)
 
-This repository includes an ESLint configuration (`.eslintrc.json`) at the root that is set up to lint the code in both the root application shell and the packages within the `packages/` directory.
+This repository includes an ESLint configuration file (`.eslintrc.mjs`) at the root. This configuration extends the shared rules defined in the `@silocitypages/eslint-config` package and is used to lint the code in the root application shell and the source code within the `packages/` directory when working in the monorepo base.
 
-When you fork this repository, the `packages/` directory will be part of your working copy, not installed into `node_modules`. By default, your linter might try to lint the code within the `packages/` directory, which is usually not desired in a derived project.
+When you fork this repository to start a new project, the `packages/` directory containing the framework source code will be part of your working copy, not installed into `node_modules`. By default, your linter will try to process the code within this `packages/` directory, which is usually not desired in a forked project.
 
-To prevent your linter from processing the framework code in the `packages/` directory, it is recommended to explicitly ignore the `packages/` directory in your linting configuration.
+To prevent your linter from processing the framework code in the `packages/` directory, it is _highly recommended_ to explicitly ignore the `packages/` directory in your linting configuration in your forked project.
 
-The simplest way to do this is by creating or updating a `.eslintignore` file at the root of your forked project and adding the following line:
+The simplest way to do this is by creating or updating a .eslintignore file at the root of your forked project and adding the following line:
 
 ```bash
 # Ignore the packages directory containing framework source code
 packages/
 ```
 
-Alternatively, you can add `"packages/"` to the ignorePatterns array in your `.eslintrc.json` file.
+Alternatively, you can add `"packages/"` to the ignorePatterns array directly in your `.eslintrc.mjs` file:
+
+```bash
+// .eslintrc.mjs
+const config = {
+  // ... other configuration ...
+
+  ignorePatterns: [
+    'packages/',
+    // Add any other directories/files to ignore at the root level
+  ],
+};
+
+export default config;
+```
+
+Choose one of these methods to ensure your linter focuses only on the application-specific code you write in your forked project.
 
 ## Editing the Website
 
