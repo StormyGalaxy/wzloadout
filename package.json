@@ -5,6 +5,7 @@
   "scripts": {
     "build": "pnpm run --recursive --if-present build && next build",
     "dev": "next dev",
+    "dev:turbo": "next dev --turbo",
     "lint": "next lint",
     "prepare": "husky",
     "prettier": "prettier --write .",

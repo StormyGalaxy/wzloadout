@@ -50,7 +50,15 @@ pnpm install
 Start the Next.js development server:
 
 ```bash
-pnpm run dev
+pnpm run dev:turbo
+```
+
+5. **Build one one package**
+
+Replace `<package-name>` with the package you would liek to build
+
+```bash
+pnpm --filter=@silocitypages/<package-name> run build
 ```
 
 Open [http://localhost:3000](http://localhost:3000) in your browser to view the website.

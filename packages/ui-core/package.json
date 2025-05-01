@@ -9,7 +9,9 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsc --outDir dist",
+    "build": "pnpm run build:ts && pnpm run build:copy-styles",
+    "build:ts": "tsc --outDir dist",
+    "build:copy-styles": "cpx \"src/styles/**/*.css\" dist/styles",
     "build:types": "tsc --emitDeclarationOnly --outDir dist",
     "watch": "tsc --watch --outDir dist"
   },
@@ -27,7 +29,8 @@
   "devDependencies": {
     "typescript": "^5.8.2",
     "@types/react": "^19.0.12",
-    "@types/react-dom": "^19.0.4"
+    "@types/react-dom": "^19.0.4",
+    "cpx": "^1.5.0"
   },
   "peerDependencies": {
     "react": "^19.0.0",
