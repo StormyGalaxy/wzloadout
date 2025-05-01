@@ -24,12 +24,13 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+          cache: 'pnpm'
 
       - name: Install dependencies
-        run: npm install
+        run: pnpm install
 
       - name: Run Prettier format
-        run: npx prettier . --write --ignore-path .prettierignore-ci
+        run: pnpm exec prettier . --write --ignore-path .prettierignore-ci
 
       # Step to commit and push changes directly on non-main branches
       - name: Commit and push changes (non-main branches)
