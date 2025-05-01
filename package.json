@@ -23,16 +23,11 @@
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
     "@fortawesome/react-fontawesome": "^0.2.2",
     "bootstrap": "^5.3.3",
-    "joi": "^17.13.3",
     "next": "^15.3.1",
-    "pouchdb": "^9.0.0",
-    "pouchdb-adapter-idb": "^9.0.0",
-    "pouchdb-find": "^9.0.0",
     "react": "^19.0.0",
     "react-bootstrap": "^2.10.9",
     "react-dom": "^19.0.0",
     "react-select": "^5.10.1",
-    "uuid": "^11.1.0",
     "react-content-loader": "^7.0.2"
   },
   "devDependencies": {
@@ -51,10 +46,7 @@
     "husky": "^9.1.7",
     "lint-staged": "^15.5.1",
     "postcss": "^8",
-    "prettier": "^3.5.3",
-    "@types/pouchdb": "^6.4.2",
-    "@types/pouchdb-find": "^7.3.3",
-    "@types/uuid": "^10.0.0"
+    "prettier": "^3.5.3"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,json,css,md,html,yaml,yml,mjs}": [
