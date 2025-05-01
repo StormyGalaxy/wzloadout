@@ -3,6 +3,7 @@ export * from './components/bootstrap/CustomAlert';
 export * from './components/bootstrap/CustomModal';
 
 // Export other components
+export * from './components/GoogleAnalytics';
 export * from './components/LoadingLetters';
 export * from './components/SclBadge';
 export * from './components/SclCard';

@@ -3,7 +3,7 @@ import { Suspense } from 'react';
 import type { Metadata, Viewport } from 'next';
 import { Inter } from 'next/font/google';
 // --- Components ---
-import GoogleAnalytics from '@/components/_silabs/GoogleAnalytics';
+import { GoogleAnalytics } from '@silocitypages/ui-core';
 
 // --- Styles ---
 import 'bootstrap/dist/css/bootstrap.min.css';
