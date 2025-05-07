@@ -3,7 +3,7 @@ name: CI (Lint & Build)
 on:
   push: # Trigger on push to *any* branch
   pull_request:
-    branches: [main] # Trigger on pull requests targeting the main branch
+    branches: [main, monorepo, legacy-solo] # Trigger on pull requests targeting the monorepo and legacy-solo branches
 
 jobs:
   ci:

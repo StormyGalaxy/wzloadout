@@ -3,7 +3,7 @@ name: Prettier Format
 on:
   push:
   pull_request:
-    branches: [main]
+    branches: [main, monorepo, legacy-solo] # Trigger on pull requests targeting the monorepo and legacy-solo branches
 
 jobs:
   format:
