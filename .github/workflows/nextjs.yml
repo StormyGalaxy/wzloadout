@@ -31,6 +31,14 @@ jobs:
         with:
           node-version: '20'
 
+      # --- Enable Corepack and Prepare pnpm ---
+      - name: Enable Corepack
+        run: corepack enable
+
+      # Prepare/Activate pnpm using the version defined in package.json or latest
+      - name: Prepare pnpm
+        run: corepack prepare pnpm@latest --activate
+
       # --- Explicitly cache pnpm dependencies ---
       # Get the path to the pnpm store
       - name: Get pnpm store path
@@ -50,15 +58,6 @@ jobs:
             ${{ runner.os }}- # Fallback keys
 
       # --- End of explicit caching steps ---
-
-      # Enable Corepack
-      - name: Enable Corepack
-        run: corepack enable
-
-      # Prepare/Activate pnpm using the version defined in package.json or latest
-      - name: Prepare pnpm
-        # Use --activate to ensure pnpm is available in the PATH for subsequent steps
-        run: corepack prepare pnpm@latest --activate
 
       # Sets up GitHub Pages environment
       - name: Setup Pages
