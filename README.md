@@ -5,7 +5,7 @@
 [![Prettier Check](https://github.com/SiloCityLabs/SiloCityPages/actions/workflows/prettier-check.yml/badge.svg)](https://github.com/SiloCityLabs/SiloCityPages/actions/workflows/prettier-check.yml)
 [![codecov](https://codecov.io/gh/SiloCityLabs/SiloCityPages/branch/main/graph/badge.svg)](https://codecov.io/gh/SiloCityLabs/SiloCityPages)
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA%204.0-orange.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
 [![pnpm](https://img.shields.io/badge/pnpm-10.10.0-blue.svg)](https://pnpm.io/)
 [![Next.js](https://img.shields.io/badge/Next.js-^15.3.1-black?logo=next.js)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-^19.0.0-blue?logo=react)](https://react.dev/)
@@ -200,9 +200,20 @@ Contributions are welcome! Whether it's bug fixes, feature enhancements, or docu
 
 Our CI pipeline (`.github/workflows/ci.yml`) will run checks for linting, formatting (Prettier via `prettier-check.yml`), and tests. Please ensure these pass before requesting a review.
 
-## LICENSE
+## License
 
-This project is licensed under the MIT License. See the LICENSE file
+This project is licensed under the **Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0) License**.
+
+- You are free to:
+
+  - **Share** — copy and redistribute the material in any medium or format
+  - **Adapt** — remix, transform, and build upon the material for any purpose, even commercially.
+
+- Under the following terms:
+  - **Attribution** — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
+  - **ShareAlike** — If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.
+
+See the [LICENSE](./LICENSE) file and the [Creative Commons website](https://creativecommons.org/licenses/by-sa/4.0/) for more details.
 
 ## Support
 
