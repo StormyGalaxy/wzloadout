@@ -1,6 +1,13 @@
 # SiloCityPages
 
 [![CI](https://github.com/SiloCityLabs/SiloCityPages/actions/workflows/ci.yml/badge.svg)](https://github.com/SiloCityLabs/SiloCityPages/actions/workflows/ci.yml)
+[![Deploy to GitHub Pages](https://github.com/SiloCityLabs/SiloCityPages/actions/workflows/nextjs.yml/badge.svg)](https://github.com/SiloCityLabs/SiloCityPages/actions/workflows/nextjs.yml)
+[![Prettier Check](https://github.com/SiloCityLabs/SiloCityPages/actions/workflows/prettier-check.yml/badge.svg)](https://github.com/SiloCityLabs/SiloCityPages/actions/workflows/prettier-check.yml)
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![pnpm](https://img.shields.io/badge/pnpm-10.10.0-blue.svg)](https://pnpm.io/)
+[![Next.js](https://img.shields.io/badge/Next.js-^15.3.1-black?logo=next.js)](https://nextjs.org/)
+[![React](https://img.shields.io/badge/React-^19.0.0-blue?logo=react)](https://react.dev/)
 
 Welcome to SiloCityPages, a modern and efficient website framework built using Next.js, React Bootstrap, and TypeScript, designed for optimal performance and easy maintainability. This project leverages the power of GitHub Pages for seamless deployment and hosting. It also uses JSON files to hold project metadata and custom components to keep the project organized.
 
