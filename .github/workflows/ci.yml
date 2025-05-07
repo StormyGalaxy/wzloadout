@@ -1,9 +1,9 @@
-name: CI (Lint & Build)
+name: CI (Lint, Build & Test)
 
 on:
   push: # Trigger on push to *any* branch
   pull_request:
-    branches: [main, monorepo, legacy-solo] # Trigger on pull requests targeting the monorepo and legacy-solo branches
+    branches: [main, monorepo, legacy-solo] # Trigger on pull requests targeting these branches
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -29,7 +29,6 @@ jobs:
       - name: Prepare pnpm
         run: corepack prepare pnpm@latest --activate
 
-      # Now pnpm commands should work
       - name: Get pnpm store path
         id: pnpm-cache
         shell: bash
@@ -41,15 +40,16 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
-          key: ${{ runner.os }}-node-20-${{ hashFiles('**/pnpm-lock.yaml') }}
+          key: ${{ runner.os }}-node-20-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
+            ${{ runner.os }}-node-20-pnpm-
             ${{ runner.os }}-node-20-
             ${{ runner.os }}-
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Build workspace packages (for linting)
+      - name: Build workspace packages (for linting, testing, etc.)
         run: pnpm run --recursive --if-present build
 
       - name: Lint
@@ -61,5 +61,10 @@ jobs:
       - name: Build (main application build)
         run: pnpm run build
 
-      - name: Run Unit Tests
-        run: pnpm run test
+      - name: Run Tests and Generate Coverage
+        run: pnpm run test:coverage
+
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
