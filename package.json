@@ -2,6 +2,7 @@
   "name": "silocitypages",
   "version": "2.0.0",
   "private": true,
+  "packageManager": "pnpm@10.10.0",
   "scripts": {
     "build": "pnpm run build:workspaces && next build",
     "build:turbo": "pnpm run --recursive --if-present build && next build --turbo",
