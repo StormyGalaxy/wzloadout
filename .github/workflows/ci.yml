@@ -46,13 +46,16 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Build workspace packages (for linting)
+        run: pnpm run --recursive --if-present build
+
       - name: Lint
         run: pnpm run lint
 
       - name: Type check
         run: pnpm exec tsc --noEmit
 
-      - name: Build
+      - name: Build (main application build)
         run: pnpm run build
 
       - name: Run Unit Tests
