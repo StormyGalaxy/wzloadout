@@ -5,6 +5,9 @@ on:
   pull_request:
     branches: [main, monorepo, legacy-solo] # Trigger on pull requests targeting the monorepo and legacy-solo branches
 
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
 jobs:
   ci:
     runs-on: ubuntu-latest
