@@ -1,41 +1,20 @@
-import type { Linter } from 'eslint';
-
 const config = {
-  // Inherit base configurations
   extends: ['next/core-web-vitals', 'next/typescript', 'plugin:@typescript-eslint/recommended'],
-
-  // Shared settings
-  settings: {
-    react: {
-      version: 'detect', // Ensure React version detection works correctly
-    },
-  },
-
-  // Shared overrides - these will apply to files matching the patterns within the monorepo context
+  settings: { react: { version: 'detect' } },
   overrides: [
     {
-      files: ['packages/**/__tests__/**/*.{js,jsx,ts,tsx}', 'packages/**/*.test.{js,jsx,ts,tsx}'],
+      files: ['**/__tests__/**/*.{js,jsx,ts,tsx}', '**/*.test.{js,jsx,ts,tsx}'],
+      env: { jest: true, node: true },
       rules: { 'jest/valid-expect': 'off' },
     },
-    {
-      // --- Added Override to Apply TypeScript Parser to JS/TS/JSX Files ---
-      files: ['**/*.{js,jsx,ts,tsx}'],
-      parser: '@typescript-eslint/parser',
-      parserOptions: {
-        project: './tsconfig.json',
-        ecmaFeatures: {
-          jsx: true, // Enable JSX parsing
-        },
-        ecmaVersion: 'latest',
-        sourceType: 'module',
-      },
-      rules: {},
-    },
   ],
+  ignorePatterns: ['node_modules/', '.next/', 'dist/', 'out/', 'build/'],
+  rules: {
+    'react/react-in-jsx-scope': 'off',
+    '@typescript-eslint/no-unused-vars': 'warn',
+    '@typescript-eslint/explicit-function-return-type': 'off',
+    '@typescript-eslint/no-explicit-any': 'warn',
+  },
+};
 
-  // Shared ignore patterns - these will apply relative to the monorepo root
-  ignorePatterns: ['node_modules/', '.next/', 'dist/', 'out/', 'build/', '.pnpm/', '.pnpm-store/'],
-} as Linter.Config;
-
-// Export the configuration
 export default config;

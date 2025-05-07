@@ -1,8 +1,9 @@
 {
+  "extends": "../../tsconfig.json", // Extends root tsconfig
   "compilerOptions": {
-    "target": "es2019",
-    "module": "esnext",
-    "lib": ["es2019"],
+    "target": "es2020",
+    "module": "commonjs",
+    "lib": ["es2020"],
     "declaration": true,
     "declarationDir": "./dist",
     "outDir": "./dist",
@@ -14,8 +15,9 @@
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
-    "isolatedModules": true
+    "isolatedModules": true,
+    "noEmit": false
   },
-  "include": ["src"],
+  "include": ["src/**/*"],
   "exclude": ["node_modules", "dist", "**/*.test.ts", "**/*.spec.ts"]
 }
