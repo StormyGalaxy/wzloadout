@@ -182,10 +182,8 @@ Contributions are welcome! Whether it's bug fixes, feature enhancements, or docu
 2. **Create a new branch** for your feature or bug fix: `git checkout -b feature/your-feature-name` or `bugfix/issue-number`.
 3. Make your changes.
 4. Ensure your code lints and tests pass:
-
-- `pnpm run lint`
-- `pnpm run test`
-
+   - `pnpm run lint`
+   - `pnpm run test`
 5. **Commit your changes** with a clear and descriptive commit message.
 6. **Push your branch** to your forked repository.
 7. **Open a Pull Request** to the `monorepo` branch of the `SiloCityLabs/SiloCityPages` repository.
