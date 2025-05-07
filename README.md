@@ -122,3 +122,80 @@ The simplest way to do this is by creating or updating a `.eslintignore` file at
 # Ignore the packages directory containing framework source code
 packages/
 ```
+
+Alternatively, you can uncomment `"packages/"` in the ignorePatterns array directly in your `.eslintrc.cjs` file.
+
+Choose one of these methods to ensure your linter focuses only on the application-specific code you write in your forked project.
+
+## Editing the Website
+
+You can modify the main content and application-specific logic of your site by editing the files in the root application structure (e.g., files in the `pages/` directory, root components).
+
+Core reusable components and utilities are located within the `packages/` directory. You should generally only modify code within `packages/` if you intend to contribute changes back to the base framework or customize the framework itself.
+
+The project auto-updates changes as you edit when running `pnpm run dev:turbo`.
+
+## Testing
+
+This project uses Jest for unit and integration testing. Test files are typically located in `__tests__` directories within the packages or root `src` folder.
+
+- Run all tests:
+  ```bash
+  pnpm run test
+  ```
+- Run tests in watch mode:
+  ```bash
+  pnpm run test:watch
+  ```
+- Generate test coverage report:
+  ```bash
+  pnpm run test:coverage
+  ```
+  The coverage report will be available in the coverage/ directory.
+
+Configuration for Jest can be found in `jest.config.ts`.
+
+## Deployment
+
+This website is hosted on GitHub Pages. To deploy updates, create a pull request with your changes. When merged into the `main` branch, GitHub Actions will automatically build and deploy the site using the workflow defined in `.github/workflows/nextjs.yml`. This workflow handles installing dependencies, building the Next.js application (using `next build` and `next export`), and deploying the static output to the `gh-pages` branch.
+
+## Features
+
+- **Optimized Performance**: Uses [next/font](https://nextjs.org/docs/basic-features/font-optimization) for automatic font optimization.
+- **Modern Framework**: Built with the power of Next.js and React.
+- **Monorepo Structure**: Organizes code into reusable packages using pnpm workspaces for better modularity and maintainability.
+- **Consistent Styling**: Leverages React Bootstrap and custom components for a unified look and feel.
+  - Leverages React Bootstrap for a base set of UI components.
+  - Employs custom components within `@silocitypages/ui-core`.
+  - Utilizes CSS Modules (e.g., `SclBadges.module.css`) for component-scoped styles, preventing global style conflicts.
+- **TypeScript Integration**: Full TypeScript support for strong typing and improved developer experience.
+- **Client-Side Data Management**: Includes a `@silocitypages/data-access` package with PouchDB integration for local data persistence.
+- **Utility Suite**: Offers a collection of common utilities in `@silocitypages/utils` for tasks like string manipulation and analytics.
+- **SEO Friendly**: Setup includes `sitemap.xml` and `robots.txt`, with support for metadata customization.
+- **Automated Workflows**: GitHub Actions for CI (linting, testing, building) and deployment.
+
+## Contributing
+
+Contributions are welcome! Whether it's bug fixes, feature enhancements, or documentation improvements, please feel free to contribute.
+
+1. Fork the repository.
+2. **Create a new branch** for your feature or bug fix: `git checkout -b feature/your-feature-name` or `bugfix/issue-number`.
+3. Make your changes.
+4. Ensure your code lints and tests pass:
+
+- `pnpm run lint`
+- `pnpm run test`
+
+5. **Commit your changes** with a clear and descriptive commit message.
+6. **Push your branch** to your forked repository.
+7. **Open a Pull Request** to the `monorepo` branch of the `SiloCityLabs/SiloCityPages` repository.
+
+Our CI pipeline (`.github/workflows/ci.yml`) will run checks for linting, formatting (Prettier via `prettier-check.yml`), and tests. Please ensure these pass before requesting a review.
+
+## LICENSE
+
+This project is licensed under the MIT License. See the LICENSE file
+
+## Support
+
+If you encounter any issues or have questions, please file an issue on the [GitHub Issues page](https://github.com/SiloCityLabs/SiloCityPages/issues).
