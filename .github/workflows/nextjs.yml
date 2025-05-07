@@ -13,8 +13,6 @@ permissions:
   pages: write
   id-token: write
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
 concurrency:
   group: 'pages'
   cancel-in-progress: false
@@ -32,13 +30,34 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'pnpm'
 
+      # --- Explicitly cache pnpm dependencies ---
+      # Get the path to the pnpm store
+      - name: Get pnpm store path
+        id: pnpm-cache
+        shell: bash # Specify bash shell for the command
+        run: |
+          echo "STORE_PATH=$(pnpm store path)" >> "$GITHUB_OUTPUT"
+
+      # Cache the pnpm store path identified in the previous step
+      - name: Cache pnpm dependencies
+        uses: actions/cache@v4
+        with:
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }} # Use the determined store path
+          key: ${{ runner.os }}-node-${{ matrix.node-version }}-${{ hashFiles('**/pnpm-lock.yaml') }} # Cache key based on OS, Node version, and lockfile
+          restore-keys: |
+            ${{ runner.os }}-node-${{ matrix.node-version }}-
+            ${{ runner.os }}- # Fallback keys
+
+      # --- End of explicit caching steps ---
+
+      # Enable Corepack
       - name: Enable Corepack
         run: corepack enable
 
       # Prepare/Activate pnpm using the version defined in package.json or latest
       - name: Prepare pnpm
+        # Use --activate to ensure pnpm is available in the PATH for subsequent steps
         run: corepack prepare pnpm@latest --activate
 
       # Sets up GitHub Pages environment
@@ -46,6 +65,7 @@ jobs:
         uses: actions/configure-pages@v5
 
       - name: Install dependencies
+        # Use pnpm install --frozen-lockfile for deterministic install
         run: pnpm install --frozen-lockfile
 
       - name: Build with Next.js (Production Mode)
