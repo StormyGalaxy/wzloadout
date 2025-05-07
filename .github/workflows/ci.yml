@@ -1,7 +1,7 @@
 name: CI (Lint & Build)
 
 on:
-  push: # Trigger on push to *any* branch (original behavior)
+  push: # Trigger on push to *any* branch
   pull_request:
     branches: [main] # Trigger on pull requests targeting the main branch
 
@@ -18,40 +18,41 @@ jobs:
         with:
           node-version: '20'
 
-      # Get the path to the pnpm content-addressable store
-      # This is necessary for caching pnpm dependencies correctly
+      # Enable Corepack (comes with Node.js)
+      - name: Enable Corepack
+        run: corepack enable
+
+      # Prepare/Activate pnpm using the version possibly defined in package.json
+      - name: Prepare pnpm
+        run: corepack prepare pnpm@latest --activate
+
+      # Now pnpm commands should work
       - name: Get pnpm store path
         id: pnpm-cache
         shell: bash
         run: |
           echo "STORE_PATH=$(pnpm store path)" >> "$GITHUB_OUTPUT"
 
+      # Cache the store path identified in the previous step
       - name: Cache pnpm dependencies
         uses: actions/cache@v4
         with:
-          # Cache the pnpm store directory on the runner
           path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
-          # Key based on the runner OS, explicit Node version, and the hash of your pnpm-lock.yaml
           key: ${{ runner.os }}-node-20-${{ hashFiles('**/pnpm-lock.yaml') }}
-          # Restore keys for cache hits when the lock file might have minor changes
           restore-keys: |
             ${{ runner.os }}-node-20-
-            ${{ runner.os }}- # Fallback key
+            ${{ runner.os }}-
 
       - name: Install dependencies
-        # Use pnpm install to install all dependencies across the monorepo
-        # --frozen-lockfile ensures a deterministic install based on pnpm-lock.yaml, similar to npm ci
         run: pnpm install --frozen-lockfile
 
       - name: Lint
-        # Use pnpm run to execute the 'lint' script defined in your root package.json
         run: pnpm run lint
 
       - name: Type check
         run: pnpm exec tsc --noEmit
 
       - name: Build
-        # Use pnpm run to execute the 'build' script defined in your root package.json
         run: pnpm run build
 
       - name: Run Unit Tests
