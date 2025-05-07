@@ -1,5 +1,7 @@
 # SiloCityPages
 
+[![CI](https://github.com/SiloCityLabs/SiloCityPages/actions/workflows/ci.yml/badge.svg)](https://github.com/SiloCityLabs/SiloCityPages/actions/workflows/ci.yml)
+
 Welcome to SiloCityPages, a modern and efficient website framework built using Next.js, React Bootstrap, and TypeScript, designed for optimal performance and easy maintainability. This project leverages the power of GitHub Pages for seamless deployment and hosting. It also uses JSON files to hold project metadata and custom components to keep the project organized.
 
 This repository is structured as a monorepo containing the main application shell and core reusable components/utilities in separate packages.
