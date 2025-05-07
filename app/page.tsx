@@ -7,7 +7,7 @@ export default function HomePage() {
   return (
     <PageLayout>
       <Container className='mt-3 mb-3'>
-        <h3 className='text-center my-3'>SiloCityPages</h3>
+        <h3 className='text-center my-3'>SiloCityPages - MonoRepo</h3>
         <Row className='shadow-lg p-3 bg-body rounded'>
           <Col lg={8} className='mx-auto'>
             SiloCityPages, developed by SiloCityLabs, is a streamlined framework designed to
