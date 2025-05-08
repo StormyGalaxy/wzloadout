@@ -13,10 +13,6 @@
     "watch": "tsc --watch --outDir dist --declaration true",
     "test": "jest"
   },
-  "dependencies": {
-    "joi": "^17.13.3",
-    "uuid": "^11.1.0"
-  },
   "devDependencies": {
     "typescript": "^5.8.2",
     "@types/node": "^22.13.14",

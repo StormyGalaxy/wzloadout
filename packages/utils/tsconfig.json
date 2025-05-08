@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es2019", // Or your target ES version
+    "target": "es2020",
     "module": "esnext",
     "lib": ["dom", "dom.iterable", "esnext"],
     "jsx": "react-jsx", // Or "react" depending on your React version/setup
