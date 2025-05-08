@@ -6,7 +6,7 @@ import { Nav } from 'react-bootstrap';
 // --- Next ---
 import Image from 'next/image';
 
-export default function Footer() {
+export default function Footer({ className }: { className?: string }) {
   const showLicense =
     process.env.NEXT_PUBLIC_FOOTER_SITE !== '' &&
     process.env.NEXT_PUBLIC_FOOTER_COPYRIGHT_URL !== '';
@@ -18,7 +18,7 @@ export default function Footer() {
   ];
   return (
     <>
-      <footer className='bg-light text-center'>
+      <footer id='site-footer' className={`${className} bg-light text-center`}>
         <Nav className='justify-content-center flex-column flex-md-row'>
           {process.env.NEXT_PUBLIC_FOOTER_COPYRIGHT !== '' && (
             <Nav.Item style={{ padding: '7px' }}>

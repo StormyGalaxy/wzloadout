@@ -15,6 +15,7 @@ interface NavLink {
 interface PageLayoutProps {
   children: React.ReactNode;
   headerClassName?: string;
+  footerClassName?: string;
   navLinks?: NavLink[];
   showHeader?: boolean;
   showFooter?: boolean;
@@ -25,6 +26,7 @@ interface PageLayoutProps {
 export default function PageLayout({
   children,
   headerClassName = '',
+  footerClassName = '',
   navLinks = [],
   showHeader = true,
   showFooter = true,
@@ -42,7 +44,7 @@ export default function PageLayout({
         />
       )}
       <main className='main-content'>{children}</main>
-      {showFooter && <Footer />}
+      {showFooter && <Footer className={footerClassName} />}
     </div>
   );
 }
