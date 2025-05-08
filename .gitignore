@@ -45,3 +45,7 @@ next-env.d.ts
 # ide
 .vscode
 .idx
+
+# Lockfiles from other package managers
+package-lock.json
+yarn.lock
