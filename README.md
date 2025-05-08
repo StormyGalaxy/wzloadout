@@ -152,6 +152,10 @@ This project uses Jest for unit and integration testing. Test files are typicall
   ```bash
   pnpm run test
   ```
+- Run all package specific tests:
+  ```bash
+  pnpm run test packages/<package-name>
+  ```
 - Run tests in watch mode:
   ```bash
   pnpm run test:watch
