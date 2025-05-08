@@ -4,7 +4,7 @@
 import React from 'react';
 import { Container, Nav, Navbar, Badge } from 'react-bootstrap';
 
-interface HeaderProps {
+interface Props {
   className?: string;
   navLinks?: { label: string; href: string; target?: string }[];
   darkLinks?: boolean;
@@ -22,11 +22,11 @@ export default function Header({
   navLinks = defaultNavLinks,
   darkLinks = false,
   showBadge = false,
-}: HeaderProps) {
+}: Props) {
   navLinks = navLinks.length > 0 ? navLinks : defaultNavLinks;
 
   return (
-    <Navbar id='main-header' expand='lg' bg='dark' data-bs-theme='dark' className={`${className}`}>
+    <Navbar id='site-header' expand='lg' bg='dark' data-bs-theme='dark' className={`${className}`}>
       <Container>
         <Navbar.Brand href='/' className='position-relative d-flex align-items-center'>
           {showBadge && (

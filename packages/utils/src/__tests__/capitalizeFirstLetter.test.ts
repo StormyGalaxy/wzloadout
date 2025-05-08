@@ -1,4 +1,4 @@
-import { capitalizeFirstLetter } from '../src/capitalizeFirstLetter';
+import { capitalizeFirstLetter } from '../capitalizeFirstLetter';
 
 describe('capitalizeFirstLetter', () => {
   it('should return an empty string for an empty string input', () => {

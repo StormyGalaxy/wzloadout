@@ -3,7 +3,6 @@
 [![CI](https://github.com/SiloCityLabs/SiloCityPages/actions/workflows/ci.yml/badge.svg)](https://github.com/SiloCityLabs/SiloCityPages/actions/workflows/ci.yml)
 [![Deploy to GitHub Pages](https://github.com/SiloCityLabs/SiloCityPages/actions/workflows/nextjs.yml/badge.svg)](https://github.com/SiloCityLabs/SiloCityPages/actions/workflows/nextjs.yml)
 [![Prettier Check](https://github.com/SiloCityLabs/SiloCityPages/actions/workflows/prettier-check.yml/badge.svg)](https://github.com/SiloCityLabs/SiloCityPages/actions/workflows/prettier-check.yml)
-[![codecov](https://codecov.io/gh/SiloCityLabs/SiloCityPages/branch/main/graph/badge.svg)](https://codecov.io/gh/SiloCityLabs/SiloCityPages)
 
 [![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA%204.0-orange.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
 [![pnpm](https://img.shields.io/badge/pnpm-10.10.0-blue.svg)](https://pnpm.io/)
@@ -153,6 +152,10 @@ This project uses Jest for unit and integration testing. Test files are typicall
   ```bash
   pnpm run test
   ```
+- Run all package specific tests:
+  ```bash
+  pnpm run test packages/<package-name>
+  ```
 - Run tests in watch mode:
   ```bash
   pnpm run test:watch
@@ -164,6 +167,26 @@ This project uses Jest for unit and integration testing. Test files are typicall
   The coverage report will be available in the coverage/ directory.
 
 Configuration for Jest can be found in `jest.config.ts`.
+
+### Ignoring Packages in Forks:
+
+If you have forked this repository and want to prevent Jest from running tests within the original `packages/` directory, you can modify the `jest.config.ts` file. Add `'<rootDir>/packages/'` to the testPathIgnorePatterns array like so:
+
+```typescript
+// jest.config.ts
+import type { Config } from 'jest';
+
+const config: Config = {
+  // ... other config
+  // Add '<rootDir>/packages/' to this array
+  testPathIgnorePatterns: ['/node_modules/', '/dist/', '<rootDir>/packages/'],
+  // Add '<rootDir>/packages/' to this array
+  coveragePathIgnorePatterns: ['/node_modules/', '/dist/', '<rootDir>/packages/'],
+  // ... other config
+};
+
+export default config;
+```
 
 ## Deployment
 

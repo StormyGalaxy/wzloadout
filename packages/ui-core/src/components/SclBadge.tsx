@@ -1,6 +1,6 @@
 // --- React ---
 import React from 'react';
-import Badge from 'react-bootstrap/Badge';
+import Badge, { BadgeProps as ReactBootstrapBadgeProps } from 'react-bootstrap/Badge';
 // --- Next ---
 import Image from 'next/image';
 // --- Helpers ---
@@ -11,62 +11,83 @@ import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 // --- Styles ---
 import styles from '../styles/components/SclBadges.module.css';
 
+// --- Prop Types ---
 type SclBadgeProps = {
   name: string;
-  variant?: string; // Bootstrap background variant (e.g., 'primary', 'secondary')
-  badgeOverwrite?: string; // Custom CSS module class name
-  imgSrc?: string; // Path to an image file
-  faIcon?: IconDefinition; // Font Awesome icon definition object
-  needsDarkText?: boolean;
+  variant?: ReactBootstrapBadgeProps['bg'];
+  colorScheme?: string;
+  className?: string;
+  imgSrc?: string;
+  faIcon?: IconDefinition;
+  textStyle?: 'light' | 'dark';
   fullWidth?: boolean;
 };
 
 const SclBadge: React.FC<SclBadgeProps> = ({
   name,
-  variant = 'success',
-  badgeOverwrite = '',
-  imgSrc = '',
+  variant, // User-provided Bootstrap variant
+  colorScheme,
+  className,
+  imgSrc,
   faIcon,
-  needsDarkText = false,
+  textStyle = 'light',
   fullWidth = false,
 }) => {
-  // --- Calculate Badge Classes ---
-  const badgeClasses = ['d-flex', 'align-items-center', styles.baseBadge];
+  const badgeDynamicStyles: React.CSSProperties = {};
+  // Explicitly define the props we intend to pass to the underlying Badge
+  const badgeElementProps: ReactBootstrapBadgeProps = {};
 
-  // Apply custom CSS module override class if provided and exists
-  if (badgeOverwrite && styles[badgeOverwrite]) {
-    badgeClasses.push(styles[badgeOverwrite]);
-  }
+  // Base classes applied regardless of styling method
+  const classList = [styles.baseBadge, 'd-flex', 'align-items-center'];
 
-  // Apply layout classes
-  if (fullWidth) {
-    badgeClasses.push('w-100', 'justify-content-center');
+  if (colorScheme) {
+    // --- Custom Theming Active ---
+    // Set local CSS variables via inline style
+    badgeDynamicStyles['--scl-badge-current-bg'] =
+      `var(--scl-badge-bg-${colorScheme.toLowerCase()}, var(--scl-badge-bg-color-default))`;
+    if (textStyle === 'light') {
+      badgeDynamicStyles['--scl-badge-current-text'] =
+        `var(--scl-badge-text-${colorScheme.toLowerCase()}, var(--scl-badge-text-color))`;
+    }
+
+    // 2. Pass a non-existent variant to the 'bg' prop to prevent React Bootstrap from applying its own bg-* classes.
+    badgeElementProps.bg = 'none';
   } else {
-    badgeClasses.push('d-inline-flex');
+    // --- Standard Bootstrap Variant Active ---
+    badgeElementProps.bg = variant;
   }
 
-  // Apply text color class if needed
-  if (needsDarkText) {
-    badgeClasses.push('text-dark');
+  // --- Common Class Additions ---
+  if (textStyle === 'dark') {
+    classList.push(styles.textDark);
+  }
+  if (fullWidth) {
+    classList.push('w-100', 'justify-content-center');
+  } else {
+    classList.push('d-inline-flex');
+  }
+  if (className) {
+    classList.push(className);
   }
 
-  // --- Define consistent icon styling ---
+  // --- Icon Styling ---
   const iconStyle: React.CSSProperties = {
-    height: '1.1em', // Height relative to text size
-    width: 'auto', // Maintain aspect ratio
-    marginRight: '0.3em', // Space between icon and text
-    verticalAlign: 'middle', // Try to align icons nicely with text baseline
+    height: '1.1em',
+    width: 'auto',
+    marginRight: '0.3em',
+    verticalAlign: 'middle',
   };
 
   return (
-    <Badge className={badgeClasses.join(' ')} bg={variant}>
+    <Badge
+      {...badgeElementProps}
+      className={classList.join(' ')}
+      style={badgeDynamicStyles} // Sets local CSS vars like --scl-badge-current-bg
+    >
       {faIcon && <FontAwesomeIcon icon={faIcon} style={iconStyle} fixedWidth aria-hidden='true' />}
-
-      {/* Render Image only if faIcon is NOT provided AND imgSrc IS provided */}
       {!faIcon && imgSrc && (
-        <Image src={imgSrc} alt={`${name} image`} height={16} width={16} style={iconStyle} />
+        <Image src={imgSrc} alt={`${name} icon`} height={16} width={16} style={iconStyle} />
       )}
-
       {capitalizeFirstLetter(name)}
     </Badge>
   );

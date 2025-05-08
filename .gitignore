@@ -4,6 +4,7 @@
 
 # Ignore pnpm's virtual store directory created at the root of the monorepo
 .pnpm/
+run/
 
 # Ignore the pnpm content-addressable store (usually outside the repo by default, but pattern is standard)
 .pnpm-store/
@@ -45,3 +46,7 @@ next-env.d.ts
 # ide
 .vscode
 .idx
+
+# Lockfiles from other package managers
+package-lock.json
+yarn.lock

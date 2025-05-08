@@ -1,4 +1,4 @@
-import { randomListItem } from '../src/randomListItem';
+import { randomListItem } from '../randomListItem';
 
 describe('randomListItem', () => {
   it('should return a value from the object', () => {

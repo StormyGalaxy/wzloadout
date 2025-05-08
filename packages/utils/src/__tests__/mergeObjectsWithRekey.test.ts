@@ -1,4 +1,4 @@
-import { mergeObjectsWithRekey } from '../src/mergeObjectsWithRekey';
+import { mergeObjectsWithRekey } from '../mergeObjectsWithRekey';
 
 describe('mergeObjectsWithRekey', () => {
   it('should merge multiple objects with rekeyed properties', () => {
