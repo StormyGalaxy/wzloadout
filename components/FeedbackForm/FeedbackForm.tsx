@@ -10,9 +10,9 @@ import Link from 'next/link';
 // --- Helpers ---
 import { generateGithubLink } from '@silocitypages/utils';
 // --- Data ---
-import githubLabels from '@/json/github/labels.json';
-import githubAssignees from '@/json/github/assignees.json';
-import githubTemplates from '@/json/github/templates.json';
+import githubLabels from './config/labels.json';
+import githubAssignees from './config/assignees.json';
+import githubTemplates from './config/templates.json';
 
 // --- Types and Initial State ---
 type OptionType = { value: string; label: string };
