@@ -14,7 +14,7 @@
     "prettier": "prettier --write .",
     "qlint": "pnpm run build:workspaces && next lint --quiet",
     "start": "next start",
-    "test": "jest",
+    "test": "jest --passWithNoTests",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage"
   },

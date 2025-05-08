@@ -164,6 +164,26 @@ This project uses Jest for unit and integration testing. Test files are typicall
 
 Configuration for Jest can be found in `jest.config.ts`.
 
+### Ignoring Packages in Forks:
+
+If you have forked this repository and want to prevent Jest from running tests within the original `packages/` directory, you can modify the `jest.config.ts` file. Add `'<rootDir>/packages/'` to the testPathIgnorePatterns array like so:
+
+```typescript
+// jest.config.ts
+import type { Config } from 'jest';
+
+const config: Config = {
+  // ... other config
+  // Add '<rootDir>/packages/' to this array
+  testPathIgnorePatterns: ['/node_modules/', '/dist/', '<rootDir>/packages/'],
+  // Add '<rootDir>/packages/' to this array
+  coveragePathIgnorePatterns: ['/node_modules/', '/dist/', '<rootDir>/packages/'],
+  // ... other config
+};
+
+export default config;
+```
+
 ## Deployment
 
 This website is hosted on GitHub Pages. To deploy updates, create a pull request with your changes. When merged into the `main` branch, GitHub Actions will automatically build and deploy the site using the workflow defined in `.github/workflows/nextjs.yml`. This workflow handles installing dependencies, building the Next.js application (using `next build` and `next export`), and deploying the static output to the `gh-pages` branch.
