@@ -58,6 +58,6 @@ Add any other context about the problem here.
 
 **Before Submitting:**
 
-- [ ] I have searched the existing [issues]() to make sure this bug has not already been reported.
+- [ ] I have searched the existing [issues](/issues) to make sure this bug has not already been reported.
 - [ ] I have provided clear steps to reproduce the bug.
 - [ ] I have filled out the environment details to the best of my ability.
