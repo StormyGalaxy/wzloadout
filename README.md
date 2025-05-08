@@ -3,7 +3,6 @@
 [![CI](https://github.com/SiloCityLabs/SiloCityPages/actions/workflows/ci.yml/badge.svg)](https://github.com/SiloCityLabs/SiloCityPages/actions/workflows/ci.yml)
 [![Deploy to GitHub Pages](https://github.com/SiloCityLabs/SiloCityPages/actions/workflows/nextjs.yml/badge.svg)](https://github.com/SiloCityLabs/SiloCityPages/actions/workflows/nextjs.yml)
 [![Prettier Check](https://github.com/SiloCityLabs/SiloCityPages/actions/workflows/prettier-check.yml/badge.svg)](https://github.com/SiloCityLabs/SiloCityPages/actions/workflows/prettier-check.yml)
-[![codecov](https://codecov.io/gh/SiloCityLabs/SiloCityPages/branch/main/graph/badge.svg)](https://codecov.io/gh/SiloCityLabs/SiloCityPages)
 
 [![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA%204.0-orange.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
 [![pnpm](https://img.shields.io/badge/pnpm-10.10.0-blue.svg)](https://pnpm.io/)
