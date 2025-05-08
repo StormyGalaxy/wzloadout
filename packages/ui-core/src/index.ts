@@ -8,3 +8,6 @@ export * from './components/LoadingLetters';
 export * from './components/SclBadge';
 export * from './components/SclCard';
 export * from './components/SclPlaceholder';
+
+// Export Types
+export * from './types/settings';
