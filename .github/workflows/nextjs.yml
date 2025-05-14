@@ -58,6 +58,7 @@ jobs:
             ${{ runner.os }}- # Fallback keys
 
       # --- End of explicit caching steps ---
+
       # Sets up GitHub Pages environment
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -71,33 +72,6 @@ jobs:
         env:
           NODE_ENV: production
 
-      # --- START OF DEBUGGING STEPS ---
-      - name: Verify generated files in public directory
-        if: always() # Run this step even if previous steps fail, for debugging
-        shell: bash # Ensure bash is used for `||` operator
-        run: |
-          echo "--- Contents of public/ ---"
-          ls -la ./public
-          echo "--- Content of public/robots.txt ---"
-          cat ./public/robots.txt || echo "public/robots.txt not found in public/"
-          echo "--- Content of public/sitemap.xml ---"
-          cat ./public/sitemap.xml || echo "public/sitemap.xml not found in public/"
-          echo "--- Content of public/sitemap-0.xml ---"
-          cat ./public/sitemap-0.xml || echo "public/sitemap-0.xml not found in public/"
-
-      - name: Verify generated files in output directory (out/)
-        if: always() # Run this step even if previous steps fail, for debugging
-        shell: bash # Ensure bash is used for `||` operator
-        run: |
-          echo "--- Contents of out/ ---"
-          ls -la ./out
-          echo "--- Content of out/robots.txt ---"
-          cat ./out/robots.txt || echo "out/robots.txt not found in out/"
-          echo "--- Content of out/sitemap.xml ---"
-          cat ./out/sitemap.xml || echo "out/sitemap.xml not found in out/"
-          echo "--- Content of out/sitemap-0.xml ---"
-          cat ./out/sitemap-0.xml || echo "out/sitemap-0.xml not found in out/"
-      # --- END OF DEBUGGING STEPS ---
       # Uploads the build artifact for deployment
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
