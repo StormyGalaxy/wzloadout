@@ -1,8 +1,8 @@
-export { capitalizeFirstLetter } from './capitalizeFirstLetter';
-export { generateGithubLink } from './generateGithubLink';
-export { getLocalStorage, setLocalStorage } from './localStorage';
-export { mergeObjectsWithRekey } from './mergeObjectsWithRekey';
-export { randomListItem } from './randomListItem';
+export { capitalizeFirstLetter } from './helpers/capitalizeFirstLetter';
+export { generateGithubLink } from './helpers/generateGithubLink';
+export { getLocalStorage, setLocalStorage } from './helpers/localStorage';
+export { mergeObjectsWithRekey } from './helpers/mergeObjectsWithRekey';
+export { randomListItem } from './helpers/randomListItem';
 
 // --- Analytics Utils ---
 export { sendEvent } from './analytics/gtag';
