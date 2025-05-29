@@ -11,6 +11,14 @@ function Changelog2025() {
             <Link href="black-ops/six/zombies-generator">
               Black Ops VI Zombies:
             </Link>{" "}
+            Season 4 - Added Shatter Blast Ammo Mod and all new gobblegums
+            (Explosive Flourish, Flavor Hex, Rainburps)
+          </p>
+          <p>
+            5/29/2025:{" "}
+            <Link href="black-ops/six/zombies-generator">
+              Black Ops VI Zombies:
+            </Link>{" "}
             Season 3 Reloaded - Added Frost Blast Field Upgrade
           </p>
           <p>

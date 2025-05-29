@@ -29,5 +29,11 @@
     "type": "Ammo Mod",
     "game": "black-ops-six",
     "isDlc": true
+  },
+  {
+    "name": "Shatter Blast",
+    "type": "Ammo Mod",
+    "game": "black-ops-six",
+    "isDlc": true
   }
 ]

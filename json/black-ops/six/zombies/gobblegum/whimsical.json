@@ -27,5 +27,12 @@
     "type": "Whimsical",
     "game": "black-ops-six",
     "isDlc": true
+  },
+  {
+    "name": "Rainburps",
+    "type": "Whimsical",
+    "description": "(Lasts 3 Minutes) Zombies killed belch sparkly rainbow bubbles.",
+    "game": "black-ops-six",
+    "isDlc": true
   }
 ]

@@ -40,5 +40,12 @@
     "type": "Epic",
     "game": "black-ops-six",
     "isDlc": true
+  },
+  {
+    "name": "Explosive Flourish",
+    "description": "(Lasts 2 Minutes) Reloading your weapon creates an explosion around you.",
+    "type": "Epic",
+    "game": "black-ops-six",
+    "isDlc": true
   }
 ]

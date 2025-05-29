@@ -46,5 +46,12 @@
     "type": "Legendary",
     "game": "black-ops-six",
     "isDlc": true
+  },
+  {
+    "name": "Flavor Hex",
+    "description": "Activates a random Ultra GobbleGum",
+    "type": "Legendary",
+    "game": "black-ops-six",
+    "isDlc": true
   }
 ]
