@@ -54,5 +54,12 @@
     "game": "black-ops-six",
     "color": "Red",
     "isDlc": true
+  },
+  {
+    "name": "Vendetta",
+    "type": "Perk 2",
+    "game": "black-ops-six",
+    "color": "Blue",
+    "isDlc": true
   }
 ]

@@ -7,6 +7,10 @@ function Changelog2025() {
       <Row>
         <Col>
           <p>
+            5/29/2025: <Link href="black-ops/six/generator">Black Ops VI:</Link>{" "}
+            Season 3 Reloaded - Added Vendetta Perk
+          </p>
+          <p>
             4/19/2025: <Link href="black-ops/six/generator">Black Ops VI:</Link>{" "}
             Added new Nail Gun
           </p>
@@ -33,7 +37,7 @@ function Changelog2025() {
             <Link href="black-ops/six/zombies-generator">
               Black Ops VI Zombies:
             </Link>{" "}
-            Added season 03 gobblegums &amp; double tap augments
+            Added Season 03 gobblegums &amp; double tap augments
           </p>
           <p>
             4/05/2025: <Link href="black-ops/six/generator">Black Ops VI:</Link>{" "}
