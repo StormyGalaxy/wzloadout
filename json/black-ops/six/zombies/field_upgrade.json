@@ -29,5 +29,11 @@
     "type": "Field Upgrade",
     "game": "black-ops-six",
     "isDlc": true
+  },
+  {
+    "name": "Frost Blast",
+    "type": "Field Upgrade",
+    "game": "black-ops-six",
+    "isDlc": true
   }
 ]

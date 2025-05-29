@@ -7,6 +7,13 @@ function Changelog2025() {
       <Row>
         <Col>
           <p>
+            5/29/2025:{" "}
+            <Link href="black-ops/six/zombies-generator">
+              Black Ops VI Zombies:
+            </Link>{" "}
+            Season 3 Reloaded - Added Frost Blast Field Upgrade
+          </p>
+          <p>
             5/29/2025: <Link href="black-ops/six/generator">Black Ops VI:</Link>{" "}
             Season 3 Reloaded - Added Vendetta Perk
           </p>
