@@ -6,7 +6,7 @@ import type { Metadata } from 'next';
 // --- Layout ---
 import PageLayout from '@/components/PageLayout';
 // --- Components ---
-import FeedbackForm from '@/components/FeedbackForm/FeedbackForm';
+import FeedbackForm from '@/components/feedback/FeedbackForm';
 
 export const metadata: Metadata = {
   title: 'Feedback',
