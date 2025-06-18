@@ -1,6 +1,8 @@
+// --- PouchDB ---
 import PouchDB from 'pouchdb';
 import PouchDBFind from 'pouchdb-find';
 import idbAdapter from 'pouchdb-adapter-idb';
+// --- Helpers ---
 import { initializeSettingsDB } from '@/helpers/database/settings/initializeSettingsDB';
 
 // --- Initialize Plugins  ---
@@ -12,8 +14,6 @@ let settingsDBInstance: PouchDB.Database | null = null;
 let initializationPromise: Promise<{ settings: PouchDB.Database }> | null = null;
 
 async function performInitialization(): Promise<{ settings: PouchDB.Database }> {
-  const adapter = 'idb';
-
   // --- Initialize Settings DB ---
   const settingsDb = await initializeSettingsDB();
   if (!settingsDb) {
