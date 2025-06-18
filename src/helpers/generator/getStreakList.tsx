@@ -1,3 +1,4 @@
+// --- Data ---
 import bo6List from '@/json/black-ops/six/streaks.json';
 import mw3List from '@/json/modern-warfare/three/streaks.json';
 import vanguardList from '@/json/vanguard/streaks.json';
@@ -7,8 +8,12 @@ import coldWarList from '@/json/black-ops/cold-war/streaks.json';
 import ww2List from '@/json/world-war-two/streaks.json';
 import mw2List from '@/json/modern-warfare/two/streaks.json';
 import iwList from '@/json/infinite-warfare/streaks.json';
+// --- Types ---
+import { Streak } from '@/types/Generator';
 
-const streaks: Record<string, any> = {
+type ItemList = Streak[] | Record<string, Streak>;
+
+const streaks: Record<string, ItemList> = {
   'black-ops-six': bo6List,
   'modern-warfare-three': mw3List,
   vanguard: vanguardList,
@@ -20,6 +25,6 @@ const streaks: Record<string, any> = {
   'infinite-warfare': iwList,
 };
 
-export function getStreakList(game: string): any {
+export function getStreakList(game: string): ItemList {
   return streaks[game] || {};
 }
