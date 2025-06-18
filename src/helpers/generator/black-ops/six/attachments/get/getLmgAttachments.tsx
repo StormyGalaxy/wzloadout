@@ -1,15 +1,19 @@
+// --- Data ---
 import gpmg7 from '@/json/black-ops/six/attachments/lmg/gpmg7.json';
 import pu21 from '@/json/black-ops/six/attachments/lmg/pu21.json';
 import xmg from '@/json/black-ops/six/attachments/lmg/xmg.json';
-//DLC
+// --- DLC ---
 import feng82 from '@/json/black-ops/six/attachments/lmg/feng82.json';
 // --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 
-const attachmentsList: Record<string, any> = { gpmg7, pu21, xmg, feng82 };
+const attachmentsList: Record<string, Record<string, string[]>> = { gpmg7, pu21, xmg, feng82 };
 
-export function getLmgAttachments(gun: string, count: number): any {
-  const attachments: any = {};
+export function getLmgAttachments(
+  gun: string,
+  count: number
+): Record<string, string> | Record<string, string[]> {
+  const attachments: Record<string, string> = {};
   const data = attachmentsList[gun];
 
   if (data) {

@@ -1,3 +1,4 @@
+// --- Data ---
 import c9 from '@/json/black-ops/six/attachments/smg/c9.json';
 import jackalpdw from '@/json/black-ops/six/attachments/smg/jackalPdw.json';
 import kompakt92 from '@/json/black-ops/six/attachments/smg/kompakt92.json';
@@ -10,7 +11,7 @@ import ppsh41 from '@/json/black-ops/six/attachments/smg/ppsh41.json';
 // --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 
-const attachmentsList: Record<string, any> = {
+const attachmentsList: Record<string, Record<string, string[]>> = {
   c9,
   jackalpdw,
   kompakt92,
@@ -22,7 +23,7 @@ const attachmentsList: Record<string, any> = {
 };
 
 export function getSmgAttachments(gun: string, count: number) {
-  let attachments: any = {};
+  const attachments: Record<string, string> = {};
   const data = attachmentsList[gun];
 
   if (data) {

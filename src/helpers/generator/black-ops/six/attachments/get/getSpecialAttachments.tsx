@@ -1,12 +1,16 @@
+// --- Data ---
 import sirin9mm from '@/json/black-ops/six/attachments/special/sirin9mm.json';
 import d13sector from '@/json/black-ops/six/attachments/special/d13sector.json';
 // --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 
-const attachmentsList: Record<string, any> = { sirin9mm, d13sector };
+const attachmentsList: Record<string, Record<string, string[]>> = { sirin9mm, d13sector };
 
-export function getSpecialAttachments(gun: string, count: number): any {
-  let attachments: any = {};
+export function getSpecialAttachments(
+  gun: string,
+  count: number
+): Record<string, string> | Record<string, string[]> {
+  const attachments: Record<string, string> = {};
   const data = attachmentsList[gun];
 
   if (data) {

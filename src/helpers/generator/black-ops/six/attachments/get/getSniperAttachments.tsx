@@ -1,3 +1,4 @@
+// --- Data ---
 import lr762 from '@/json/black-ops/six/attachments/sniper/lr762.json';
 import lw3a1Frostline from '@/json/black-ops/six/attachments/sniper/lw3a1Frostline.json';
 import svd from '@/json/black-ops/six/attachments/sniper/svd.json';
@@ -6,7 +7,7 @@ import hdr from '@/json/black-ops/six/attachments/sniper/hdr.json';
 // --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 
-const attachmentsList: Record<string, any> = {
+const attachmentsList: Record<string, Record<string, string[]>> = {
   lr762,
   lw3a1frostline: lw3a1Frostline,
   svd,
@@ -14,8 +15,11 @@ const attachmentsList: Record<string, any> = {
   hdr,
 };
 
-export function getSniperAttachments(gun: string, count: number): any {
-  let attachments: any = {};
+export function getSniperAttachments(
+  gun: string,
+  count: number
+): Record<string, string> | Record<string, string[]> {
+  const attachments: Record<string, string> = {};
   const data = attachmentsList[gun];
 
   if (data) {

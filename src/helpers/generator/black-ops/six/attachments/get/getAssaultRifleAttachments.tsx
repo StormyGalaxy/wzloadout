@@ -1,9 +1,10 @@
+// --- Data ---
 import default556 from '@/json/black-ops/six/attachments/assault_rifle/default556.json';
 import ak74 from '@/json/black-ops/six/attachments/assault_rifle/ak74.json';
 import asval from '@/json/black-ops/six/attachments/assault_rifle/asVal.json';
 import goblinmk2 from '@/json/black-ops/six/attachments/assault_rifle/goblinMk2.json';
 import xm4 from '@/json/black-ops/six/attachments/assault_rifle/xm4.json';
-//DLC
+// --- DLC ---
 import krigc from '@/json/black-ops/six/attachments/assault_rifle/krigC.json';
 import cypher091 from '@/json/black-ops/six/attachments/assault_rifle/cypher091.json';
 import kilo141 from '@/json/black-ops/six/attachments/assault_rifle/kilo141.json';
@@ -11,7 +12,7 @@ import cr56amax from '@/json/black-ops/six/attachments/assault_rifle/cr56amax.js
 // --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 
-const attachmentsList: Record<string, any> = {
+const attachmentsList: Record<string, Record<string, string[]>> = {
   ames85: default556,
   gpr91: default556,
   modell: default556,
@@ -25,8 +26,11 @@ const attachmentsList: Record<string, any> = {
   cr56amax,
 };
 
-export function getAssaultRifleAttachments(gun: string, count: number): any {
-  const attachments: any = {};
+export function getAssaultRifleAttachments(
+  gun: string,
+  count: number
+): Record<string, string> | Record<string, string[]> {
+  const attachments: Record<string, string> = {};
   const data = attachmentsList[gun];
 
   if (data) {
