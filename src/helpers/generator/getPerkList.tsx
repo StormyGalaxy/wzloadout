@@ -55,6 +55,7 @@ import wawPerk1List from '@/json/world-at-war/perk/perk1.json';
 import wawPerk2List from '@/json/world-at-war/perk/perk2.json';
 import wawPerk3List from '@/json/world-at-war/perk/perk3.json';
 import wawVehiclePerkList from '@/json/world-at-war/perk/vehicle-perk.json';
+// --- Types ---
 import { InfoData } from '@/types/Info';
 
 type PerkList = InfoData[] | Record<string, InfoData>;

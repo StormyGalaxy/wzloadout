@@ -1,3 +1,5 @@
+export type GeneratorItem = { name: string; type: string; game: string; isDlc?: boolean };
+
 export type Weapon = {
   name: string;
   type: string;
@@ -31,8 +33,6 @@ export type Specialist = {
   game: string;
 };
 
-export type ZombiesCharacter = { name: string; type: string; game: string };
-
 export type ZombiesMap = {
   name: string;
   type: string;
@@ -43,8 +43,6 @@ export type ZombiesMap = {
   isDlc?: boolean;
 };
 
-export type AmmoMod = { name: string; type: string; game: string; isDlc: boolean };
-
 export type Augment = {
   name: string;
   description: string;
@@ -52,14 +50,12 @@ export type Augment = {
   minor: Augments[];
   type: string;
   game: string;
-  isDlc: boolean;
+  isDlc?: boolean;
 };
 
 export type Augments = { name: string; description: string };
 
 export type Gobblegum = { name: string; type: string; game: string; isDlc: boolean };
-
-export type ZombiesFieldUpgrade = { name: string; type: string; game: string };
 
 export type MW3Vest = { name: string; type: string; game: string };
 

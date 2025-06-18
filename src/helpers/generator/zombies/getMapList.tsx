@@ -1,14 +1,23 @@
+// --- Utils ---
 import { mergeObjectsWithRekey } from '@silocitypages/utils';
+// --- Black Ops 6 Zombies ---
 import bo6List from '@/json/black-ops/six/zombies/map.json';
+// --- Vanguard Zombies ---
 import vanguardList from '@/json/vanguard/zombies/map.json';
+// --- Cold War Zombies ---
 import coldWarCoreList from '@/json/black-ops/cold-war/zombies/map/core.json';
 import coldWarOnslaughtList from '@/json/black-ops/cold-war/zombies/map/onslaught.json';
-//Black Ops 4 Zombies
+// --- Black Ops 4 Zombies ---
 import bo4AetherList from '@/json/black-ops/four/zombies/aether_story/map.json';
 import bo4ChaosList from '@/json/black-ops/four/zombies/chaos_story/map.json';
+// --- World War 2 Zombies ---
 import ww2List from '@/json/world-war-two/zombies/map.json';
+// --- Types ---
+import { ZombiesMap } from '@/types/Generator';
 
-const list: Record<string, any> = {
+type ItemList = ZombiesMap[] | Record<string, ZombiesMap>;
+
+const list: Record<string, ItemList> = {
   'black-ops-six-zombies': bo6List,
   'vanguard-zombies': vanguardList,
   'black-ops-four-zombies': mergeObjectsWithRekey(bo4AetherList, bo4ChaosList),
@@ -20,6 +29,6 @@ const list: Record<string, any> = {
   'world-war-two-zombies': ww2List,
 };
 
-export function getMapList(game: string): any {
+export function getMapList(game: string): ItemList {
   return list[game] || {};
 }

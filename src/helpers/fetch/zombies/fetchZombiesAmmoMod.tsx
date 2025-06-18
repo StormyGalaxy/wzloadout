@@ -1,8 +1,8 @@
 import { getAmmoModList } from '@/helpers/generator/zombies/getAmmoModList';
 import { randomListItem } from '@silocitypages/utils';
-import { AmmoMod } from '@/types/Generator';
+import { GeneratorItem } from '@/types/Generator';
 
-export function fetchZombiesAmmoMod(game: string = ''): AmmoMod {
+export function fetchZombiesAmmoMod(game: string = ''): GeneratorItem {
   const dataList = getAmmoModList(game);
 
   return randomListItem(dataList).name;

@@ -1,7 +1,12 @@
+// --- Black Ops 6 Zombies ---
 import bo6List from '@/json/black-ops/six/zombies/ammo_mod.json';
+// --- Types ---
+import { GeneratorItem } from '@/types/Generator';
 
-const list: Record<string, any> = { 'black-ops-six': bo6List };
+type ItemList = GeneratorItem[] | Record<string, GeneratorItem>;
 
-export function getAmmoModList(game: string): any {
+const list: Record<string, ItemList> = { 'black-ops-six': bo6List };
+
+export function getAmmoModList(game: string): ItemList {
   return list[game] || {};
 }

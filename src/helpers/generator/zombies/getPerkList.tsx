@@ -1,13 +1,19 @@
+// --- Utils ---
 import { mergeObjectsWithRekey } from '@silocitypages/utils';
+// --- Black Ops 4 Zombies ---
 import bo4List from '@/json/black-ops/four/zombies/perks.json';
-//World War 2
+// --- World War 2 ---
 import ww2CamouflageList from '@/json/world-war-two/zombies/mods/camouflage.json';
 import ww2FreefireList from '@/json/world-war-two/zombies/mods/freefire.json';
 import ww2FrontlineList from '@/json/world-war-two/zombies/mods/frontline.json';
 import ww2ShellshockList from '@/json/world-war-two/zombies/mods/shellshock.json';
 import ww2UniversalList from '@/json/world-war-two/zombies/mods/universal.json';
+// --- Types ---
+import { InfoData } from '@/types/Info';
 
-const list: Record<string, any> = {
+type ItemList = InfoData[] | Record<string, InfoData>;
+
+const list: Record<string, ItemList> = {
   'black-ops-four-zombies': bo4List,
   'world-war-two-zombies': mergeObjectsWithRekey(
     ww2UniversalList,
@@ -22,6 +28,6 @@ const list: Record<string, any> = {
   'world-war-two-zombies-shellshock': mergeObjectsWithRekey(ww2UniversalList, ww2ShellshockList),
 };
 
-export function getPerkList(game: string): any {
+export function getPerkList(game: string): ItemList {
   return list[game] || {};
 }

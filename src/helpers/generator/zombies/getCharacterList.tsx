@@ -1,7 +1,12 @@
+// --- World War Two Zombies ---
 import ww2CharacterList from '@/json/world-war-two/zombies/character.json';
+// --- Types ---
+import { GeneratorItem } from '@/types/Generator';
 
-const list: Record<string, any> = { 'world-war-two-zombies': ww2CharacterList };
+type ItemList = GeneratorItem[] | Record<string, GeneratorItem>;
 
-export function getCharacterList(game: string): any {
+const list: Record<string, ItemList> = { 'world-war-two-zombies': ww2CharacterList };
+
+export function getCharacterList(game: string): ItemList {
   return list[game] || {};
 }
