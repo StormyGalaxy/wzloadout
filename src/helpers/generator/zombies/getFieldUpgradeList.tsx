@@ -13,7 +13,7 @@ import { GeneratorItem } from '@/types/Generator';
 
 type ItemList = GeneratorItem[] | Record<string, GeneratorItem>;
 
-const list: Record<string, ItemList> = {
+const data: Record<string, ItemList> = {
   'black-ops-six': bo6List,
   vanguard: vanguardList,
   'cold-war': coldWarList,
@@ -22,5 +22,5 @@ const list: Record<string, ItemList> = {
 };
 
 export function getFieldUpgradeList(game: string): ItemList {
-  return list[game] || {};
+  return data[game] || {};
 }

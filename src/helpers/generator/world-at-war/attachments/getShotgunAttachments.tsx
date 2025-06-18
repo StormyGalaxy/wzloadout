@@ -1,11 +1,13 @@
+// --- Data ---
 import m1897trenchgun from '@/json/world-at-war/attachments/shotgun/m1897trenchgun.json';
 import doublebarreledshotgun from '@/json/world-at-war/attachments/shotgun/doublebarreledshotgun.json';
+// --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 
-const attachmentsList: Record<string, any> = { m1897trenchgun, doublebarreledshotgun };
+const attachmentsList: Record<string, string[]> = { m1897trenchgun, doublebarreledshotgun };
 
-export function getShotgunAttachments(gun: string, count: number): any {
-  const attachments: any = [];
+export function getShotgunAttachments(gun: string, count: number): string[] {
+  const attachments: string[] = [];
   const data = attachmentsList[gun];
 
   if (data) {

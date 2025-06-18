@@ -1,10 +1,11 @@
+// --- Attachments ---
 import { getWAWAttachments } from './getWAWAttachments';
-//Helpers
+// --- Helpers ---
 import { noAttachInfoLink } from '@/helpers/generator/noAttachInfoLink';
-//Types
+// --- Types ---
 import { Weapon } from '@/types/Generator';
 
-export function fetchAttachments(weapon: Weapon, count: number = 1): any {
+export function fetchAttachments(weapon: Weapon, count: number = 1): string[] {
   if (weapon?.no_attach_info) {
     return noAttachInfoLink(weapon, count);
   }

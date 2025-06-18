@@ -16,6 +16,6 @@ const attachmentGetters = {
 
 export function getWAWAttachments(type: string, gun: string, count: number) {
   const getter = attachmentGetters[type];
-  console;
+
   return getter ? getter(gun, count) : {};
 }
