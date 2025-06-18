@@ -68,3 +68,6 @@ export type Bo6ZombiesSettings = {
 export type Bo4ZombiesSettings = { rollMap: boolean; rollElixers: boolean; rollTalisman: boolean };
 
 export type WarzoneDropSpotSettings = { warzoneMap: string };
+
+// --- World War 2 ---
+export type WW2Perk = { name: string; type: string; game: string; training_type?: string };

@@ -1,7 +1,9 @@
+// --- Data ---
 import default1 from '@/json/world-war-two/attachments/lmg/default1.json';
+// --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 
-const attachmentsList: Record<string, any> = {
+const attachmentsList: Record<string, string[]> = {
   lewis: default1,
   mg15: default1,
   bren: default1,
@@ -9,8 +11,8 @@ const attachmentsList: Record<string, any> = {
   gpmg: default1,
 };
 
-export function getLmgAttachments(gun: string, count: number): any {
-  const attachments: any = [];
+export function getLmgAttachments(gun: string, count: number): string[] {
+  const attachments: string[] = [];
   const data = attachmentsList[gun];
 
   if (data) {

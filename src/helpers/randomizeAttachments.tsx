@@ -6,15 +6,15 @@ import { verifyBO6Attachments } from '@/helpers/generator/black-ops/six/verifyBO
 /**
  * Randomly selects attachments from a pool of data.
  *
- * @param {Record<string, string>} attachArr - The object to store the selected attachments.
- * @param {Record<string, string[]>} data - The pool of attachments to choose from, where keys are attachment slots and values are arrays of attachment options.
+ * @param {string[] | Record<string, string>} attachArr - The object to store the selected attachments.
+ * @param {string[] | Record<string, string[]>} data - The pool of attachments to choose from, where keys are attachment slots and values are arrays of attachment options.
  * @param {number} count - The number of attachments to select.
  *
  * @returns {void}
  */
 export function randomizeAttachments(
-  attachArr: Record<string, string>,
-  data: Record<string, string[]>,
+  attachArr: string[] | Record<string, string>,
+  data: string[] | Record<string, string[]>,
   count: number
 ): void {
   let attachCount = 0;

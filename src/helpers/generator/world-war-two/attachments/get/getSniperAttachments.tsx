@@ -1,15 +1,17 @@
+// --- Data ---
 import default1 from '@/json/world-war-two/attachments/sniper/default1.json';
+// --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 
-const attachmentsList: Record<string, any> = {
+const attachmentsList: Record<string, string[]> = {
   karabin: default1,
   leeenfield: default1,
   m1903: default1,
   kar98k: default1,
 };
 
-export function getSniperAttachments(gun: string, count: number): any {
-  const attachments: any = [];
+export function getSniperAttachments(gun: string, count: number): string[] {
+  const attachments: string[] = [];
   const data = attachmentsList[gun];
 
   if (data) {

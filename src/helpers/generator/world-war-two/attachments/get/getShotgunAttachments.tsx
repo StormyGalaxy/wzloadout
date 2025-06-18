@@ -1,17 +1,19 @@
+// --- Data ---
 import default1 from '@/json/world-war-two/attachments/shotgun/default1.json';
 import m30LuftwaffeDrilling from '@/json/world-war-two/attachments/shotgun/m30LuftwaffeDrilling.json';
 import sawedoffShotgun from '@/json/world-war-two/attachments/shotgun/sawedoffShotgun.json';
+// --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 
-const attachmentsList: Record<string, any> = {
+const attachmentsList: Record<string, string[]> = {
   combatshotgun: default1,
   toggleaction: default1,
   m30luftwaffedrilling: m30LuftwaffeDrilling,
   sawedoffshotgun: sawedoffShotgun,
 };
 
-export function getShotgunAttachments(gun: string, count: number): any {
-  const attachments: any = [];
+export function getShotgunAttachments(gun: string, count: number): string[] {
+  const attachments: string[] = [];
   const data = attachmentsList[gun];
 
   if (data) {

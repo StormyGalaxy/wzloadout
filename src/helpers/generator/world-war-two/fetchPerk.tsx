@@ -1,8 +1,14 @@
+// --- Utils ---
+import { randomListItem } from '@silocitypages/utils';
+// --- Data ---
 import division from '@/json/world-war-two/division.json';
 import basicTraining from '@/json/world-war-two/basic-training.json';
-import { randomListItem } from '@silocitypages/utils';
+// --- Types ---
+import { WW2Perk } from '@/types/Generator';
 
-const perks: Record<string, any> = {
+type ItemList = WW2Perk[] | Record<string, WW2Perk>;
+
+const perks: Record<string, ItemList> = {
   division,
   'basic-training': basicTraining,
   all: [...division, ...basicTraining],

@@ -1,8 +1,10 @@
+// --- Data ---
 import default1 from '@/json/world-war-two/attachments/smg/default1.json';
 import zk383 from '@/json/world-war-two/attachments/smg/zk383.json';
+// --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 
-const attachmentsList: Record<string, any> = {
+const attachmentsList: Record<string, string[]> = {
   greasegun: default1,
   ppsh41: default1,
   type100: default1,
@@ -13,8 +15,8 @@ const attachmentsList: Record<string, any> = {
   zk383,
 };
 
-export function getSmgAttachments(gun: string, count: number) {
-  const attachments: any = [];
+export function getSmgAttachments(gun: string, count: number): string[] {
+  const attachments: string[] = [];
   const data = attachmentsList[gun];
 
   if (data) {
