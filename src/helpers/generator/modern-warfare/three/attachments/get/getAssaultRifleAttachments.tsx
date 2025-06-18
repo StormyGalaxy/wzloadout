@@ -8,6 +8,7 @@ import mcw from '@/json/modern-warfare/three/attachments/assault_rifle/mcw.json'
 import dg56 from '@/json/modern-warfare/three/attachments/assault_rifle/dg56.json';
 import fr556 from '@/json/modern-warfare/three/attachments/assault_rifle/fr556.json';
 import ram7 from '@/json/modern-warfare/three/attachments/assault_rifle/ram7.json';
+// --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 
 const attachmentsList: Record<string, any> = {

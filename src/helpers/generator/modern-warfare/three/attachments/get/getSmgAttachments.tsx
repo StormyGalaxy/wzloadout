@@ -9,6 +9,7 @@ import striker9 from '@/json/modern-warfare/three/attachments/smg/striker9.json'
 import striker from '@/json/modern-warfare/three/attachments/smg/striker.json';
 import wsp9 from '@/json/modern-warfare/three/attachments/smg/wsp9.json';
 import wspswarm from '@/json/modern-warfare/three/attachments/smg/wspSwarm.json';
+// --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 
 const attachmentsList: Record<string, any> = {

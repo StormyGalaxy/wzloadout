@@ -10,6 +10,7 @@ import fsshurricane from '@/json/modern-warfare/two/attachments/smg/fssHurricane
 import mx9 from '@/json/modern-warfare/two/attachments/smg/mx9.json';
 import minibak from '@/json/modern-warfare/two/attachments/smg/minibak.json';
 import vaznev9k from '@/json/modern-warfare/two/attachments/smg/vaznev9k.json';
+// --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 
 const attachmentsList: Record<string, any> = {

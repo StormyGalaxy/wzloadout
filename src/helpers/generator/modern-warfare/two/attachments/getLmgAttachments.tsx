@@ -4,6 +4,7 @@ import icarus556 from '@/json/modern-warfare/two/attachments/lmg/556icarus.json'
 import rapph from '@/json/modern-warfare/two/attachments/lmg/rapph.json';
 import hcr56 from '@/json/modern-warfare/two/attachments/lmg/hcr56.json';
 import rpk from '@/json/modern-warfare/two/attachments/lmg/rpk.json';
+// --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 
 const attachmentsList: Record<string, any> = {

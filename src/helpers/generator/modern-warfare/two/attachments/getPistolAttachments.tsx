@@ -6,6 +6,7 @@ import ftacsiege from '@/json/modern-warfare/two/attachments/pistol/ftacSiege.js
 import gsmagna from '@/json/modern-warfare/two/attachments/pistol/gsmagna.json';
 import daemon9mm from '@/json/modern-warfare/two/attachments/pistol/9mmDaemon.json';
 import x13auto from '@/json/modern-warfare/two/attachments/pistol/x13auto.json';
+// --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 
 const attachmentsList: Record<string, any> = {

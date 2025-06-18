@@ -3,6 +3,7 @@ import lw3a1Frostline from '@/json/black-ops/six/attachments/sniper/lw3a1Frostli
 import svd from '@/json/black-ops/six/attachments/sniper/svd.json';
 import amrmod4 from '@/json/black-ops/six/attachments/sniper/amrmod4.json';
 import hdr from '@/json/black-ops/six/attachments/sniper/hdr.json';
+// --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 
 const attachmentsList: Record<string, any> = {

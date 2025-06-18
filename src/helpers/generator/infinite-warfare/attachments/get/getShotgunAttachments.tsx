@@ -2,6 +2,7 @@ import banshee from '@/json/infinite-warfare/attachments/shotgun/banshee.json';
 import dcm8 from '@/json/infinite-warfare/attachments/shotgun/dcm8.json';
 import default1 from '@/json/infinite-warfare/attachments/shotgun/default1.json';
 import m2187 from '@/json/infinite-warfare/attachments/shotgun/m2187.json';
+// --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 
 const attachmentsList: Record<string, any> = {

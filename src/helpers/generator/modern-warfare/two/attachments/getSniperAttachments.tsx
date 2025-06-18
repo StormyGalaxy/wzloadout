@@ -5,6 +5,7 @@ import fjximperium from '@/json/modern-warfare/two/attachments/sniper/fjxImperiu
 import carrack300 from '@/json/modern-warfare/two/attachments/sniper/carrack300.json';
 import lab330 from '@/json/modern-warfare/two/attachments/sniper/lab330.json';
 import spx80 from '@/json/modern-warfare/two/attachments/sniper/spx80.json';
+// --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 
 const attachmentsList: Record<string, any> = {

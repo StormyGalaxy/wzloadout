@@ -5,6 +5,7 @@ import maddoxRfb from '@/json/black-ops/four/attachments/assault_rifle/maddoxRfb
 import peacekeeper from '@/json/black-ops/four/attachments/assault_rifle/peacekeeper.json';
 import rampart17 from '@/json/black-ops/four/attachments/assault_rifle/rampart17.json';
 import vaprxkg from '@/json/black-ops/four/attachments/assault_rifle/vaprxkg.json';
+// --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 
 const attachmentsList: Record<string, any> = {

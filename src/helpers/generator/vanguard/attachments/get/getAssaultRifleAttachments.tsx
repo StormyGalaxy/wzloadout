@@ -1,3 +1,4 @@
+// --- Data ---
 import as44 from '@/json/vanguard/attachments/assault_rifle/as44.json';
 import automaton from '@/json/vanguard/attachments/assault_rifle/automaton.json';
 import bar from '@/json/vanguard/attachments/assault_rifle/bar.json';
@@ -11,9 +12,10 @@ import nz41 from '@/json/vanguard/attachments/assault_rifle/nz41.json';
 import stg44 from '@/json/vanguard/attachments/assault_rifle/stg44.json';
 import vargos from '@/json/vanguard/attachments/assault_rifle/vargos.json';
 import volkssturmgewehr from '@/json/vanguard/attachments/assault_rifle/volkssturmgewehr.json';
+// --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 
-const attachmentsList: Record<string, any> = {
+const attachmentsList: Record<string, Record<string, string[]>> = {
   as44,
   automaton,
   bar,
@@ -29,8 +31,11 @@ const attachmentsList: Record<string, any> = {
   volkssturmgewehr,
 };
 
-export function getAssaultRifleAttachments(gun: string, count: number): any {
-  const attachments: any = {};
+export function getAssaultRifleAttachments(
+  gun: string,
+  count: number
+): Record<string, string> | Record<string, string[]> {
+  const attachments: Record<string, string> = {};
   const data = attachmentsList[gun];
 
   if (data) {

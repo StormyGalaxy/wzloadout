@@ -1,4 +1,5 @@
 import default1 from '@/json/modern-warfare/remastered/attachments/lmg/default1.json';
+// --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 
 const attachmentsList: Record<string, any> = { m249saw: default1, rpd: default1, m60e4: default1 };

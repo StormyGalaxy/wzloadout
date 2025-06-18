@@ -9,6 +9,7 @@ import krig6 from '@/json/black-ops/cold-war/attachments/assault_rifle/krig6.jso
 import qbz83 from '@/json/black-ops/cold-war/attachments/assault_rifle/qbz83.json';
 import vargo52 from '@/json/black-ops/cold-war/attachments/assault_rifle/vargo52.json';
 import xm4 from '@/json/black-ops/cold-war/attachments/assault_rifle/xm4.json';
+// --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 
 const attachmentsList: Record<string, any> = {

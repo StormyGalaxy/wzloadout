@@ -3,6 +3,7 @@ import diamatti from '@/json/black-ops/cold-war/attachments/pistol/diamatti.json
 import magnum from '@/json/black-ops/cold-war/attachments/pistol/magnum.json';
 import marshal from '@/json/black-ops/cold-war/attachments/pistol/marshal.json';
 import one911 from '@/json/black-ops/cold-war/attachments/pistol/one911.json';
+// --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 
 const attachmentsList: Record<string, any> = { amp63, diamatti, magnum, marshal, '1911': one911 };

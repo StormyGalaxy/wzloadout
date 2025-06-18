@@ -4,6 +4,7 @@ import mactav45 from '@/json/infinite-warfare/attachments/classic/mactav45.json'
 import osa from '@/json/infinite-warfare/attachments/classic/osa.json';
 import sravage from '@/json/infinite-warfare/attachments/classic/sravage.json';
 import tf141 from '@/json/infinite-warfare/attachments/classic/tf141.json';
+// --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 
 const attachmentsList: Record<string, any> = { hornet, m1, mactav45, osa, sravage, tf141 };

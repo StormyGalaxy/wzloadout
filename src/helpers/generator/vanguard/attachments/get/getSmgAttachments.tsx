@@ -1,3 +1,4 @@
+// --- Data ---
 import armaguerra43 from '@/json/vanguard/attachments/smg/armaguerra43.json';
 import h4blixen from '@/json/vanguard/attachments/smg/h4blixen.json';
 import m1928 from '@/json/vanguard/attachments/smg/m1928.json';
@@ -9,9 +10,10 @@ import ra225 from '@/json/vanguard/attachments/smg/ra225.json';
 import sten from '@/json/vanguard/attachments/smg/sten.json';
 import type100 from '@/json/vanguard/attachments/smg/type100.json';
 import welgun from '@/json/vanguard/attachments/smg/welgun.json';
+// --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 
-const attachmentsList: Record<string, any> = {
+const attachmentsList: Record<string, Record<string, string[]>> = {
   armaguerra43,
   h4blixen,
   m1928,
@@ -25,8 +27,11 @@ const attachmentsList: Record<string, any> = {
   welgun,
 };
 
-export function getSmgAttachments(gun: string, count: number) {
-  let attachments: any = {};
+export function getSmgAttachments(
+  gun: string,
+  count: number
+): Record<string, string> | Record<string, string[]> {
+  const attachments: Record<string, string> = {};
   const data = attachmentsList[gun];
 
   if (data) {

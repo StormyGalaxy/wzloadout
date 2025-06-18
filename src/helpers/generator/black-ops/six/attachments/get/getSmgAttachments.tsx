@@ -7,6 +7,7 @@ import tanto22 from '@/json/black-ops/six/attachments/smg/tanto22.json';
 //DLC Weapons
 import saug from '@/json/black-ops/six/attachments/smg/saug.json';
 import ppsh41 from '@/json/black-ops/six/attachments/smg/ppsh41.json';
+// --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 
 const attachmentsList: Record<string, any> = {

@@ -1,4 +1,5 @@
 import default1 from '@/json/modern-warfare/remastered/attachments/assault_rifle/default1.json';
+// --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 
 const attachmentsList: Record<string, any> = {

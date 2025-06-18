@@ -1,4 +1,5 @@
 import default1 from '@/json/modern-warfare/remastered/attachments/shotgun/default1.json';
+// --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 
 const attachmentsList: Record<string, any> = { w1200: default1, m1014: default1 };

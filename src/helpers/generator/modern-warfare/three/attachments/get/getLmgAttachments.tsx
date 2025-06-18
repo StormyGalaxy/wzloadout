@@ -5,6 +5,7 @@ import pulemyot762 from '@/json/modern-warfare/three/attachments/lmg/pulemyot762
 import dg58lsw from '@/json/modern-warfare/three/attachments/lmg/dg58lsw.json';
 import taqeradicator from '@/json/modern-warfare/three/attachments/lmg/taqEradicator.json';
 import holger26 from '@/json/modern-warfare/three/attachments/lmg/holger26.json';
+// --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 
 const attachmentsList: Record<string, any> = {

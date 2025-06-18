@@ -3,6 +3,7 @@ import soasubverter from '@/json/modern-warfare/three/attachments/battle_rifle/s
 import basb from '@/json/modern-warfare/three/attachments/battle_rifle/basb.json';
 import sidewinder from '@/json/modern-warfare/three/attachments/battle_rifle/sidewinder.json';
 import mtz762 from '@/json/modern-warfare/three/attachments/battle_rifle/mtz762.json';
+// --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 
 const attachmentsList: Record<string, any> = { dtir3006, soasubverter, basb, sidewinder, mtz762 };

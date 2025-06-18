@@ -3,6 +3,7 @@ import cronensquall from '@/json/modern-warfare/two/attachments/battle_rifle/cro
 import ftacrecon from '@/json/modern-warfare/two/attachments/battle_rifle/ftacRecon.json';
 import taqv from '@/json/modern-warfare/two/attachments/battle_rifle/taqv.json';
 import so14 from '@/json/modern-warfare/two/attachments/battle_rifle/so14.json';
+// --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 
 const attachmentsList: Record<string, any> = { lachmann762, cronensquall, ftacrecon, taqv, so14 };

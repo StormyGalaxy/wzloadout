@@ -10,6 +10,7 @@ import ots9 from '@/json/black-ops/cold-war/attachments/smg/ots9.json';
 import ppsh41 from '@/json/black-ops/cold-war/attachments/smg/ppsh41.json';
 import tec9 from '@/json/black-ops/cold-war/attachments/smg/tec9.json';
 import ugr from '@/json/black-ops/cold-war/attachments/smg/ugr.json';
+// --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 
 const attachmentsList: Record<string, any> = {

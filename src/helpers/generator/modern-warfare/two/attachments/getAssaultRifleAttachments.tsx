@@ -13,6 +13,7 @@ import lachmann556 from '@/json/modern-warfare/two/attachments/assault_rifle/lac
 import m16 from '@/json/modern-warfare/two/attachments/assault_rifle/m16.json';
 import kastov74u from '@/json/modern-warfare/two/attachments/assault_rifle/kastov74u.json';
 import kastov545 from '@/json/modern-warfare/two/attachments/assault_rifle/kastov545.json';
+// --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 
 const attachmentsList: Record<string, any> = {

@@ -4,6 +4,7 @@ import swat556 from '@/json/black-ops/six/attachments/marksman_rifle/swat556.jso
 import tsarkov762 from '@/json/black-ops/six/attachments/marksman_rifle/tsarkov762.json';
 //DLC
 import tr2 from '@/json/black-ops/six/attachments/marksman_rifle/tr2.json';
+// --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 
 const attachmentsList: Record<string, any> = { aek973, dm10, swat556, tsarkov762, tr2 };

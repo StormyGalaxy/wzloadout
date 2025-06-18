@@ -4,6 +4,7 @@ import expedtite12 from '@/json/modern-warfare/two/attachments/shotgun/expedtite
 import bryson800 from '@/json/modern-warfare/two/attachments/shotgun/bryson800.json';
 import mxguardian from '@/json/modern-warfare/two/attachments/shotgun/mxGuardian.json';
 import bryson890 from '@/json/modern-warfare/two/attachments/shotgun/bryson890.json';
+// --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 
 const attachmentsList: Record<string, any> = {
