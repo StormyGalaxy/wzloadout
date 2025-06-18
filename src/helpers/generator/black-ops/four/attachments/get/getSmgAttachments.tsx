@@ -1,15 +1,26 @@
+// --- Data ---
 import cordite from '@/json/black-ops/four/attachments/smg/cordite.json';
 import gks from '@/json/black-ops/four/attachments/smg/gks.json';
 import mx9 from '@/json/black-ops/four/attachments/smg/mx9.json';
 import saug9mm from '@/json/black-ops/four/attachments/smg/saug9mm.json';
 import spitfire from '@/json/black-ops/four/attachments/smg/spitfire.json';
-//Helpers
+// --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 
-const attachmentsList: Record<string, any> = { cordite, gks, mx9, saug9mm, spitfire };
+const attachmentsList: Record<string, Record<string, string[]>> = {
+  cordite,
+  gks,
+  mx9,
+  saug9mm,
+  spitfire,
+};
 
-export function getSmgAttachments(type: string, gun: string, count: number): any {
-  const attachments: any = [];
+export function getSmgAttachments(
+  type: string,
+  gun: string,
+  count: number
+): Record<string, string> | Record<string, string[]> {
+  const attachments: Record<string, string> = {};
   const data = attachmentsList[gun];
   const dataList = data[type];
   if (count === -1) {

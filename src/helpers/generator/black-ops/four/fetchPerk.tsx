@@ -1,9 +1,15 @@
+// --- Data ---
 import perk1 from '@/json/black-ops/four/perk/perk1.json';
 import perk2 from '@/json/black-ops/four/perk/perk2.json';
 import perk3 from '@/json/black-ops/four/perk/perk3.json';
+// --- Utils ---
 import { randomListItem } from '@silocitypages/utils';
+// --- Types ---
+import { GeneratorItem } from '@/types/Generator';
 
-const perks: Record<string, any> = { perk1: perk1, perk2: perk2, perk3: perk3 };
+type ItemList = GeneratorItem[] | Record<string, GeneratorItem>;
+
+const perks: Record<string, ItemList> = { perk1: perk1, perk2: perk2, perk3: perk3 };
 
 export function fetchPerk(perk: string, currentPerks: string | string[] = ''): string {
   let randPerk: string;

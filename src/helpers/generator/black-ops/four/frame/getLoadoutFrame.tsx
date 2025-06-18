@@ -24,7 +24,7 @@ export function getLoadoutFrame(): LoadoutFrame {
     wildcards: [],
   };
 
-  let frame: LoadoutFrame = defaultLoadoutFrame;
+  const frame: LoadoutFrame = defaultLoadoutFrame;
   let points = 10;
   let maxCount = 0;
   const perkGluttony = getPerkGluttony();

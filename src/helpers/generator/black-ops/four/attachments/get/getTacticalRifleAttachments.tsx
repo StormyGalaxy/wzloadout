@@ -1,13 +1,18 @@
+// --- Data ---
 import abr223 from '@/json/black-ops/four/attachments/tactical_rifle/abr223.json';
 import augerdmr from '@/json/black-ops/four/attachments/tactical_rifle/augerdmr.json';
 import swordfish from '@/json/black-ops/four/attachments/tactical_rifle/swordfish.json';
-//Helpers
+// --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 
-const attachmentsList: Record<string, any> = { abr223, augerdmr, swordfish };
+const attachmentsList: Record<string, Record<string, string[]>> = { abr223, augerdmr, swordfish };
 
-export function getTacticalRifleAttachments(type: string, gun: string, count: number): any {
-  const attachments: any = [];
+export function getTacticalRifleAttachments(
+  type: string,
+  gun: string,
+  count: number
+): Record<string, string> | Record<string, string[]> {
+  const attachments: Record<string, string> = {};
   const data = attachmentsList[gun];
   const dataList = data[type];
   if (count === -1) {

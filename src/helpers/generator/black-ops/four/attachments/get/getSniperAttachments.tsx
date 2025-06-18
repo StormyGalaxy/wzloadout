@@ -1,14 +1,24 @@
+// --- Data ---
 import koshka from '@/json/black-ops/four/attachments/sniper/koshka.json';
 import outlaw from '@/json/black-ops/four/attachments/sniper/outlaw.json';
 import paladinHb50 from '@/json/black-ops/four/attachments/sniper/paladinHb50.json';
 import sdm from '@/json/black-ops/four/attachments/sniper/sdm.json';
-//Helpers
+// --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 
-const attachmentsList: Record<string, any> = { koshka, outlaw, paladinhb50: paladinHb50, sdm };
+const attachmentsList: Record<string, Record<string, string[]>> = {
+  koshka,
+  outlaw,
+  paladinhb50: paladinHb50,
+  sdm,
+};
 
-export function getSniperAttachments(type: string, gun: string, count: number): any {
-  const attachments: any = [];
+export function getSniperAttachments(
+  type: string,
+  gun: string,
+  count: number
+): Record<string, string> | Record<string, string[]> {
+  const attachments: Record<string, string> = {};
   const data = attachmentsList[gun];
   const dataList = data[type];
   if (count === -1) {

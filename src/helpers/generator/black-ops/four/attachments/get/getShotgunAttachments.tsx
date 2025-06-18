@@ -1,13 +1,18 @@
+// --- Data ---
 import mog12 from '@/json/black-ops/four/attachments/shotgun/mog12.json';
 import rampage from '@/json/black-ops/four/attachments/shotgun/rampage.json';
 import sg12 from '@/json/black-ops/four/attachments/shotgun/sg12.json';
-//Helpers
+// --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 
-const attachmentsList: Record<string, any> = { mog12, rampage, sg12 };
+const attachmentsList: Record<string, Record<string, string[]>> = { mog12, rampage, sg12 };
 
-export function getShotgunAttachments(type: string, gun: string, count: number): any {
-  const attachments: any = [];
+export function getShotgunAttachments(
+  type: string,
+  gun: string,
+  count: number
+): Record<string, string> | Record<string, string[]> {
+  const attachments: Record<string, string> = {};
   const data = attachmentsList[gun];
   const dataList = data[type];
   if (count === -1) {
