@@ -12,7 +12,7 @@ import wspswarm from '@/json/modern-warfare/three/attachments/smg/wspSwarm.json'
 // --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 
-const attachmentsList: Record<string, any> = {
+const attachmentsList: Record<string, Record<string, string[]>> = {
   superi46,
   statichv,
   fjxhorus,
@@ -27,7 +27,7 @@ const attachmentsList: Record<string, any> = {
 };
 
 export function getSmgAttachments(gun: string, count: number) {
-  let attachments: any = {};
+  const attachments: Record<string, string> = {};
   const data = attachmentsList[gun];
 
   if (data) {

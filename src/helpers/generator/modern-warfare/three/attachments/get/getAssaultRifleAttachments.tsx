@@ -11,7 +11,7 @@ import ram7 from '@/json/modern-warfare/three/attachments/assault_rifle/ram7.jso
 // --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 
-const attachmentsList: Record<string, any> = {
+const attachmentsList: Record<string, Record<string, string[]>> = {
   stg44,
   bal27,
   mtz556,
@@ -24,8 +24,11 @@ const attachmentsList: Record<string, any> = {
   ram7,
 };
 
-export function getAssaultRifleAttachments(gun: string, count: number): any {
-  const attachments: any = {};
+export function getAssaultRifleAttachments(
+  gun: string,
+  count: number
+): Record<string, string> | Record<string, string[]> {
+  const attachments: Record<string, string> = {};
   const data = attachmentsList[gun];
 
   if (data) {

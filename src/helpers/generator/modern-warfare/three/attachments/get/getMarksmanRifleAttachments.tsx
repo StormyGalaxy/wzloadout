@@ -5,7 +5,7 @@ import kvdEnforcer from '@/json/modern-warfare/three/attachments/marksman_rifle/
 import mcw68 from '@/json/modern-warfare/three/attachments/marksman_rifle/mcw68.json';
 import mtzInterceptor from '@/json/modern-warfare/three/attachments/marksman_rifle/mtzInterceptor.json';
 
-const attachmentsList: Record<string, any> = {
+const attachmentsList: Record<string, Record<string, string[]>> = {
   dm56,
   kar98k,
   kvdenforcer: kvdEnforcer,
@@ -13,8 +13,11 @@ const attachmentsList: Record<string, any> = {
   mtzinterceptor: mtzInterceptor,
 };
 
-export function getMarksmanRifleAttachments(gun: string, count: number): any {
-  const attachments: any = {};
+export function getMarksmanRifleAttachments(
+  gun: string,
+  count: number
+): Record<string, string> | Record<string, string[]> {
+  const attachments: Record<string, string> = {};
   const data = attachmentsList[gun];
 
   if (data) {

@@ -6,10 +6,19 @@ import mtz762 from '@/json/modern-warfare/three/attachments/battle_rifle/mtz762.
 // --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 
-const attachmentsList: Record<string, any> = { dtir3006, soasubverter, basb, sidewinder, mtz762 };
+const attachmentsList: Record<string, Record<string, string[]>> = {
+  dtir3006,
+  soasubverter,
+  basb,
+  sidewinder,
+  mtz762,
+};
 
-export function getBattleRifleAttachments(gun: string, count: number): any {
-  const attachments: any = {};
+export function getBattleRifleAttachments(
+  gun: string,
+  count: number
+): Record<string, string> | Record<string, string[]> {
+  const attachments: Record<string, string> = {};
   const data = attachmentsList[gun];
 
   if (data) {

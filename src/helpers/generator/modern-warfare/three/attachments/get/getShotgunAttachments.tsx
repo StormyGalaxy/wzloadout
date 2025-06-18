@@ -5,10 +5,18 @@ import riveter from '@/json/modern-warfare/three/attachments/shotgun/riveter.jso
 // --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 
-const attachmentsList: Record<string, any> = { reclaimer18, lockwood680, haymaker, riveter };
+const attachmentsList: Record<string, Record<string, string[]>> = {
+  reclaimer18,
+  lockwood680,
+  haymaker,
+  riveter,
+};
 
-export function getShotgunAttachments(gun: string, count: number): any {
-  let attachments: any = {};
+export function getShotgunAttachments(
+  gun: string,
+  count: number
+): Record<string, string> | Record<string, string[]> {
+  const attachments: Record<string, string> = {};
   const data = attachmentsList[gun];
 
   if (data) {

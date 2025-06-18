@@ -1,9 +1,13 @@
+// --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 
-const attachmentsList: Record<string, any> = {};
+const attachmentsList: Record<string, Record<string, string[]>> = {};
 
-export function getSniperAttachments(gun: string, count: number): any {
-  let attachments: any = {};
+export function getSniperAttachments(
+  gun: string,
+  count: number
+): Record<string, string> | Record<string, string[]> {
+  const attachments: Record<string, string> = {};
   const data = attachmentsList[gun];
 
   if (data) {

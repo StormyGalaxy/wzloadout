@@ -8,7 +8,7 @@ import holger26 from '@/json/modern-warfare/three/attachments/lmg/holger26.json'
 // --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 
-const attachmentsList: Record<string, any> = {
+const attachmentsList: Record<string, Record<string, string[]>> = {
   bruenmk9,
   kastovlsw,
   taqevolvere,
@@ -18,8 +18,11 @@ const attachmentsList: Record<string, any> = {
   holger26,
 };
 
-export function getLmgAttachments(gun: string, count: number): any {
-  const attachments: any = {};
+export function getLmgAttachments(
+  gun: string,
+  count: number
+): Record<string, string> | Record<string, string[]> {
+  const attachments: Record<string, string> = {};
   const data = attachmentsList[gun];
 
   if (data) {
