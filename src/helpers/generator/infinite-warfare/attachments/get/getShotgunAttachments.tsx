@@ -1,3 +1,4 @@
+// --- Data ---
 import banshee from '@/json/infinite-warfare/attachments/shotgun/banshee.json';
 import dcm8 from '@/json/infinite-warfare/attachments/shotgun/dcm8.json';
 import default1 from '@/json/infinite-warfare/attachments/shotgun/default1.json';
@@ -5,7 +6,7 @@ import m2187 from '@/json/infinite-warfare/attachments/shotgun/m2187.json';
 // --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 
-const attachmentsList: Record<string, any> = {
+const attachmentsList: Record<string, Record<string, string[]>> = {
   banshee,
   dcm8,
   reaver: default1,
@@ -13,8 +14,12 @@ const attachmentsList: Record<string, any> = {
   m2187,
 };
 
-export function getShotgunAttachments(type: string, gun: string, count: number): any {
-  const attachments: any = [];
+export function getShotgunAttachments(
+  type: string,
+  gun: string,
+  count: number
+): Record<string, string> | Record<string, string[]> {
+  const attachments: Record<string, string> = {};
   const data = attachmentsList[gun];
   const dataList = data[type];
   if (count === -1) {

@@ -1,3 +1,4 @@
+// --- Data ---
 import hornet from '@/json/infinite-warfare/attachments/classic/hornet.json';
 import m1 from '@/json/infinite-warfare/attachments/classic/m1.json';
 import mactav45 from '@/json/infinite-warfare/attachments/classic/mactav45.json';
@@ -7,10 +8,21 @@ import tf141 from '@/json/infinite-warfare/attachments/classic/tf141.json';
 // --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 
-const attachmentsList: Record<string, any> = { hornet, m1, mactav45, osa, sravage, tf141 };
+const attachmentsList: Record<string, Record<string, string[]>> = {
+  hornet,
+  m1,
+  mactav45,
+  osa,
+  sravage,
+  tf141,
+};
 
-export function getClassicAttachments(type: string, gun: string, count: number): any {
-  const attachments: any = [];
+export function getClassicAttachments(
+  type: string,
+  gun: string,
+  count: number
+): Record<string, string> | Record<string, string[]> {
+  const attachments: Record<string, string> = {};
   const data = attachmentsList[gun];
   const dataList = data[type];
   if (count === -1) {

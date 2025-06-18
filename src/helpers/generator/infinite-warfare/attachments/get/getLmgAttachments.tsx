@@ -1,10 +1,11 @@
+// --- Data ---
 import default1 from '@/json/infinite-warfare/attachments/lmg/default1.json';
 import default2 from '@/json/infinite-warfare/attachments/lmg/default2.json';
 import auger from '@/json/infinite-warfare/attachments/lmg/auger.json';
 // --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 
-const attachmentsList: Record<string, any> = {
+const attachmentsList: Record<string, Record<string, string[]>> = {
   auger,
   mauler: default1,
   atlas: default1,
@@ -12,8 +13,12 @@ const attachmentsList: Record<string, any> = {
   titan: default2,
 };
 
-export function getLmgAttachments(type: string, gun: string, count: number): any {
-  const attachments: any = [];
+export function getLmgAttachments(
+  type: string,
+  gun: string,
+  count: number
+): Record<string, string> | Record<string, string[]> {
+  const attachments: Record<string, string> = {};
   const data = attachmentsList[gun];
   const dataList = data[type];
   if (count === -1) {

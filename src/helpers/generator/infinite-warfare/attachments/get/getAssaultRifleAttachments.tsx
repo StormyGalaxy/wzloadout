@@ -1,9 +1,10 @@
+// --- Data ---
 import default1 from '@/json/infinite-warfare/attachments/assault_rifle/default1.json';
 import default2 from '@/json/infinite-warfare/attachments/assault_rifle/default2.json';
 // --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 
-const attachmentsList: Record<string, any> = {
+const attachmentsList: Record<string, Record<string, string[]>> = {
   nv4: default1,
   kbar32: default1,
   grail: default1,
@@ -14,8 +15,12 @@ const attachmentsList: Record<string, any> = {
   xeon: default2,
 };
 
-export function getAssaultRifleAttachments(type: string, gun: string, count: number): any {
-  const attachments: any = [];
+export function getAssaultRifleAttachments(
+  type: string,
+  gun: string,
+  count: number
+): Record<string, string> | Record<string, string[]> {
+  const attachments: Record<string, string> = {};
   const data = attachmentsList[gun];
   const dataList = data[type];
   if (count === -1) {

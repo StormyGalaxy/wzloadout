@@ -1,10 +1,11 @@
+// --- Data ---
 import default1 from '@/json/infinite-warfare/attachments/sniper/default1.json';
 import default2 from '@/json/infinite-warfare/attachments/sniper/default2.json';
 import trek50 from '@/json/infinite-warfare/attachments/sniper/trek50.json';
 // --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 
-const attachmentsList: Record<string, any> = {
+const attachmentsList: Record<string, Record<string, string[]>> = {
   kbslongbow: default1,
   widowmaker: default1,
   dmr1: default1,
@@ -13,8 +14,12 @@ const attachmentsList: Record<string, any> = {
   trek50,
 };
 
-export function getSniperAttachments(type: string, gun: string, count: number): any {
-  const attachments: any = [];
+export function getSniperAttachments(
+  type: string,
+  gun: string,
+  count: number
+): Record<string, string> | Record<string, string[]> {
+  const attachments: Record<string, string> = {};
   const data = attachmentsList[gun];
   const dataList = data[type];
   if (count === -1) {

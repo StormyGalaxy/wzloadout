@@ -1,3 +1,4 @@
+// --- Data ---
 import emc from '@/json/infinite-warfare/attachments/pistol/emc.json';
 import hailstorm from '@/json/infinite-warfare/attachments/pistol/hailstorm.json';
 import kendall44 from '@/json/infinite-warfare/attachments/pistol/kendall44.json';
@@ -6,10 +7,20 @@ import stallion44 from '@/json/infinite-warfare/attachments/pistol/stallion44.js
 // --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 
-const attachmentsList: Record<string, any> = { emc, hailstorm, kendall44, oni, stallion44 };
+const attachmentsList: Record<string, Record<string, string[]>> = {
+  emc,
+  hailstorm,
+  kendall44,
+  oni,
+  stallion44,
+};
 
-export function getPistolAttachments(type: string, gun: string, count: number): any {
-  const attachments: any = [];
+export function getPistolAttachments(
+  type: string,
+  gun: string,
+  count: number
+): Record<string, string> | Record<string, string[]> {
+  const attachments: Record<string, string> = {};
   const data = attachmentsList[gun];
   const dataList = data[type];
   if (count === -1) {
