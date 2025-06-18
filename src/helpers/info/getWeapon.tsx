@@ -1,8 +1,10 @@
+// --- Helpers ---
 import { getPrimaryList } from '@/helpers/generator/weapons/getPrimaryList';
 import { getSecondaryList } from '@/helpers/generator/weapons/getSecondaryList';
 import { getMeleeList } from '@/helpers/generator/weapons/getMeleeList';
+// --- Utils ---
 import { mergeObjectsWithRekey } from '@silocitypages/utils';
-//Types
+// --- Types ---
 import { Weapon } from '@/types/Generator';
 
 export function getWeapon(

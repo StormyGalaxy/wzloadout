@@ -1,14 +1,14 @@
+// --- Utils ---
 import { mergeObjectsWithRekey } from '@silocitypages/utils';
+// --- Helpers ---
 import { getLethalList } from '@/helpers/generator/equipment/getLethalList';
 import { getTacticalList } from '@/helpers/generator/equipment/getTacticalList';
 import { getFieldUpgradeList } from '@/helpers/generator/equipment/getFieldUpgradeList';
 import { getVestList } from '@/helpers/generator/equipment/getVestList';
+// --- Types ---
 import { Equipment } from '@/types/Generator';
 
-export function getEquipment(
-  game: string = 'all',
-  value: string = ''
-): Equipment | Record<string, Equipment> {
+export function getEquipment(game: string = 'all'): Equipment | Record<string, Equipment> {
   const data = mergeObjectsWithRekey(
     getLethalList(game),
     getTacticalList(game),
