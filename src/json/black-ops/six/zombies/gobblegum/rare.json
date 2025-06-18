@@ -1,0 +1,11 @@
+[
+  { "name": "Stock Option", "type": "Rare", "game": "black-ops-six" },
+  { "name": "Killjoy", "type": "Rare", "game": "black-ops-six" },
+  { "name": "Anywhere But Here", "type": "Rare", "game": "black-ops-six" },
+  { "name": "Cache Back", "type": "Rare", "game": "black-ops-six" },
+  { "name": "Temporal Gift", "type": "Rare", "game": "black-ops-six" },
+  { "name": "Arsenal Accelerator", "type": "Rare", "game": "black-ops-six" },
+  { "name": "Shields Up", "type": "Rare", "game": "black-ops-six" },
+  { "name": "Power Keg", "type": "Rare", "game": "black-ops-six", "isDlc": true },
+  { "name": "Tactical Diffusion", "type": "Rare", "game": "black-ops-six", "isDlc": true }
+]

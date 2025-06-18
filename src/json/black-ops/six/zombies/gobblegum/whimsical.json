@@ -1,0 +1,20 @@
+[
+  { "name": "Newtonian Negation", "type": "Whimsical", "game": "black-ops-six" },
+  { "name": "Indiegestion", "type": "Whimsical", "game": "black-ops-six" },
+  { "name": "Holiday Cheer", "type": "Whimsical", "game": "black-ops-six", "isDlc": true },
+  {
+    "name": "Quacknarok",
+    "description": "(Lasts 3 Minutes) Zombies have rubber ducky inner tubes.",
+    "type": "Whimsical",
+    "game": "black-ops-six",
+    "isDlc": true
+  },
+  { "name": "Die Pitched", "type": "Whimsical", "game": "black-ops-six", "isDlc": true },
+  {
+    "name": "Rainburps",
+    "type": "Whimsical",
+    "description": "(Lasts 3 Minutes) Zombies killed belch sparkly rainbow bubbles.",
+    "game": "black-ops-six",
+    "isDlc": true
+  }
+]
