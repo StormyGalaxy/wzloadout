@@ -1,3 +1,4 @@
+// --- Data ---
 import taq56 from '@/json/modern-warfare/two/attachments/assault_rifle/taq56.json';
 import m4 from '@/json/modern-warfare/two/attachments/assault_rifle/m4.json';
 import stb556 from '@/json/modern-warfare/two/attachments/assault_rifle/stb556.json';
@@ -16,7 +17,7 @@ import kastov545 from '@/json/modern-warfare/two/attachments/assault_rifle/kasto
 // --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 
-const attachmentsList: Record<string, any> = {
+const attachmentsList: Record<string, Record<string, string[]>> = {
   taq56,
   m4,
   stb556,
@@ -34,8 +35,11 @@ const attachmentsList: Record<string, any> = {
   kastov545,
 };
 
-export function getAssaultRifleAttachments(gun: string, count: number): any {
-  const attachments: any = {};
+export function getAssaultRifleAttachments(
+  gun: string,
+  count: number
+): Record<string, string> | Record<string, string[]> {
+  const attachments: Record<string, string> = {};
   const data = attachmentsList[gun];
 
   if (data) {

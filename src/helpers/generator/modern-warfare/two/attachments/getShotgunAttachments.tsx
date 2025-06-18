@@ -1,3 +1,4 @@
+// --- Data ---
 import kvBroadside from '@/json/modern-warfare/two/attachments/shotgun/kvBroadside.json';
 import lockwood300 from '@/json/modern-warfare/two/attachments/shotgun/lockwood300.json';
 import expedtite12 from '@/json/modern-warfare/two/attachments/shotgun/expedtite12.json';
@@ -7,7 +8,7 @@ import bryson890 from '@/json/modern-warfare/two/attachments/shotgun/bryson890.j
 // --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 
-const attachmentsList: Record<string, any> = {
+const attachmentsList: Record<string, Record<string, string[]>> = {
   kvBroadside,
   lockwood300,
   expedtite12,
@@ -16,8 +17,11 @@ const attachmentsList: Record<string, any> = {
   bryson890,
 };
 
-export function getShotgunAttachments(gun: string, count: number): any {
-  let attachments: any = {};
+export function getShotgunAttachments(
+  gun: string,
+  count: number
+): Record<string, string> | Record<string, string[]> {
+  const attachments: Record<string, string> = {};
   const data = attachmentsList[gun];
 
   if (data) {

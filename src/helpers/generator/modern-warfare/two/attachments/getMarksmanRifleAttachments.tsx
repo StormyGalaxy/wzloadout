@@ -1,3 +1,4 @@
+// --- Data ---
 import ebr14 from '@/json/modern-warfare/two/attachments/marksman_rifle/ebr14.json';
 import spr208 from '@/json/modern-warfare/two/attachments/marksman_rifle/spr208.json';
 import lockwoodmk2 from '@/json/modern-warfare/two/attachments/marksman_rifle/lockwoodMk2.json';
@@ -9,7 +10,7 @@ import taqm from '@/json/modern-warfare/two/attachments/marksman_rifle/taqm.json
 // --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 
-const attachmentsList: Record<string, any> = {
+const attachmentsList: Record<string, Record<string, string[]>> = {
   ebr14,
   spr208,
   lockwoodmk2,
@@ -20,8 +21,11 @@ const attachmentsList: Record<string, any> = {
   taqm,
 };
 
-export function getMarksmanRifleAttachments(gun: string, count: number): any {
-  const attachments: any = {};
+export function getMarksmanRifleAttachments(
+  gun: string,
+  count: number
+): Record<string, string> | Record<string, string[]> {
+  const attachments: Record<string, string> = {};
   const data = attachmentsList[gun];
 
   if (data) {

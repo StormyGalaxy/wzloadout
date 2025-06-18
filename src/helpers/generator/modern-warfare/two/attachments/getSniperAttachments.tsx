@@ -1,3 +1,4 @@
+// --- Data ---
 import mcpr300 from '@/json/modern-warfare/two/attachments/sniper/mcpr300.json';
 import signal50 from '@/json/modern-warfare/two/attachments/sniper/signal50.json';
 import victusxmr from '@/json/modern-warfare/two/attachments/sniper/victusXmr.json';
@@ -8,7 +9,7 @@ import spx80 from '@/json/modern-warfare/two/attachments/sniper/spx80.json';
 // --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 
-const attachmentsList: Record<string, any> = {
+const attachmentsList: Record<string, Record<string, string[]>> = {
   mcpr300,
   signal50,
   victusxmr,
@@ -18,8 +19,11 @@ const attachmentsList: Record<string, any> = {
   spx80,
 };
 
-export function getSniperAttachments(gun: string, count: number): any {
-  let attachments: any = {};
+export function getSniperAttachments(
+  gun: string,
+  count: number
+): Record<string, string> | Record<string, string[]> {
+  const attachments: Record<string, string> = {};
   const data = attachmentsList[gun];
 
   if (data) {

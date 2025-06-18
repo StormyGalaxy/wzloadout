@@ -1,3 +1,4 @@
+// --- Data ---
 import lachmann762 from '@/json/modern-warfare/two/attachments/battle_rifle/lachmann762.json';
 import cronensquall from '@/json/modern-warfare/two/attachments/battle_rifle/cronenSquall.json';
 import ftacrecon from '@/json/modern-warfare/two/attachments/battle_rifle/ftacRecon.json';
@@ -6,10 +7,19 @@ import so14 from '@/json/modern-warfare/two/attachments/battle_rifle/so14.json';
 // --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 
-const attachmentsList: Record<string, any> = { lachmann762, cronensquall, ftacrecon, taqv, so14 };
+const attachmentsList: Record<string, Record<string, string[]>> = {
+  lachmann762,
+  cronensquall,
+  ftacrecon,
+  taqv,
+  so14,
+};
 
-export function getBattleRifleAttachments(gun: string, count: number): any {
-  const attachments: any = {};
+export function getBattleRifleAttachments(
+  gun: string,
+  count: number
+): Record<string, string> | Record<string, string[]> {
+  const attachments: Record<string, string> = {};
   const data = attachmentsList[gun];
 
   if (data) {

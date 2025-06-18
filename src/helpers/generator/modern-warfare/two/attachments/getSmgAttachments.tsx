@@ -1,3 +1,4 @@
+// --- Data ---
 import lachmannshroud from '@/json/modern-warfare/two/attachments/smg/lachmannShroud.json';
 import iso45 from '@/json/modern-warfare/two/attachments/smg/iso45.json';
 import iso9mm from '@/json/modern-warfare/two/attachments/smg/iso9mm.json';
@@ -13,7 +14,7 @@ import vaznev9k from '@/json/modern-warfare/two/attachments/smg/vaznev9k.json';
 // --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 
-const attachmentsList: Record<string, any> = {
+const attachmentsList: Record<string, Record<string, string[]>> = {
   lachmannshroud,
   iso45,
   iso9mm,
@@ -29,7 +30,7 @@ const attachmentsList: Record<string, any> = {
 };
 
 export function getSmgAttachments(gun: string, count: number) {
-  let attachments: any = {};
+  const attachments: Record<string, string> = {};
   const data = attachmentsList[gun];
 
   if (data) {

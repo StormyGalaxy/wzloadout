@@ -1,3 +1,4 @@
+// --- Data ---
 import sakinmg38 from '@/json/modern-warfare/two/attachments/lmg/sakinMg38.json';
 import raalmg from '@/json/modern-warfare/two/attachments/lmg/raalMg.json';
 import icarus556 from '@/json/modern-warfare/two/attachments/lmg/556icarus.json';
@@ -7,7 +8,7 @@ import rpk from '@/json/modern-warfare/two/attachments/lmg/rpk.json';
 // --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 
-const attachmentsList: Record<string, any> = {
+const attachmentsList: Record<string, Record<string, string[]>> = {
   sakinmg38,
   raalmg,
   '556icarus': icarus556,
@@ -16,8 +17,11 @@ const attachmentsList: Record<string, any> = {
   rpk,
 };
 
-export function getLmgAttachments(gun: string, count: number): any {
-  const attachments: any = {};
+export function getLmgAttachments(
+  gun: string,
+  count: number
+): Record<string, string> | Record<string, string[]> {
+  const attachments: Record<string, string> = {};
   const data = attachmentsList[gun];
 
   if (data) {

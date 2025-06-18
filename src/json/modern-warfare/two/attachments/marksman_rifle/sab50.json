@@ -1,11 +1,11 @@
 {
-  "optic": { "0": "Slate Reflector", "1": "VLK 4.0 Optic" },
-  "muzzle": { "0": "Quartermaster Suppressor", "1": "RF Crown 50" },
-  "barrel": { "0": "Prime MNX Barrel", "1": "Prowl-IV Barrel" },
-  "underbarrel": { "0": "XRK Edge BW-4 Handstop", "1": "Bruen Tactical Vertical Grip" },
-  "magazine": { "0": "40 Round Mag", "1": "60 Round Mag" },
-  "rear_grip": { "0": "Channel-M Grip", "1": "Tidal Tac Grip" },
-  "stock": { "0": "Clarent Light Stock", "1": "Ardent Tac Stock", "2": "Sandbar Heavy Stock" },
-  "laser": { "0": "SL Razorhawk Laser Light", "1": "1mW Laser Box", "2": "Canted Vibro-Dot 7" },
-  "ammunition": { "0": "5.7x28mm Frangible", "1": "5.7x28mm Overpressured P+" }
+  "optic": ["Slate Reflector", "VLK 4.0 Optic"],
+  "muzzle": ["Quartermaster Suppressor", "RF Crown 50"],
+  "barrel": ["Prime MNX Barrel", "Prowl-IV Barrel"],
+  "underbarrel": ["XRK Edge BW-4 Handstop", "Bruen Tactical Vertical Grip"],
+  "magazine": ["40 Round Mag", "60 Round Mag"],
+  "rear_grip": ["Channel-M Grip", "Tidal Tac Grip"],
+  "stock": ["Clarent Light Stock", "Ardent Tac Stock", "Sandbar Heavy Stock"],
+  "laser": ["SL Razorhawk Laser Light", "1mW Laser Box", "Canted Vibro-Dot 7"],
+  "ammunition": ["5.7x28mm Frangible", "5.7x28mm Overpressured P+"]
 }
