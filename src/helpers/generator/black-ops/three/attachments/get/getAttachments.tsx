@@ -1,16 +1,17 @@
+// --- Data ---
 import assault_rifle from '@/json/black-ops/three/attachments/assault_rifle/attachments.json';
 import lmg from '@/json/black-ops/three/attachments/lmg/attachments.json';
 import pistol from '@/json/black-ops/three/attachments/pistol/attachments.json';
 import shotgun from '@/json/black-ops/three/attachments/shotgun/attachments.json';
 import smg from '@/json/black-ops/three/attachments/smg/attachments.json';
 import sniper from '@/json/black-ops/three/attachments/sniper/attachments.json';
-//Weapon Specific
+// --- Weapon Specific ---
 import nxShadowclaw from '@/json/black-ops/three/attachments/special/nxShadowclaw.json';
 import rifte9 from '@/json/black-ops/three/attachments/pistol/rifte9.json';
-
+// --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 
-const attachmentsList: Record<string, any> = {
+const attachmentsList: Record<string, string[]> = {
   assault_rifle,
   lmg,
   pistol,
@@ -21,8 +22,8 @@ const attachmentsList: Record<string, any> = {
   nxshadowclaw: nxShadowclaw,
 };
 
-export function getAttachments(gun: string, type: string, count: number): any {
-  const attachments: any = [];
+export function getAttachments(gun: string, type: string, count: number): string[] {
+  const attachments: string[] = [];
 
   // Check if attachments exist for the gun OR the type
   const data = attachmentsList[gun] || attachmentsList[type];

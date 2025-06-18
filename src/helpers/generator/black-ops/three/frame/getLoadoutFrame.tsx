@@ -1,10 +1,9 @@
-//Frame Helpers
+// --- Helpers ---
 import { getAttachments } from '@/helpers/generator/black-ops/three/frame/getAttachments';
 import { getPiece } from '@/helpers/generator/black-ops/three/frame/getPiece';
 import { getOptic } from '@/helpers/generator/black-ops/three/frame/getOptic';
-//Helpers
 import { isset } from '@/helpers/isset';
-//Types
+// --- Types ---
 import { AttachmentInfo, LoadoutFrame } from '@/types/BlackOps3';
 
 export function getLoadoutFrame(): LoadoutFrame {
@@ -23,7 +22,7 @@ export function getLoadoutFrame(): LoadoutFrame {
     wildcards: [],
   };
 
-  let frame: LoadoutFrame = defaultLoadoutFrame;
+  const frame: LoadoutFrame = defaultLoadoutFrame;
   let points = 10;
   let maxCount = 0;
 

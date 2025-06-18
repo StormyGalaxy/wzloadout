@@ -1,15 +1,16 @@
+// --- Data ---
 import assault_rifle from '@/json/black-ops/three/attachments/assault_rifle/optics.json';
 import lmg from '@/json/black-ops/three/attachments/lmg/optics.json';
 import pistol from '@/json/black-ops/three/attachments/pistol/optics.json';
 import shotgun from '@/json/black-ops/three/attachments/shotgun/optics.json';
 import smg from '@/json/black-ops/three/attachments/smg/optics.json';
 import sniper from '@/json/black-ops/three/attachments/sniper/optics.json';
-//Weapon Specific
+// --- Weapon Specific ---
 import nxShadowclawOptic from '@/json/black-ops/three/attachments/special/nxShadowclawOptic.json';
-
+// --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 
-const attachmentsList: Record<string, any> = {
+const attachmentsList: Record<string, string[]> = {
   assault_rifle,
   lmg,
   pistol,
@@ -19,8 +20,8 @@ const attachmentsList: Record<string, any> = {
   nxshadowclaw: nxShadowclawOptic,
 };
 
-export function getOptics(gun: string, type: string, count: number = 1): any {
-  const attachments: any = [];
+export function getOptics(gun: string, type: string, count: number = 1): string[] {
+  const attachments: string[] = [];
 
   // Check if optics exist for the gun OR the type
   const data = attachmentsList[gun] || attachmentsList[type];

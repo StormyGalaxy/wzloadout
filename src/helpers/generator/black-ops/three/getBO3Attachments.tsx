@@ -1,14 +1,24 @@
+// --- Attachments ---
 import { getOptics } from './attachments/get/getOptics';
 import { getAttachments } from './attachments/get/getAttachments';
-//Types
+// --- Types ---
 import { Weapon } from '@/types/Generator';
 
-const attachmentGetter: Record<string, (type: string, gun: string, count: number) => any> = {
-  optic: getOptics,
-  attachments: getAttachments,
-};
+// Define the specific return types for clarity
+type AttachmentResult = string | string[];
+type AllAttachmentsResult = { optic: string; attachments: string[] };
+type BO3AttachmentsResult = AllAttachmentsResult | AttachmentResult | Record<string, never>;
 
-export function getBO3Attachments(weapon: Weapon, type: string, count: number = 1): any {
+const attachmentGetter: Record<
+  string,
+  (type: string, gun: string, count: number) => AttachmentResult
+> = { optic: getOptics, attachments: getAttachments };
+
+export function getBO3Attachments(
+  weapon: Weapon,
+  type: string,
+  count: number = 1
+): BO3AttachmentsResult {
   const gun = weapon.name.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
   if (type === 'all') {
     return {
