@@ -42,8 +42,15 @@ export default function BlackOpsFourZombiesLoadout() {
   const [data, setData] = useState(defaultData);
 
   useEffect(() => {
-    const storedSettings = getLocalStorage('bo4ZombiesSettings') ?? defaultSettings;
-    const completeSettings = { ...defaultSettings, ...storedSettings };
+    const rawStoredSettings = getLocalStorage('bo4ZombiesSettings');
+
+    // Ensure storedSettings is a valid object before spreading
+    const storedSettings =
+      typeof rawStoredSettings === 'object' && rawStoredSettings !== null
+        ? rawStoredSettings
+        : defaultSettings;
+
+    const completeSettings = { ...defaultSettings, ...(storedSettings as Bo4ZombiesSettings) };
 
     setSettings(completeSettings);
     setRollMap(completeSettings.rollMap);
@@ -72,15 +79,15 @@ export default function BlackOpsFourZombiesLoadout() {
     handleModal();
   };
 
-  const handleRollMapChange = (event) => {
+  const handleRollMapChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setRollMap(event.target.checked);
     setSettings({ ...settings, rollMap: event.target.checked });
   };
-  const handleRollElixerChange = (event) => {
+  const handleRollElixerChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setRollElixer(event.target.checked);
     setSettings({ ...settings, rollElixers: event.target.checked });
   };
-  const handleRollTalismanChange = (event) => {
+  const handleRollTalismanChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setRollTalisman(event.target.checked);
     setSettings({ ...settings, rollTalisman: event.target.checked });
   };
@@ -252,7 +259,7 @@ export default function BlackOpsFourZombiesLoadout() {
   );
 }
 
-async function fetchLoadoutData(setData) {
+async function fetchLoadoutData(setData: (data: any) => void) {
   sendEvent('button_click', {
     button_id: 'bo4Zombies_fetchLoadoutData',
     label: 'BlackOpsFourZombies',

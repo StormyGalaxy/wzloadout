@@ -1,15 +1,16 @@
 'use client';
 
+// --- React ---
 import { useEffect, useState } from 'react';
 import { Row, Col, Button } from 'react-bootstrap';
 // --- Components ---
 import SimpleGeneratorView from '@/components/generators/cod/SimpleGeneratorView';
 import CodClassName from '@/components/CodClassName';
 // --- Helpers ---
-import { implodeObject } from '../../../helpers/implodeObject';
+import { implodeObject } from '@/helpers/implodeObject';
 import { scrollToTop } from '@/helpers/scrollToTop';
-import { fetchWeapon } from '../../../helpers/fetch/fetchWeapon';
-import { fetchPerks } from '../../../helpers/fetch/fetchPerks';
+import { fetchWeapon } from '@/helpers/fetch/fetchWeapon';
+import { fetchPerks } from '@/helpers/fetch/fetchPerks';
 import { fetchAttachments } from '@/helpers/fetch/fetchAttachments';
 import { fetchEquipment } from '@/helpers/fetch/fetchEquipment';
 import { fetchWildcard } from '@/helpers/fetch/fetchWildcard';
@@ -20,10 +21,10 @@ import { sendEvent } from '@silocitypages/utils';
 // --- Data ---
 import defaultData from '@/json/cod/default-generator-info.json';
 // --- DB ---
-import getDocumentByColumn from '@silocitypages/data-access';
+import { getDocumentByColumn } from '@silocitypages/data-access';
 import { useDatabase } from '@/contexts/DatabaseContext';
 // --- Types ---
-import { sclSettings } from '@/types/_fw';
+import type { sclSettings } from '@silocitypages/ui-core';
 
 export default function WarzoneLoadout() {
   const { dbs, isReady } = useDatabase();
@@ -38,7 +39,7 @@ export default function WarzoneLoadout() {
         try {
           const wzSettings = await getDocumentByColumn(dbs.settings, 'name', 'warzone', 'settings');
           if (wzSettings && wzSettings.value !== '') {
-            setSettings(JSON.parse(wzSettings.value));
+            setSettings(JSON.parse(wzSettings.value as string));
           }
         } catch (err: unknown) {
           const errorMessage = err instanceof Error ? err.message : 'Failed to fetch settings.';
