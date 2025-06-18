@@ -1,3 +1,4 @@
+// --- Data ---
 import ak74u from '@/json/black-ops/cold-war/attachments/smg/ak74u.json';
 import bullfrog from '@/json/black-ops/cold-war/attachments/smg/bullfrog.json';
 import ksp45 from '@/json/black-ops/cold-war/attachments/smg/ksp45.json';
@@ -13,7 +14,7 @@ import ugr from '@/json/black-ops/cold-war/attachments/smg/ugr.json';
 // --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 
-const attachmentsList: Record<string, any> = {
+const attachmentsList: Record<string, Record<string, string[]>> = {
   ak74u,
   bullfrog,
   ksp45,
@@ -29,7 +30,7 @@ const attachmentsList: Record<string, any> = {
 };
 
 export function getSmgAttachments(gun: string, count: number) {
-  let attachments: any = {};
+  const attachments: Record<string, string> = {};
   const data = attachmentsList[gun];
 
   if (data) {
