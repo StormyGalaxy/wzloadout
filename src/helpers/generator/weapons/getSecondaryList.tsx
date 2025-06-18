@@ -1,5 +1,6 @@
+// --- Utils ---
 import { mergeObjectsWithRekey } from '@silocitypages/utils';
-//Data
+// --- Data ---
 import bo6List from '@/json/black-ops/six/weapon/secondary.json';
 import mw3List from '@/json/modern-warfare/three/weapon/secondary.json';
 import mw3MeleeList from '@/json/modern-warfare/three/weapon/melee.json';
@@ -14,8 +15,12 @@ import ww2List from '@/json/world-war-two/weapon/secondary.json';
 import ww2MeleeList from '@/json/world-war-two/weapon/melee.json';
 import iwList from '@/json/infinite-warfare/weapon/secondary.json';
 import wawList from '@/json/world-at-war/weapon/side_arm.json';
+// --- Types ---
+import { Weapon } from '@/types/Generator';
 
-const weapons: Record<string, any> = {
+type ItemList = Weapon[] | Record<string, Weapon>;
+
+const weapons: Record<string, ItemList> = {
   warzone: mergeObjectsWithRekey(bo6List, mw3List, mw2List),
   'black-ops-six': bo6List,
   // "modern-warfare-three": mergeObjectsWithRekey(
@@ -36,10 +41,11 @@ const weapons: Record<string, any> = {
   'infinite-warfare': iwList,
   'world-at-war': wawList,
 };
-export function getSecondaryList(game: string): any {
+export function getSecondaryList(game: string): ItemList {
   if (game.includes(',')) {
     const gameList = game.split(',').map((g) => g.trim());
     const weaponLists = gameList.map((g) => weapons[g] || {});
+
     return mergeObjectsWithRekey(...weaponLists);
   } else {
     return weapons[game] || {};
