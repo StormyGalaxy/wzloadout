@@ -65,6 +65,9 @@ importers:
       '@types/node':
         specifier: ^22.13.14
         version: 22.15.15
+      '@types/pouchdb':
+        specifier: ^6.4.2
+        version: 6.4.2
       '@types/react':
         specifier: ^19.0.12
         version: 19.1.3

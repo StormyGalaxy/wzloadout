@@ -19,8 +19,6 @@ export type Perk = { name: string; type: string; game: string; isDlc?: boolean }
 
 export type Streak = { name: string; type: string; game: string; score: number; isDlc?: boolean };
 
-export type Equipment = { name: string; type: string; game: string; isDlc?: boolean };
-
 export type Specialist = {
   name: string;
   equipment?: string;

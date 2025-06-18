@@ -1,6 +1,8 @@
-import type { Setting } from '@/types/Settings';
+// --- Types ---
+import { Setting } from '@/types/Settings';
+import PouchDB from 'pouchdb';
 
-async function getAllSettings(db: PouchDB.Database): Promise<{ [key: string]: any }> {
+async function getAllSettings(db: PouchDB.Database): Promise<Record<string, unknown>> {
   if (!db) {
     console.error('Database is not initialized.');
     return {};
@@ -9,7 +11,7 @@ async function getAllSettings(db: PouchDB.Database): Promise<{ [key: string]: an
   try {
     const result = await db.allDocs<Setting>({ include_docs: true, attachments: false });
 
-    const settingsObject: { [key: string]: any } = {};
+    const settingsObject: Record<string, unknown> = {};
 
     result.rows
       .filter((row) => row.doc && !row.id.startsWith('_design/'))

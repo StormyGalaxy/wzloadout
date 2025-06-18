@@ -8,12 +8,28 @@ import { getWorldWarTwoAttachments } from '../generator/world-war-two/getWorldWa
 import { getBO4Attachments } from '../generator/black-ops/four/getBO4Attachments';
 import { getIwAttachments } from '../generator/infinite-warfare/getIwAttachments';
 import { getWAWAttachments } from '../generator/world-at-war/getWAWAttachments';
-//Helpers
+// --- Helpers ---
 import { noAttachInfoLink } from '@/helpers/generator/noAttachInfoLink';
-//Types
+// --- Types ---
 import { Weapon } from '@/types/Generator';
 
-const attachmentGetters: Record<string, (type: string, gun: string, count: number) => any> = {
+// A union of all possible attachment data structures returned by the getters
+type AttachmentsType =
+  | string[]
+  | Record<string, string>
+  | Record<string, string[]>
+  | Record<string, never>;
+
+// The return type of the noAttachInfoLink helper
+interface NoAttachInfo {
+  title: string;
+  no_attachments_message: string;
+}
+
+const attachmentGetters: Record<
+  string,
+  (type: string, gun: string, count: number) => AttachmentsType
+> = {
   'black-ops-six': getBO6Attachments,
   'modern-warfare-three': getMW3Attachments,
   'modern-warfare-two': getMW2Attachments,
@@ -26,7 +42,10 @@ const attachmentGetters: Record<string, (type: string, gun: string, count: numbe
   'world-at-war': getWAWAttachments,
 };
 
-export function fetchAttachments(weapon: Weapon, count: number = 5): any {
+export function fetchAttachments(
+  weapon: Weapon,
+  count: number = 5
+): AttachmentsType | NoAttachInfo {
   if (weapon?.no_attach_info) {
     return noAttachInfoLink(weapon, count);
   }

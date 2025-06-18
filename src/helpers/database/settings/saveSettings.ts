@@ -1,6 +1,9 @@
 import PouchDB from 'pouchdb';
 
-async function saveSettings(db: PouchDB.Database, settings: { [key: string]: any }): Promise<void> {
+async function saveSettings(
+  db: PouchDB.Database,
+  settings: Record<string, unknown>
+): Promise<void> {
   try {
     const settingsToSave = Object.entries(settings).map(async ([name, value]) => {
       const doc = await db.get(name).catch(() => null);

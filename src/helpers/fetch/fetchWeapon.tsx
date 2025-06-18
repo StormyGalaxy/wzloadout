@@ -1,11 +1,15 @@
+// --- Helpers ---
 import { getPrimaryList } from '@/helpers/generator/weapons/getPrimaryList';
 import { getSecondaryList } from '@/helpers/generator/weapons/getSecondaryList';
 import { getMeleeList } from '@/helpers/generator/weapons/getMeleeList';
+// --- Utils ---
 import { randomListItem, mergeObjectsWithRekey } from '@silocitypages/utils';
-//Types
+// --- Types ---
 import { Weapon } from '@/types/Generator';
 
-const weaponListGetters: Record<string, (game: string) => any> = {
+type WeaponList = Record<string, Weapon> | Weapon[];
+
+const weaponListGetters: Record<string, (game: string) => WeaponList> = {
   primary: getPrimaryList,
   secondary: getSecondaryList,
   melee: getMeleeList,
@@ -28,7 +32,7 @@ export function fetchWeapon(
       rollAgain = false;
       data = randomListItem(list);
 
-      //Roll a weapon that has attachments\
+      //Roll a weapon that has attachments
       if (needsAttachments && data.no_attach) {
         rollAgain = true;
       }

@@ -6,15 +6,15 @@ import { getTacticalList } from '@/helpers/generator/equipment/getTacticalList';
 import { getFieldUpgradeList } from '@/helpers/generator/equipment/getFieldUpgradeList';
 import { getVestList } from '@/helpers/generator/equipment/getVestList';
 // --- Types ---
-import { Equipment } from '@/types/Generator';
+import { GeneratorItem } from '@/types/Generator';
 
-export function getEquipment(game: string = 'all'): Equipment | Record<string, Equipment> {
+export function getEquipment(game: string = 'all'): GeneratorItem | Record<string, GeneratorItem> {
   const data = mergeObjectsWithRekey(
     getLethalList(game),
     getTacticalList(game),
     getFieldUpgradeList(game),
     getVestList(game)
-  ) as Record<string, Equipment>;
+  ) as Record<string, GeneratorItem>;
 
   return data;
 }
