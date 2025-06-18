@@ -1,5 +1,5 @@
 import { getPerkList } from '@/helpers/generator/zombies/getPerkList';
-import { randomListItem } from '@/helpers/_silabs/randomListItem';
+import { randomListItem } from '@silocitypages/utils';
 import { Perk } from '@/types/Generator';
 
 export function fetchZombiesPerks(game: string = '', amount: number = 4): string[] {

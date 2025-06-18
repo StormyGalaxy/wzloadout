@@ -1,8 +1,7 @@
 import { getPrimaryList } from '@/helpers/generator/weapons/getPrimaryList';
 import { getSecondaryList } from '@/helpers/generator/weapons/getSecondaryList';
 import { getMeleeList } from '@/helpers/generator/weapons/getMeleeList';
-import { randomListItem } from '@/helpers/_silabs/randomListItem';
-import { mergeObjectsWithRekey } from '@/helpers/_silabs/mergeObjectsWithRekey';
+import { randomListItem, mergeObjectsWithRekey } from '@silocitypages/utils';
 //Types
 import { Weapon } from '@/types/Generator';
 

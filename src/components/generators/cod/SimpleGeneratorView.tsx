@@ -1,5 +1,5 @@
 //Components
-import SclPlaceholder from '@/components/_silabs/SclPlaceholder';
+import { SclPlaceholder } from '@silocitypages/ui-core';
 import { GeneratorViewProps } from '@/types/GeneratorView';
 
 function SimpleGeneratorView({

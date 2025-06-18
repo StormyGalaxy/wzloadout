@@ -17,7 +17,7 @@ import { fetchWildcard } from '@/helpers/fetch/fetchWildcard';
 //Cold War
 import { fetchPerk } from '@/helpers/generator/black-ops/cold-war/fetchPerk';
 //Utils
-import { sendEvent } from '@/utils/gtag';
+import { sendEvent } from '@silocitypages/utils';
 //json
 import defaultData from '@/json/cod/default-generator-info.json';
 

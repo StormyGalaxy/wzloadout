@@ -16,11 +16,11 @@ import { fetchWildcard } from '@/helpers/fetch/fetchWildcard';
 import { fetchClassName } from '@/helpers/fetch/fetchClassName';
 import { getEnabledGames } from '@/helpers/generator/getEnabledGames';
 // --- Utils ---
-import { sendEvent } from '@/utils/gtag';
+import { sendEvent } from '@silocitypages/utils';
 // --- Data ---
 import defaultData from '@/json/cod/default-generator-info.json';
 // --- DB ---
-import getDocumentByColumn from '@/helpers/_silabs/pouchDb/getDocumentByColumn';
+import getDocumentByColumn from '@silocitypages/data-access';
 import { useDatabase } from '@/contexts/DatabaseContext';
 // --- Types ---
 import { sclSettings } from '@/types/_fw';

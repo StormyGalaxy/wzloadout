@@ -15,7 +15,7 @@ import { fetchClassName } from '@/helpers/fetch/fetchClassName';
 //World War Two
 import { fetchPerk } from '@/helpers/generator/world-war-two/fetchPerk';
 //Utils
-import { sendEvent } from '@/utils/gtag';
+import { sendEvent } from '@silocitypages/utils';
 //json
 import defaultData from '@/json/cod/default-generator-info.json';
 

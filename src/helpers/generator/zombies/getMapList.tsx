@@ -1,4 +1,4 @@
-import { mergeObjectsWithRekey } from '@/helpers/_silabs/mergeObjectsWithRekey';
+import { mergeObjectsWithRekey } from '@silocitypages/utils';
 import bo6List from '@/json/black-ops/six/zombies/map.json';
 import vanguardList from '@/json/vanguard/zombies/map.json';
 import coldWarCoreList from '@/json/black-ops/cold-war/zombies/map/core.json';

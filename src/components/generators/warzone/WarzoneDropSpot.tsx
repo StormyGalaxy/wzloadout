@@ -4,14 +4,11 @@ import { useEffect, useState } from 'react';
 //Components
 import { Container, Row, Col, Button, Form, Spinner } from 'react-bootstrap';
 import WheelComponent from 'react-wheel-of-prizes-react19';
-import CustomModal from '@/components/_silabs/bootstrap/CustomModal';
-import { LoadingLetters } from '@/components/_silabs/LoadingLetters';
-//Helpers
-import { setLocalStorage, getLocalStorage } from '@/helpers/_silabs/localStorage';
+import { CustomModal, LoadingLetters } from '@silocitypages/ui-core';
 //Types
 import { WarzoneDropSpotSettings } from '@/types/Generator';
 //Utils
-import { sendEvent } from '@/utils/gtag';
+import { sendEvent, setLocalStorage, getLocalStorage } from '@silocitypages/utils';
 //Json
 import area99Spots from '@/json/warzone/drop_spots/area99.json';
 import rebirthIslandSpots from '@/json/warzone/drop_spots/rebirth_island.json';

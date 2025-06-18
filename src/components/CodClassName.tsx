@@ -1,5 +1,5 @@
 import React from 'react';
-import SclPlaceholder from '@/components/_silabs/SclPlaceholder';
+import { SclPlaceholder } from '@silocitypages/ui-core';
 
 const CodClassName = ({ isGenerating, value }) => {
   return (

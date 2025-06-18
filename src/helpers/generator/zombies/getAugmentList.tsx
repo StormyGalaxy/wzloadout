@@ -1,4 +1,4 @@
-import { mergeObjectsWithRekey } from '@/helpers/_silabs/mergeObjectsWithRekey';
+import { mergeObjectsWithRekey } from '@silocitypages/utils';
 //Black Ops 4 Zombies
 import bo6AmmoModList from '@/json/black-ops/six/zombies/augments/ammo-mods.json';
 import bo6FieldUpgradeList from '@/json/black-ops/six/zombies/augments/field-upgrades.json';

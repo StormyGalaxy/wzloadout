@@ -1,4 +1,4 @@
-import { mergeObjectsWithRekey } from '@/helpers/_silabs/mergeObjectsWithRekey';
+import { mergeObjectsWithRekey } from '@silocitypages/utils';
 //Data
 import bo6List from '@/json/black-ops/six/weapon/melee.json';
 import mw3List from '@/json/modern-warfare/three/weapon/melee.json';

@@ -1,6 +1,6 @@
 import { getStreakList } from '@/helpers/generator/getStreakList';
 import { isset } from '@/helpers/isset';
-import { randomListItem } from '@/helpers/_silabs/randomListItem';
+import { randomListItem } from '@silocitypages/utils';
 
 export function fetchStreaks(game: string = '', isHighRoller: boolean = false): string {
   const streakCount = isHighRoller ? 4 : 3;

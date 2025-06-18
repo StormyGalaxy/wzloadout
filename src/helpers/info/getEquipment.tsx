@@ -1,4 +1,4 @@
-import { mergeObjectsWithRekey } from '@/helpers/_silabs/mergeObjectsWithRekey';
+import { mergeObjectsWithRekey } from '@silocitypages/utils';
 import { getLethalList } from '@/helpers/generator/equipment/getLethalList';
 import { getTacticalList } from '@/helpers/generator/equipment/getTacticalList';
 import { getFieldUpgradeList } from '@/helpers/generator/equipment/getFieldUpgradeList';

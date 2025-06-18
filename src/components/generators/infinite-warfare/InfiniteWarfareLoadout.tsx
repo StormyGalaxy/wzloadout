@@ -20,7 +20,7 @@ import { getLoadoutFrame } from '@/helpers/generator/infinite-warfare/frame/getL
 //Types
 import { LoadoutFrame } from '@/types/BlackOps3';
 //Utils
-import { sendEvent } from '@/utils/gtag';
+import { sendEvent } from '@silocitypages/utils';
 //json
 import defaultData from '@/json/cod/default-generator-info.json';
 

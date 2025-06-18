@@ -1,5 +1,5 @@
 import { getMapList } from '@/helpers/generator/zombies/getMapList';
-import { randomListItem } from '@/helpers/_silabs/randomListItem';
+import { randomListItem } from '@silocitypages/utils';
 import { ZombiesMap } from '@/types/Generator';
 
 export function fetchZombiesMap(game: string = ''): ZombiesMap {

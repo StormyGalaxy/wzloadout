@@ -2,7 +2,7 @@ import { getLethalList } from '@/helpers/generator/equipment/getLethalList';
 import { getTacticalList } from '@/helpers/generator/equipment/getTacticalList';
 import { getFieldUpgradeList } from '@/helpers/generator/equipment/getFieldUpgradeList';
 import { getVestList } from '@/helpers/generator/equipment/getVestList';
-import { randomListItem } from '@/helpers/_silabs/randomListItem';
+import { randomListItem } from '@silocitypages/utils';
 import { Equipment } from '@/types/Generator';
 
 const equipmentListGetters: Record<string, (game: string) => any> = {

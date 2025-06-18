@@ -1,13 +1,15 @@
+// --- React ---
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Tabs, Tab, Badge, Table } from 'react-bootstrap';
+// --- Next ---
 import Link from 'next/link';
-//Helpers
+// --- Helpers ---
 import { getWeapon } from '@/helpers/info/getWeapon';
 import { fetchAttachments } from '@/helpers/fetch/fetchAttachments';
 import { getBO3Attachments } from '@/helpers/generator/black-ops/three/getBO3Attachments';
-import { generateGithubLink } from '@/helpers/_silabs/generateGithubLink';
-import { capitalizeFirstLetter } from '@/helpers/_silabs/capitalizeFirstLetter';
-//types
+// --- Utils ---
+import { generateGithubLink, capitalizeFirstLetter } from '@silocitypages/utils';
+// --- Types ---
 import { WeaponInfoProps } from '@/types/Info';
 import { Weapon } from '@/types/Generator';
 

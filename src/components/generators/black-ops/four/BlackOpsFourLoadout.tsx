@@ -20,7 +20,7 @@ import { getLoadoutFrame } from '@/helpers/generator/black-ops/four/frame/getLoa
 //Types
 import { LoadoutFrame } from '@/types/BlackOps4';
 //Utils
-import { sendEvent } from '@/utils/gtag';
+import { sendEvent } from '@silocitypages/utils';
 //json
 import defaultData from '@/json/cod/default-generator-info.json';
 

@@ -1,7 +1,7 @@
 import baseList from '@/json/modern-warfare/two/perk/base.json';
 import bonusList from '@/json/modern-warfare/two/perk/bonus.json';
 import ultimateList from '@/json/modern-warfare/two/perk/ultimate.json';
-import { randomListItem } from '@/helpers/_silabs/randomListItem';
+import { randomListItem } from '@silocitypages/utils';
 
 export function fetchPerks(): string {
   const perks: string[] = [];

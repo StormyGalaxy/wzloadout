@@ -14,7 +14,7 @@ import { fetchZombiesCharacter } from '@/helpers/fetch/zombies/fetchZombiesChara
 import { fetchZombiesMap } from '@/helpers/fetch/zombies/fetchZombiesMap';
 import { fetchZombiesPerks } from '@/helpers/fetch/zombies/fetchZombiesPerks';
 //Utils
-import { sendEvent } from '@/utils/gtag';
+import { sendEvent } from '@silocitypages/utils';
 //json
 import defaultData from '@/json/cod/default-zombies-generator-info.json';
 

@@ -1,5 +1,5 @@
 import { getCharacterList } from '@/helpers/generator/zombies/getCharacterList';
-import { randomListItem } from '@/helpers/_silabs/randomListItem';
+import { randomListItem } from '@silocitypages/utils';
 import { ZombiesCharacter } from '@/types/Generator';
 
 export function fetchZombiesCharacter(game: string = ''): ZombiesCharacter {

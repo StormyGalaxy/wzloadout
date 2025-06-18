@@ -7,7 +7,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 // --- Components ---
 import WeaponInfo from '@/components/info/WeaponInfo';
 // --- Helpers ---
-import { capitalizeFirstLetter } from '@/helpers/_silabs/capitalizeFirstLetter';
+import { capitalizeFirstLetter } from '@silocitypages/utils';
 
 // Define props for the component
 interface WeaponDisplayClientProps {

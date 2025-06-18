@@ -5,7 +5,6 @@ import { Row, Col, Button, Form } from 'react-bootstrap';
 //Helpers
 import { implodeObject } from '@/helpers/implodeObject';
 import { scrollToTop } from '@/helpers/scrollToTop';
-import { setLocalStorage, getLocalStorage } from '@/helpers/_silabs/localStorage';
 import { fetchWeapon } from '@/helpers/fetch/fetchWeapon';
 import { fetchAttachments } from '@/helpers/fetch/fetchAttachments';
 import { fetchEquipment } from '@/helpers/fetch/fetchEquipment';
@@ -18,12 +17,12 @@ import { fetchZombiesAugments } from '@/helpers/fetch/zombies/fetchZombiesAugmen
 //Types
 import { Bo6ZombiesSettings } from '@/types/Generator';
 //Components
-import CustomModal from '@/components/_silabs/bootstrap/CustomModal';
-import SclPlaceholder from '@/components/_silabs/SclPlaceholder';
+import { CustomModal } from '@silocitypages/ui-core';
+import { SclPlaceholder } from '@silocitypages/ui-core';
 import CodClassName from '@/components/CodClassName';
 import SimpleGeneratorView from '@/components/generators/cod/SimpleGeneratorView';
 //Utils
-import { sendEvent } from '@/utils/gtag';
+import { sendEvent, setLocalStorage, getLocalStorage } from '@silocitypages/utils';
 //json
 import defaultData from '@/json/cod/default-zombies-generator-info.json';
 

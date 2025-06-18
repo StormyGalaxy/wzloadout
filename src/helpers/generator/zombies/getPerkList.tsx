@@ -1,4 +1,4 @@
-import { mergeObjectsWithRekey } from '@/helpers/_silabs/mergeObjectsWithRekey';
+import { mergeObjectsWithRekey } from '@silocitypages/utils';
 import bo4List from '@/json/black-ops/four/zombies/perks.json';
 //World War 2
 import ww2CamouflageList from '@/json/world-war-two/zombies/mods/camouflage.json';

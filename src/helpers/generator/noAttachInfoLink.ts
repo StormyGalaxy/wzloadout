@@ -1,6 +1,5 @@
-//Helpers
-import { generateGithubLink } from '@/helpers/_silabs/generateGithubLink';
-import { capitalizeFirstLetter } from '@/helpers/_silabs/capitalizeFirstLetter';
+// --- Utils ---
+import { generateGithubLink, capitalizeFirstLetter } from '@silocitypages/utils';
 //Types
 import { Weapon } from '@/types/Generator';
 

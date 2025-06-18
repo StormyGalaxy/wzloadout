@@ -14,7 +14,7 @@ import { fetchClassName } from '@/helpers/fetch/fetchClassName';
 //Zombies Specific
 import { fetchZombiesMap } from '@/helpers/fetch/zombies/fetchZombiesMap';
 //Utils
-import { sendEvent } from '@/utils/gtag';
+import { sendEvent } from '@silocitypages/utils';
 //json
 import defaultData from '@/json/cod/default-zombies-generator-info.json';
 

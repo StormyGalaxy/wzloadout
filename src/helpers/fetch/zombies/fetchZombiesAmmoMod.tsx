@@ -1,5 +1,5 @@
 import { getAmmoModList } from '@/helpers/generator/zombies/getAmmoModList';
-import { randomListItem } from '@/helpers/_silabs/randomListItem';
+import { randomListItem } from '@silocitypages/utils';
 import { AmmoMod } from '@/types/Generator';
 
 export function fetchZombiesAmmoMod(game: string = ''): AmmoMod {

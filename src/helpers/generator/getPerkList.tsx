@@ -1,4 +1,4 @@
-import { mergeObjectsWithRekey } from '@/helpers/_silabs/mergeObjectsWithRekey';
+import { mergeObjectsWithRekey } from '@silocitypages/utils';
 import bo6Perk1List from '@/json/black-ops/six/perk/perk1.json';
 import bo6Perk2List from '@/json/black-ops/six/perk/perk2.json';
 import bo6Perk3List from '@/json/black-ops/six/perk/perk3.json';

@@ -15,7 +15,7 @@ import { fetchClassName } from '@/helpers/fetch/fetchClassName';
 //MW2 Specific
 import { fetchPerks } from '@/helpers/generator/modern-warfare/two/fetchPerks';
 //Utils
-import { sendEvent } from '@/utils/gtag';
+import { sendEvent } from '@silocitypages/utils';
 //json
 import defaultData from '@/json/cod/default-generator-info.json';
 

@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { Row, Col, Tabs, Tab, Button } from 'react-bootstrap';
 // --- Components ---
-import CustomAlert from '@/components/_silabs/bootstrap/CustomAlert';
+import { CustomAlert } from '@silocitypages/ui-core';
 import Warzone from '@/components/settings/Warzone';
 //DB
 import getAllSettings from '@/helpers/database/settings/getAllSettings';

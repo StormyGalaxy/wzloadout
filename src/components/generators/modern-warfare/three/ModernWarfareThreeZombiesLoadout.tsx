@@ -12,7 +12,7 @@ import { fetchAttachments } from '@/helpers/fetch/fetchAttachments';
 import { fetchEquipment } from '@/helpers/fetch/fetchEquipment';
 import { fetchClassName } from '@/helpers/fetch/fetchClassName';
 //Utils
-import { sendEvent } from '@/utils/gtag';
+import { sendEvent } from '@silocitypages/utils';
 //json
 import defaultData from '@/json/cod/default-zombies-generator-info.json';
 

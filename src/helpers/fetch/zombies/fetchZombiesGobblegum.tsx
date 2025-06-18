@@ -1,5 +1,5 @@
 import { getGobblegumList } from '@/helpers/generator/zombies/getGobblegumList';
-import { randomListItem } from '@/helpers/_silabs/randomListItem';
+import { randomListItem } from '@silocitypages/utils';
 import { Gobblegum } from '@/types/Generator';
 
 export function fetchZombiesGobblegum(game: string = '', amount: number = 5): string {

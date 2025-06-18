@@ -2,7 +2,7 @@ import React from 'react';
 import Badge from 'react-bootstrap/Badge';
 import Image from 'next/image';
 //Helpers
-import { capitalizeFirstLetter } from '@/helpers/_silabs/capitalizeFirstLetter';
+import { capitalizeFirstLetter } from '@silocitypages/utils';
 //Styles
 import styles from '@/public/styles/components/CodBadges.module.css';
 

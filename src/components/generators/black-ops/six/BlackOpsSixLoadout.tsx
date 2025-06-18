@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { Row, Col, Button } from 'react-bootstrap';
-import SclPlaceholder from '@/components/_silabs/SclPlaceholder';
+import { SclPlaceholder } from '@silocitypages/ui-core';
 import CodClassName from '@/components/CodClassName';
 import SimpleGeneratorView from '@/components/generators/cod/SimpleGeneratorView';
 //Helpers
@@ -16,7 +16,7 @@ import { fetchEquipment } from '@/helpers/fetch/fetchEquipment';
 import { fetchWildcard } from '@/helpers/fetch/fetchWildcard';
 import { fetchClassName } from '@/helpers/fetch/fetchClassName';
 //Utils
-import { sendEvent } from '@/utils/gtag';
+import { sendEvent } from '@silocitypages/utils';
 //json
 import defaultData from '@/json/cod/default-generator-info.json';
 

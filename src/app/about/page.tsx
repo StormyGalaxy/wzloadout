@@ -5,8 +5,8 @@ import PageLayout from '@/components/PageLayout';
 // --- Font Awesome ---
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCrosshairs, faSkull, faParachuteBox, faMapPin } from '@fortawesome/free-solid-svg-icons';
-//Helpers
-import { generateGithubLink } from '@/helpers/_silabs/generateGithubLink';
+// --- Utils ---
+import { generateGithubLink } from '@silocitypages/utils';
 
 export const metadata: Metadata = { title: 'About' };
 

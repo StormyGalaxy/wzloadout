@@ -14,7 +14,7 @@ import { fetchClassName } from '@/helpers/fetch/fetchClassName';
 import { fetchAttachments } from '@/helpers/generator/modern-warfare/remastered/fetchAttachments';
 import { fetchPerk } from '@/helpers/generator/modern-warfare/remastered/fetchPerk';
 //Utils
-import { sendEvent } from '@/utils/gtag';
+import { sendEvent } from '@silocitypages/utils';
 //json
 import defaultData from '@/json/cod/default-generator-info.json';
 

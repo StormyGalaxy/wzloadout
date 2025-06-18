@@ -1,6 +1,5 @@
 import { getPerkList } from '@/helpers/generator/getPerkList';
-import { mergeObjectsWithRekey } from '@/helpers/_silabs/mergeObjectsWithRekey';
-import { randomListItem } from '@/helpers/_silabs/randomListItem';
+import { randomListItem, mergeObjectsWithRekey } from '@silocitypages/utils';
 
 export function fetchPerks(game: string = '', isPerkGreed: boolean = false): string {
   const perkList = getPerkList(game);
