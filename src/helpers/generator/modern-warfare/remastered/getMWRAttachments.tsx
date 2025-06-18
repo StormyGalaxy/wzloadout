@@ -18,6 +18,6 @@ const attachmentGetters = {
 
 export function getMWRAttachments(type: string, gun: string, count: number) {
   const getter = attachmentGetters[type];
-  console;
+
   return getter ? getter(gun, count) : {};
 }

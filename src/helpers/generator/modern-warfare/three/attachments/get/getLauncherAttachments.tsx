@@ -1,7 +1,9 @@
-import { randomizeAttachments } from '@/helpers/randomizeAttachments';
+// --- Data ---
 import rgl80 from '@/json/modern-warfare/three/attachments/launcher/rgl80.json';
 import stormender from '@/json/modern-warfare/three/attachments/launcher/stormender.json';
 import torque35 from '@/json/modern-warfare/three/attachments/launcher/torque35.json';
+// --- Helpers ---
+import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 
 const attachmentsList: Record<string, Record<string, string[]>> = { rgl80, stormender, torque35 };
 

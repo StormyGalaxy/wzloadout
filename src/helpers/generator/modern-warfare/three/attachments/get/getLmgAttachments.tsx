@@ -1,3 +1,4 @@
+// --- Data ---
 import bruenmk9 from '@/json/modern-warfare/three/attachments/lmg/bruenMk9.json';
 import kastovlsw from '@/json/modern-warfare/three/attachments/lmg/kastovLsw.json';
 import taqevolvere from '@/json/modern-warfare/three/attachments/lmg/taqEvolvere.json';

@@ -1,8 +1,9 @@
+// --- Data ---
 import default1 from '@/json/modern-warfare/remastered/attachments/assault_rifle/default1.json';
 // --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 
-const attachmentsList: Record<string, any> = {
+const attachmentsList: Record<string, string[]> = {
   m16a4: default1,
   ak47: default1,
   m4carbine: default1,
@@ -13,8 +14,8 @@ const attachmentsList: Record<string, any> = {
   bos14: default1,
 };
 
-export function getAssaultRifleAttachments(gun: string, count: number): any {
-  const attachments: any = [];
+export function getAssaultRifleAttachments(gun: string, count: number): string[] {
+  const attachments: string[] = [];
   const data = attachmentsList[gun];
 
   if (data) {

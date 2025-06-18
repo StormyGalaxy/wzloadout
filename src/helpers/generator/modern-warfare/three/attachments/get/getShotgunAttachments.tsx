@@ -1,3 +1,4 @@
+// --- Data ---
 import reclaimer18 from '@/json/modern-warfare/three/attachments/shotgun/reclaimer18.json';
 import lockwood680 from '@/json/modern-warfare/three/attachments/shotgun/lockwood680.json';
 import haymaker from '@/json/modern-warfare/three/attachments/shotgun/haymaker.json';

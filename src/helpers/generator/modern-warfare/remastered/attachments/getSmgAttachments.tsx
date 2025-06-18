@@ -1,8 +1,9 @@
+// --- Data ---
 import default1 from '@/json/modern-warfare/remastered/attachments/smg/default1.json';
 // --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 
-const attachmentsList: Record<string, any> = {
+const attachmentsList: Record<string, string[]> = {
   mp5: default1,
   skorpion: default1,
   miniuzi: default1,
@@ -13,7 +14,7 @@ const attachmentsList: Record<string, any> = {
 };
 
 export function getSmgAttachments(gun: string, count: number) {
-  const attachments: any = [];
+  const attachments: string[] = [];
   const data = attachmentsList[gun];
 
   if (data) {

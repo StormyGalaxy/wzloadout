@@ -1,7 +1,9 @@
-import { randomizeAttachments } from '@/helpers/randomizeAttachments';
+// --- Data ---
 import renetti from '@/json/modern-warfare/three/attachments/pistol/renetti.json';
 import tyr from '@/json/modern-warfare/three/attachments/pistol/tyr.json';
 import wspStinger from '@/json/modern-warfare/three/attachments/pistol/wspStinger.json';
+// --- Helpers ---
+import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 
 const attachmentsList: Record<string, Record<string, string[]>> = {
   renetti,

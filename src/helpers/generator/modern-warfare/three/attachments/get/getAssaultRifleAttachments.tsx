@@ -1,3 +1,4 @@
+// --- Data ---
 import stg44 from '@/json/modern-warfare/three/attachments/assault_rifle/stg44.json';
 import bal27 from '@/json/modern-warfare/three/attachments/assault_rifle/bal27.json';
 import mtz556 from '@/json/modern-warfare/three/attachments/assault_rifle/mtz556.json';

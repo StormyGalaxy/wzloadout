@@ -1,3 +1,4 @@
+// --- Data ---
 import superi46 from '@/json/modern-warfare/three/attachments/smg/superi46.json';
 import statichv from '@/json/modern-warfare/three/attachments/smg/staticHv.json';
 import fjxhorus from '@/json/modern-warfare/three/attachments/smg/fjxHorus.json';

@@ -1,3 +1,4 @@
+// --- Data ---
 import dtir3006 from '@/json/modern-warfare/three/attachments/battle_rifle/dtir3006.json';
 import soasubverter from '@/json/modern-warfare/three/attachments/battle_rifle/soaSubverter.json';
 import basb from '@/json/modern-warfare/three/attachments/battle_rifle/basb.json';
