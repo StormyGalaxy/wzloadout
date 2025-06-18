@@ -1,3 +1,4 @@
+// --- Data ---
 import bo6List from '@/json/black-ops/six/equipment/lethal.json';
 import bo6ZombiesList from '@/json/black-ops/six/zombies/lethal.json';
 import warzoneList from '@/json/warzone/equipment/lethal.json';
@@ -13,8 +14,12 @@ import ww2List from '@/json/world-war-two/equipment/lethal.json';
 import mw2List from '@/json/modern-warfare/two/equipment/lethal.json';
 import iwList from '@/json/infinite-warfare/equipment/lethal.json';
 import wawList from '@/json/world-at-war/equipment/lethal.json';
+// --- Types ---
+import { GeneratorItem } from '@/types/Generator';
 
-const equipment: Record<string, any> = {
+type ItemList = GeneratorItem[] | Record<string, GeneratorItem>;
+
+const equipment: Record<string, ItemList> = {
   'black-ops-six': bo6List,
   'black-ops-six-zombies': bo6ZombiesList,
   warzone: warzoneList,
@@ -31,6 +36,6 @@ const equipment: Record<string, any> = {
   'world-at-war': wawList,
 };
 
-export function getLethalList(game: string): any {
+export function getLethalList(game: string): ItemList {
   return equipment[game] || {};
 }

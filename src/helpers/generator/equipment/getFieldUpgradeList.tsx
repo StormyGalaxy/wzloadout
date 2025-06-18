@@ -1,3 +1,4 @@
+// --- Data ---
 import bo6List from '@/json/black-ops/six/equipment/field_upgrade.json';
 import bo6ZombiesList from '@/json/black-ops/six/zombies/field_upgrade.json';
 import mw3List from '@/json/modern-warfare/three/equipment/field_upgrade.json';
@@ -8,8 +9,12 @@ import coldWarZombieList from '@/json/black-ops/cold-war/zombies/field_upgrade.j
 import coldWarList from '@/json/black-ops/cold-war/equipment/field_upgrade.json';
 import ww2List from '@/json/world-war-two/zombies/special.json';
 import mw2List from '@/json/modern-warfare/two/equipment/field_upgrade.json';
+// --- Types ---
+import { GeneratorItem } from '@/types/Generator';
 
-const equipment: Record<string, any> = {
+type ItemList = GeneratorItem[] | Record<string, GeneratorItem>;
+
+const equipment: Record<string, ItemList> = {
   'black-ops-six': bo6List,
   'black-ops-six-zombies': bo6ZombiesList,
   'modern-warfare-three': mw3List,
@@ -22,6 +27,6 @@ const equipment: Record<string, any> = {
   'modern-warfare-two': mw2List,
 };
 
-export function getFieldUpgradeList(game: string): any {
+export function getFieldUpgradeList(game: string): ItemList {
   return equipment[game] || {};
 }

@@ -1,7 +1,12 @@
+// --- Data ---
 import mw3List from '@/json/modern-warfare/three/equipment/vest.json';
+// --- Types ---
+import { GeneratorItem } from '@/types/Generator';
 
-const equipment: Record<string, any> = { 'modern-warfare-three': mw3List };
+type ItemList = GeneratorItem[] | Record<string, GeneratorItem>;
 
-export function getVestList(game: string): any {
+const equipment: Record<string, ItemList> = { 'modern-warfare-three': mw3List };
+
+export function getVestList(game: string): ItemList {
   return equipment[game] || {};
 }
