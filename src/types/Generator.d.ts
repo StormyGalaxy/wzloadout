@@ -1,4 +1,10 @@
-export type GeneratorItem = { name: string; type: string; game: string; isDlc?: boolean };
+export type GeneratorItem = {
+  name: string;
+  type: string;
+  game: string;
+  description?: string;
+  isDlc?: boolean;
+};
 
 export type Weapon = {
   name: string;
@@ -10,14 +16,6 @@ export type Weapon = {
 };
 
 export type Perk = { name: string; type: string; game: string; isDlc?: boolean };
-
-export type Wildcard = {
-  name: string;
-  type: string;
-  game: string;
-  description: string;
-  isDlc?: boolean;
-};
 
 export type Streak = { name: string; type: string; game: string; score: number; isDlc?: boolean };
 

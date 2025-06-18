@@ -1,8 +1,12 @@
+// --- Helpers ---
 import { getWildcardList } from '@/helpers/generator/getWildcardList';
+// --- Utils ---
 import { randomListItem } from '@silocitypages/utils';
-import { Wildcard } from '@/types/Generator';
+// --- Types ---
+import { GeneratorItem } from '@/types/Generator';
 
-export function fetchWildcard(game: string = ''): Wildcard {
+export function fetchWildcard(game: string = ''): GeneratorItem {
   const dataList = getWildcardList(game);
+
   return randomListItem(dataList);
 }

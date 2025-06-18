@@ -1,10 +1,10 @@
 // --- Helpers ---
 import { getWildcardList } from '@/helpers/generator/getWildcardList';
 // --- Types ---
-import { Wildcard } from '@/types/Generator';
+import { GeneratorItem } from '@/types/Generator';
 
-export function getWildcards(game: string = 'all'): Wildcard | Record<string, Wildcard> {
-  const data = getWildcardList(game) as Record<string, Wildcard>;
+export function getWildcards(game: string = 'all'): GeneratorItem | Record<string, GeneratorItem> {
+  const data = getWildcardList(game) as Record<string, GeneratorItem>;
 
   return data;
 }
