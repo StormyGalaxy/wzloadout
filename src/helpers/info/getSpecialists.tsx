@@ -5,14 +5,16 @@ import iwList from '@/json/infinite-warfare/combat-rig.json';
 // --- Types ---
 import { Specialist } from '@/types/Generator';
 
-const dataList: Record<string, any> = {
+const dataList: Record<string, Specialist[]> = {
   'black-ops-four': bo4List,
   'black-ops-three': bo3List,
   'infinite-warfare': iwList,
 };
 
-export function getSpecialists(game: string = 'all'): Specialist | Record<string, Specialist> {
-  const data = dataList[game] || ({} as Record<string, Specialist>);
+export function getSpecialists(game: string = 'all'): Specialist[] {
+  if (game === 'all') {
+    return Object.values(dataList).flat();
+  }
 
-  return data;
+  return dataList[game] || [];
 }
