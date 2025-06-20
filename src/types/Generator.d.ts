@@ -17,8 +17,6 @@ export type Weapon = {
   no_attach_info?: boolean; //When we dont have access to the attachments for the weapon
 };
 
-export type Perk = { name: string; type: string; game: string; isDlc?: boolean };
-
 export type Streak = { name: string; type: string; game: string; score: number; isDlc?: boolean };
 
 export type Specialist = {

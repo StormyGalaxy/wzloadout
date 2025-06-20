@@ -1,10 +1,10 @@
 import { getPerkList } from '@/helpers/generator/zombies/getPerkList';
 import { randomListItem } from '@silocitypages/utils';
-import { Perk } from '@/types/Generator';
+import { ItemList } from '@/types/Generator';
 
 export function fetchZombiesPerks(game: string = '', amount: number = 4): string[] {
   const perkNames: string[] = []; // Array to store perk names
-  const dataList: Perk[] = getPerkList(game);
+  const dataList: ItemList = getPerkList(game);
 
   while (perkNames.length < amount) {
     const randomPerkName = randomListItem(dataList).name;

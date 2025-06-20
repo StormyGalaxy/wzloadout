@@ -9,9 +9,7 @@ import ww2FrontlineList from '@/json/world-war-two/zombies/mods/frontline.json';
 import ww2ShellshockList from '@/json/world-war-two/zombies/mods/shellshock.json';
 import ww2UniversalList from '@/json/world-war-two/zombies/mods/universal.json';
 // --- Types ---
-import { InfoData } from '@/types/Info';
-
-type ItemList = InfoData[] | Record<string, InfoData>;
+import { ItemList } from '@/types/Generator';
 
 const list: Record<string, ItemList> = {
   'black-ops-four-zombies': bo4List,
