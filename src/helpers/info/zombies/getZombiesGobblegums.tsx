@@ -1,10 +1,10 @@
 // --- Helpers ---
 import { getGobblegumList } from '@/helpers/generator/zombies/getGobblegumList';
 // --- Types ---
-import { Gobblegum } from '@/types/Generator';
+import { ItemList } from '@/types/Generator';
 
-export function getZombiesGobblegums(game: string = 'all'): Gobblegum | Record<string, Gobblegum> {
-  const data = getGobblegumList(game) as Record<string, Gobblegum>;
+export function getZombiesGobblegums(game: string = 'all'): ItemList {
+  const data = getGobblegumList(game) as ItemList;
 
   return data;
 }
