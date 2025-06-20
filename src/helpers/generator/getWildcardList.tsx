@@ -5,7 +5,7 @@ import bo3List from '@/json/black-ops/three/wildcard.json';
 import bo4List from '@/json/black-ops/four/wildcard.json';
 import coldWarList from '@/json/black-ops/cold-war/wildcard.json';
 // --- Types ---
-import { GeneratorItem, ItemList } from '@/types/Generator';
+import { ItemList } from '@/types/Generator';
 
 const wildcards: Record<string, ItemList> = {
   'black-ops-six': bo6List,

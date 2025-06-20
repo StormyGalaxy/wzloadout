@@ -15,7 +15,7 @@ import mw2List from '@/json/modern-warfare/two/equipment/lethal.json';
 import iwList from '@/json/infinite-warfare/equipment/lethal.json';
 import wawList from '@/json/world-at-war/equipment/lethal.json';
 // --- Types ---
-import { GeneratorItem, ItemList } from '@/types/Generator';
+import { ItemList } from '@/types/Generator';
 
 const equipment: Record<string, ItemList> = {
   'black-ops-six': bo6List,

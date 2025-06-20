@@ -1,7 +1,7 @@
 // --- Data ---
 import mw3List from '@/json/modern-warfare/three/equipment/vest.json';
 // --- Types ---
-import { GeneratorItem, ItemList } from '@/types/Generator';
+import { ItemList } from '@/types/Generator';
 
 const equipment: Record<string, ItemList> = { 'modern-warfare-three': mw3List };
 

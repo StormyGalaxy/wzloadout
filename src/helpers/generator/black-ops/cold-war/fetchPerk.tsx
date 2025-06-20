@@ -5,7 +5,7 @@ import perk3 from '@/json/black-ops/cold-war/perk/perk3.json';
 // --- Utils ---
 import { randomListItem } from '@silocitypages/utils';
 // --- Types ---
-import { GeneratorItem, ItemList } from '@/types/Generator';
+import { ItemList } from '@/types/Generator';
 
 const perks: Record<string, ItemList> = {
   perk1: perk1,

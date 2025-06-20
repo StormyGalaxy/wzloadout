@@ -9,7 +9,7 @@ import mw3List from '@/json/modern-warfare/three/zombies/field_upgrade.json';
 // --- World War 2 Zombies ---
 import ww2List from '@/json/world-war-two/zombies/special.json';
 // --- Types ---
-import { GeneratorItem, ItemList } from '@/types/Generator';
+import { ItemList } from '@/types/Generator';
 
 const data: Record<string, ItemList> = {
   'black-ops-six': bo6List,
