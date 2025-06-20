@@ -1,5 +1,6 @@
-//Components
+// --- Components ---
 import { SclPlaceholder } from '@silocitypages/ui-core';
+// --- Types ---
 import { GeneratorViewProps } from '@/types/GeneratorView';
 
 function SimpleGeneratorView({
@@ -13,7 +14,7 @@ function SimpleGeneratorView({
     <>
       <span className={`${titleClassName} fw-bolder fs-5`}> {title}:</span> <br />
       <span className={`${valueClassName} text-muted fs-6`}>
-        <SclPlaceholder isLoading={isGenerating} value={value} />
+        <SclPlaceholder isLoading={isGenerating} value={value ?? ''} />
       </span>
     </>
   );
