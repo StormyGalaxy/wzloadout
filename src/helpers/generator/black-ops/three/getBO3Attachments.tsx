@@ -5,14 +5,13 @@ import { getAttachments } from './attachments/get/getAttachments';
 import { Weapon } from '@/types/Generator';
 
 // Define the specific return types for clarity
-type AttachmentResult = string | string[];
-type AllAttachmentsResult = { optic: string; attachments: string[] };
-type BO3AttachmentsResult = AllAttachmentsResult | AttachmentResult | Record<string, never>;
+type AllAttachmentsResult = { optic: string[]; attachments: string[] };
+type BO3AttachmentsResult = AllAttachmentsResult | string[] | Record<string, never>;
 
-const attachmentGetter: Record<
-  string,
-  (type: string, gun: string, count: number) => AttachmentResult
-> = { optic: getOptics, attachments: getAttachments };
+const attachmentGetter: Record<string, (type: string, gun: string, count: number) => string[]> = {
+  optic: getOptics,
+  attachments: getAttachments,
+};
 
 export function getBO3Attachments(
   weapon: Weapon,
