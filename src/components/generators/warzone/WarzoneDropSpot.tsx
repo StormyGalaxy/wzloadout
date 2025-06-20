@@ -65,7 +65,13 @@ export default function WarzoneDropSpot() {
   };
 
   useEffect(() => {
-    const storedSettings = getLocalStorage('warzoneDropSpotSettings') ?? defaultSettings;
+    const rawStoredSettings = getLocalStorage('warzoneDropSpotSettings');
+
+    const storedSettings =
+      typeof rawStoredSettings === 'object' && rawStoredSettings !== null
+        ? rawStoredSettings
+        : defaultSettings;
+
     const completeSettings = { ...defaultSettings, ...storedSettings };
 
     setSettings(completeSettings);
