@@ -21,6 +21,8 @@ interface PageLayoutProps {
   showFooter?: boolean;
   headerDarkLinks?: boolean;
   headerShowBadge?: boolean;
+  containerClassName?: string;
+  contentClassName?: string;
 }
 
 export default function PageLayout({
@@ -32,9 +34,11 @@ export default function PageLayout({
   showFooter = true,
   headerDarkLinks = false,
   headerShowBadge = false,
+  containerClassName = '',
+  contentClassName = '',
 }: PageLayoutProps) {
   return (
-    <div className='main-container'>
+    <div className={`main-container ${containerClassName}`}>
       {showHeader && (
         <Header
           className={headerClassName}
@@ -43,7 +47,7 @@ export default function PageLayout({
           showBadge={headerShowBadge}
         />
       )}
-      <main className='main-content'>{children}</main>
+      <main className={`main-content ${contentClassName}`}>{children}</main>
       {showFooter && <Footer className={footerClassName} />}
     </div>
   );
