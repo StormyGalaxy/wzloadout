@@ -47,7 +47,13 @@ export default function BlackOpsSixZombiesLoadout() {
   const [data, setData] = useState(defaultData);
 
   useEffect(() => {
-    const storedSettings = getLocalStorage('bo6ZombiesSettings') ?? defaultSettings;
+    const rawStoredSettings = getLocalStorage('bo6ZombiesSettings');
+
+    const storedSettings =
+      typeof rawStoredSettings === 'object' && rawStoredSettings !== null
+        ? rawStoredSettings
+        : defaultSettings;
+
     const completeSettings = { ...defaultSettings, ...storedSettings };
 
     //Compare relevant properties
