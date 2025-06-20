@@ -5,12 +5,12 @@ import { Row, Col, Tabs, Tab, Button } from 'react-bootstrap';
 // --- Components ---
 import { CustomAlert } from '@silocitypages/ui-core';
 import Warzone from '@/components/settings/Warzone';
-//DB
+// --- DB ---
 import getAllSettings from '@/helpers/database/settings/getAllSettings';
 import saveSettings from '@/helpers/database/settings/saveSettings';
 import { useDatabase } from '@/contexts/DatabaseContext';
 //Types
-import { sclSettings } from '@/types/_fw';
+import type { sclSettings } from '@silocitypages/ui-core';
 
 // Define outside component if static
 const warzoneGames = [

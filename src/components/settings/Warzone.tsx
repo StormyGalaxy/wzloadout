@@ -1,9 +1,11 @@
+// --- React ---
 import React from 'react';
 import { Row, Col, Form } from 'react-bootstrap';
-//Styles
+// --- Styles ---
 import styles from '@/public/styles/components/Settings.module.css';
+// --- Types ---
 //Types
-import { sclSettings } from '@/types/_fw';
+import type { sclSettings } from '@silocitypages/ui-core';
 
 const warzoneGames = [
   { key: 'black-ops-six', value: 'Black Ops 6' },
