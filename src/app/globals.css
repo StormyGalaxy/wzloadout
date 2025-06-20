@@ -1,4 +1,4 @@
-#main-header {
+#site-header {
   margin-bottom: 25px;
 }
 
@@ -40,42 +40,42 @@
 }
 
 /* Custom Header Colors */
-#main-header.black-ops {
+#site-header.black-ops {
   background: #f96800 !important;
 }
 
-#main-header a {
+#site-header a {
   color: white !important;
 }
 
-#main-header.warzone,
-#main-header.mwr {
+#site-header.warzone,
+#site-header.mwr {
   background: #198754 !important;
 }
 
-#main-header.modern-warfare,
-#main-header.cold-war,
-#main-header.vanguard {
+#site-header.modern-warfare,
+#site-header.cold-war,
+#site-header.vanguard {
   background: #dc3545 !important;
 }
 
-#main-header.mw2 {
+#site-header.mw2 {
   background: #79c22b !important;
 }
 
-#main-header.ww2 {
+#site-header.ww2 {
   background: #9c800f !important;
 }
 
-#main-header.infinite-warfare {
+#site-header.infinite-warfare {
   background: #ffff02 !important;
 }
 
-#main-header.infinite-warfare a {
+#site-header.infinite-warfare a {
   color: #000 !important;
 }
 
-#main-header.waw {
+#site-header.waw {
   background: #6c757d !important;
 }
 
