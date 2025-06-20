@@ -8,6 +8,30 @@ export type GeneratorItem = {
 
 export type ItemList = GeneratorItem[] | Record<string, GeneratorItem>;
 
+export interface PerkObject {
+  perk1: string;
+  perk2: string;
+  perk3: string;
+  perk1Greed?: string;
+  perk2Greed?: string;
+  perk3Greed?: string;
+}
+
+export interface Equipment {
+  name: string;
+}
+
+export interface GeneratorData {
+  randClassName: string;
+  perkObj: PerkObject;
+  streaks: string;
+  weapons: { primary: Weapon; secondary: Weapon };
+  equipment: { tactical: Equipment; lethal: Equipment; fieldUpgrade: Equipment };
+  wildcard: { name: string };
+}
+
+export type GeneratorStatus = 'loading' | 'generating' | 'idle';
+
 export type Weapon = {
   name: string;
   type: string;
@@ -15,6 +39,8 @@ export type Weapon = {
   no_attach?: boolean;
   isDlc?: boolean;
   no_attach_info?: boolean; //When we dont have access to the attachments for the weapon
+  optic?: string;
+  attachments?: string;
 };
 
 export type Streak = { name: string; type: string; game: string; score: number; isDlc?: boolean };
