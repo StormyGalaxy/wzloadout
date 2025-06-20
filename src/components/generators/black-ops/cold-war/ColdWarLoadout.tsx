@@ -11,6 +11,8 @@ import { scrollToTop } from '@/helpers/scrollToTop';
 import SimpleLoadoutView from '@/components/generators/views/SimpleLoadoutView';
 import CodClassName from '@/components/CodClassName';
 import GeneratorSkeleton from '@/components/generators/views/skeletons/GeneratorSkeleton';
+// --- Styles ---
+import styles from '@/components/generators/views/ModernLoadout.module.css';
 
 const ColdWarGenerator: React.FC = () => {
   const { data, isLoading, isGenerating, generateLoadout } = useColdWarGenerator();
@@ -46,8 +48,13 @@ const ColdWarGenerator: React.FC = () => {
       {/* --- Generate Button --- */}
       <Row className='mt-4'>
         <Col className='text-center'>
-          <Button variant='danger' size='lg' disabled={isGenerating} onClick={handleClick}>
-            {isGenerating ? 'Generating...' : 'Generate Loadout'}
+          <Button
+            variant='danger'
+            size='lg'
+            disabled={isGenerating}
+            onClick={handleClick}
+            className={styles.generateButton}>
+            {isGenerating ? 'Generating...' : 'Generate New Loadout'}
           </Button>
         </Col>
       </Row>

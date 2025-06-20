@@ -5,23 +5,36 @@ import { Card, Placeholder } from 'react-bootstrap';
 interface ViewProps {
   streaks: string;
   isGenerating: boolean;
+  className?: string;
+  headerClassName?: string;
 }
 
-const StreaksView: React.FC<ViewProps> = ({ streaks, isGenerating }) => {
-  if (!isGenerating && !streaks) {
-    return null;
-  }
-
+const StreaksView: React.FC<ViewProps> = ({
+  streaks,
+  isGenerating,
+  className,
+  headerClassName,
+}) => {
   return (
-    <Card className='h-100'>
-      <Card.Header>Streaks</Card.Header>
-      <Card.Body className='d-flex align-items-center justify-content-center'>
+    <Card className={className}>
+      <Card.Header as='h5' className={headerClassName}>
+        Scorestreaks
+      </Card.Header>
+      <Card.Body
+        className='d-flex align-items-center justify-content-center'
+        style={{ minHeight: '80px' }}>
         {isGenerating ? (
-          <Placeholder as={Card.Text} animation='glow' className='mb-0 w-100'>
-            <Placeholder xs={6} />
+          <Placeholder as={Card.Text} animation='glow' className='mb-0 w-100 text-center'>
+            <Placeholder xs={8} size='lg' />
           </Placeholder>
         ) : (
-          <Card.Text className='mb-0'>{streaks}</Card.Text>
+          <div className='text-center'>
+            {streaks.split(',').map((streak, index) => (
+              <Card.Text key={index} className='mb-1 fw-bold fs-6'>
+                {streak.trim()}
+              </Card.Text>
+            ))}
+          </div>
         )}
       </Card.Body>
     </Card>

@@ -8,14 +8,24 @@ interface WeaponCardProps {
   title: string;
   weapon: Weapon;
   isGenerating: boolean;
+  className?: string;
+  headerClassName?: string;
 }
 
-const WeaponCard: React.FC<WeaponCardProps> = ({ title, weapon, isGenerating }) => {
+const WeaponCard: React.FC<WeaponCardProps> = ({
+  title,
+  weapon,
+  isGenerating,
+  className,
+  headerClassName,
+}) => {
   if (!weapon) return null;
 
   return (
-    <Card className='mb-3 h-100'>
-      <Card.Header>{title}</Card.Header>
+    <Card className={className}>
+      <Card.Header as='h5' className={headerClassName}>
+        {title}
+      </Card.Header>
       <Card.Body>
         {isGenerating ? (
           <Placeholder as={Card.Title} animation='glow'>

@@ -1,0 +1,64 @@
+/* --- Card Styling --- */
+.card {
+  border: 1px solid #e0e0e0 !important;
+  border-radius: 0.5rem !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important;
+  height: 100%;
+  transition:
+    transform 0.2s ease-in-out,
+    box-shadow 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08) !important;
+}
+
+.cardHeader {
+  background-color: var(--theme-color, #343a40) !important;
+  color: white !important;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-top-left-radius: 0.5rem !important;
+  border-top-right-radius: 0.5rem !important;
+  padding: 0.75rem 1.25rem !important;
+  border-bottom: none !important;
+}
+
+/* --- Title Styling --- */
+.pageTitle {
+  font-weight: 700;
+  color: #212529;
+}
+
+.pageSubtitle {
+  color: #6c757d;
+  font-weight: 400;
+}
+
+/* --- Button Styling --- */
+.generateButton {
+  padding: 0.75rem 2rem !important;
+  font-size: 1.25rem !important;
+  font-weight: bold !important;
+  transition: all 0.3s ease !important;
+  border-radius: 0.5rem !important;
+}
+
+/* --- Animation for Generating State --- */
+.generating {
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+  }
+}

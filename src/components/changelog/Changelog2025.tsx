@@ -7,6 +7,10 @@ function Changelog2025() {
       <Row>
         <Col>
           <p>
+            6/20/2025: <Link href='black-ops/cold-war/generator'>Black Ops Cold War:</Link>{' '}
+            Redesigned the Cold War Generator!
+          </p>
+          <p>
             5/29/2025: <Link href='black-ops/six/zombies-generator'>Black Ops VI Zombies:</Link>{' '}
             Season 4 - Added Shatter Blast Ammo Mod and all new gobblegums (Explosive Flourish,
             Flavor Hex, Rainburps)

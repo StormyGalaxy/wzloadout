@@ -103,6 +103,7 @@ export const useColdWarGenerator = () => {
       // Use a timeout to give a feeling of generation
       setTimeout(() => {
         setStatus('idle');
+        // setStatus('generating');
       }, 500);
     }
   }, []);

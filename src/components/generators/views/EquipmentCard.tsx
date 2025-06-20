@@ -7,6 +7,8 @@ interface EquipmentCardProps {
   tactical: string;
   fieldUpgrade?: string;
   isGenerating: boolean;
+  className?: string;
+  headerClassName?: string;
 }
 
 const EquipmentCard: React.FC<EquipmentCardProps> = ({
@@ -14,40 +16,47 @@ const EquipmentCard: React.FC<EquipmentCardProps> = ({
   tactical,
   fieldUpgrade,
   isGenerating,
+  className,
+  headerClassName,
 }) => {
-  if (!isGenerating && !lethal && !tactical && !fieldUpgrade) {
-    return null;
-  }
   return (
-    <Card className='mb-3'>
-      <Card.Header>Equipment</Card.Header>
-      <Card.Body>
+    <Card className={className}>
+      <Card.Header as='h5' className={headerClassName}>
+        Equipment
+      </Card.Header>
+      <Card.Body style={{ minHeight: '120px' }}>
         {isGenerating ? (
           <>
             <Placeholder as={Card.Text} animation='glow'>
-              <Placeholder xs={5} />
+              <Placeholder xs={8} />
             </Placeholder>
             <Placeholder as={Card.Text} animation='glow'>
-              <Placeholder xs={6} />
+              <Placeholder xs={7} />
             </Placeholder>
-            {fieldUpgrade && (
+            {fieldUpgrade !== undefined && (
               <Placeholder as={Card.Text} animation='glow'>
-                <Placeholder xs={7} />
+                <Placeholder xs={9} />
               </Placeholder>
             )}
           </>
         ) : (
           <>
-            <Card.Text>
-              <strong>Lethal:</strong> {lethal}
-            </Card.Text>
-            <Card.Text>
-              <strong>Tactical:</strong> {tactical}
-            </Card.Text>
+            <p className='mb-2'>
+              <span className='text-muted'>Lethal:</span>
+              <br />
+              <strong className='fs-6'>{lethal}</strong>
+            </p>
+            <p className='mb-2'>
+              <span className='text-muted'>Tactical:</span>
+              <br />
+              <strong className='fs-6'>{tactical}</strong>
+            </p>
             {fieldUpgrade && (
-              <Card.Text>
-                <strong>Field Upgrade:</strong> {fieldUpgrade}
-              </Card.Text>
+              <p className='mb-0'>
+                <span className='text-muted'>Field Upgrade:</span>
+                <br />
+                <strong className='fs-6'>{fieldUpgrade}</strong>
+              </p>
             )}
           </>
         )}
