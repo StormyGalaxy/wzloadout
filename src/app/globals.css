@@ -1,11 +1,29 @@
-#site-header {
-  margin-bottom: 25px;
+:root {
+  /* Default theme color if no theme class is applied */
+  --theme-color: #c8c8cd;
+
+  /* Footer-specific variables */
+  --footer-white: #ffffff;
+  --footer-light-gray: #c8c8cd;
+  --footer-dark-gray: #191919;
+  --footer-text: #191919;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+/* Theme Colors */
+:root {
+  --theme-color: #343a40; /* Default theme color */
+  --theme-color-light: #f8f9fa; /* Light theme color */
+  --theme-color-dark: #212529; /* Dark theme color */
+  --theme-color-accent: #007bff; /* Accent color */
+}
+
+.theme-cold-war {
+  --theme-color: #dc3545;
+}
+
+#site-header {
+  background: var(--theme-color) !important;
+  margin-bottom: 25px;
 }
 
 .cod-container {
@@ -54,7 +72,6 @@
 }
 
 #site-header.modern-warfare,
-#site-header.cold-war,
 #site-header.vanguard {
   background: #dc3545 !important;
 }

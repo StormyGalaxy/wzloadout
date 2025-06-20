@@ -1,0 +1,47 @@
+/* Use a unique class for the footer container */
+.codFooter {
+  background-color: var(--footer-dark-gray);
+  color: var(--footer-light-gray);
+  margin-top: auto;
+  border-top: 4px solid var(--theme-color);
+}
+
+.footerCopyright {
+  font-size: 0.8rem;
+  line-height: 1.4;
+  opacity: 0.8;
+}
+
+.copyrightSection {
+  margin-top: 1rem;
+}
+
+.copyrightSection a {
+  color: var(--theme-color) !important;
+  font-size: 0.9rem;
+  transition:
+    color 0.2s ease-in-out,
+    text-decoration 0.2s ease-in-out;
+}
+
+/* Style the navigation links in the footer */
+.footerLink {
+  color: var(--footer-light-gray) !important;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition:
+    color 0.2s ease-in-out,
+    text-decoration 0.2s ease-in-out;
+}
+
+/* Hover/Focus styles for footer links */
+.footerLink:hover,
+.footerLink:focus {
+  color: var(--theme-color) !important;
+  text-decoration: none;
+}
+
+/* Ensure Nav items don't add extra bullet points or styles */
+.footerNav .nav-item {
+  list-style: none;
+}

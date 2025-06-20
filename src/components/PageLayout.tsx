@@ -4,7 +4,7 @@
 import React from 'react';
 // --- Components ---
 import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import CodFooter from '@/components/CodFooter/CodFooter';
 
 interface NavLink {
   label: string;
@@ -28,6 +28,7 @@ interface PageLayoutProps {
 export default function PageLayout({
   children,
   headerClassName = '',
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   footerClassName = '',
   navLinks = [],
   showHeader = true,
@@ -48,7 +49,7 @@ export default function PageLayout({
         />
       )}
       <main className={`main-content ${contentClassName}`}>{children}</main>
-      {showFooter && <Footer className={footerClassName} />}
+      {showFooter && <CodFooter />}
     </div>
   );
 }

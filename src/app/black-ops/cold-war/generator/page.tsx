@@ -36,8 +36,8 @@ const navLinks = [
 
 export default function ColdWarGeneratorPage() {
   return (
-    <PageLayout navLinks={navLinks} headerClassName='cold-war'>
-      <Container style={{ '--theme-color': '#dc3545' } as React.CSSProperties}>
+    <PageLayout navLinks={navLinks} containerClassName='theme-cold-war'>
+      <Container>
         <div className='text-center mb-4'>
           <h2 className={styles.pageTitle}>Black Ops Cold War</h2>
           <p className={styles.pageSubtitle}>Random Class Generator</p>
