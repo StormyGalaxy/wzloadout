@@ -27,7 +27,7 @@ export default function SpecialistList({ game, dataKeys = defaultDataKeys }: Lis
       // Join the names with commas
       if (item.payload && Array.isArray(item.payload)) {
         item.payload = item.payload.join(', ');
-        item.trait = item.trait.join(', ');
+        item.trait = Array.isArray(item.trait) ? item.trait.join(', ') : '';
       }
     }
 
