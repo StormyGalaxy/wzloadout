@@ -18,9 +18,7 @@ import bo4TalismanEpicList from '@/json/black-ops/four/zombies/talismans/epic.js
 import bo4TalismanLegendaryList from '@/json/black-ops/four/zombies/talismans/legendary.json';
 import bo4TalismanRareList from '@/json/black-ops/four/zombies/talismans/rare.json';
 // --- Types ---
-import { GeneratorItem } from '@/types/Generator';
-
-type ItemList = GeneratorItem[] | Record<string, GeneratorItem>;
+import { GeneratorItem, ItemList } from '@/types/Generator';
 
 const data: Record<string, ItemList> = {
   'black-ops-six-zombies': mergeObjectsWithRekey(

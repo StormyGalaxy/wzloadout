@@ -14,7 +14,7 @@ import { fetchZombiesMap } from '@/helpers/fetch/zombies/fetchZombiesMap';
 import { fetchZombiesGobblegum } from '@/helpers/fetch/zombies/fetchZombiesGobblegum';
 import { fetchZombiesPerks } from '@/helpers/fetch/zombies/fetchZombiesPerks';
 //Types
-import { Bo4ZombiesSettings } from '@/types/Generator';
+import { Bo4ZombiesSettings, Weapon, GeneratorItem, ZombiesMap } from '@/types/Generator';
 //Components
 import { CustomModal } from '@silocitypages/ui-core';
 //Utils
@@ -28,6 +28,17 @@ const defaultSettings: Bo4ZombiesSettings = {
   rollTalisman: true,
 };
 
+interface Bo4ZombiesData {
+  randClassName: string;
+  story: { key: string; display: string };
+  weapons: { starting: Weapon; special: Weapon };
+  equipment: { lethal: GeneratorItem };
+  elixers: string;
+  talisman: string;
+  zombieMap: ZombiesMap;
+  zombiePerks: string[];
+}
+
 export default function BlackOpsFourZombiesLoadout() {
   const [isLoading, setIsLoading] = useState(true);
   const [isGenerating, setIsGenerating] = useState(true);
@@ -39,7 +50,7 @@ export default function BlackOpsFourZombiesLoadout() {
   const [showModal, setShowModal] = useState(false);
 
   //Data
-  const [data, setData] = useState(defaultData);
+  const [data, setData] = useState<Bo4ZombiesData>(defaultData);
 
   useEffect(() => {
     const rawStoredSettings = getLocalStorage('bo4ZombiesSettings');
@@ -167,7 +178,7 @@ export default function BlackOpsFourZombiesLoadout() {
               <SimpleGeneratorView
                 isGenerating={isGenerating}
                 title='Mode'
-                value={zombieMap?.mode}
+                value={zombieMap?.mode ?? null}
               />
             </Col>
             <Col xs md='4' lg='3' className='text-center'>
@@ -178,7 +189,7 @@ export default function BlackOpsFourZombiesLoadout() {
                 <SimpleGeneratorView
                   isGenerating={isGenerating}
                   title='Difficulty'
-                  value={zombieMap.difficulty}
+                  value={zombieMap?.difficulty ?? null}
                 />
               </Col>
             )}
@@ -259,7 +270,7 @@ export default function BlackOpsFourZombiesLoadout() {
   );
 }
 
-async function fetchLoadoutData(setData: (data: any) => void) {
+async function fetchLoadoutData(setData: (data: Bo4ZombiesData) => void) {
   sendEvent('button_click', {
     button_id: 'bo4Zombies_fetchLoadoutData',
     label: 'BlackOpsFourZombies',

@@ -6,6 +6,8 @@ export type GeneratorItem = {
   isDlc?: boolean;
 };
 
+export type ItemList = GeneratorItem[] | Record<string, GeneratorItem>;
+
 export type Weapon = {
   name: string;
   type: string;
@@ -50,8 +52,6 @@ export type Augment = {
 };
 
 export type Augments = { name: string; description: string };
-
-export type Gobblegum = { name: string; type: string; game: string; isDlc: boolean };
 
 export type MW3Vest = { name: string; type: string; game: string };
 

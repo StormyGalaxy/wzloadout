@@ -6,9 +6,7 @@ import vehiclePerk from '@/json/world-at-war/perk/vehicle-perk.json';
 // --- Utils ---
 import { randomListItem } from '@silocitypages/utils';
 // --- Types ---
-import { GeneratorItem } from '@/types/Generator';
-
-type ItemList = GeneratorItem[] | Record<string, GeneratorItem>;
+import { GeneratorItem, ItemList } from '@/types/Generator';
 
 const data: Record<string, ItemList> = {
   perk1: perk1,

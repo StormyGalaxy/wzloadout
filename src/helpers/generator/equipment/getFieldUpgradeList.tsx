@@ -10,9 +10,7 @@ import coldWarList from '@/json/black-ops/cold-war/equipment/field_upgrade.json'
 import ww2List from '@/json/world-war-two/zombies/special.json';
 import mw2List from '@/json/modern-warfare/two/equipment/field_upgrade.json';
 // --- Types ---
-import { GeneratorItem } from '@/types/Generator';
-
-type ItemList = GeneratorItem[] | Record<string, GeneratorItem>;
+import { GeneratorItem, ItemList } from '@/types/Generator';
 
 const equipment: Record<string, ItemList> = {
   'black-ops-six': bo6List,

@@ -5,9 +5,7 @@ import perk3 from '@/json/modern-warfare/remastered/perk/perk3.json';
 // --- Helpers ---
 import { randomListItem } from '@silocitypages/utils';
 // --- Types ---
-import { GeneratorItem } from '@/types/Generator';
-
-type ItemList = GeneratorItem[] | Record<string, GeneratorItem>;
+import { GeneratorItem, ItemList } from '@/types/Generator';
 
 const perks: Record<string, ItemList> = { perk1: perk1, perk2: perk2, perk3: perk3 };
 
