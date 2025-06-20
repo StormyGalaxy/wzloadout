@@ -1,0 +1,104 @@
+[
+  {
+    "Date": "December 25, 2024",
+    "Type": "New",
+    "Link": { "Url": "vanguard/zombies-generator", "Text": "Vanguard Zombies:" },
+    "Changes": "Generator is now available!"
+  },
+  {
+    "Date": "December 25, 2024",
+    "Type": "New",
+    "Link": { "Url": "vanguard/generator", "Text": "Vanguard:" },
+    "Changes": "Generator is now available!"
+  },
+  {
+    "Date": "December 22, 2024",
+    "Type": "Upgrade",
+    "Link": { "Url": "black-ops/six/zombies-generator", "Text": "Black Ops VI Zombies:" },
+    "Changes": "Added settings"
+  },
+  {
+    "Date": "December 22, 2024",
+    "Type": "Upgrade",
+    "Link": { "Url": "black-ops/six/generator", "Text": "Black Ops VI:" },
+    "Changes": "Added 3-Round Burst Mod to Kompakt 92"
+  },
+  {
+    "Date": "December 21, 2024",
+    "Type": "New",
+    "Link": { "Url": "black-ops/six/generator", "Text": "Black Ops VI:" },
+    "Changes": "Added Maelstrom shotgun"
+  },
+  {
+    "Date": "December 20, 2024",
+    "Type": "New",
+    "Link": { "Url": "black-ops/six/generator", "Text": "Black Ops VI:" },
+    "Changes": "Added AMR Mod 4 Sniper"
+  },
+  {
+    "Date": "December 6, 2024",
+    "Type": "Upgrade",
+    "Link": { "Url": "", "Text": "" },
+    "Changes": "Added Loadout names to all generators"
+  },
+  {
+    "Date": "December 6, 2024",
+    "Type": "Upgrade",
+    "Link": { "Url": "black-ops/six/generator", "Text": "Black Ops VI:" },
+    "Changes": "Added Season 01 reloaded perk reflexes to the generator"
+  },
+  {
+    "Date": "December 5, 2024",
+    "Type": "New",
+    "Link": { "Url": "black-ops/six/zombies-generator", "Text": "Black Ops VI Zombies:" },
+    "Changes": "Added Citadelle Des Morts"
+  },
+  {
+    "Date": "December 4, 2024",
+    "Type": "Upgrade",
+    "Link": { "Url": "black-ops/six/zombies-generator", "Text": "Black Ops VI Zombies:" },
+    "Changes": "Added season 01 reloaded gobblegums & tesla storm field upgrade"
+  },
+  {
+    "Date": "November 30, 2024",
+    "Type": "New",
+    "Link": { "Url": "modern-warfare/three/zombies-generator", "Text": "Modern Warfare Zombies:" },
+    "Changes": "Generator is now available!"
+  },
+  {
+    "Date": "November 29, 2024",
+    "Type": "New",
+    "Link": { "Url": "modern-warfare/three/generator", "Text": "Modern Warfare 3:" },
+    "Changes": "Generator is now available!"
+  },
+  {
+    "Date": "November 25, 2024",
+    "Type": "Upgrade",
+    "Link": { "Url": "black-ops/six/zombies-generator", "Text": "Black Ops VI Zombies:" },
+    "Changes": "Added Gobblegums & maps to the generator"
+  },
+  {
+    "Date": "November 25, 2024",
+    "Type": "New",
+    "Link": { "Url": "warzone/generator", "Text": "Warzone:" },
+    "Changes": "Generator is now available!"
+  },
+  {
+    "Date": "November 23, 2024",
+    "Type": "New",
+    "Link": { "Url": "black-ops/six/zombies-generator", "Text": "Black Ops VI Zombies:" },
+    "Changes": "Generator is now available!"
+  },
+  {
+    "Date": "November 22, 2024",
+    "Type": "Upgrade",
+    "Link": { "Url": "black-ops/six/generator", "Text": "Black Ops VI:" },
+    "Changes": "Added Season 01 perks and weapons to the generator"
+  },
+  {
+    "Date": "November 20, 2024",
+    "Type": "New",
+    "Link": { "Url": "black-ops/six/generator", "Text": "Black Ops VI:" },
+    "Changes": "Generator is now available!"
+  }
+]
