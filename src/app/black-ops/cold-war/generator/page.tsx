@@ -1,12 +1,13 @@
 // --- React ---
 import { Container, Row, Col } from 'react-bootstrap';
+// --- Next ---
 import type { Metadata } from 'next';
 // --- Layout ---
 import PageLayout from '@/components/PageLayout';
 // --- Loadout ---
 import ColdWarLoadout from '@/components/generators/black-ops/cold-war/ColdWarLoadout';
 // --- Styles ---
-import styles from '@/components/generators/views/ModernLoadout.module.css'; // Import our new styles
+import styles from '@/components/generators/views/ModernLoadout.module.css';
 
 // --- Metadata (keep as is) ---
 export const metadata: Metadata = {
@@ -42,6 +43,7 @@ export default function ColdWarGeneratorPage() {
           <h2 className={styles.pageTitle}>Black Ops Cold War</h2>
           <p className={styles.pageSubtitle}>Random Class Generator</p>
         </div>
+
         <Row className='p-3 p-md-4 bg-light rounded mb-4'>
           <Col className='mx-auto'>
             <ColdWarLoadout />

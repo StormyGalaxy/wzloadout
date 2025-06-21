@@ -41,6 +41,7 @@ export type Weapon = {
   no_attach_info?: boolean; //When we dont have access to the attachments for the weapon
   optic?: string;
   attachments?: string;
+  ammoMod?: string;
 };
 
 export type Streak = { name: string; type: string; game: string; score: number; isDlc?: boolean };

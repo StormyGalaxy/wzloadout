@@ -1,45 +1,12 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import { Row, Col, Button } from 'react-bootstrap';
 import SimpleGeneratorView from '@/components/generators/cod/SimpleGeneratorView';
 import CodClassName from '@/components/CodClassName';
-//Helpers
-import { implodeObject } from '@/helpers/implodeObject';
-import { scrollToTop } from '@/helpers/scrollToTop';
-import { fetchWeapon } from '@/helpers/fetch/fetchWeapon';
-import { fetchAttachments } from '@/helpers/fetch/fetchAttachments';
-import { fetchEquipment } from '@/helpers/fetch/fetchEquipment';
-import { fetchClassName } from '@/helpers/fetch/fetchClassName';
-//Zombies Specific
-import { fetchZombiesMap } from '@/helpers/fetch/zombies/fetchZombiesMap';
-//Utils
-import { sendEvent } from '@silocitypages/utils';
-//json
-import defaultData from '@/json/cod/default-zombies-generator-info.json';
+import { useColdWarZombiesLoadout } from '@/hooks/black-ops/cold-war/useColdWarZombiesLoadout';
 
 export default function ColdWarZombiesLoadout() {
-  const [isLoading, setIsLoading] = useState(true);
-  const [isGenerating, setIsGenerating] = useState(true);
-
-  //Data
-  const [data, setData] = useState(defaultData);
-
-  useEffect(() => {
-    fetchLoadoutData(setData);
-    setIsGenerating(false);
-    setIsLoading(false);
-  }, []);
-
-  const handleClick = async () => {
-    setIsGenerating(true);
-
-    setTimeout(() => {
-      fetchLoadoutData(setData);
-      setIsGenerating(false);
-      scrollToTop();
-    }, 1000);
-  };
+  const { isLoading, isGenerating, data, regenerateLoadout } = useColdWarZombiesLoadout();
 
   const { randClassName, weapons, field_upgrade, zombieMap } = data;
 
@@ -55,15 +22,13 @@ export default function ColdWarZombiesLoadout() {
           <SimpleGeneratorView
             isGenerating={isGenerating}
             title='Primary'
-            value={weapons.primary.weapon.name}
+            value={weapons.primary.name}
           />
           <br />
           <SimpleGeneratorView
             isGenerating={isGenerating}
             title='Primary Attachments'
-            value={
-              weapons.primary.weapon.no_attach ? 'No Attachments' : weapons.primary.attachments
-            }
+            value={weapons.primary.no_attach ? 'No Attachments' : weapons.primary.attachments}
           />
         </Col>
       </Row>
@@ -88,39 +53,11 @@ export default function ColdWarZombiesLoadout() {
           <Button
             variant='danger'
             disabled={isGenerating}
-            onClick={isGenerating ? undefined : handleClick}>
+            onClick={isGenerating ? undefined : regenerateLoadout}>
             {isGenerating ? 'Generating Loadout...' : 'Generate Loadout'}
           </Button>
         </Col>
       </Row>
     </>
   );
-}
-
-async function fetchLoadoutData(setData) {
-  sendEvent('button_click', {
-    button_id: 'coldWarZombies_fetchLoadoutData',
-    label: 'ColdWarZombies',
-    category: 'COD_Loadouts',
-  });
-
-  try {
-    const game = 'cold-war-zombies';
-    const randClassName = fetchClassName();
-    const weapons = { primary: { weapon: fetchWeapon('all', 'cold-war'), attachments: '' } };
-    //Get Primary Attachments
-    if (!weapons.primary.weapon.no_attach) {
-      weapons.primary.attachments = implodeObject(fetchAttachments(weapons.primary.weapon, 8));
-    }
-    const field_upgrade = fetchEquipment('field_upgrade', game).name;
-    const zombieMap = fetchZombiesMap(game);
-
-    setData({ randClassName, weapons, field_upgrade, zombieMap });
-  } catch (error: unknown) {
-    if (error instanceof Error) {
-      console.error(error.message);
-    } else {
-      console.error('An unknown error occurred.');
-    }
-  }
 }

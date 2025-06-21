@@ -1,9 +1,13 @@
+// --- React ---
 import { Container, Row, Col } from 'react-bootstrap';
+// --- Next ---
 import type { Metadata } from 'next';
 // --- Layout ---
 import PageLayout from '@/components/PageLayout';
 // --- Loadout ---
 import ColdWarZombiesLoadout from '@/components/generators/black-ops/cold-war/ColdWarZombiesLoadout';
+// --- Styles ---
+import styles from '@/components/generators/views/ModernLoadout.module.css';
 
 // --- Metadata ---
 export const metadata: Metadata = {
@@ -33,15 +37,14 @@ const navLinks = [
 
 export default function ColdWarZombiesGeneratorPage() {
   return (
-    <PageLayout navLinks={navLinks} headerClassName='cold-war'>
+    <PageLayout navLinks={navLinks} containerClassName='theme-cold-war'>
       <Container>
-        <h2 className='text-center mb-4'>
-          Black Ops Cold War Zombies
-          <span className='d-none d-sm-inline-block'>&nbsp;-&nbsp;</span>
-          <br className='d-block d-sm-none' />
-          Random Class Generator
-        </h2>
-        <Row className='shadow-lg p-3 bg-body rounded mb-4'>
+        <div className='text-center mb-4'>
+          <h2 className={styles.pageTitle}>Black Ops Cold War Zombies</h2>
+          <p className={styles.pageSubtitle}>Random Class Generator</p>
+        </div>
+
+        <Row className='p-3 p-md-4 bg-light rounded mb-4'>
           <Col className='mx-auto'>
             <ColdWarZombiesLoadout />
           </Col>
