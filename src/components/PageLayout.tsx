@@ -4,7 +4,7 @@
 import React from 'react';
 // --- Components ---
 import Header from '@/components/Header';
-import CodFooter from '@/components/CodFooter/CodFooter';
+import CodFooter from '@/components/cod-footer/CodFooter';
 
 interface NavLink {
   label: string;

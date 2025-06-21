@@ -4,7 +4,7 @@
 import React from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 // --- Hooks ---
-import { useColdWarGenerator } from '@/hooks/useColdWarGenerator';
+import { useColdWarGenerator } from '@/hooks/black-ops/cold-war/useColdWarGenerator';
 // --- Helpers ---
 import { scrollToTop } from '@/helpers/scrollToTop';
 // --- Components ---
