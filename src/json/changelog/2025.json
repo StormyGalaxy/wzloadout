@@ -1,9 +1,18 @@
 [
   {
+    "Date": "June 22, 2025",
+    "Type": "Upgrade",
+    "Link": {
+      "Url": "black-ops/cold-war/zombies-generator",
+      "Text": "Black Ops Cold War Zombies:"
+    },
+    "Changes": "Redesigned the Generator!"
+  },
+  {
     "Date": "June 20, 2025",
     "Type": "Upgrade",
     "Link": { "Url": "black-ops/cold-war/generator", "Text": "Black Ops Cold War:" },
-    "Changes": "Redesigned the Cold War Generator!"
+    "Changes": "Redesigned the Generator!"
   },
   {
     "Date": "May 29, 2025",

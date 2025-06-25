@@ -3,9 +3,9 @@ import React from 'react';
 import { Row, Col } from 'react-bootstrap';
 // --- Components ---
 import WeaponCard from './WeaponCard';
-import EquipmentCard from './EquipmentCard';
+import ListViewCard from './ListViewCard';
 import PerkGreedLoadoutView from './PerkGreedLoadoutView';
-import WildcardView from './WildcardView';
+import ValueCardView from './ValueCardView';
 import StreaksView from './StreaksView';
 // --- Types ---
 import { Weapon, PerkObject } from '@/types/Generator';
@@ -43,6 +43,12 @@ const SimpleLoadoutView: React.FC<SimpleLoadoutViewProps> = ({
     isGenerating: isGenerating,
   };
 
+  const equipmentData = [
+    { title: 'Lethal', value: lethal ?? '' },
+    { title: 'Tactical', value: tactical ?? '' },
+    { title: 'Field Upgrade', value: fieldUpgrade ?? '' },
+  ];
+
   return (
     <>
       {/* --- Weapon Cards --- */}
@@ -64,15 +70,10 @@ const SimpleLoadoutView: React.FC<SimpleLoadoutViewProps> = ({
       {/* --- Other Info (Now clean and consistent) --- */}
       <Row className='justify-content-md-center text-center'>
         <Col md={4} sm={6} className='mb-4'>
-          <EquipmentCard
-            lethal={lethal ?? ''}
-            tactical={tactical ?? ''}
-            fieldUpgrade={fieldUpgrade ?? ''}
-            {...cardProps}
-          />
+          <ListViewCard title='Equipment' values={equipmentData} {...cardProps} />
         </Col>
         <Col md={4} sm={6} className='mb-4'>
-          <WildcardView wildcard={wildcard ?? ''} {...cardProps} />
+          <ValueCardView value={wildcard ?? ''} title='Wildcard' {...cardProps} />
         </Col>
         <Col md={4} sm={6} className='mb-4'>
           <StreaksView streaks={streaks ?? ''} {...cardProps} />

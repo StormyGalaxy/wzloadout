@@ -22,7 +22,6 @@ export const useColdWarGenerator = () => {
   const [status, setStatus] = useState<GeneratorStatus>('loading');
 
   const generateLoadout = useCallback(async (isInitialLoad = false) => {
-    // Set status based on whether it's the first load or a button click
     setStatus(isInitialLoad ? 'loading' : 'generating');
 
     sendEvent('button_click', {
@@ -99,17 +98,16 @@ export const useColdWarGenerator = () => {
       } else {
         console.error('An unknown error occurred.');
       }
+      setStatus('idle');
     } finally {
-      // Use a timeout to give a feeling of generation
       setTimeout(() => {
         setStatus('idle');
-        // setStatus('generating');
       }, 500);
     }
   }, []);
 
   useEffect(() => {
-    generateLoadout(true); // Pass true for the initial load
+    generateLoadout(true);
   }, [generateLoadout]);
 
   return {

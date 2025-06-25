@@ -11,15 +11,18 @@ import { scrollToTop } from '@/helpers/scrollToTop';
 import SimpleLoadoutView from '@/components/generators/views/SimpleLoadoutView';
 import CodClassName from '@/components/CodClassName';
 import GeneratorSkeleton from '@/components/generators/views/skeletons/GeneratorSkeleton';
+// --- Font Awesome ---
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faDice } from '@fortawesome/free-solid-svg-icons';
 // --- Styles ---
 import styles from '@/components/generators/views/ModernLoadout.module.css';
 
 const ColdWarGenerator: React.FC = () => {
   const { data, isLoading, isGenerating, generateLoadout } = useColdWarGenerator();
 
-  const handleClick = () => {
-    generateLoadout();
+  const handleRegenerateClick = () => {
     scrollToTop();
+    generateLoadout(false);
   };
 
   if (isLoading) {
@@ -52,8 +55,9 @@ const ColdWarGenerator: React.FC = () => {
             variant='danger'
             size='lg'
             disabled={isGenerating}
-            onClick={handleClick}
+            onClick={handleRegenerateClick}
             className={styles.generateButton}>
+            <FontAwesomeIcon icon={faDice} className='me-2' />
             {isGenerating ? 'Generating...' : 'Generate New Loadout'}
           </Button>
         </Col>

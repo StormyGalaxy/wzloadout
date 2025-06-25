@@ -3,7 +3,6 @@
 import { useEffect, useState, useCallback } from 'react';
 // Helpers
 import { implodeObject } from '@/helpers/implodeObject';
-import { scrollToTop } from '@/helpers/scrollToTop';
 import { fetchWeapon } from '@/helpers/fetch/fetchWeapon';
 import { fetchAttachments } from '@/helpers/fetch/fetchAttachments';
 import { fetchEquipment } from '@/helpers/fetch/fetchEquipment';
@@ -12,16 +11,18 @@ import { fetchClassName } from '@/helpers/fetch/fetchClassName';
 import { fetchZombiesMap } from '@/helpers/fetch/zombies/fetchZombiesMap';
 // Utils
 import { sendEvent } from '@silocitypages/utils';
-// json
+// --- Types ---
+import { Weapon, ZombiesMap, GeneratorStatus, ZombiesGeneratorData } from '@/types/Generator';
+// --- Data ---
 import defaultData from '@/json/cod/default-zombies-generator-info.json';
-import { Weapon, ZombiesMap } from '@/types/Generator';
 
 export const useColdWarZombiesLoadout = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [isGenerating, setIsGenerating] = useState(true);
-  const [data, setData] = useState(defaultData);
+  const [data, setData] = useState<ZombiesGeneratorData>(defaultData);
+  const [status, setStatus] = useState<GeneratorStatus>('loading');
 
-  const fetchLoadoutData = useCallback(async () => {
+  const generateLoadout = useCallback(async (isInitialLoad = false) => {
+    setStatus(isInitialLoad ? 'loading' : 'generating');
+
     sendEvent('button_click', {
       button_id: 'coldWarZombies_fetchLoadoutData',
       label: 'ColdWarZombies',
@@ -42,7 +43,7 @@ export const useColdWarZombiesLoadout = () => {
           attachments: !primaryWeaponData.no_attach
             ? implodeObject(fetchAttachments(primaryWeaponData, 8))
             : '',
-          ammoMod: '',
+          ammoMod: '', // You might want to implement fetchZombiesAmmoMod() here
         },
       };
 
@@ -53,33 +54,33 @@ export const useColdWarZombiesLoadout = () => {
         difficulty: fetchedZombieMap.difficulty ?? '',
       };
 
-      setData({ ...data, randClassName, weapons, field_upgrade, zombieMap });
+      // A brief timeout to give the feeling of generation
+      await new Promise((resolve) => setTimeout(resolve, 500));
+      setData({ ...defaultData, randClassName, weapons, field_upgrade, zombieMap });
     } catch (error: unknown) {
       if (error instanceof Error) {
         console.error(error.message);
       } else {
         console.error('An unknown error occurred.');
       }
+      setStatus('idle'); // Reset status on error
+    } finally {
+      // Use a timeout to give a feeling of generation before setting to idle
+      setTimeout(() => {
+        setStatus('idle');
+      }, 500);
     }
-  }, [data]);
+  }, []);
 
   useEffect(() => {
-    (async () => {
-      await fetchLoadoutData();
-      setIsGenerating(false);
-      setIsLoading(false);
-    })();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []); // Run only once on mount
+    generateLoadout(true);
+  }, [generateLoadout]);
 
-  const regenerateLoadout = async () => {
-    setIsGenerating(true);
-    setTimeout(async () => {
-      await fetchLoadoutData();
-      setIsGenerating(false);
-      scrollToTop();
-    }, 1000);
+  return {
+    data,
+    status,
+    isLoading: status === 'loading',
+    isGenerating: status === 'generating',
+    generateLoadout,
   };
-
-  return { isLoading, isGenerating, data, regenerateLoadout };
 };

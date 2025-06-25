@@ -30,6 +30,25 @@ export interface GeneratorData {
   wildcard: { name: string };
 }
 
+export interface ZombiesGeneratorData {
+  randClassName: string;
+  weapons: { primary: Weapon; secondary: Weapon; melee: Weapon; special: Weapon; starting: Weapon };
+  field_upgrade: string;
+  zombieMap: ZombiesMap;
+  artifact: any;
+  augments: any;
+  character: any;
+  elixers: string;
+  equipment: { tactical: Equipment; lethal: Equipment; fieldUpgrade: Equipment };
+  gobblegum: string;
+  lethal: any;
+  mods: any;
+  special: any;
+  story: { key: string; display: string };
+  talisman: string;
+  zombiePerks: string[];
+}
+
 export type GeneratorStatus = 'loading' | 'generating' | 'idle';
 
 export type Weapon = {
