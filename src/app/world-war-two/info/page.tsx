@@ -1,29 +1,37 @@
-import { Container, Row, Col } from 'react-bootstrap';
 // --- Next ---
 import type { Metadata } from 'next';
-import Link from 'next/link';
 // --- Layout ---
 import PageLayout from '@/components/PageLayout';
 // --- Components ---
-import CodBadge from '@/components/CodBadge';
+import InfoHubClient from '@/components/info/info-hub-client/InfoHubClient';
+// --- Font Awesome ---
+import {
+  faGun,
+  faMedal,
+  faPlane,
+  faExplosion,
+  faMapLocationDot,
+  faGlassWater,
+  faWandSparkles,
+} from '@fortawesome/free-solid-svg-icons';
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: 'Loadout Information',
+  title: 'Call of Duty: WWII - Info Hub',
   description:
-    'Spice up your COD gameplay! Generate unique random loadouts for Call of Duty World War Two. Discover new weapons, perks, and gear combinations.',
+    'Your central hub for Call of Duty: WWII (2017) intel. Explore detailed information on all multiplayer weapons, perks, scorestreaks, equipment, and a complete guide to Nazi Zombies maps, perks, and special abilities.',
   keywords: [
     'COD World War Two RCG',
     'world war two random class generator',
-    'world war two',
-    'world war two rcg',
-    'world war two random class generator',
-    'class generator',
-    'zombies',
-    'world war two zombies',
+    'world war two info',
+    'wwii weapons',
+    'wwii perks',
+    'wwii scorestreaks',
+    'nazi zombies maps',
   ],
 };
 
+// --- Data Definitions ---
 const navLinks = [
   { label: 'Home', href: '/' },
   { label: 'Multiplayer Generator', href: '/world-war-two/generator' },
@@ -33,53 +41,67 @@ const navLinks = [
   { label: 'Changelog', href: '/changelog' },
 ];
 
-const badges = [
-  { title: 'Equipment', link: '/world-war-two/info/equipment' },
-  { title: 'Perks', link: '/world-war-two/info/perks' },
-  { title: 'Streaks', link: '/world-war-two/info/streaks' },
-  { title: 'Weapons', link: '/world-war-two/info/weapons' },
-  { title: 'Zombies Maps', link: '/world-war-two/info/zombies/maps' },
-  { title: 'Zombies Perks', link: '/world-war-two/info/zombies/perks' },
-  { title: 'Zombies Specials', link: '/world-war-two/info/zombies/specials' },
+const multiplayerLinks = [
+  {
+    icon: faGun,
+    title: 'Weapons',
+    description: 'Explore the full arsenal of authentic WWII firearms, from rifles to sidearms.',
+    link: '/world-war-two/info/weapons',
+  },
+  {
+    icon: faMedal,
+    title: 'Divisions & Perks',
+    description:
+      'Review the full list of Divisions and Basic Training skills to dominate the battlefield.',
+    link: '/world-war-two/info/perks',
+  },
+  {
+    icon: faPlane,
+    title: 'Scorestreaks',
+    description: 'Learn about the game-changing Scorestreaks you can call in to support your team.',
+    link: '/world-war-two/info/streaks',
+  },
+  {
+    icon: faExplosion,
+    title: 'Equipment',
+    description:
+      'Familiarize yourself with the lethal and tactical equipment available for your loadout.',
+    link: '/world-war-two/info/equipment',
+  },
+];
+
+const zombiesLinks = [
+  {
+    icon: faMapLocationDot,
+    title: 'Zombies Maps',
+    description: 'Uncover the secrets and layouts of the chilling Nazi Zombies maps.',
+    link: '/world-war-two/info/zombies/maps',
+  },
+  {
+    icon: faGlassWater,
+    title: 'Zombies Perks',
+    description: 'Get details on the crucial Perks needed to survive against the undead hordes.',
+    link: '/world-war-two/info/zombies/perks',
+  },
+  {
+    icon: faWandSparkles,
+    title: 'Zombies Specials',
+    description: 'Discover the powerful Special Abilities you can unleash to turn the tide.',
+    link: '/world-war-two/info/zombies/specials',
+  },
 ];
 
 export default function WorldWarTwoInfoPage() {
   return (
-    <PageLayout navLinks={navLinks} headerClassName='ww2'>
-      <Container>
-        <h2 className='text-center mb-4'>
-          World War Two
-          <span className='d-none d-sm-inline-block'>&nbsp;-&nbsp;</span>
-          <br className='d-block d-sm-none' />
-          Loadout Information
-        </h2>
-        <Row className='p-3 p-md-4 bg-light rounded mb-4'>
-          <Col lg={7} className='text-center'>
-            <p>
-              Return to the European theatre with our Call of Duty: WWII information center. Get
-              ready for boots-on-the-ground action by diving into the specifics of multiplayer
-              combat, including all available <strong>Weapons</strong>, tactical{' '}
-              <strong>Equipment</strong>, essential <strong>Perks</strong> (Basic Training), and
-              game-changing <strong>Scorestreaks</strong>. If you&apos;re facing the horrors of Nazi
-              Zombies, we&apos;ve got you covered with details on the chilling{' '}
-              <strong>Zombies Maps</strong>, crucial <strong>Zombies Perks</strong>, and powerful{' '}
-              <strong>Zombies Special Abilities</strong> to aid your fight against the undead
-              legions. Use the links on this page to access all the intel.
-            </p>
-          </Col>
-          <Col lg={5}>
-            <h4 className='text-center'>Links</h4>
-            <hr />
-            <div className='d-flex flex-wrap gap-2'>
-              {badges.map((item) => (
-                <Link key={item.title} href={item.link} className='text-decoration-none' passHref>
-                  <CodBadge name={item.title} badgeOverwrite='bgWw2' />
-                </Link>
-              ))}
-            </div>
-          </Col>
-        </Row>
-      </Container>
+    <PageLayout navLinks={navLinks} containerClassName='theme-ww2'>
+      <InfoHubClient
+        heroTitle='Call of Duty: WWII'
+        heroSubTitle='Your Central Hub for Multiplayer & Zombies Intel'
+        multiplayerLink='/world-war-two/generator'
+        multiplayerLinks={multiplayerLinks}
+        zombiesLink='/world-war-two/zombies-generator'
+        zombiesLinks={zombiesLinks}
+      />
     </PageLayout>
   );
 }
