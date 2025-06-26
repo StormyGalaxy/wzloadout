@@ -41,7 +41,7 @@ export default function ColdWarStreaksPage() {
           <br className='d-block d-sm-none' />
           Streaks
         </h2>
-        <Row className='shadow-lg p-3 bg-body rounded mb-4'>
+        <Row className='p-3 p-md-4 bg-light rounded mb-4'>
           <Col>
             <StreakList game='cold-war' />
           </Col>

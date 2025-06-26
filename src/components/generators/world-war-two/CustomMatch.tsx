@@ -1,7 +1,10 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+// --- React ---
+import React from 'react';
 import { Row, Col, Tabs, Tab, Button, Spinner } from 'react-bootstrap';
+// --- Hooks ---
+import { useCustomMatchGenerator } from '@/hooks/world-war-two/useCustomMatchGenerator';
 // --- Components ---
 import CustomSettingsGeneral from '@/components/generators/cod/custom-settings/CustomSettingsGeneral';
 import CustomSettingsSection from '@/components/generators/cod/custom-settings/CustomSettingsSection';
@@ -9,54 +12,38 @@ import CustomSettingsSection from '@/components/generators/cod/custom-settings/C
 import generalSettings from '@/json/world-war-two/custom-match/general.json';
 import rulesSettings from '@/json/world-war-two/custom-match/rules.json';
 
-export default function CustomMatch() {
-  const [isLoading, setIsLoading] = useState(true);
-  const [key, setKey] = useState<string>('general');
-  const [count, setCount] = useState(0);
+const CustomMatch: React.FC = () => {
+  const { isLoading, key, setKey, count, generateSettings } = useCustomMatchGenerator();
 
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
-  }, []);
-
-  const handleClick = async () => {
-    setIsLoading(true);
-    setCount(count + 1);
-    setKey('general');
-
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
-  };
+  if (isLoading) {
+    return (
+      <div className='text-center'>
+        <Spinner animation='border' role='status'>
+          <span className='visually-hidden'>Loading...</span>
+        </Spinner>
+      </div>
+    );
+  }
 
   return (
     <>
-      {isLoading ? (
-        <div className='text-center'>
-          <Spinner animation='border' role='status'>
-            <span className='visually-hidden'>Loading...</span>
-          </Spinner>
-        </div>
-      ) : (
-        <>
-          <Tabs activeKey={key} onSelect={(k) => setKey(k ?? 'general')} className='mb-3'>
-            <Tab eventKey='general' title='General'>
-              <CustomSettingsGeneral data={generalSettings} count={count} />
-            </Tab>
-            <Tab eventKey='rules' title='Rules'>
-              <CustomSettingsSection data={rulesSettings} count={count} />
-            </Tab>
-          </Tabs>
-          <Row id='button-row'>
-            <Col className='text-center'>
-              <Button variant='ww2' href='#' onClick={handleClick}>
-                Generate Settings
-              </Button>
-            </Col>
-          </Row>
-        </>
-      )}
+      <Tabs activeKey={key} onSelect={(k) => setKey(k ?? 'general')} className='mb-3' justify>
+        <Tab eventKey='general' title='General'>
+          <CustomSettingsGeneral data={generalSettings} count={count} />
+        </Tab>
+        <Tab eventKey='rules' title='Rules'>
+          <CustomSettingsSection data={rulesSettings} count={count} />
+        </Tab>
+      </Tabs>
+      <Row id='button-row' className='mt-4'>
+        <Col className='text-center'>
+          <Button variant='ww2' onClick={generateSettings}>
+            Generate Settings
+          </Button>
+        </Col>
+      </Row>
     </>
   );
-}
+};
+
+export default CustomMatch;

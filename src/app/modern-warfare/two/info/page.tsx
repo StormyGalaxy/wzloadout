@@ -45,7 +45,7 @@ export default function ModernWarfareTwoInfoPage() {
           <br className='d-block d-sm-none' />
           Loadout Information
         </h2>
-        <Row className='shadow-lg p-3 bg-body rounded mb-4'>
+        <Row className='p-3 p-md-4 bg-light rounded mb-4'>
           <Col lg={7} className='text-center'>
             <p>
               Gear up for the global conflict depicted in Call of Duty: Modern Warfare II [2022]

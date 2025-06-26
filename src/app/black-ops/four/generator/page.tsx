@@ -42,7 +42,7 @@ export default function BlackOpsFourGeneratorPage() {
           <br className='d-block d-sm-none' />
           Random Class Generator
         </h2>
-        <Row className='shadow-lg p-3 bg-body rounded mb-4'>
+        <Row className='p-3 p-md-4 bg-light rounded mb-4'>
           <Col className='mx-auto'>
             <BlackOpsFourLoadout />
           </Col>

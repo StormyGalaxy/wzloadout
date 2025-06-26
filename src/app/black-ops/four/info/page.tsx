@@ -57,7 +57,7 @@ export default function BlackOpsFourInfoPage() {
           <br className='d-block d-sm-none' />
           Loadout Information
         </h2>
-        <Row className='shadow-lg p-3 bg-body rounded mb-4'>
+        <Row className='p-3 p-md-4 bg-light rounded mb-4'>
           <Col lg={7} className='text-center'>
             <p>
               Dive into the tactical multiplayer and rich Zombies universe of Call of Duty: Black

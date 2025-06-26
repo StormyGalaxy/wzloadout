@@ -56,7 +56,7 @@ export default function BlackOpsSixInfoPage() {
           <br className='d-block d-sm-none' />
           Loadout Information
         </h2>
-        <Row className='shadow-lg p-3 bg-body rounded mb-4'>
+        <Row className='p-3 p-md-4 bg-light rounded mb-4'>
           <Col lg={7} className='text-center'>
             <p>
               Prepare for clandestine operations in the Gulf War era with our Call of Duty: Black

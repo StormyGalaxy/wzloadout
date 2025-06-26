@@ -41,7 +41,7 @@ export default function BlackOpsSixZombiesAugmentsPage() {
           <br className='d-block d-sm-none' />
           Zombies Augments
         </h2>
-        <Row className='shadow-lg p-3 bg-body rounded mb-4'>
+        <Row className='p-3 p-md-4 bg-light rounded mb-4'>
           <Col>
             <ZombiesAugmentList game='black-ops-six-zombies' />
           </Col>
