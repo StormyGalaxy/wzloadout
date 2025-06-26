@@ -25,6 +25,7 @@ interface InfoHubClientProps {
   multiplayerLinks: InfoLink[];
   zombiesLink?: string;
   zombiesLinks?: InfoLink[];
+  buttonVariant: string;
 }
 
 export default function InfoHubClient({
@@ -34,6 +35,7 @@ export default function InfoHubClient({
   multiplayerLinks,
   zombiesLink,
   zombiesLinks,
+  buttonVariant,
 }: InfoHubClientProps) {
   return (
     <>
@@ -62,7 +64,7 @@ export default function InfoHubClient({
                     <Card.Title as='h4'>{item.title}</Card.Title>
                     <Card.Text className='flex-grow-1'>{item.description}</Card.Text>
                     <Link href={item.link}>
-                      <Button variant='ww2' className='mt-auto'>
+                      <Button variant={buttonVariant} className='mt-auto'>
                         View {item.title}
                       </Button>
                     </Link>
@@ -98,7 +100,7 @@ export default function InfoHubClient({
                       <Card.Title as='h4'>{item.title}</Card.Title>
                       <Card.Text className='flex-grow-1'>{item.description}</Card.Text>
                       <Link href={item.link}>
-                        <Button variant='ww2' className='mt-auto'>
+                        <Button variant={buttonVariant} className='mt-auto'>
                           View {item.title}
                         </Button>
                       </Link>

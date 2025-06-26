@@ -2,7 +2,13 @@
   {
     "Date": "June 26, 2025",
     "Type": "Upgrade",
-    "Link": { "Url": "world-war-two/into", "Text": "World War Two Info Hub:" },
+    "Link": { "Url": "black-ops/cold-war/info", "Text": "Black Ops Cold War Info Hub:" },
+    "Changes": "Redesigned the Hub!"
+  },
+  {
+    "Date": "June 26, 2025",
+    "Type": "Upgrade",
+    "Link": { "Url": "world-war-two/info", "Text": "World War Two Info Hub:" },
     "Changes": "Redesigned the Hub!"
   },
   {

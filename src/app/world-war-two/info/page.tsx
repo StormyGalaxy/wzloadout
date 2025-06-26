@@ -101,6 +101,7 @@ export default function WorldWarTwoInfoPage() {
         multiplayerLinks={multiplayerLinks}
         zombiesLink='/world-war-two/zombies-generator'
         zombiesLinks={zombiesLinks}
+        buttonVariant='ww2'
       />
     </PageLayout>
   );
