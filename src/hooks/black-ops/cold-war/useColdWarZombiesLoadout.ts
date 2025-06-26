@@ -56,7 +56,8 @@ export const useColdWarZombiesLoadout = () => {
 
       // A brief timeout to give the feeling of generation
       await new Promise((resolve) => setTimeout(resolve, 500));
-      setData({ ...defaultData, randClassName, weapons, field_upgrade, zombieMap });
+
+      setData({ ...data, randClassName, weapons, field_upgrade, zombieMap });
     } catch (error: unknown) {
       if (error instanceof Error) {
         console.error(error.message);

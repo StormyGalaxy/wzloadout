@@ -1,118 +1,85 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+// --- React ---
+import React from 'react';
 import { Row, Col, Button } from 'react-bootstrap';
-import SimpleGeneratorView from '@/components/generators/cod/SimpleGeneratorView';
-import CodClassName from '@/components/CodClassName';
-//Helpers
-import { fetchWeapon } from '@/helpers/fetch/fetchWeapon';
+// --- Hooks ---
+import { useWorldWarTwoZombiesGenerator } from '@/hooks/world-war-two/useWorldWarTwoZombiesGenerator';
+// --- Helpers ---
 import { scrollToTop } from '@/helpers/scrollToTop';
-import { fetchEquipment } from '@/helpers/fetch/fetchEquipment';
-import { fetchClassName } from '@/helpers/fetch/fetchClassName';
-//Zombies
-import { fetchZombiesCharacter } from '@/helpers/fetch/zombies/fetchZombiesCharacter';
-import { fetchZombiesMap } from '@/helpers/fetch/zombies/fetchZombiesMap';
-import { fetchZombiesPerks } from '@/helpers/fetch/zombies/fetchZombiesPerks';
-//Utils
-import { sendEvent } from '@silocitypages/utils';
-//json
-import defaultData from '@/json/cod/default-zombies-generator-info.json';
+// --- Components ---
+import CodClassName from '@/components/CodClassName';
+import GeneratorSkeleton from '@/components/generators/views/skeletons/GeneratorSkeleton';
+import WeaponCard from '@/components/generators/views/WeaponCard';
+import ValueCardView from '@/components/generators/views/ValueCardView';
+import ListViewCard from '@/components/generators/views/ListViewCard';
+// --- Font Awesome ---
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faDice } from '@fortawesome/free-solid-svg-icons';
+// --- Styles ---
+import styles from '@/components/generators/views/ModernLoadout.module.css';
 
-export default function WorldWarTwoZombiesLoadout() {
-  const [isLoading, setIsLoading] = useState(true);
-  const [isGenerating, setIsGenerating] = useState(true);
-  const [data, setData] = useState(defaultData);
+const WorldWarTwoZombiesLoadout: React.FC = () => {
+  const { data, isLoading, isGenerating, generateLoadout } = useWorldWarTwoZombiesGenerator();
+  const generatingClass = isGenerating ? styles.generating : '';
 
-  useEffect(() => {
-    fetchLoadoutData(setData);
-    setIsLoading(false);
-    setIsGenerating(false);
-  }, []);
-
-  const handleClick = async () => {
-    setIsGenerating(true);
-
-    setTimeout(() => {
-      fetchLoadoutData(setData);
-      setIsGenerating(false);
-      scrollToTop();
-    }, 1000);
+  const cardProps = {
+    className: `${styles.card} ${generatingClass}`,
+    headerClassName: styles.cardHeader,
+    isGenerating: isGenerating,
   };
 
-  const { randClassName, weapons, lethal, special, character, zombieMap, mods } = data;
+  const handleRegenerateClick = () => {
+    scrollToTop();
+    generateLoadout(false);
+  };
 
   if (isLoading) {
-    return <div className='text-center'>Loading...</div>;
+    return <GeneratorSkeleton />;
   }
+
+  const { randClassName, weapons, lethal, special, character, zombieMap, mods } = data;
 
   return (
     <>
       <CodClassName isGenerating={isGenerating} value={randClassName} />
-      <Row className='justify-content-md-center mb-4'>
-        <Col xs md='8' lg='4' className='text-center'>
-          <SimpleGeneratorView isGenerating={isGenerating} title='Character' value={character} />
+      <Row className='justify-content-md-center text-center mb-4'>
+        <Col xs='12' md='4'>
+          {character && <ValueCardView title='Character' value={character} {...cardProps} />}
         </Col>
-        <Col xs md='8' lg='4' className='text-center'>
-          <SimpleGeneratorView
-            isGenerating={isGenerating}
-            title='Primary'
-            value={weapons.primary.weapon.name}
-          />
+        <Col xs='12' md='4'>
+          {weapons.primary && (
+            <WeaponCard title='Primary' weapon={weapons.primary} {...cardProps} />
+          )}
         </Col>
-        <Col xs md='8' lg='4' className='text-center'>
-          <SimpleGeneratorView isGenerating={isGenerating} title='Special' value={special} />
+        <Col xs='12' md='4'>
+          {special && <ValueCardView title='Special' value={special} {...cardProps} />}
         </Col>
       </Row>
       <hr />
-      <Row className='justify-content-md-center mb-4'>
-        <Col xs md='4' lg='3' className='text-center'>
-          <SimpleGeneratorView isGenerating={isGenerating} title='Mods' value={mods} />
+
+      <Row className='justify-content-md-center text-center mb-4'>
+        <Col xs='12' md='4'>
+          {mods && <ListViewCard title='Mods' values={mods} {...cardProps} />}
         </Col>
-        <Col xs md='4' lg='3' className='text-center'>
-          <SimpleGeneratorView isGenerating={isGenerating} title='Lethal' value={lethal} />
+        <Col xs='12' md='4'>
+          {lethal && <ValueCardView title='Lethal' value={lethal} {...cardProps} />}
         </Col>
-        <Col xs md='4' lg='3' className='text-center'>
-          <SimpleGeneratorView isGenerating={isGenerating} title='Map' value={zombieMap.name} />
+        <Col xs='12' md='4'>
+          {zombieMap.name && <ValueCardView title='Map' value={zombieMap.name} {...cardProps} />}
         </Col>
       </Row>
+
       <Row className='justify-content-md-center'>
         <Col xs md='8' lg='6' className='text-center'>
-          <Button
-            variant='ww2'
-            disabled={isGenerating}
-            onClick={isGenerating ? undefined : handleClick}>
+          <Button variant='ww2' disabled={isGenerating} onClick={handleRegenerateClick}>
+            <FontAwesomeIcon icon={faDice} className='me-2' />
             {isGenerating ? 'Generating Loadout...' : 'Generate Loadout'}
           </Button>
         </Col>
       </Row>
     </>
   );
-}
+};
 
-async function fetchLoadoutData(setData) {
-  sendEvent('button_click', {
-    button_id: 'ww2Zombies_fetchLoadoutData',
-    label: 'WorldWarTwoZombies',
-    category: 'COD_Loadouts',
-  });
-
-  try {
-    const game = 'world-war-two-zombies';
-    const randClassName = fetchClassName();
-    const weapons = { primary: { weapon: fetchWeapon('primary', game) } };
-
-    const lethal = fetchEquipment('lethal', 'world-war-two').name;
-    const special = fetchEquipment('field_upgrade', game).name;
-    const character = fetchZombiesCharacter(game).name;
-    const zombieMap = fetchZombiesMap(game);
-    const mods = fetchZombiesPerks(`${game}-${special.toLowerCase()}`, 3).join(', ');
-
-    setData({ randClassName, weapons, lethal, special, character, zombieMap, mods });
-  } catch (error: unknown) {
-    if (error instanceof Error) {
-      console.error(error.message);
-    } else {
-      console.error('An unknown error occurred.');
-    }
-  }
-}
+export default WorldWarTwoZombiesLoadout;

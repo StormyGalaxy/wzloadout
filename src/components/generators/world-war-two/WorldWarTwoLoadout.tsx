@@ -8,7 +8,6 @@ import { useWorldWarTwoGenerator } from '@/hooks/world-war-two/useWorldWarTwoGen
 // --- Helpers ---
 import { scrollToTop } from '@/helpers/scrollToTop';
 // --- Components ---
-import SimpleGeneratorView from '@/components/generators/cod/SimpleGeneratorView';
 import CodClassName from '@/components/CodClassName';
 import GeneratorSkeleton from '@/components/generators/views/skeletons/GeneratorSkeleton';
 import WeaponCard from '@/components/generators/views/WeaponCard';

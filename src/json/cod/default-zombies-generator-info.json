@@ -1,7 +1,7 @@
 {
   "artifact": { "name": "", "type": "", "game": "" },
-  "augments": { "0": { "name": "", "major": "", "minor": "" } },
-  "character": null,
+  "augments": null,
+  "character": "",
   "elixers": "",
   "equipment": {
     "tactical": { "name": "", "type": "", "game": "" },
@@ -10,8 +10,8 @@
   },
   "field_upgrade": "",
   "gobblegum": "",
-  "lethal": { "name": "", "type": "", "game": "" },
-  "mods": "",
+  "lethal": "",
+  "mods": [],
   "randClassName": "",
   "special": "",
   "story": { "key": "", "display": "" },

@@ -2,6 +2,12 @@
   {
     "Date": "June 26, 2025",
     "Type": "Upgrade",
+    "Link": { "Url": "world-war-two/zombies-generator", "Text": "World War Two Zombies:" },
+    "Changes": "Redesigned the Generator!"
+  },
+  {
+    "Date": "June 26, 2025",
+    "Type": "Upgrade",
     "Link": { "Url": "world-war-two/generator", "Text": "World War Two:" },
     "Changes": "Redesigned the Generator!"
   },

@@ -41,8 +41,7 @@ export const useWorldWarTwoGenerator = () => {
       let secondaryAttactCount = division === 'Infantry' ? 2 : 1;
 
       const weapons: { primary: Weapon; secondary: Weapon } = {
-        // primary: { ...fetchWeapon('primary', game), attachments: '' },
-        primary: { game: 'world-war-two', name: 'Lee Enfield', type: 'sniper', attachments: '' },
+        primary: { ...fetchWeapon('primary', game), attachments: '' },
         secondary: { ...fetchWeapon('secondary', game, '', secondaryNeedsAttach), attachments: '' },
       };
 
@@ -118,9 +117,10 @@ export const useWorldWarTwoGenerator = () => {
         );
       }
 
+      // A brief timeout to give the feeling of generation
       await new Promise((resolve) => setTimeout(resolve, 500));
 
-      setData({ randClassName, streaks, weapons, equipment, division, basic });
+      setData({ ...data, randClassName, streaks, weapons, equipment, division, basic });
     } catch (error: unknown) {
       if (error instanceof Error) {
         console.error(error.message);

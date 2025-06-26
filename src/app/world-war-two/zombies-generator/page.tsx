@@ -4,6 +4,8 @@ import type { Metadata } from 'next';
 import PageLayout from '@/components/PageLayout';
 // --- Loadout ---
 import WorldWarTwoZombiesLoadout from '@/components/generators/world-war-two/WorldWarTwoZombiesLoadout';
+// --- Styles ---
+import styles from '@/components/generators/views/ModernLoadout.module.css';
 
 // --- Metadata ---
 export const metadata: Metadata = {
@@ -33,15 +35,14 @@ const navLinks = [
 
 export default function WorldWarTwoZombiesGeneratorPage() {
   return (
-    <PageLayout navLinks={navLinks} headerClassName='ww2'>
+    <PageLayout navLinks={navLinks} containerClassName='theme-ww2'>
       <Container>
-        <h2 className='text-center mb-4'>
-          World War Two Zombies
-          <span className='d-none d-sm-inline-block'>&nbsp;-&nbsp;</span>
-          <br className='d-block d-sm-none' />
-          Random Class Generator
-        </h2>
-        <Row className='shadow-lg p-3 bg-body rounded mb-4'>
+        <div className='text-center mb-4'>
+          <h2 className={styles.pageTitle}>World War Two Zombies</h2>
+          <p className={styles.pageSubtitle}>Random Class Generator</p>
+        </div>
+
+        <Row className='p-3 p-md-4 bg-light rounded mb-4'>
           <Col className='mx-auto'>
             <WorldWarTwoZombiesLoadout />
           </Col>

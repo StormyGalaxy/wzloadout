@@ -11,8 +11,8 @@ interface RowData {
 interface ListViewCardProps {
   /** The title to display in the card header. */
   title: string;
-  /** An array of objects, where each object represents a row to be displayed in the card. */
-  values: RowData[];
+  /** An array of objects (for title/value pairs) or an array of strings. */
+  values: (RowData | string)[];
   /** Flag to determine if the component is in a loading state. */
   isGenerating: boolean;
   /** Optional additional CSS class for the Card component. */
@@ -46,13 +46,27 @@ const ListViewCard: React.FC<ListViewCardProps> = ({
         ) : (
           <>
             {/* Map over the values array to render each row */}
-            {values.map((item, index) => (
-              <p className={index === values.length - 1 ? 'mb-0' : 'mb-2'} key={index}>
-                <span className='text-muted'>{item.title}:</span>
-                <br />
-                <strong className='fs-6'>{item.value}</strong>
-              </p>
-            ))}
+            {values.map((item, index) => {
+              const pClassName = index === values.length - 1 ? 'mb-0' : 'mb-2';
+
+              // Check if the item is a string and render it directly
+              if (typeof item === 'string') {
+                return (
+                  <p className={pClassName} key={index}>
+                    <strong className='fs-6'>{item}</strong>
+                  </p>
+                );
+              }
+
+              // Otherwise, render the title and value from the object
+              return (
+                <p className={pClassName} key={index}>
+                  <span className='text-muted'>{item.title}:</span>
+                  <br />
+                  <strong className='fs-6'>{item.value}</strong>
+                </p>
+              );
+            })}
           </>
         )}
       </Card.Body>

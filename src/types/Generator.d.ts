@@ -34,17 +34,23 @@ export interface GeneratorData {
 
 export interface ZombiesGeneratorData {
   randClassName: string;
-  weapons: { primary: Weapon; secondary: Weapon; melee: Weapon; special: Weapon; starting: Weapon };
+  weapons: {
+    primary?: Weapon;
+    secondary?: Weapon;
+    melee?: Weapon;
+    special?: Weapon;
+    starting?: Weapon;
+  };
   field_upgrade: string;
   zombieMap: ZombiesMap;
-  artifact: GeneratorItem;
-  augments: Augment[];
-  character: GeneratorItem | null;
+  artifact: GeneratorItem | null;
+  augments: Augment | null;
+  character: string;
   elixers: string;
   equipment: { tactical: Equipment; lethal: Equipment; fieldUpgrade?: Equipment };
   gobblegum: string;
-  lethal: Equipment;
-  mods: string;
+  lethal: string;
+  mods: string[];
   special: string;
   story: { key: string; display: string };
   talisman: string;

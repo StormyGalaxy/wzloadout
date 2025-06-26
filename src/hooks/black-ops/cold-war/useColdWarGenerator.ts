@@ -89,9 +89,10 @@ export const useColdWarGenerator = () => {
       // --- Streaks ---
       const streaks = fetchStreaks(game);
 
+      // A brief timeout to give the feeling of generation
       await new Promise((resolve) => setTimeout(resolve, 500));
 
-      setData({ randClassName, perkObj, streaks, weapons, equipment, wildcard });
+      setData({ ...data, randClassName, perkObj, streaks, weapons, equipment, wildcard });
     } catch (error: unknown) {
       if (error instanceof Error) {
         console.error(error.message);
