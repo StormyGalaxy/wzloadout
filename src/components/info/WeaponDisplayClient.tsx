@@ -8,6 +8,8 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import WeaponInfo from '@/components/info/WeaponInfo';
 // --- Helpers ---
 import { capitalizeFirstLetter } from '@silocitypages/utils';
+// --- Styles ---
+import styles from '@/components/generators/views/ModernLoadout.module.css';
 
 // Define props for the component
 interface WeaponDisplayClientProps {
@@ -36,12 +38,10 @@ export default function WeaponDisplayClient({ game }: WeaponDisplayClientProps) 
 
   return (
     <Col>
-      <h2 className='text-center mb-4'>
-        {displayGameName}
-        <span className='d-none d-sm-inline-block'>&nbsp;-&nbsp;</span>
-        <br className='d-block d-sm-none' />
-        Weapon - {value ? value : 'Loading...'}
-      </h2>
+      <div className='text-center mb-4'>
+        <h2 className={styles.pageTitle}>{displayGameName}</h2>
+        <p className={styles.pageSubtitle}></p>
+      </div>
 
       {!isLoading && value && <WeaponInfo value={value} game={game} />}
       {isLoading && <p className='text-center'>Loading weapon data...</p>}

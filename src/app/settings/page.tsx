@@ -11,7 +11,7 @@ export default function SettingsPage() {
   return (
     <PageLayout>
       <Container className='mt-3 mb-3'>
-        <Row className='shadow-lg p-3 bg-body rounded'>
+        <Row className='p-3 p-md-4 bg-light rounded mb-4'>
           <Col>
             <SettingsTabs />
           </Col>

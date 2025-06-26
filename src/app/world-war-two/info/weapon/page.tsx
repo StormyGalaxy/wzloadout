@@ -1,3 +1,4 @@
+// --- React ---
 import { Suspense } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 // --- Next ---
@@ -36,7 +37,7 @@ export default function WorldWarTwoWeaponPage() {
   const game = 'world-war-two';
 
   return (
-    <PageLayout navLinks={navLinks} headerClassName='ww2'>
+    <PageLayout navLinks={navLinks} containerClassName='theme-ww2'>
       <Container fluid>
         <Row>
           <Suspense

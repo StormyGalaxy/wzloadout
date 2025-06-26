@@ -1,3 +1,4 @@
+// --- React ---
 import { Container, Row, Col } from 'react-bootstrap';
 // --- Next ---
 import type { Metadata } from 'next';
@@ -5,6 +6,9 @@ import type { Metadata } from 'next';
 import PageLayout from '@/components/PageLayout';
 // --- Components ---
 import PerkList from '@/components/info/PerkList';
+import Breadcrumbs from '@/components/common/breadcrumbs/Breadcrumbs';
+// --- Styles ---
+import styles from '@/components/generators/views/ModernLoadout.module.css';
 
 // --- Metadata ---
 export const metadata: Metadata = {
@@ -32,17 +36,19 @@ const navLinks = [
 ];
 
 export default function WorldWarTwoPerksPage() {
+  const breadcrumbLinks = [{ href: '/world-war-two/info', text: 'Info' }, { text: 'Perks' }];
+
   return (
-    <PageLayout navLinks={navLinks} headerClassName='ww2'>
+    <PageLayout navLinks={navLinks} containerClassName='theme-ww2'>
       <Container>
-        <h2 className='text-center mb-4'>
-          World War Two
-          <span className='d-none d-sm-inline-block'>&nbsp;-&nbsp;</span>
-          <br className='d-block d-sm-none' />
-          Perks
-        </h2>
+        <div className='text-center mb-4'>
+          <h2 className={styles.pageTitle}>World War Two</h2>
+          <p className={styles.pageSubtitle}>Perks</p>
+        </div>
+
         <Row className='p-3 p-md-4 bg-light rounded mb-4'>
           <Col>
+            <Breadcrumbs links={breadcrumbLinks} className='mb-4' />
             <PerkList game='world-war-two' />
           </Col>
         </Row>

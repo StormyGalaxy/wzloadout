@@ -7,6 +7,8 @@ import Link from 'next/link';
 import { getWeapon } from '@/helpers/info/getWeapon';
 import { fetchAttachments } from '@/helpers/fetch/fetchAttachments';
 import { getBO3Attachments } from '@/helpers/generator/black-ops/three/getBO3Attachments';
+// --- Components ---
+import Breadcrumbs from '@/components/common/breadcrumbs/Breadcrumbs';
 // --- Utils ---
 import { generateGithubLink, capitalizeFirstLetter } from '@silocitypages/utils';
 // --- Types ---
@@ -28,6 +30,11 @@ function WeaponInfo({ value, game }: WeaponInfoProps) {
   const [attachmentInfo, setAttachmentInfo] = useState({});
   const [key, setKey] = useState<string>('');
   const [githubLink, setGithubLink] = useState<string>('');
+  const breadcrumbLinks = [
+    { href: '/world-war-two/info', text: 'Info' },
+    { href: '/world-war-two/info/weapons', text: 'Weapons' },
+    { text: `Weapon - ${value}` },
+  ];
 
   useEffect(() => {
     const dataList = getWeapon(game, value);
@@ -78,9 +85,10 @@ function WeaponInfo({ value, game }: WeaponInfoProps) {
   }
 
   return (
-    <Container id='weapon-info' className='shadow-lg p-3 bg-body rounded'>
+    <Container id='weapon-info' className='p-3 p-md-4 bg-light rounded mb-4'>
       {!isLoading && (
         <>
+          <Breadcrumbs links={breadcrumbLinks} className='mb-4' />
           <Row className='justify-content-md-center'>
             {weaponData &&
               Object.entries(weaponData).map(([key, value]) => (

@@ -1,0 +1,43 @@
+/* This class acts as a styled wrapper and a scope for our global overrides */
+.breadcrumbContainer {
+  background-color: var(--bs-light);
+  padding: 0.75rem 1.25rem;
+  border: 1px solid var(--bs-border-color);
+  border-radius: var(--bs-border-radius-lg);
+}
+
+/*
+    Use :global() to take control of the default Bootstrap classes
+    ONLY when they are inside our custom container.
+  */
+.breadcrumbContainer :global(.breadcrumb) {
+  margin-bottom: 0; /* Remove default margin from the inner <ol> */
+}
+
+.breadcrumbContainer :global(.breadcrumb-item) {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+/* Target all links within the breadcrumb */
+.breadcrumbContainer :global(.breadcrumb-item a) {
+  color: var(--theme-color, #0d6efd); /* USE THEME COLOR BY DEFAULT */
+  text-decoration: none;
+  transition: opacity 0.2s ease-in-out;
+}
+
+/* Add a hover effect */
+.breadcrumbContainer :global(.breadcrumb-item a:hover) {
+  opacity: 0.75;
+  text-decoration: underline;
+}
+
+/* Style for the active (current) page */
+.breadcrumbContainer :global(.breadcrumb-item.active) {
+  color: var(--bs-secondary-color); /* Muted color to show it's not interactive */
+}
+
+/* Style the separator */
+.breadcrumbContainer :global(.breadcrumb-item + .breadcrumb-item)::before {
+  color: var(--bs-gray-500);
+}

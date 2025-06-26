@@ -12,7 +12,7 @@ export default function HomePage() {
   return (
     <PageLayout>
       <Container className='mt-3 mb-3'>
-        <Row className='shadow-lg p-3 bg-body rounded'>
+        <Row className='p-3 p-md-4 bg-light rounded mb-4'>
           <Col className='mx-auto'>
             <Row>
               <h3 className='text-center'>Multiplayer</h3>
