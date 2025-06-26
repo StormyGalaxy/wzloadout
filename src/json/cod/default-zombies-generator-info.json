@@ -1,5 +1,5 @@
 {
-  "artifact": null,
+  "artifact": { "name": "", "type": "", "game": "" },
   "augments": { "0": { "name": "", "major": "", "minor": "" } },
   "character": null,
   "elixers": "",
@@ -10,10 +10,10 @@
   },
   "field_upgrade": "",
   "gobblegum": "",
-  "lethal": null,
-  "mods": null,
+  "lethal": { "name": "", "type": "", "game": "" },
+  "mods": "",
   "randClassName": "",
-  "special": null,
+  "special": "",
   "story": { "key": "", "display": "" },
   "talisman": "",
   "weapons": {
