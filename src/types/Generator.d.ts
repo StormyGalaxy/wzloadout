@@ -23,11 +23,13 @@ export interface Equipment {
 
 export interface GeneratorData {
   randClassName: string;
-  perkObj: PerkObject;
   streaks: string;
   weapons: { primary: Weapon; secondary: Weapon };
-  equipment: { tactical: Equipment; lethal: Equipment; fieldUpgrade: Equipment };
-  wildcard: { name: string };
+  equipment: { tactical: Equipment; lethal: Equipment; fieldUpgrade?: Equipment | null };
+  wildcard?: { name: string };
+  perkObj?: PerkObject;
+  division?: string | null;
+  basic?: string | null;
 }
 
 export interface ZombiesGeneratorData {
@@ -39,7 +41,7 @@ export interface ZombiesGeneratorData {
   augments: Augment[];
   character: GeneratorItem | null;
   elixers: string;
-  equipment: { tactical: Equipment; lethal: Equipment; fieldUpgrade: Equipment };
+  equipment: { tactical: Equipment; lethal: Equipment; fieldUpgrade?: Equipment };
   gobblegum: string;
   lethal: Equipment;
   mods: string;

@@ -40,11 +40,11 @@ const ColdWarGenerator: React.FC = () => {
         isGenerating={isGenerating}
         primary={weapons.primary}
         secondary={weapons.secondary}
-        perks={perkObj}
+        perks={perkObj ?? null}
         lethal={equipment.lethal.name}
         tactical={equipment.tactical.name}
-        fieldUpgrade={equipment.fieldUpgrade.name}
-        wildcard={wildcard.name}
+        fieldUpgrade={equipment?.fieldUpgrade?.name ?? ''}
+        wildcard={wildcard?.name ?? ''}
         streaks={streaks}
       />
 
@@ -53,7 +53,6 @@ const ColdWarGenerator: React.FC = () => {
         <Col className='text-center'>
           <Button
             variant='danger'
-            size='lg'
             disabled={isGenerating}
             onClick={handleRegenerateClick}
             className={styles.generateButton}>

@@ -21,6 +21,10 @@
   --theme-color: #dc3545;
 }
 
+.theme-ww2 {
+  --theme-color: #9c800f;
+}
+
 #site-header {
   background: var(--theme-color) !important;
   margin-bottom: 25px;
@@ -78,10 +82,6 @@
 
 #site-header.mw2 {
   background: #79c22b !important;
-}
-
-#site-header.ww2 {
-  background: #9c800f !important;
 }
 
 #site-header.infinite-warfare {

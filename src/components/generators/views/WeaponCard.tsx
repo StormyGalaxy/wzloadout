@@ -40,6 +40,7 @@ const WeaponCard: React.FC<WeaponCardProps> = ({
           </Placeholder>
         ) : (
           <Card.Text
+            className='text-muted'
             dangerouslySetInnerHTML={{
               __html: weapon.no_attach ? 'No Attachments' : (weapon.attachments ?? ''),
             }}

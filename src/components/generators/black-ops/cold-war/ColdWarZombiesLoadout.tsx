@@ -74,7 +74,6 @@ export default function ColdWarZombiesLoadout() {
         <Col className='text-center'>
           <Button
             variant='danger'
-            size='lg'
             disabled={isGenerating}
             onClick={handleRegenerateClick}
             className={styles.generateButton}>

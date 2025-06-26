@@ -15,7 +15,7 @@ import styles from './ModernLoadout.module.css';
 interface SimpleLoadoutViewProps {
   primary?: Weapon;
   secondary?: Weapon;
-  perks: PerkObject;
+  perks: PerkObject | null;
   lethal?: string;
   tactical?: string;
   fieldUpgrade?: string;
@@ -63,7 +63,7 @@ const SimpleLoadoutView: React.FC<SimpleLoadoutViewProps> = ({
 
       {/* --- Perk Cards --- */}
       {/* Assuming PerkGreedLoadoutView can also accept these props to style its internal cards */}
-      <PerkGreedLoadoutView perks={perks} {...cardProps} />
+      {perks && <PerkGreedLoadoutView perks={perks} {...cardProps} />}
 
       <hr className='my-4' />
 
