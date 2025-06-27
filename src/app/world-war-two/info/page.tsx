@@ -31,16 +31,6 @@ export const metadata: Metadata = {
   ],
 };
 
-// --- Data Definitions ---
-const navLinks = [
-  { label: 'Home', href: '/' },
-  { label: 'Multiplayer Generator', href: '/world-war-two/generator' },
-  { label: 'Zombies Generator', href: '/world-war-two/zombies-generator' },
-  { label: 'Custom Match', href: '/world-war-two/custom-match' },
-  { label: 'Loadout Info', href: '/world-war-two/info' },
-  { label: 'Changelog', href: '/changelog' },
-];
-
 const multiplayerLinks = [
   {
     icon: faGun,
@@ -93,7 +83,7 @@ const zombiesLinks = [
 
 export default function WorldWarTwoInfoPage() {
   return (
-    <PageLayout navLinks={navLinks} containerClassName='theme-ww2'>
+    <PageLayout containerClassName='theme-ww2'>
       <InfoHubClient
         heroTitle='Call of Duty: WWII'
         heroSubTitle='Your Central Hub for Multiplayer & Zombies Intel'

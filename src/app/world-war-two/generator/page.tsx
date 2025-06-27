@@ -4,38 +4,36 @@ import type { Metadata } from 'next';
 import PageLayout from '@/components/PageLayout';
 // --- Loadout ---
 import WorldWarTwoLoadout from '@/components/generators/world-war-two/WorldWarTwoLoadout';
+import Breadcrumbs from '@/components/common/breadcrumbs/Breadcrumbs';
 // --- Styles ---
 import styles from '@/components/generators/views/ModernLoadout.module.css';
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: 'World War Two',
+  title: 'WWII Multiplayer Random Class Generator',
   description:
-    'Spice up your COD gameplay! Generate unique random loadouts for Call of Duty World War Two. Discover new weapons, perks, and gear combinations.',
+    'Generate random multiplayer loadouts for Call of Duty: WWII. Discover unique combinations of divisions, weapons, basic training, and equipment to challenge yourself in your next match.',
   keywords: [
     'COD World War Two RCG',
     'world war two random class generator',
-    'world war two',
-    'world war two rcg',
-    'world war two random class generator',
+    'world war two multiplayer',
+    'wwii random class generator',
+    'wwii random loadout',
+    'cod ww2 divisions',
+    'cod ww2 generator',
+    'cod wwii multiplayer generator',
     'class generator',
-    'zombies',
-    'world war two zombies',
   ],
 };
 
-const navLinks = [
-  { label: 'Home', href: '/' },
-  { label: 'Multiplayer Generator', href: '/world-war-two/generator' },
-  { label: 'Zombies Generator', href: '/world-war-two/zombies-generator' },
-  { label: 'Custom Match', href: '/world-war-two/custom-match' },
-  { label: 'Loadout Info', href: '/world-war-two/info' },
-  { label: 'Changelog', href: '/changelog' },
-];
-
 export default function WorldWarTwoGeneratorPage() {
+  const breadcrumbLinks = [
+    { href: '/world-war-two', text: 'World War Two' },
+    { text: 'Multiplayer Generator' },
+  ];
+
   return (
-    <PageLayout navLinks={navLinks} containerClassName='theme-ww2'>
+    <PageLayout containerClassName='theme-ww2'>
       <Container>
         <div className='text-center mb-4'>
           <h2 className={styles.pageTitle}>World War Two</h2>
@@ -44,6 +42,7 @@ export default function WorldWarTwoGeneratorPage() {
 
         <Row className='p-3 p-md-4 bg-light rounded mb-4'>
           <Col className='mx-auto'>
+            <Breadcrumbs links={breadcrumbLinks} className='mb-4' />
             <WorldWarTwoLoadout />
           </Col>
         </Row>

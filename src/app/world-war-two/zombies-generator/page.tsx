@@ -4,38 +4,36 @@ import type { Metadata } from 'next';
 import PageLayout from '@/components/PageLayout';
 // --- Loadout ---
 import WorldWarTwoZombiesLoadout from '@/components/generators/world-war-two/WorldWarTwoZombiesLoadout';
+import Breadcrumbs from '@/components/common/breadcrumbs/Breadcrumbs';
 // --- Styles ---
 import styles from '@/components/generators/views/ModernLoadout.module.css';
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: 'World War Two Zombies',
+  title: 'WWII Zombies Random Loadout Generator',
   description:
-    'Spice up your COD Zombies gameplay! Generate unique random loadouts for Call of Duty World War Two Zombies. Discover new weapons, perks, and gear combinations.',
+    'Challenge the undead in Call of Duty: WWII Zombies! Generate a completely random loadout, including character, weapon, special ability, and mods. A fun way to test your skills and add variety to your game.',
   keywords: [
-    'COD World War Two RCG',
-    'world war two random class generator',
-    'world war two',
-    'world war two rcg',
-    'world war two random class generator',
-    'class generator',
+    'COD WWII Zombies',
+    'WWII Zombies generator',
+    'Call of Duty WWII Zombies',
+    'random zombies loadout',
+    'ww2 zombies class generator',
+    'cod ww2 zombies specials',
+    'cod ww2 zombies mods',
     'zombies',
     'world war two zombies',
   ],
 };
 
-const navLinks = [
-  { label: 'Home', href: '/' },
-  { label: 'Multiplayer Generator', href: '/world-war-two/generator' },
-  { label: 'Zombies Generator', href: '/world-war-two/zombies-generator' },
-  { label: 'Custom Match', href: '/world-war-two/custom-match' },
-  { label: 'Loadout Info', href: '/world-war-two/info' },
-  { label: 'Changelog', href: '/changelog' },
-];
-
 export default function WorldWarTwoZombiesGeneratorPage() {
+  const breadcrumbLinks = [
+    { href: '/world-war-two', text: 'World War Two' },
+    { text: 'Zombies Generator' },
+  ];
+
   return (
-    <PageLayout navLinks={navLinks} containerClassName='theme-ww2'>
+    <PageLayout containerClassName='theme-ww2'>
       <Container>
         <div className='text-center mb-4'>
           <h2 className={styles.pageTitle}>World War Two Zombies</h2>
@@ -44,6 +42,7 @@ export default function WorldWarTwoZombiesGeneratorPage() {
 
         <Row className='p-3 p-md-4 bg-light rounded mb-4'>
           <Col className='mx-auto'>
+            <Breadcrumbs links={breadcrumbLinks} className='mb-4' />
             <WorldWarTwoZombiesLoadout />
           </Col>
         </Row>

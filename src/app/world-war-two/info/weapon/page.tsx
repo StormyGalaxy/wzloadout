@@ -24,20 +24,11 @@ export const metadata: Metadata = {
   ],
 };
 
-const navLinks = [
-  { label: 'Home', href: '/' },
-  { label: 'Multiplayer Generator', href: '/world-war-two/generator' },
-  { label: 'Zombies Generator', href: '/world-war-two/zombies-generator' },
-  { label: 'Custom Match', href: '/world-war-two/custom-match' },
-  { label: 'Loadout Info', href: '/world-war-two/info' },
-  { label: 'Changelog', href: '/changelog' },
-];
-
 export default function WorldWarTwoWeaponPage() {
   const game = 'world-war-two';
 
   return (
-    <PageLayout navLinks={navLinks} containerClassName='theme-ww2'>
+    <PageLayout containerClassName='theme-ww2'>
       <Container fluid>
         <Row>
           <Suspense

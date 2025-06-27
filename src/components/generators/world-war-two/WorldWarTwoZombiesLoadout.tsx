@@ -15,7 +15,7 @@ import ValueCardView from '@/components/generators/views/ValueCardView';
 import ListViewCard from '@/components/generators/views/ListViewCard';
 // --- Font Awesome ---
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faDice } from '@fortawesome/free-solid-svg-icons';
+import { faSkull } from '@fortawesome/free-solid-svg-icons';
 // --- Styles ---
 import styles from '@/components/generators/views/ModernLoadout.module.css';
 
@@ -73,7 +73,7 @@ const WorldWarTwoZombiesLoadout: React.FC = () => {
       <Row className='justify-content-md-center'>
         <Col xs md='8' lg='6' className='text-center'>
           <Button variant='ww2' disabled={isGenerating} onClick={handleRegenerateClick}>
-            <FontAwesomeIcon icon={faDice} className='me-2' />
+            <FontAwesomeIcon icon={faSkull} className='me-2' />
             {isGenerating ? 'Generating Loadout...' : 'Generate Loadout'}
           </Button>
         </Col>
