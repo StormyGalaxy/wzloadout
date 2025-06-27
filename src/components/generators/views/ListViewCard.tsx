@@ -63,7 +63,9 @@ const ListViewCard: React.FC<ListViewCardProps> = ({
                 <p className={pClassName} key={index}>
                   <span className='text-muted'>{item.title}:</span>
                   <br />
-                  <strong className='fs-6'>{item.value}</strong>
+                  <strong className='fs-6' dangerouslySetInnerHTML={{ __html: item.value ?? '' }}>
+                    {}
+                  </strong>
                 </p>
               );
             })}

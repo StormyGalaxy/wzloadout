@@ -28,9 +28,9 @@ export default function ColdWarZombiesLoadout() {
     isGenerating: isGenerating,
   };
 
-  const handleRegenerateClick = () => {
+  const handleRegenerateClick = async () => {
     scrollToTop();
-    generateLoadout(false);
+    await generateLoadout();
   };
 
   if (isLoading) {

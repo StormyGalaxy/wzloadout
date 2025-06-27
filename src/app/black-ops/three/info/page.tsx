@@ -43,7 +43,7 @@ const badges = [
 
 export default function BlackOpsThreeInfoPage() {
   return (
-    <PageLayout navLinks={navLinks} headerClassName='black-ops'>
+    <PageLayout containerClassName='theme-black-ops'>
       <Container>
         <h2 className='text-center mb-4'>
           Black Ops Three

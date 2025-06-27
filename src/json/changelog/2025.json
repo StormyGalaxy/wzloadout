@@ -1,54 +1,15 @@
 [
   {
-    "Date": "June 27, 2025",
-    "Type": "New",
-    "Link": { "Url": "black-ops/cold-war", "Text": "Black Ops Cold War:" },
-    "Changes": "Introduced a central landing page to showcase all Black Ops Cold War tools in one place!"
-  },
-  {
-    "Date": "June 27, 2025",
+    "Date": "June 26, 2025",
     "Type": "New",
     "Link": { "Url": "world-war-two", "Text": "World War Two:" },
-    "Changes": "Introduced a central landing page to showcase all World War II tools in one place!"
-  },
-  {
-    "Date": "June 26, 2025",
-    "Type": "Upgrade",
-    "Link": { "Url": "black-ops/cold-war/info", "Text": "Black Ops Cold War Info Hub:" },
-    "Changes": "Redesigned the Hub!"
-  },
-  {
-    "Date": "June 26, 2025",
-    "Type": "Upgrade",
-    "Link": { "Url": "world-war-two/info", "Text": "World War Two Info Hub:" },
-    "Changes": "Redesigned the Hub!"
-  },
-  {
-    "Date": "June 26, 2025",
-    "Type": "Upgrade",
-    "Link": { "Url": "world-war-two/zombies-generator", "Text": "World War Two Zombies:" },
-    "Changes": "Redesigned the Generator!"
-  },
-  {
-    "Date": "June 26, 2025",
-    "Type": "Upgrade",
-    "Link": { "Url": "world-war-two/generator", "Text": "World War Two:" },
-    "Changes": "Redesigned the Generator!"
-  },
-  {
-    "Date": "June 22, 2025",
-    "Type": "Upgrade",
-    "Link": {
-      "Url": "black-ops/cold-war/zombies-generator",
-      "Text": "Black Ops Cold War Zombies:"
-    },
-    "Changes": "Redesigned the Generator!"
+    "Changes": "Redesigned the entire game's hub, including all generators and the information hub, and added a new landing page for easier navigation and access."
   },
   {
     "Date": "June 20, 2025",
-    "Type": "Upgrade",
-    "Link": { "Url": "black-ops/cold-war/generator", "Text": "Black Ops Cold War:" },
-    "Changes": "Redesigned the Generator!"
+    "Type": "New",
+    "Link": { "Url": "black-ops/cold-war", "Text": "Black Ops Cold War:" },
+    "Changes": "Redesigned the entire game's hub, including all generators and the information hub, and added a new landing page for easier navigation and access."
   },
   {
     "Date": "May 29, 2025",

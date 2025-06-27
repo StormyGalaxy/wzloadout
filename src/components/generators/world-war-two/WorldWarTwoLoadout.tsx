@@ -29,9 +29,9 @@ const WorldWarTwoLoadout: React.FC = () => {
     isGenerating: isGenerating,
   };
 
-  const handleRegenerateClick = () => {
+  const handleRegenerateClick = async () => {
     scrollToTop();
-    generateLoadout(false);
+    await generateLoadout();
   };
 
   if (isLoading) {
@@ -43,11 +43,12 @@ const WorldWarTwoLoadout: React.FC = () => {
   const equipmentData = [
     {
       title: 'Lethal',
-      value: equipment.lethal.name + (basic === 'Saboteur' || basic === 'Concussed' ? ' x2' : ''),
+      value: equipment?.lethal?.name + (basic === 'Saboteur' || basic === 'Concussed' ? ' x2' : ''),
     },
     {
       title: 'Tactical',
-      value: equipment.tactical.name + (basic === 'Serrated' || basic === 'Concussed' ? ' x2' : ''),
+      value:
+        equipment?.tactical?.name + (basic === 'Serrated' || basic === 'Concussed' ? ' x2' : ''),
     },
   ];
 

@@ -34,7 +34,7 @@ const navLinks = [
 export default function BlackOpsSixWeaponsPage() {
   const dataKeys = ['name', 'type', 'game', 'no_attach_info', 'no_attach', 'isDlc'];
   return (
-    <PageLayout navLinks={navLinks} headerClassName='black-ops'>
+    <PageLayout containerClassName='theme-black-ops'>
       <Container>
         <h2 className='text-center mb-4'>
           Black Ops Six

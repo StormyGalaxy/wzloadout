@@ -4,46 +4,42 @@ import type { Metadata } from 'next';
 import PageLayout from '@/components/PageLayout';
 // --- Loadout ---
 import BlackOpsFourLoadout from '@/components/generators/black-ops/four/BlackOpsFourLoadout';
+import Breadcrumbs from '@/components/common/breadcrumbs/Breadcrumbs';
+// --- Styles ---
+import styles from '@/components/generators/views/ModernLoadout.module.css';
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: 'Black Ops Four',
+  title: 'Black Ops 4 Multiplayer Class Generator',
   description:
-    'Spice up your COD gameplay! Generate unique random loadouts for Call of Duty Black Ops Four. Discover new weapons, perks, and gear combinations.',
+    'Create random classes for Call of Duty: Black Ops 4 multiplayer. Get new combinations of specialists, weapons, gear, and perks to challenge your skills and keep the game fresh.',
   keywords: [
-    'COD Black Ops Four RCG',
-    'black ops four random class generator',
-    'black ops four',
-    'black ops four rcg',
-    'class generator',
-    'zombies',
-    'treyarch zombies',
-    'black ops four zombies',
-    'black ops four rcg',
+    'Black Ops 4 random class generator',
+    'BO4 multiplayer generator',
+    'COD Black Ops 4 loadouts',
+    'BO4 random perks',
+    'Black Ops 4 specialists',
+    'Call of Duty BO4 generator',
+    'bo4 rcg',
   ],
 };
 
-const navLinks = [
-  { label: 'Home', href: '/' },
-  { label: 'Multiplayer Generator', href: '/black-ops/four/generator' },
-  { label: 'Zombies Generator', href: '/black-ops/four/zombies/generator' },
-  { label: 'Zombies Custom Mutations', href: '/black-ops/four/zombies/custom-mutations' },
-  { label: 'Loadout Info', href: '/black-ops/four/info' },
-  { label: 'Changelog', href: '/changelog' },
-];
-
 export default function BlackOpsFourGeneratorPage() {
+  const breadcrumbLinks = [
+    { href: '/black-ops/four', text: 'Black Ops Four' },
+    { text: 'Multiplayer Generator' },
+  ];
+
   return (
-    <PageLayout navLinks={navLinks} headerClassName='black-ops'>
+    <PageLayout containerClassName='theme-black-ops'>
       <Container>
-        <h2 className='text-center mb-4'>
-          Black Ops Four
-          <span className='d-none d-sm-inline-block'>&nbsp;-&nbsp;</span>
-          <br className='d-block d-sm-none' />
-          Random Class Generator
-        </h2>
+        <div className='text-center mb-4'>
+          <h2 className={styles.pageTitle}>Black Ops Four</h2>
+          <p className={styles.pageSubtitle}>Random Class Generator</p>
+        </div>
         <Row className='p-3 p-md-4 bg-light rounded mb-4'>
           <Col className='mx-auto'>
+            <Breadcrumbs links={breadcrumbLinks} className='mb-4' />
             <BlackOpsFourLoadout />
           </Col>
         </Row>

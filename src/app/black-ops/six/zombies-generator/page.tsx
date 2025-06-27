@@ -33,7 +33,7 @@ const navLinks = [
 
 export default function BlackOpsSixZombiesGeneratorPage() {
   return (
-    <PageLayout navLinks={navLinks} headerClassName='black-ops'>
+    <PageLayout containerClassName='theme-black-ops'>
       <Container>
         <h2 className='text-center mb-4'>
           Black Ops Six Zombies

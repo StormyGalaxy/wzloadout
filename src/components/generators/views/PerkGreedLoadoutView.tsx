@@ -48,7 +48,7 @@ const PerkColumn: React.FC<PerkColumnProps> = ({
           </>
         ) : (
           <>
-            <Card.Text className='fw-bold fs-5 mb-1'>{perk}</Card.Text>
+            <Card.Text className='fw-bold fs-5 mb-1'>{perk ? perk : 'None'}</Card.Text>
             {greedPerk && <Card.Text className='text-muted'>+ {greedPerk}</Card.Text>}
           </>
         )}

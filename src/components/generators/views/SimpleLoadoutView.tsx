@@ -62,7 +62,6 @@ const SimpleLoadoutView: React.FC<SimpleLoadoutViewProps> = ({
       </Row>
 
       {/* --- Perk Cards --- */}
-      {/* Assuming PerkGreedLoadoutView can also accept these props to style its internal cards */}
       {perks && <PerkGreedLoadoutView perks={perks} {...cardProps} />}
 
       <hr className='my-4' />

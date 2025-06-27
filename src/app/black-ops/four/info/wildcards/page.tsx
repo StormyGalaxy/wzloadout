@@ -23,26 +23,15 @@ export const metadata: Metadata = {
   ],
 };
 
-const navLinks = [
-  { label: 'Home', href: '/' },
-  { label: 'Multiplayer Generator', href: '/black-ops/four/generator' },
-  { label: 'Zombies Generator', href: '/black-ops/four/zombies/generator' },
-  { label: 'Zombies Custom Mutations', href: '/black-ops/four/zombies/custom-mutations' },
-  { label: 'Loadout Info', href: '/black-ops/four/info' },
-  { label: 'Changelog', href: '/changelog' },
-];
-
 export default function BlackOpsFourWildcardPage() {
   const dataKeys = ['name', 'description', 'type', 'game'];
   return (
-    <PageLayout navLinks={navLinks} headerClassName='black-ops'>
+    <PageLayout containerClassName='theme-black-ops'>
       <Container>
-        <h2 className='text-center mb-4'>
-          Black Ops Four
-          <span className='d-none d-sm-inline-block'>&nbsp;-&nbsp;</span>
-          <br className='d-block d-sm-none' />
-          Wildcards
-        </h2>
+        <div className='text-center mb-4'>
+          <h2 className={styles.pageTitle}>Black Ops Four</h2>
+          <p className={styles.pageSubtitle}>Wildcards</p>
+        </div>
         <Row className='p-3 p-md-4 bg-light rounded mb-4'>
           <Col>
             <WildcardList game='black-ops-four' dataKeys={dataKeys} />

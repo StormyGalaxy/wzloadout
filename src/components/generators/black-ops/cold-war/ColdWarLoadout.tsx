@@ -14,15 +14,13 @@ import GeneratorSkeleton from '@/components/generators/views/skeletons/Generator
 // --- Font Awesome ---
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDice } from '@fortawesome/free-solid-svg-icons';
-// --- Styles ---
-import styles from '@/components/generators/views/ModernLoadout.module.css';
 
 const ColdWarGenerator: React.FC = () => {
   const { data, isLoading, isGenerating, generateLoadout } = useColdWarGenerator();
 
-  const handleRegenerateClick = () => {
+  const handleRegenerateClick = async () => {
     scrollToTop();
-    generateLoadout(false);
+    await generateLoadout();
   };
 
   if (isLoading) {
@@ -41,8 +39,8 @@ const ColdWarGenerator: React.FC = () => {
         primary={weapons.primary}
         secondary={weapons.secondary}
         perks={perkObj ?? null}
-        lethal={equipment.lethal.name}
-        tactical={equipment.tactical.name}
+        lethal={equipment?.lethal?.name}
+        tactical={equipment?.tactical?.name}
         fieldUpgrade={equipment?.fieldUpgrade?.name ?? ''}
         wildcard={wildcard?.name ?? ''}
         streaks={streaks}

@@ -36,7 +36,7 @@ export default function BlackOpsSixWeaponPage() {
   const game = 'black-ops-six';
 
   return (
-    <PageLayout navLinks={navLinks} headerClassName='black-ops'>
+    <PageLayout containerClassName='theme-black-ops'>
       <Container fluid>
         <Row>
           <Suspense

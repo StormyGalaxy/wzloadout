@@ -35,7 +35,7 @@ export default function BlackOpsSixStreaksPage() {
   const dataKeys = ['name', 'score', 'type', 'game', 'isDlc'];
 
   return (
-    <PageLayout navLinks={navLinks} headerClassName='black-ops'>
+    <PageLayout containerClassName='theme-black-ops'>
       <Container>
         <h2 className='text-center mb-4'>
           Black Ops Six

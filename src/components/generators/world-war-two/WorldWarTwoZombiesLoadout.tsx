@@ -29,9 +29,9 @@ const WorldWarTwoZombiesLoadout: React.FC = () => {
     isGenerating: isGenerating,
   };
 
-  const handleRegenerateClick = () => {
+  const handleRegenerateClick = async () => {
     scrollToTop();
-    generateLoadout(false);
+    await generateLoadout();
   };
 
   if (isLoading) {

@@ -32,8 +32,12 @@
   "equipment": {
     "tactical": { "name": "", "type": "" },
     "lethal": { "name": "", "type": "" },
-    "fieldUpgrade": { "name": "", "type": "" }
+    "fieldUpgrade": { "name": "", "type": "" },
+    "gear": "",
+    "equipment": ""
   },
   "wildcard": { "name": "", "description": "" },
-  "basic": null
+  "wildcards": "",
+  "basic": null,
+  "specialist": { "name": "", "type": "", "game": "" }
 }
