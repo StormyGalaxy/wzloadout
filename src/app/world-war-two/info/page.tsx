@@ -81,6 +81,8 @@ const zombiesLinks = [
   },
 ];
 
+const breadcrumbLinks = [{ href: '/world-war-two', text: 'World War Two' }, { text: 'Info Hub' }];
+
 export default function WorldWarTwoInfoPage() {
   return (
     <PageLayout containerClassName='theme-ww2'>
@@ -92,6 +94,7 @@ export default function WorldWarTwoInfoPage() {
         zombiesLink='/world-war-two/zombies-generator'
         zombiesLinks={zombiesLinks}
         buttonVariant='ww2'
+        breadcrumbs={breadcrumbLinks}
       />
     </PageLayout>
   );
