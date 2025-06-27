@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 export default function WorldWarTwoStreaksPage() {
   const breadcrumbLinks = [
     { href: '/world-war-two', text: 'World War Two' },
-    { href: '/world-war-two/info', text: 'Info' },
+    { href: '/world-war-two/info', text: 'Info Hub' },
     { text: 'Streaks' },
   ];
 

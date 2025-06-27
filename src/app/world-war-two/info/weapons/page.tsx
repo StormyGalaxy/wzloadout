@@ -30,7 +30,7 @@ export default function WorldWarTwoWeaponsPage() {
   const dataKeys = ['name', 'type', 'game', 'no_attach', 'no_attach_info'];
   const breadcrumbLinks = [
     { href: '/world-war-two', text: 'World War Two' },
-    { href: '/world-war-two/info', text: 'Info' },
+    { href: '/world-war-two/info', text: 'Info Hub' },
     { text: 'Weapons' },
   ];
 

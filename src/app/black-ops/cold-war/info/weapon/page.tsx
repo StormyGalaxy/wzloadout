@@ -9,35 +9,21 @@ import WeaponDisplayClient from '@/components/info/WeaponDisplayClient';
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: 'Black Ops Cold War Weapon',
-  description:
-    'View information and all available attachments for the weapon in Black Ops Cold War.',
+  title: 'Black Ops Cold War Weapon Information',
+  description: 'View information and all available attachments for weapons in Black Ops Cold War.',
   keywords: [
-    'COD Black Ops Cold War RCG',
-    'black ops cold war random class generator',
-    'black ops cold war',
-    'black ops cold war rcg',
-    'class generator',
-    'zombies',
-    'treyarch zombies',
-    'black ops cold war zombies',
-    'black ops cold war rcg',
+    'Black Ops Cold War weapons',
+    'BOCW weapon stats',
+    'COD Cold War guns',
+    'Cold War attachments',
   ],
 };
-
-const navLinks = [
-  { label: 'Home', href: '/' },
-  { label: 'Multiplayer Generator', href: '/black-ops/cold-war/generator' },
-  { label: 'Zombies Generator', href: '/black-ops/cold-war/zombies-generator' },
-  { label: 'Loadout Info', href: '/black-ops/cold-war/info' },
-  { label: 'Changelog', href: '/changelog' },
-];
 
 export default function ColdWarWeaponPage() {
   const game = 'cold-war';
 
   return (
-    <PageLayout navLinks={navLinks} headerClassName='cold-war'>
+    <PageLayout containerClassName='theme-cold-war'>
       <Container fluid>
         <Row>
           <Suspense
@@ -46,7 +32,7 @@ export default function ColdWarWeaponPage() {
                 <p className='text-center'>Loading page...</p>
               </Col>
             }>
-            <WeaponDisplayClient game={game} />
+            <WeaponDisplayClient game={game} link='black-ops/cold-war' />
           </Suspense>
         </Row>
       </Container>

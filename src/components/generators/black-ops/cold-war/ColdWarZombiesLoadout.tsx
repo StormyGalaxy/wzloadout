@@ -72,11 +72,7 @@ export default function ColdWarZombiesLoadout() {
       {/* --- Generate Button --- */}
       <Row className='mt-4'>
         <Col className='text-center'>
-          <Button
-            variant='danger'
-            disabled={isGenerating}
-            onClick={handleRegenerateClick}
-            className={styles.generateButton}>
+          <Button variant='danger' disabled={isGenerating} onClick={handleRegenerateClick}>
             <FontAwesomeIcon icon={faSkull} className='me-2' />
             {isGenerating ? 'Generating...' : 'Generate New Loadout'}
           </Button>

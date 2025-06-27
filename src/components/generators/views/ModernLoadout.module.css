@@ -37,15 +37,6 @@
   font-weight: 400;
 }
 
-/* --- Button Styling --- */
-.generateButton {
-  padding: 0.75rem 2rem !important;
-  font-size: 1.25rem !important;
-  font-weight: bold !important;
-  transition: all 0.3s ease !important;
-  border-radius: 0.5rem !important;
-}
-
 /* --- Animation for Generating State --- */
 .generating {
   animation: pulse 1.5s infinite;

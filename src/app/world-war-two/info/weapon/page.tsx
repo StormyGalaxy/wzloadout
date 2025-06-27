@@ -37,7 +37,7 @@ export default function WorldWarTwoWeaponPage() {
                 <p className='text-center'>Loading page...</p>
               </Col>
             }>
-            <WeaponDisplayClient game={game} />
+            <WeaponDisplayClient game={game} link='world-war-two' />
           </Suspense>
         </Row>
       </Container>

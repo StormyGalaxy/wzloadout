@@ -6,38 +6,34 @@ import type { Metadata } from 'next';
 import PageLayout from '@/components/PageLayout';
 // --- Loadout ---
 import ColdWarLoadout from '@/components/generators/black-ops/cold-war/ColdWarLoadout';
+import Breadcrumbs from '@/components/common/breadcrumbs/Breadcrumbs';
 // --- Styles ---
 import styles from '@/components/generators/views/ModernLoadout.module.css';
 
 // --- Metadata (keep as is) ---
 export const metadata: Metadata = {
-  title: 'Black Ops Cold War',
+  title: 'Black Ops Cold War Multiplayer Class Generator',
   description:
-    'Spice up your COD gameplay! Generate unique random loadouts for Call of Duty Black Ops Cold War. Discover new weapons, perks, and gear combinations.',
+    'Generate unique random loadouts for Call of Duty: Black Ops Cold War multiplayer. Get new combinations of weapons, perks, wildcards, equipment, and scorestreaks to keep your gameplay exciting.',
   keywords: [
-    'COD Black Ops Cold War RCG',
-    'black ops cold war random class generator',
-    'black ops cold war',
-    'black ops cold war rcg',
-    'class generator',
-    'zombies',
-    'treyarch zombies',
-    'black ops cold war zombies',
-    'black ops cold war rcg',
+    'Black Ops Cold War random class generator',
+    'BOCW multiplayer generator',
+    'COD Cold War loadouts',
+    'Cold War random perks',
+    'Cold War random wildcards',
+    'Call of Duty Cold War generator',
+    'bocw rcg',
   ],
 };
 
-const navLinks = [
-  { label: 'Home', href: '/' },
-  { label: 'Multiplayer Generator', href: '/black-ops/cold-war/generator' },
-  { label: 'Zombies Generator', href: '/black-ops/cold-war/zombies-generator' },
-  { label: 'Loadout Info', href: '/black-ops/cold-war/info' },
-  { label: 'Changelog', href: '/changelog' },
-];
-
 export default function ColdWarGeneratorPage() {
+  const breadcrumbLinks = [
+    { href: '/black-ops/cold-war', text: 'Black Ops Cold War' },
+    { text: 'Multiplayer Generator' },
+  ];
+
   return (
-    <PageLayout navLinks={navLinks} containerClassName='theme-cold-war'>
+    <PageLayout containerClassName='theme-cold-war'>
       <Container>
         <div className='text-center mb-4'>
           <h2 className={styles.pageTitle}>Black Ops Cold War</h2>
@@ -46,6 +42,7 @@ export default function ColdWarGeneratorPage() {
 
         <Row className='p-3 p-md-4 bg-light rounded mb-4'>
           <Col className='mx-auto'>
+            <Breadcrumbs links={breadcrumbLinks} className='mb-4' />
             <ColdWarLoadout />
           </Col>
         </Row>

@@ -24,15 +24,16 @@ const titleMap = {
   isDlc: 'DLC Weapon',
 };
 
-function WeaponInfo({ value, game }: WeaponInfoProps) {
+function WeaponInfo({ value, game, link, linkText }: WeaponInfoProps) {
   const [isLoading, setIsLoading] = useState(true);
   const [weaponData, setWeponData] = useState<Weapon>({ name: '', type: '', game: '' });
   const [attachmentInfo, setAttachmentInfo] = useState({});
   const [key, setKey] = useState<string>('');
   const [githubLink, setGithubLink] = useState<string>('');
   const breadcrumbLinks = [
-    { href: '/world-war-two/info', text: 'Info' },
-    { href: '/world-war-two/info/weapons', text: 'Weapons' },
+    { href: `/${link}`, text: linkText },
+    { href: `/${link}/info`, text: 'Info Hub' },
+    { href: `/${link}/info/weapons`, text: 'Weapons' },
     { text: `Weapon - ${value}` },
   ];
 

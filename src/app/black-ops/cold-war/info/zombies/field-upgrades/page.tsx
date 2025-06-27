@@ -5,44 +5,48 @@ import type { Metadata } from 'next';
 import PageLayout from '@/components/PageLayout';
 // --- Components ---
 import ZombiesFieldUpgradeList from '@/components/info/ZombiesFieldUpgradeList';
+import Breadcrumbs from '@/components/common/breadcrumbs/Breadcrumbs';
+// --- Styles ---
+import styles from '@/components/generators/views/ModernLoadout.module.css';
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: 'Black Ops Cold War Zombies Field Upgrades',
-  description: 'View all field upgrades in Black Ops Cold War Zombies.',
+  title: 'Cold War Zombies Field Upgrades | All Abilities & Tiers',
+  description:
+    'A complete guide to all Zombies Field Upgrades in Black Ops Cold War. Learn what each ability does and see the powerful effects of each upgrade tier.',
   keywords: [
-    'COD Black Ops Cold War RCG',
-    'black ops cold war random class generator',
-    'black ops cold war',
-    'black ops cold war rcg',
-    'class generator',
-    'zombies',
+    'Black Ops Cold War Zombies field upgrades',
+    'BOCW zombies field upgrades',
+    'Cold War zombies abilities',
+    'Ring of Fire',
+    'Aether Shroud',
+    'Frenzied Guard',
+    'Healing Aura',
+    'Frost Blast',
+    'Energy Mine',
+    'best field upgrade cold war zombies',
     'treyarch zombies',
-    'black ops cold war zombies',
-    'black ops cold war rcg',
   ],
 };
 
-const navLinks = [
-  { label: 'Home', href: '/' },
-  { label: 'Multiplayer Generator', href: '/black-ops/cold-war/generator' },
-  { label: 'Zombies Generator', href: '/black-ops/cold-war/zombies-generator' },
-  { label: 'Loadout Info', href: '/black-ops/cold-war/info' },
-  { label: 'Changelog', href: '/changelog' },
-];
-
 export default function ColdWarZombiesFieldUpgradesPage() {
+  const breadcrumbLinks = [
+    { href: '/black-ops/cold-war', text: 'Black Ops Cold War' },
+    { href: '/black-ops/cold-war/info', text: 'Info Hub' },
+    { text: 'Zombies Field Upgrades' },
+  ];
+
   return (
-    <PageLayout navLinks={navLinks} headerClassName='cold-war'>
+    <PageLayout containerClassName='theme-cold-war'>
       <Container>
-        <h2 className='text-center mb-4'>
-          Black Ops Cold War
-          <span className='d-none d-sm-inline-block'>&nbsp;-&nbsp;</span>
-          <br className='d-block d-sm-none' />
-          Zombies Field Upgrades
-        </h2>
+        <div className='text-center mb-4'>
+          <h2 className={styles.pageTitle}>Black Ops Cold War</h2>
+          <p className={styles.pageSubtitle}>Zombies Field Upgrades</p>
+        </div>
+
         <Row className='p-3 p-md-4 bg-light rounded mb-4'>
           <Col>
+            <Breadcrumbs links={breadcrumbLinks} className='mb-4' />
             <ZombiesFieldUpgradeList game='cold-war' />
           </Col>
         </Row>

@@ -30,15 +30,6 @@ export const metadata: Metadata = {
   ],
 };
 
-// --- Data Definitions ---
-const navLinks = [
-  { label: 'Home', href: '/' },
-  { label: 'Multiplayer Generator', href: '/black-ops/cold-war/generator' },
-  { label: 'Zombies Generator', href: '/black-ops/cold-war/zombies-generator' },
-  { label: 'Loadout Info', href: '/black-ops/cold-war/info' },
-  { label: 'Changelog', href: '/changelog' },
-];
-
 const multiplayerLinks = [
   {
     icon: faGun,
@@ -64,6 +55,12 @@ const multiplayerLinks = [
     description: 'Familiarize yourself with the lethal and tactical Scorestreaks available.',
     link: '/black-ops/cold-war/info/streaks',
   },
+  {
+    icon: faExplosion,
+    title: 'Equipment',
+    description: 'View the lethal, tactical, and support equipment available for your loadout.',
+    link: '/black-ops/cold-war/info/equipment',
+  },
 ];
 
 const zombiesLinks = [
@@ -79,17 +76,16 @@ const zombiesLinks = [
     description: 'Get details on the powerful Field Upgrades to survive against the undead.',
     link: '/black-ops/cold-war/info/zombies/field-upgrades',
   },
-  {
-    icon: faExplosion,
-    title: 'Equipment',
-    description: 'View the lethal, tactical, and support equipment available for your loadout.',
-    link: '/black-ops/cold-war/info/equipment',
-  },
+];
+
+const breadcrumbLinks = [
+  { href: '/black-ops/cold-war', text: 'Black Ops Cold War' },
+  { text: 'Info Hub' },
 ];
 
 export default function ColdWarInfoPage() {
   return (
-    <PageLayout navLinks={navLinks} containerClassName='theme-cold-war'>
+    <PageLayout containerClassName='theme-cold-war'>
       <InfoHubClient
         heroTitle='Black Ops Cold War'
         heroSubTitle='Your Central Hub for Multiplayer & Zombies Intel'
@@ -98,6 +94,7 @@ export default function ColdWarInfoPage() {
         zombiesLink='/black-ops/cold-war/zombies-generator'
         zombiesLinks={zombiesLinks}
         buttonVariant='danger'
+        breadcrumbs={breadcrumbLinks}
       />
     </PageLayout>
   );

@@ -14,9 +14,10 @@ import styles from '@/components/generators/views/ModernLoadout.module.css';
 // Define props for the component
 interface WeaponDisplayClientProps {
   game: string;
+  link: string;
 }
 
-export default function WeaponDisplayClient({ game }: WeaponDisplayClientProps) {
+export default function WeaponDisplayClient({ game, link }: WeaponDisplayClientProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [isLoading, setIsLoading] = useState(true);
@@ -43,7 +44,9 @@ export default function WeaponDisplayClient({ game }: WeaponDisplayClientProps) 
         <p className={styles.pageSubtitle}></p>
       </div>
 
-      {!isLoading && value && <WeaponInfo value={value} game={game} />}
+      {!isLoading && value && (
+        <WeaponInfo value={value} game={game} link={link} linkText={displayGameName} />
+      )}
       {isLoading && <p className='text-center'>Loading weapon data...</p>}
     </Col>
   );

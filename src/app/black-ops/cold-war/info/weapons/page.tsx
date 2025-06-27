@@ -5,44 +5,45 @@ import type { Metadata } from 'next';
 import PageLayout from '@/components/PageLayout';
 // --- Components ---
 import WeaponList from '@/components/info/WeaponList';
+import Breadcrumbs from '@/components/common/breadcrumbs/Breadcrumbs';
+// --- Styles ---
+import styles from '@/components/generators/views/ModernLoadout.module.css';
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: 'Black Ops Cold War Weapons',
-  description: 'View all weapons in Black Ops Cold War.',
+  title: 'Black Ops Cold War Weapons | All Guns & Stats',
+  description:
+    'Explore the complete arsenal of Black Ops Cold War. This page lists all primary and secondary weapons with links to detailed stats and attachment information.',
   keywords: [
-    'COD Black Ops Cold War RCG',
-    'black ops cold war random class generator',
-    'black ops cold war',
-    'black ops cold war rcg',
-    'class generator',
-    'zombies',
-    'treyarch zombies',
-    'black ops cold war zombies',
-    'black ops cold war rcg',
+    'Black Ops Cold War weapons',
+    'BOCW weapons',
+    'COD Cold War guns',
+    'Cold War weapon stats',
+    'all cold war weapons',
+    'assault rifles cold war',
+    'smgs cold war',
+    'tactical rifles cold war',
+    'snipers cold war',
   ],
 };
 
-const navLinks = [
-  { label: 'Home', href: '/' },
-  { label: 'Multiplayer Generator', href: '/black-ops/cold-war/generator' },
-  { label: 'Zombies Generator', href: '/black-ops/cold-war/zombies-generator' },
-  { label: 'Loadout Info', href: '/black-ops/cold-war/info' },
-  { label: 'Changelog', href: '/changelog' },
-];
-
 export default function ColdWarWeaponsPage() {
+  const breadcrumbLinks = [
+    { href: '/black-ops/cold-war', text: 'Black Ops Cold War' },
+    { href: '/black-ops/cold-war/info', text: 'Info Hub' },
+    { text: 'Weapons' },
+  ];
+
   return (
-    <PageLayout navLinks={navLinks} headerClassName='cold-war'>
+    <PageLayout containerClassName='theme-cold-war'>
       <Container>
-        <h2 className='text-center mb-4'>
-          Black Ops Cold War
-          <span className='d-none d-sm-inline-block'>&nbsp;-&nbsp;</span>
-          <br className='d-block d-sm-none' />
-          Weapons
-        </h2>
+        <div className='text-center mb-4'>
+          <h2 className={styles.pageTitle}>Black Ops Cold War</h2>
+          <p className={styles.pageSubtitle}>Weapons</p>
+        </div>
         <Row className='p-3 p-md-4 bg-light rounded mb-4'>
           <Col>
+            <Breadcrumbs links={breadcrumbLinks} className='mb-4' />
             <WeaponList game='cold-war' link={'black-ops/cold-war'} />
           </Col>
         </Row>
