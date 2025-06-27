@@ -2,6 +2,12 @@
   {
     "Date": "June 27, 2025",
     "Type": "New",
+    "Link": { "Url": "black-ops/cold-war", "Text": "Black Ops Cold War:" },
+    "Changes": "Introduced a central landing page to showcase all Black Ops Cold War tools in one place!"
+  },
+  {
+    "Date": "June 27, 2025",
+    "Type": "New",
     "Link": { "Url": "world-war-two", "Text": "World War Two:" },
     "Changes": "Introduced a central landing page to showcase all World War II tools in one place!"
   },
