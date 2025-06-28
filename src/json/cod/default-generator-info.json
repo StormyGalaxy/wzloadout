@@ -30,9 +30,9 @@
     }
   },
   "equipment": {
-    "tactical": { "name": "", "type": "" },
-    "lethal": { "name": "", "type": "" },
-    "fieldUpgrade": { "name": "", "type": "" },
+    "tactical": { "name": "", "type": "", "game": "" },
+    "lethal": { "name": "", "type": "", "game": "" },
+    "fieldUpgrade": { "name": "", "type": "", "game": "" },
     "gear": "",
     "equipment": ""
   },

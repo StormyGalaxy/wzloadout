@@ -45,7 +45,7 @@
     ]
   },
   {
-    "title": "Black Ops IV",
+    "title": "Black Ops 4",
     "text": "",
     "variant": "black-ops",
     "buttons": [{ "link": "black-ops/four/generator", "disabled": false, "btnText": "Generator" }]
@@ -78,7 +78,7 @@
     ]
   },
   {
-    "title": "Black Ops III",
+    "title": "Black Ops 3",
     "text": "",
     "variant": "black-ops",
     "buttons": [{ "link": "black-ops/three/generator", "disabled": false, "btnText": "Generator" }]

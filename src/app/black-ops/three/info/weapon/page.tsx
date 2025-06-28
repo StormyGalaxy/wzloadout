@@ -9,10 +9,10 @@ import WeaponDisplayClient from '@/components/info/WeaponDisplayClient';
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: 'Black Ops Three Weapons',
-  description: 'View information and all available attachments for the weapon in Black Ops Three.',
+  title: 'Black Ops 3 Weapons',
+  description: 'View information and all available attachments for the weapon in Black Ops 3.',
   keywords: [
-    'COD Black Ops Three RCG',
+    'COD Black Ops 3 RCG',
     'black ops three random class generator',
     'black ops three',
     'black ops three rcg',

@@ -8,10 +8,10 @@ import WeaponList from '@/components/info/WeaponList';
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: 'Black Ops Three Weapons',
-  description: 'View all weapons in Black Ops Three.',
+  title: 'Black Ops 3 Weapons',
+  description: 'View all weapons in Black Ops 3.',
   keywords: [
-    'COD Black Ops Three RCG',
+    'COD Black Ops 3 RCG',
     'black ops three random class generator',
     'black ops three',
     'black ops three rcg',
@@ -35,8 +35,7 @@ export default function BlackOpsThreeWeaponsPage() {
     <PageLayout containerClassName='theme-black-ops'>
       <Container>
         <h2 className='text-center mb-4'>
-          Black Ops Three
-          <span className='d-none d-sm-inline-block'>&nbsp;-&nbsp;</span>
+          Black Ops 3<span className='d-none d-sm-inline-block'>&nbsp;-&nbsp;</span>
           <br className='d-block d-sm-none' />
           Weapons
         </h2>
