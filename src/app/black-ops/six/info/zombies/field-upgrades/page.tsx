@@ -23,25 +23,16 @@ export const metadata: Metadata = {
   ],
 };
 
-const navLinks = [
-  { label: 'Home', href: '/' },
-  { label: 'Multiplayer Generator', href: '/black-ops/six/generator' },
-  { label: 'Zombies Generator', href: '/black-ops/six/zombies-generator' },
-  { label: 'Loadout Info', href: '/black-ops/six/info' },
-  { label: 'Changelog', href: '/changelog' },
-];
-
 export default function BlackOpsSixZombiesFieldUpgradesPage() {
   const dataKeys = ['name', 'type', 'game', 'isDlc'];
 
   return (
     <PageLayout containerClassName='theme-black-ops'>
       <Container>
-        <h2 className='text-center mb-4'>
-          Black Ops 6<span className='d-none d-sm-inline-block'>&nbsp;-&nbsp;</span>
-          <br className='d-block d-sm-none' />
-          Zombies Field Upgrades
-        </h2>
+        <div className='text-center mb-4'>
+          <h2 className={styles.pageTitle}>Black Ops 6</h2>
+          <p className={styles.pageSubtitle}>Zombies Field Upgrades</p>
+        </div>
         <Row className='p-3 p-md-4 bg-light rounded mb-4'>
           <Col>
             <ZombiesFieldUpgradeList game='black-ops-six' dataKeys={dataKeys} />

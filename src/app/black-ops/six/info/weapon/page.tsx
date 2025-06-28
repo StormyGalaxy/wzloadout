@@ -24,14 +24,6 @@ export const metadata: Metadata = {
   ],
 };
 
-const navLinks = [
-  { label: 'Home', href: '/' },
-  { label: 'Multiplayer Generator', href: '/black-ops/six/generator' },
-  { label: 'Zombies Generator', href: '/black-ops/six/zombies-generator' },
-  { label: 'Loadout Info', href: '/black-ops/six/info' },
-  { label: 'Changelog', href: '/changelog' },
-];
-
 export default function BlackOpsSixWeaponPage() {
   const game = 'black-ops-six';
 
