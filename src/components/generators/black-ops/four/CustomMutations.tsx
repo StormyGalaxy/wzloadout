@@ -7,6 +7,9 @@ import { useCustomMutations } from '@/hooks/black-ops/four/useCustomMutations';
 // --- Components ---
 import CustomSettingsGeneral from '@/components/generators/cod/custom-settings/CustomSettingsGeneral';
 import CustomSettingsSection from '@/components/generators/cod/custom-settings/CustomSettingsSection';
+// --- Font Awesome ---
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faVial } from '@fortawesome/free-solid-svg-icons';
 // --- Data ---
 import generalSettings from '@/json/black-ops/four/zombies/custom-mutations/general.json';
 import systemsSettings from '@/json/black-ops/four/zombies/custom-mutations/systems.json';
@@ -47,6 +50,7 @@ export default function CustomMutations() {
           <Row id='button-row'>
             <Col className='text-center'>
               <Button variant='black-ops' onClick={generateSettings}>
+                <FontAwesomeIcon icon={faVial} className='me-2' />
                 Generate Settings
               </Button>
             </Col>

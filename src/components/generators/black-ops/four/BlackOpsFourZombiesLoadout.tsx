@@ -1,229 +1,131 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+// --- React ---
+import React, { useState, useMemo } from 'react';
 import { Row, Col, Button, Form } from 'react-bootstrap';
+// --- Hooks ---
+import { useBlackOpsFourZombiesGenerator } from '@/hooks/black-ops/four/useBlackOpsFourZombiesGenerator';
+// --- Components ---
 import SimpleGeneratorView from '@/components/generators/cod/SimpleGeneratorView';
 import CodClassName from '@/components/CodClassName';
-//Helpers
-import { scrollToTop } from '@/helpers/scrollToTop';
-import { fetchWeapon } from '@/helpers/fetch/fetchWeapon';
-import { fetchEquipment } from '@/helpers/fetch/fetchEquipment';
-import { fetchClassName } from '@/helpers/fetch/fetchClassName';
-//Zombies Specific
-import { fetchZombiesMap } from '@/helpers/fetch/zombies/fetchZombiesMap';
-import { fetchZombiesGobblegum } from '@/helpers/fetch/zombies/fetchZombiesGobblegum';
-import { fetchZombiesPerks } from '@/helpers/fetch/zombies/fetchZombiesPerks';
-//Types
-import { Bo4ZombiesSettings, Weapon, GeneratorItem, ZombiesMap } from '@/types/Generator';
-//Components
+import GeneratorSkeleton from '@/components/generators/views/skeletons/GeneratorSkeleton';
+import ValueCardView from '@/components/generators/views/ValueCardView';
+import ListViewCard from '@/components/generators/views/ListViewCard';
 import { CustomModal } from '@silocitypages/ui-core';
-//Utils
-import { sendEvent, setLocalStorage, getLocalStorage } from '@silocitypages/utils';
-//json
-import defaultData from '@/json/cod/default-zombies-generator-info.json';
-
-const defaultSettings: Bo4ZombiesSettings = {
-  rollMap: true,
-  rollElixers: true,
-  rollTalisman: true,
-};
-
-interface Bo4ZombiesData {
-  randClassName: string;
-  story: { key: string; display: string };
-  weapons: { starting: Weapon; special: Weapon };
-  equipment: { lethal: GeneratorItem };
-  elixers: string;
-  talisman: string;
-  zombieMap: ZombiesMap;
-  zombiePerks: string[];
-}
+// --- Font Awesome ---
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSkull } from '@fortawesome/free-solid-svg-icons';
+// --- Styles ---
+import styles from '@/components/generators/views/ModernLoadout.module.css';
 
 export default function BlackOpsFourZombiesLoadout() {
-  const [isLoading, setIsLoading] = useState(true);
-  const [isGenerating, setIsGenerating] = useState(true);
-  //Settings
-  const [settings, setSettings] = useState<Bo4ZombiesSettings>(defaultSettings);
-  const [rollMap, setRollMap] = useState(settings.rollMap);
-  const [rollElixers, setRollElixer] = useState(settings.rollElixers);
-  const [rollTalisman, setRollTalisman] = useState(settings.rollTalisman);
+  const { data, settings, isLoading, isGenerating, generateLoadout, updateSettings } =
+    useBlackOpsFourZombiesGenerator();
   const [showModal, setShowModal] = useState(false);
 
-  //Data
-  const [data, setData] = useState<Bo4ZombiesData>(defaultData);
+  const generatingClass = isGenerating ? styles.generating : '';
 
-  useEffect(() => {
-    const rawStoredSettings = getLocalStorage('bo4ZombiesSettings');
-
-    // Ensure storedSettings is a valid object before spreading
-    const storedSettings =
-      typeof rawStoredSettings === 'object' && rawStoredSettings !== null
-        ? rawStoredSettings
-        : defaultSettings;
-
-    const completeSettings = { ...defaultSettings, ...(storedSettings as Bo4ZombiesSettings) };
-
-    setSettings(completeSettings);
-    setRollMap(completeSettings.rollMap);
-    setRollElixer(completeSettings.rollElixers);
-    setRollTalisman(completeSettings.rollTalisman);
-
-    fetchLoadoutData(setData);
-
-    setIsLoading(false);
-    setIsGenerating(false);
-  }, []);
-
-  const handleClick = async () => {
-    setIsGenerating(true);
-
-    setTimeout(() => {
-      fetchLoadoutData(setData);
-      setIsGenerating(false);
-      scrollToTop();
-    }, 1000);
+  const cardProps = {
+    className: `${styles.card} ${generatingClass}`,
+    headerClassName: styles.cardHeader,
+    isGenerating: isGenerating,
   };
 
   const handleModal = () => setShowModal(!showModal);
   const handleSave = () => {
-    setLocalStorage('bo4ZombiesSettings', settings);
+    // Settings are already saved onChange, so just close the modal
     handleModal();
-  };
-
-  const handleRollMapChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setRollMap(event.target.checked);
-    setSettings({ ...settings, rollMap: event.target.checked });
-  };
-  const handleRollElixerChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setRollElixer(event.target.checked);
-    setSettings({ ...settings, rollElixers: event.target.checked });
-  };
-  const handleRollTalismanChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setRollTalisman(event.target.checked);
-    setSettings({ ...settings, rollTalisman: event.target.checked });
   };
 
   const { randClassName, story, weapons, equipment, elixers, talisman, zombieMap, zombiePerks } =
     data;
+  const { rollMap, rollElixers, rollTalisman } = settings;
+
+  const perks = useMemo(
+    () => [
+      { title: story.key === 'chaos_story' ? 'DANU' : 'BREW', value: zombiePerks[0] },
+      { title: story.key === 'chaos_story' ? 'RA' : 'COLA', value: zombiePerks[1] },
+      { title: story.key === 'chaos_story' ? 'ZEUS' : 'SODA', value: zombiePerks[2] },
+      { title: story.key === 'chaos_story' ? 'ODIN' : 'TONIC', value: zombiePerks[3] },
+    ],
+    [story.key, zombiePerks]
+  );
+
+  const matchDetails = useMemo(() => {
+    if (!rollMap) return [];
+
+    const details = [
+      { title: 'Mode', value: zombieMap?.mode ?? '' },
+      { title: 'Map', value: zombieMap?.name ?? '' },
+    ];
+
+    if (zombieMap?.mode === 'Classic') {
+      details.push({ title: 'Difficulty', value: zombieMap?.difficulty ?? '' });
+    }
+
+    return details;
+  }, [rollMap, zombieMap]);
 
   if (isLoading) {
-    return <div className='text-center'>Loading...</div>;
+    return <GeneratorSkeleton />;
   }
 
   return (
     <>
       <CodClassName isGenerating={isGenerating} value={randClassName} />
-      <Row className='justify-content-md-center mb-4'>
-        <Col sm className='text-center'>
-          <SimpleGeneratorView isGenerating={isGenerating} title='Story' value={story.display} />
+      <Row className='justify-content-md-center text-center mb-4'>
+        <Col md={6} lg={3} className='mb-4 mb-md-0'>
+          <ValueCardView title='Story' value={story.display} {...cardProps} />
         </Col>
-        <Col sm className='text-center'>
-          <SimpleGeneratorView
-            isGenerating={isGenerating}
-            title='Special Weapon'
-            value={weapons.special.name}
-          />
+        <Col md={6} lg={3} className='mb-4 mb-md-0'>
+          <ValueCardView title='Special Weapon' value={weapons.special.name} {...cardProps} />
         </Col>
-        <Col sm className='text-center'>
-          <SimpleGeneratorView
-            isGenerating={isGenerating}
-            title='Equipment'
-            value={equipment.lethal.name}
-          />
+        <Col md={6} lg={3} className='mb-4 mb-md-0'>
+          <ValueCardView title='Equipment' value={equipment.lethal.name} {...cardProps} />
         </Col>
-        <Col sm className='text-center'>
-          <SimpleGeneratorView
-            isGenerating={isGenerating}
-            title='Starting Weapon'
-            value={weapons.starting.name}
-          />
+        <Col md={6} lg={3} className='mb-4 mb-md-0'>
+          <ValueCardView title='Starting Weapon' value={weapons.starting.name} {...cardProps} />
         </Col>
       </Row>
       <hr />
-      <Row className='justify-content-md-center mb-4'>
-        <Col sm className='text-center'>
-          <SimpleGeneratorView
-            isGenerating={isGenerating}
-            title={story.key === 'chaos_story' ? 'DANU' : 'BREW'}
-            value={zombiePerks[0]}
-          />
+
+      <Row className='justify-content-md-center text-center mb-4'>
+        <Col md={6} lg={3} className='mb-4 mb-md-0'>
+          <ListViewCard title='Perks' values={perks} {...cardProps} />
         </Col>
-        <Col sm className='text-center'>
-          <SimpleGeneratorView
-            isGenerating={isGenerating}
-            title={story.key === 'chaos_story' ? 'RA' : 'COLA'}
-            value={zombiePerks[1]}
-          />
-        </Col>
-        <Col sm className='text-center'>
-          <SimpleGeneratorView
-            isGenerating={isGenerating}
-            title={story.key === 'chaos_story' ? 'ZEUS' : 'SODA'}
-            value={zombiePerks[2]}
-          />
-        </Col>
-        <Col sm className='text-center'>
-          <SimpleGeneratorView
-            isGenerating={isGenerating}
-            title={story.key === 'chaos_story' ? 'ODIN' : 'TONIC'}
-            value={zombiePerks[3]}
-          />
-        </Col>
-      </Row>
-      {rollMap && (
-        <>
-          <hr />
-          <Row className='justify-content-md-center mb-4'>
-            <Col xs md='4' lg='3' className='text-center'>
-              <SimpleGeneratorView
-                isGenerating={isGenerating}
-                title='Mode'
-                value={zombieMap?.mode ?? null}
-              />
-            </Col>
-            <Col xs md='4' lg='3' className='text-center'>
-              <SimpleGeneratorView isGenerating={isGenerating} title='Map' value={zombieMap.name} />
-            </Col>
-            {zombieMap?.mode === 'Classic' && (
-              <Col xs md='4' lg='3' className='text-center'>
-                <SimpleGeneratorView
-                  isGenerating={isGenerating}
-                  title='Difficulty'
-                  value={zombieMap?.difficulty ?? null}
-                />
-              </Col>
-            )}
-          </Row>
-        </>
-      )}
-      {(rollElixers || rollTalisman) && <hr />}
-      <Row className='justify-content-md-center mb-4'>
+        {rollMap && (
+          <Col md={6} lg={3} className='mb-4 mb-md-0'>
+            <ListViewCard title='Match Details' values={matchDetails} {...cardProps} />
+          </Col>
+        )}
         {rollTalisman && (
-          <Col xs md='4' lg='3' className='text-center'>
-            <SimpleGeneratorView isGenerating={isGenerating} title='Talisman' value={talisman} />
+          <Col md={6} lg={3} className='mb-4 mb-md-0'>
+            <ValueCardView title='Talisman' value={talisman} {...cardProps} />
           </Col>
         )}
         {rollElixers && (
-          <Col xs md='4' lg='3' className='text-center'>
-            <SimpleGeneratorView isGenerating={isGenerating} title='Elixers' value={elixers} />
+          <Col md={6} lg={3} className='mb-4 mb-md-0'>
+            <ValueCardView title='Elixers' value={elixers} {...cardProps} />
           </Col>
         )}
       </Row>
+
       <Row className='justify-content-md-center'>
         <Col xs md='8' lg='6' className='text-center'>
           <div className='d-flex justify-content-center'>
             <Button
               variant='black-ops'
               disabled={isGenerating}
-              onClick={isGenerating ? undefined : handleModal}
+              onClick={handleModal}
               className='w-50 me-2'>
               Settings
             </Button>
             <Button
               variant='black-ops'
               disabled={isGenerating}
-              onClick={isGenerating ? undefined : handleClick}
+              onClick={() => generateLoadout()}
               className='w-50 me-2'>
+              <FontAwesomeIcon icon={faSkull} className='me-2' />
               {isGenerating ? 'Generating Loadout...' : 'Generate Loadout'}
             </Button>
           </div>
@@ -242,7 +144,9 @@ export default function BlackOpsFourZombiesLoadout() {
             <Form.Check
               type='switch'
               id='rollMap'
-              onChange={handleRollMapChange}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                updateSettings({ rollMap: e.target.checked })
+              }
               checked={rollMap}
             />
           </Col>
@@ -251,7 +155,9 @@ export default function BlackOpsFourZombiesLoadout() {
             <Form.Check
               type='switch'
               id='rollElixers'
-              onChange={handleRollElixerChange}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                updateSettings({ rollElixers: e.target.checked })
+              }
               checked={rollElixers}
             />
           </Col>
@@ -260,7 +166,9 @@ export default function BlackOpsFourZombiesLoadout() {
             <Form.Check
               type='switch'
               id='rollTalisman'
-              onChange={handleRollTalismanChange}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                updateSettings({ rollTalisman: e.target.checked })
+              }
               checked={rollTalisman}
             />
           </Col>
@@ -268,77 +176,4 @@ export default function BlackOpsFourZombiesLoadout() {
       </CustomModal>
     </>
   );
-}
-
-async function fetchLoadoutData(setData: (data: Bo4ZombiesData) => void) {
-  sendEvent('button_click', {
-    button_id: 'bo4Zombies_fetchLoadoutData',
-    label: 'BlackOpsFourZombies',
-    category: 'COD_Loadouts',
-  });
-
-  try {
-    const game = 'black-ops-four-zombies';
-    const randClassName = fetchClassName();
-    const story_key = fetchZombiesStory();
-    const story = {
-      key: story_key,
-      display: story_key
-        .split('_')
-        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-        .join(' '),
-    };
-    const weapons = {
-      starting: fetchWeapon('all', game),
-      special: fetchWeapon('all', `${story_key}-${game}`),
-    };
-
-    const equipment = { lethal: fetchEquipment('lethal', game) };
-
-    const elixers = fetchZombiesGobblegum(game);
-    const talisman = fetchZombiesGobblegum(`${game}-talismans`, 1);
-    const zombieMap = fetchZombiesMap(`${story_key}-${game}`);
-
-    if (zombieMap?.mode === 'Classic/Rush') {
-      const zombiesMode = fetchZombiesMode();
-
-      zombieMap.difficulty = zombiesMode.difficulty;
-      zombieMap.mode = zombiesMode.mode;
-    }
-
-    const zombiePerks = fetchZombiesPerks(game);
-
-    setData({
-      randClassName,
-      story,
-      weapons,
-      equipment,
-      elixers,
-      talisman,
-      zombieMap,
-      zombiePerks,
-    });
-  } catch (error: unknown) {
-    if (error instanceof Error) {
-      console.error(error.message);
-    } else {
-      console.error('An unknown error occurred.');
-    }
-  }
-}
-
-function fetchZombiesStory() {
-  const stories = ['aether_story', 'chaos_story'];
-
-  return stories[Math.floor(Math.random() * stories.length)];
-}
-
-function fetchZombiesMode() {
-  const isRush = Math.random() < 0.3; //30% Chance of Rush mode
-  const difficulties = ['Casual', 'Normal', 'Hardcore', 'Realistic'];
-
-  return {
-    mode: isRush ? 'Rush' : 'Classic',
-    difficulty: difficulties[Math.floor(Math.random() * difficulties.length)],
-  };
 }
