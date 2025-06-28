@@ -24,17 +24,19 @@ export interface Equipment {
 export interface GeneratorData {
   randClassName: string;
   streaks: string;
-  weapons: { primary: Weapon; secondary: Weapon };
+  weapons: { primary: Weapon; secondary: Weapon; melee?: Weapon };
   equipment: {
     tactical?: Equipment;
     lethal?: Equipment;
     fieldUpgrade?: Equipment | null;
+    fieldUpgrade2?: Equipment | null;
     gear?: string;
     equipment?: string;
   };
   wildcard?: { name: string };
   wildcards: string;
   perkObj?: PerkObject;
+  perks: string;
   division?: string | null;
   basic?: string | null;
   specialist: Specialist;

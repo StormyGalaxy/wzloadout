@@ -39,6 +39,7 @@ export default function BlackOpsSixZombiesGeneratorPage() {
           <h2 className={styles.pageTitle}>Black Ops 6 Zombies</h2>
           <p className={styles.pageSubtitle}>Random Class Generator</p>
         </div>
+
         <Row className='p-3 p-md-4 bg-light rounded mb-4'>
           <Col className='mx-auto'>
             <Breadcrumbs links={breadcrumbLinks} className='mb-4' />

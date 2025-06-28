@@ -4,6 +4,9 @@ import type { Metadata } from 'next';
 import PageLayout from '@/components/PageLayout';
 // --- Loadout ---
 import BlackOpsSixLoadout from '@/components/generators/black-ops/six/BlackOpsSixLoadout';
+import Breadcrumbs from '@/components/common/breadcrumbs/Breadcrumbs';
+// --- Styles ---
+import styles from '@/components/generators/views/ModernLoadout.module.css';
 
 // --- Metadata ---
 export const metadata: Metadata = {
@@ -24,6 +27,11 @@ export const metadata: Metadata = {
 };
 
 export default function BlackOpsSixGeneratorPage() {
+  const breadcrumbLinks = [
+    { href: '/black-ops/six', text: 'Black Ops 6' },
+    { text: 'Multiplayer Generator' },
+  ];
+
   return (
     <PageLayout containerClassName='theme-black-ops'>
       <Container>
@@ -33,6 +41,7 @@ export default function BlackOpsSixGeneratorPage() {
         </div>
         <Row className='p-3 p-md-4 bg-light rounded mb-4'>
           <Col className='mx-auto'>
+            <Breadcrumbs links={breadcrumbLinks} className='mb-4' />
             <BlackOpsSixLoadout />
           </Col>
         </Row>
