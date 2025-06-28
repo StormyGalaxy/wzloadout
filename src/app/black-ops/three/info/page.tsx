@@ -1,75 +1,92 @@
-import { Container, Row, Col } from 'react-bootstrap';
 // --- Next ---
 import type { Metadata } from 'next';
-import Link from 'next/link';
 // --- Layout ---
 import PageLayout from '@/components/PageLayout';
 // --- Components ---
-import CodBadge from '@/components/CodBadge';
+import InfoHubClient from '@/components/info/info-hub-client/InfoHubClient';
+// --- Font Awesome ---
+import {
+  faGun,
+  faMedal,
+  faPlane,
+  faExplosion,
+  faStar,
+  faUserShield,
+} from '@fortawesome/free-solid-svg-icons';
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: 'Loadout Information',
+  title: 'Black Ops 3 Info Hub | Weapons, Specialists, Perks & More',
   description:
-    'Spice up your COD gameplay! Generate unique random loadouts for Call of Duty Black Ops 3. Discover new weapons, perks, and gear combinations.',
+    'Your central hub for Call of Duty: Black Ops 3 intel. Explore detailed information on all multiplayer weapons, specialists, perks, equipment, and the Pick 10 system.',
   keywords: [
-    'COD Black Ops 3 RCG',
-    'black ops three random class generator',
-    'black ops three',
-    'black ops three rcg',
-    'class generator',
-    'zombies',
-    'treyarch zombies',
-    'black ops three zombies',
-    'black ops three rcg',
+    'Black Ops 3 info',
+    'BO3 info',
+    'BO3 weapons',
+    'BO3 specialists',
+    'BO3 perks',
+    'BO3 scorestreaks',
+    'BO3 wildcards',
+    'Black Ops 3 Pick 10',
   ],
 };
 
-const badges = [
-  { title: 'Equipment', link: '/black-ops/three/info/equipment' },
-  { title: 'Perks', link: '/black-ops/three/info/perks' },
-  { title: 'Specialists', link: '/black-ops/three/info/specialists' },
-  { title: 'Streaks', link: '/black-ops/three/info/streaks' },
-  { title: 'Weapons', link: '/black-ops/three/info/weapons' },
-  { title: 'Wildcards', link: '/black-ops/three/info/wildcards' },
+const multiplayerLinks = [
+  {
+    icon: faGun,
+    title: 'Weapons',
+    description: 'Explore the full futuristic arsenal of Black Ops 3 firearms.',
+    link: '/black-ops/three/info/weapons',
+  },
+  {
+    icon: faUserShield,
+    title: 'Specialists',
+    description:
+      'Review all the Specialists and their unique, powerful weapon and ability options.',
+    link: '/black-ops/three/info/specialists',
+  },
+  {
+    icon: faMedal,
+    title: 'Perks',
+    description:
+      'Learn about the three tiers of perks available to customize your playstyle in the Pick 10 system.',
+    link: '/black-ops/three/info/perks',
+  },
+  {
+    icon: faStar,
+    title: 'Wildcards',
+    description:
+      'See how Wildcards can bend the rules of the Pick 10 system to create unique loadouts.',
+    link: '/black-ops/three/info/wildcards',
+  },
+  {
+    icon: faPlane,
+    title: 'Scorestreaks',
+    description:
+      'Familiarize yourself with the devastating and tactical Scorestreaks you can earn.',
+    link: '/black-ops/three/info/streaks',
+  },
+  {
+    icon: faExplosion,
+    title: 'Equipment',
+    description: 'View the standard lethal and tactical equipment options for your class.',
+    link: '/black-ops/three/info/equipment',
+  },
 ];
+
+const breadcrumbLinks = [{ href: '/black-ops/three', text: 'Black Ops 3' }, { text: 'Info Hub' }];
 
 export default function BlackOpsThreeInfoPage() {
   return (
     <PageLayout containerClassName='theme-black-ops'>
-      <Container>
-        <div className='text-center mb-4'>
-          <h2 className={styles.pageTitle}>Black Ops 3</h2>
-          <p className={styles.pageSubtitle}>Loadout Information</p>
-        </div>
-        <Row className='p-3 p-md-4 bg-light rounded mb-4'>
-          <Col lg={7} className='text-center'>
-            <p>
-              Dive into the tactical multiplayer and rich Zombies universe of Call of Duty: Black
-              Ops 4 with our comprehensive data hub. This section covers the core components of this
-              unique title, known for its Specialist system and distinct gameplay mechanics. For
-              Multiplayer, explore detailed stats on <strong>Weapons</strong>, essential{' '}
-              <strong>Perks</strong>, powerful <strong>Specialists</strong> and their abilities,
-              tactical <strong>Equipment</strong>, game-changing <strong>Wildcards</strong>, and
-              devastating <strong>Scorestreaks</strong>. For Zombies fans, delve into the Chaos and
-              Aether stories with guides on all <strong>Maps</strong>, classic{' '}
-              <strong>Perks</strong>, consumable <strong>Elixirs</strong>, and persistent buff{' '}
-              <strong>Talismans</strong>. Find all the links you need below.
-            </p>
-          </Col>
-          <Col lg={5}>
-            <h4 className='text-center'>Links</h4>
-            <hr />
-            <div className='d-flex flex-wrap gap-2'>
-              {badges.map((item) => (
-                <Link key={item.title} href={item.link} className='text-decoration-none' passHref>
-                  <CodBadge name={item.title} badgeOverwrite='bgBlackOps' />
-                </Link>
-              ))}
-            </div>
-          </Col>
-        </Row>
-      </Container>
+      <InfoHubClient
+        heroTitle='Black Ops 3'
+        heroSubTitle='Your Central Hub for Multiplayer Intel'
+        multiplayerLink='/black-ops/three/generator'
+        multiplayerLinks={multiplayerLinks}
+        buttonVariant='black-ops'
+        breadcrumbs={breadcrumbLinks}
+      />
     </PageLayout>
   );
 }

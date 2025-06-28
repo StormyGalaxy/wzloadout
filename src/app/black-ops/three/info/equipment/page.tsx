@@ -5,25 +5,33 @@ import type { Metadata } from 'next';
 import PageLayout from '@/components/PageLayout';
 // --- Components ---
 import EquipmentList from '@/components/info/EquipmentList';
+import Breadcrumbs from '@/components/common/breadcrumbs/Breadcrumbs';
+// --- Styles ---
+import styles from '@/components/generators/views/ModernLoadout.module.css';
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: 'Black Ops 3 Equipment',
-  description: 'View all equipment in Black Ops 3.',
+  title: 'Black Ops 3 Equipment | Lethal & Tactical',
+  description:
+    'Explore all the Lethal and Tactical equipment available in Call of Duty: Black Ops 3. Get details on every grenade and device to complete your Pick 10 class.',
   keywords: [
-    'COD Black Ops 3 RCG',
-    'black ops three random class generator',
-    'black ops three',
-    'black ops three rcg',
-    'class generator',
-    'zombies',
-    'treyarch zombies',
-    'black ops three zombies',
-    'black ops three rcg',
+    'Black Ops 3 equipment',
+    'BO3 equipment',
+    'Call of Duty Black Ops 3 equipment',
+    'BO3 lethal equipment',
+    'BO3 tactical grenades',
+    'All BO3 equipment',
+    'Black Ops 3 Pick 10',
   ],
 };
 
 export default function BlackOpsThreeEquipmentPage() {
+  const breadcrumbLinks = [
+    { href: '/black-ops/three', text: 'Black Ops 3' },
+    { href: '/black-ops/three/info', text: 'Info Hub' },
+    { text: 'Equipment' },
+  ];
+
   return (
     <PageLayout containerClassName='theme-black-ops'>
       <Container>
@@ -31,8 +39,10 @@ export default function BlackOpsThreeEquipmentPage() {
           <h2 className={styles.pageTitle}>Black Ops 3</h2>
           <p className={styles.pageSubtitle}>Equipment</p>
         </div>
+
         <Row className='p-3 p-md-4 bg-light rounded mb-4'>
           <Col>
+            <Breadcrumbs links={breadcrumbLinks} className='mb-4' />
             <EquipmentList game='black-ops-three' />
           </Col>
         </Row>

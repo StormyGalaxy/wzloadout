@@ -5,26 +5,33 @@ import type { Metadata } from 'next';
 import PageLayout from '@/components/PageLayout';
 // --- Components ---
 import SpecialistList from '@/components/info/SpecialistList';
+import Breadcrumbs from '@/components/common/breadcrumbs/Breadcrumbs';
+// --- Styles ---
+import styles from '@/components/generators/views/ModernLoadout.module.css';
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: 'Black Ops 3 Specialists',
-  description: 'View all specialists in Black Ops 3.',
+  title: 'Black Ops 3 Specialists | All Abilities & Weapons',
+  description:
+    'Learn about all the multiplayer Specialists in Call of Duty: Black Ops 3. Get detailed information on each Specialist, including their unique weapon and powerful ability.',
   keywords: [
-    'COD Black Ops 3 RCG',
-    'black ops three random class generator',
-    'black ops three',
-    'black ops three rcg',
-    'class generator',
-    'zombies',
-    'treyarch zombies',
-    'black ops three zombies',
-    'black ops three rcg',
+    'Black Ops 3 Specialists',
+    'BO3 Specialists',
+    'Call of Duty Black Ops 3 Specialists',
+    'BO3 Specialist weapons',
+    'BO3 Specialist abilities',
+    'All BO3 Specialists',
+    'Black Ops 3 classes',
   ],
 };
 
 export default function BlackOpsThreeSpecialistsPage() {
   const dataKeys = ['name', 'type', 'game'];
+  const breadcrumbLinks = [
+    { href: '/black-ops/three', text: 'Black Ops 3' },
+    { href: '/black-ops/three/info', text: 'Info Hub' },
+    { text: 'Specialists' },
+  ];
 
   return (
     <PageLayout containerClassName='theme-black-ops'>
@@ -35,6 +42,7 @@ export default function BlackOpsThreeSpecialistsPage() {
         </div>
         <Row className='p-3 p-md-4 bg-light rounded mb-4'>
           <Col>
+            <Breadcrumbs links={breadcrumbLinks} className='mb-4' />
             <SpecialistList game='black-ops-three' dataKeys={dataKeys} />
           </Col>
         </Row>

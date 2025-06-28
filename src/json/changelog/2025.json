@@ -1,5 +1,11 @@
 [
   {
+    "Date": "June 28, 2025",
+    "Type": "Upgrade",
+    "Link": { "Url": "black-ops/three", "Text": "Black Ops 3:" },
+    "Changes": "Redesigned the entire game's hub, including all generators and the information hub, and added a new landing page for easier navigation and access."
+  },
+  {
     "Date": "June 27, 2025",
     "Type": "Upgrade",
     "Link": { "Url": "black-ops/six", "Text": "Black Ops 6:" },

@@ -5,26 +5,34 @@ import type { Metadata } from 'next';
 import PageLayout from '@/components/PageLayout';
 // --- Components ---
 import WildcardList from '@/components/info/WildcardList';
+import Breadcrumbs from '@/components/common/breadcrumbs/Breadcrumbs';
+// --- Styles ---
+import styles from '@/components/generators/views/ModernLoadout.module.css';
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: 'Black Ops 3 Wildcards',
-  description: 'View all wildcards in Black Ops 3.',
+  title: 'Black Ops 3 Wildcards | Pick 10 System Info',
+  description:
+    'Bend the rules of the Pick 10 system in Call of Duty: Black Ops 3. Explore a complete list of all multiplayer Wildcards and see how they can enhance your loadouts.',
   keywords: [
-    'COD Black Ops 3 RCG',
-    'black ops three random class generator',
-    'black ops three',
-    'black ops three rcg',
-    'class generator',
-    'zombies',
-    'treyarch zombies',
-    'black ops three zombies',
-    'black ops three rcg',
+    'Black Ops 3 wildcards',
+    'BO3 wildcards',
+    'Call of Duty Black Ops 3 wildcards',
+    'BO3 multiplayer wildcards',
+    'All BO3 wildcards',
+    'Black Ops 3 wildcard list',
+    'BO3 Pick 10 system',
   ],
 };
 
 export default function BlackOpsThreeWildcardPage() {
   const dataKeys = ['name', 'description', 'type', 'game'];
+  const breadcrumbLinks = [
+    { href: '/black-ops/three', text: 'Black Ops 3' },
+    { href: '/black-ops/three/info', text: 'Info Hub' },
+    { text: 'Wildcards' },
+  ];
+
   return (
     <PageLayout containerClassName='theme-black-ops'>
       <Container>
@@ -32,8 +40,10 @@ export default function BlackOpsThreeWildcardPage() {
           <h2 className={styles.pageTitle}>Black Ops 3</h2>
           <p className={styles.pageSubtitle}>Wildcards</p>
         </div>
+
         <Row className='p-3 p-md-4 bg-light rounded mb-4'>
           <Col>
+            <Breadcrumbs links={breadcrumbLinks} className='mb-4' />
             <WildcardList game='black-ops-three' dataKeys={dataKeys} />
           </Col>
         </Row>
