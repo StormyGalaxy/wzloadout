@@ -104,8 +104,8 @@ export type ZombiesMap = {
 export type Augment = {
   name: string;
   description: string;
-  major: Augments[];
-  minor: Augments[];
+  major: Augments[] | string;
+  minor: Augments[] | string;
   type: string;
   game: string;
   isDlc?: boolean;

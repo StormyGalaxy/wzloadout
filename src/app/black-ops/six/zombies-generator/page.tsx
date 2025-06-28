@@ -4,26 +4,34 @@ import type { Metadata } from 'next';
 import PageLayout from '@/components/PageLayout';
 // --- Loadout ---
 import BlackOpsSixZombiesLoadout from '@/components/generators/black-ops/six/BlackOpsSixZombiesLoadout';
+import Breadcrumbs from '@/components/common/breadcrumbs/Breadcrumbs';
+// --- Styles ---
+import styles from '@/components/generators/views/ModernLoadout.module.css';
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: 'Black Ops 6 Zombies',
+  title: 'Black Ops 6 Zombies Loadout Generator',
   description:
-    'Spice up your COD Zombies gameplay! Generate unique random loadouts for Call of Duty Black Ops 6 Zombies. Discover new weapons, perks, and gear combinations.',
+    'Challenge the horde with a new loadout every time! Generate random classes for Call of Duty: Black Ops 6 Zombies, including weapons, perks, Gobblegums, and more for the ultimate round-based survival test.',
   keywords: [
-    'COD Black Ops 6 RCG',
-    'black ops six random class generator',
-    'black ops six',
-    'black ops six rcg',
-    'class generator',
-    'zombies',
-    'treyarch zombies',
-    'black ops six zombies',
-    'black ops six rcg',
+    'Black Ops 6 Zombies generator',
+    'BO6 Zombies loadout generator',
+    'Call of Duty Black Ops 6 Zombies',
+    'random zombies class',
+    'BO6 zombies',
+    'round-based zombies',
+    'Gobblegums',
+    'BO6 Wonder Weapons',
+    'zombies loadout generator',
   ],
 };
 
 export default function BlackOpsSixZombiesGeneratorPage() {
+  const breadcrumbLinks = [
+    { href: '/black-ops/six', text: 'Black Ops 6' },
+    { text: 'Zombies Generator' },
+  ];
+
   return (
     <PageLayout containerClassName='theme-black-ops'>
       <Container>
@@ -33,6 +41,7 @@ export default function BlackOpsSixZombiesGeneratorPage() {
         </div>
         <Row className='p-3 p-md-4 bg-light rounded mb-4'>
           <Col className='mx-auto'>
+            <Breadcrumbs links={breadcrumbLinks} className='mb-4' />
             <BlackOpsSixZombiesLoadout />
           </Col>
         </Row>

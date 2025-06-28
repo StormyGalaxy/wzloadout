@@ -3,14 +3,9 @@ import { getAugmentList } from '@/helpers/generator/zombies/getAugmentList';
 // --- Types ---
 import { Augment } from '@/types/Generator';
 
-/**
- * The shape of an Augment after a major and minor upgrade has been randomly selected.
- */
-type FetchedAugment = Omit<Augment, 'major' | 'minor'> & { major: string; minor: string };
-
-export function fetchZombiesAugments(game: string = ''): Record<string, FetchedAugment> {
+export function fetchZombiesAugments(game: string = ''): Record<string, Augment> {
   const defaultDataList = getAugmentList(game) as Record<string, Augment>;
-  const dataList: Record<string, FetchedAugment> = {};
+  const dataList: Record<string, Augment> = {};
 
   for (const key in defaultDataList) {
     const item = defaultDataList[key];
@@ -20,8 +15,22 @@ export function fetchZombiesAugments(game: string = ''): Record<string, FetchedA
     // Create a copy of the item to avoid modifying the original
     dataList[key] = {
       ...item,
-      major: majorUpgrades[Math.floor(Math.random() * majorUpgrades.length)].name,
-      minor: minorUpgrades[Math.floor(Math.random() * minorUpgrades.length)].name,
+      major: (() => {
+        const majorItem = majorUpgrades[Math.floor(Math.random() * majorUpgrades.length)];
+        return typeof majorItem === 'object' && majorItem !== null && 'name' in majorItem
+          ? (majorItem as { name: string }).name
+          : typeof majorItem === 'string'
+            ? majorItem
+            : '';
+      })(),
+      minor: (() => {
+        const minorItem = minorUpgrades[Math.floor(Math.random() * minorUpgrades.length)];
+        return typeof minorItem === 'object' && minorItem !== null && 'name' in minorItem
+          ? (minorItem as { name: string }).name
+          : typeof minorItem === 'string'
+            ? minorItem
+            : '';
+      })(),
     };
   }
 

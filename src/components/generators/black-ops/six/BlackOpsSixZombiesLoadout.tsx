@@ -1,223 +1,144 @@
 'use client';
 
-import { useEffect, useState, useRef } from 'react';
+// --- React ---
+import { useState } from 'react';
 import { Row, Col, Button, Form } from 'react-bootstrap';
-//Helpers
-import { implodeObject } from '@/helpers/implodeObject';
-import { scrollToTop } from '@/helpers/scrollToTop';
-import { fetchWeapon } from '@/helpers/fetch/fetchWeapon';
-import { fetchAttachments } from '@/helpers/fetch/fetchAttachments';
-import { fetchEquipment } from '@/helpers/fetch/fetchEquipment';
-import { fetchClassName } from '@/helpers/fetch/fetchClassName';
-//Zombies Specific
-import { fetchZombiesAmmoMod } from '@/helpers/fetch/zombies/fetchZombiesAmmoMod';
-import { fetchZombiesMap } from '@/helpers/fetch/zombies/fetchZombiesMap';
-import { fetchZombiesGobblegum } from '@/helpers/fetch/zombies/fetchZombiesGobblegum';
-import { fetchZombiesAugments } from '@/helpers/fetch/zombies/fetchZombiesAugments';
-//Types
-import { Bo6ZombiesSettings } from '@/types/Generator';
-//Components
+// --- Hooks ---
+import { useBlackOpsSixZombiesGenerator } from '@/hooks/black-ops/six/useBlackOpsSixZombiesGenerator';
+// --- Components ---
 import { CustomModal } from '@silocitypages/ui-core';
-import { SclPlaceholder } from '@silocitypages/ui-core';
 import CodClassName from '@/components/CodClassName';
-import SimpleGeneratorView from '@/components/generators/cod/SimpleGeneratorView';
-//Utils
-import { sendEvent, setLocalStorage, getLocalStorage } from '@silocitypages/utils';
-//json
-import defaultData from '@/json/cod/default-zombies-generator-info.json';
-
-const defaultSettings: Bo6ZombiesSettings = {
-  rollMap: true,
-  rollGobblegum: true,
-  rollAugments: true,
-};
+import GeneratorSkeleton from '@/components/generators/views/skeletons/GeneratorSkeleton';
+import WeaponCard from '@/components/generators/views/WeaponCard';
+import ValueCardView from '@/components/generators/views/ValueCardView';
+import ListViewCard from '@/components/generators/views/ListViewCard';
+// --- Font Awesome ---
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSkull, faGears } from '@fortawesome/free-solid-svg-icons';
+// --- Styles ---
+import styles from '@/components/generators/views/ModernLoadout.module.css';
 
 export default function BlackOpsSixZombiesLoadout() {
-  const [isLoading, setIsLoading] = useState(true);
-  const [isGenerating, setIsGenerating] = useState(true);
-  //Settings
-  const [settings, setSettings] = useState<Bo6ZombiesSettings>(defaultSettings);
-  const [rollMap, setRollMap] = useState(settings.rollMap);
-  const [rollAugments, setRollAugments] = useState(settings.rollAugments);
-  const [rollGobblegum, setRollGobblegum] = useState(settings.rollGobblegum);
+  const { data, settings, isLoading, isGenerating, generateLoadout, updateSettings } =
+    useBlackOpsSixZombiesGenerator();
   const [showModal, setShowModal] = useState(false);
-  const settingsRef = useRef(settings); // Added useRef
 
-  //Data
-  const [data, setData] = useState(defaultData);
+  const generatingClass = isGenerating ? styles.generating : '';
 
-  useEffect(() => {
-    const rawStoredSettings = getLocalStorage('bo6ZombiesSettings');
-
-    const storedSettings =
-      typeof rawStoredSettings === 'object' && rawStoredSettings !== null
-        ? rawStoredSettings
-        : defaultSettings;
-
-    const completeSettings = { ...defaultSettings, ...storedSettings };
-
-    //Compare relevant properties
-    if (
-      settingsRef.current.rollMap !== completeSettings.rollMap ||
-      settingsRef.current.rollGobblegum !== completeSettings.rollGobblegum ||
-      settingsRef.current.rollAugments !== completeSettings.rollAugments
-    ) {
-      setSettings(completeSettings);
-      setRollMap(completeSettings.rollMap);
-      setRollGobblegum(completeSettings.rollGobblegum);
-      setRollAugments(completeSettings.rollAugments);
-    }
-    settingsRef.current = completeSettings;
-
-    fetchLoadoutData(setData);
-
-    setIsLoading(false);
-    setIsGenerating(false);
-  }, []);
-
-  const handleClick = async () => {
-    setIsGenerating(true);
-
-    setTimeout(() => {
-      fetchLoadoutData(setData);
-      setIsGenerating(false);
-      scrollToTop();
-    }, 1000);
+  const cardProps = {
+    className: `${styles.card} ${generatingClass}`,
+    headerClassName: styles.cardHeader,
+    isGenerating,
   };
 
   const handleModal = () => setShowModal(!showModal);
   const handleSave = () => {
-    setLocalStorage('bo6ZombiesSettings', settings);
     handleModal();
   };
 
-  const handleRollMapChange = (event) => {
-    setRollMap(event.target.checked);
-    setSettings({ ...settings, rollMap: event.target.checked });
-  };
-  const handleRollGobblegumChange = (event) => {
-    setRollGobblegum(event.target.checked);
-    setSettings({ ...settings, rollGobblegum: event.target.checked });
-  };
-  const handleRollAugmentsChange = (event) => {
-    setRollAugments(event.target.checked);
-    setSettings({ ...settings, rollAugments: event.target.checked });
-  };
+  if (isLoading) {
+    return <GeneratorSkeleton />;
+  }
 
   const { randClassName, weapons, equipment, gobblegum, zombieMap, augments } = data;
-
-  if (isLoading) {
-    return <div className='text-center'>Loading...</div>;
-  }
+  const { rollMap, rollAugments, rollGobblegum } = settings;
 
   return (
     <>
       <CodClassName isGenerating={isGenerating} value={randClassName} />
-      <Row className='justify-content-md-center mb-4'>
-        <Col xs md='8' lg='6' className='text-center'>
-          <SimpleGeneratorView
-            isGenerating={isGenerating}
-            title='Primary'
-            value={weapons.primary.weapon.name}
-          />
-          <br />
-          <SimpleGeneratorView
-            isGenerating={isGenerating}
-            title='Ammo Mod'
-            value={weapons.primary.ammoMod}
-          />
-          <br />
-          <SimpleGeneratorView
-            isGenerating={isGenerating}
-            title='Primary Attachments'
-            value={
-              weapons.primary.weapon.no_attach ? 'No Attachments' : weapons.primary.attachments
-            }
-          />
+
+      <Row className='justify-content-md-center mb-4 text-center'>
+        <Col xs={12} md={6} className='mb-3'>
+          {weapons.primary && (
+            <WeaponCard
+              title='Primary'
+              weapon={{ ...weapons.primary, attachments: weapons.primary.attachments }}
+              {...cardProps}
+            />
+          )}
+        </Col>
+        <Col xs={12} md={6} className='mb-3'>
+          {weapons.primary && (
+            <ValueCardView title='Ammo Mod' value={weapons.primary.ammoMod} {...cardProps} />
+          )}
         </Col>
       </Row>
+
       <hr />
-      <Row className='justify-content-md-center mb-4'>
-        <Col xs={6} sm={6} md='3' lg='3' className='text-center'>
-          <SimpleGeneratorView
-            isGenerating={isGenerating}
-            title='Melee'
-            value={weapons.melee.name}
-          />
+
+      <Row className='justify-content-md-center mb-4 text-center'>
+        <Col xs={6} md={3} className='mb-3'>
+          <ValueCardView title='Melee' value={weapons.melee?.name} {...cardProps} />
         </Col>
-        <Col xs={6} sm={6} md='3' lg='3' className='text-center'>
-          <SimpleGeneratorView
-            isGenerating={isGenerating}
+        <Col xs={6} md={3} className='mb-3'>
+          <ValueCardView
             title='Field Upgrade'
-            value={equipment.fieldUpgrade.name}
+            value={equipment.fieldUpgrade?.name}
+            {...cardProps}
           />
         </Col>
-        <Col xs={6} md='3' lg='3' className='text-center'>
-          <SimpleGeneratorView
-            isGenerating={isGenerating}
-            title='Tactical'
-            value={equipment.tactical.name}
-          />
+        <Col xs={6} md={3} className='mb-3'>
+          <ValueCardView title='Tactical' value={equipment.tactical?.name} {...cardProps} />
         </Col>
-        <Col xs={6} md='3' lg='3' className='text-center'>
-          <SimpleGeneratorView
-            isGenerating={isGenerating}
-            title='Lethal'
-            value={equipment.lethal.name}
-          />
+        <Col xs={6} md={3} className='mb-3'>
+          <ValueCardView title='Lethal' value={equipment.lethal?.name} {...cardProps} />
         </Col>
       </Row>
+
       {(rollGobblegum || rollMap) && <hr />}
-      <Row className='justify-content-md-center mb-4'>
+
+      <Row className='justify-content-md-center mb-4 text-center'>
         {rollGobblegum && (
-          <Col xs md='4' lg='3' className='text-center'>
-            <SimpleGeneratorView isGenerating={isGenerating} title='Gobblegum' value={gobblegum} />
+          <Col xs={12} md={6} className='mb-3'>
+            <ValueCardView title='Gobblegum' value={gobblegum} {...cardProps} />
           </Col>
         )}
         {rollMap && (
-          <Col xs md='4' lg='3' className='text-center'>
-            <SimpleGeneratorView isGenerating={isGenerating} title='Map' value={zombieMap.name} />
+          <Col xs={12} md={6} className='mb-3'>
+            <ValueCardView title='Map' value={zombieMap.name} {...cardProps} />
           </Col>
         )}
       </Row>
-      {rollAugments && (
+
+      {rollAugments && augments && (
         <>
           <hr />
-          <Row className='mb-4'>
-            {Object.values(augments).map((item) => (
-              <Col key={item?.name} xs={12} md='4' lg='3' className='text-center mb-3'>
-                <span className='fw-bolder fs-5'>{item?.name}:</span>
-                <br />
-                <span className='text-muted fs-6'>
-                  <span className='fw-bolder'>Major Augment:</span>{' '}
-                  <SclPlaceholder isLoading={isGenerating} value={item?.major} />
-                </span>
-                <br />
-                <span className='text-muted fs-6'>
-                  <span className='fw-bolder'>Minor Augment:</span>{' '}
-                  <SclPlaceholder isLoading={isGenerating} value={item?.minor} />
-                </span>
+          <h3 className='text-center mb-4'>Augments</h3>
+          <Row className='mb-4 text-center'>
+            {Object.values(augments).map((item: any) => (
+              <Col key={item?.name} xs={12} sm={6} md='4' className='mb-3'>
+                <ListViewCard
+                  title={item?.name}
+                  values={[
+                    { title: 'Major', value: item?.major },
+                    { title: 'Minor', value: item?.minor },
+                  ]}
+                  {...cardProps}
+                />
               </Col>
             ))}
           </Row>
         </>
       )}
+
       <Row className='justify-content-md-center'>
         <Col xs md='8' lg='6' className='text-center'>
           <div className='d-flex justify-content-center'>
             <Button
               variant='black-ops'
               disabled={isGenerating}
-              onClick={isGenerating ? undefined : handleModal}
+              onClick={handleModal}
               className='w-50 me-2'>
+              <FontAwesomeIcon icon={faGears} className='me-2' />
               Settings
             </Button>
             <Button
               variant='black-ops'
-              className='w-50 me-2'
+              className='w-50'
               disabled={isGenerating}
-              onClick={isGenerating ? undefined : handleClick}>
-              {isGenerating ? 'Generating Loadout...' : 'Generate Loadout'}
+              onClick={() => generateLoadout()}>
+              <FontAwesomeIcon icon={faSkull} className='me-2' />
+              {isGenerating ? 'Generating...' : 'Generate Loadout'}
             </Button>
           </div>
         </Col>
@@ -235,8 +156,8 @@ export default function BlackOpsSixZombiesLoadout() {
             <Form.Check
               type='switch'
               id='rollMap'
-              onChange={handleRollMapChange}
-              checked={rollMap}
+              onChange={(e) => updateSettings({ rollMap: e.target.checked })}
+              checked={settings.rollMap}
             />
           </Col>
           <Col>
@@ -244,8 +165,8 @@ export default function BlackOpsSixZombiesLoadout() {
             <Form.Check
               type='switch'
               id='rollGobblegum'
-              onChange={handleRollGobblegumChange}
-              checked={rollGobblegum}
+              onChange={(e) => updateSettings({ rollGobblegum: e.target.checked })}
+              checked={settings.rollGobblegum}
             />
           </Col>
           <Col>
@@ -253,53 +174,12 @@ export default function BlackOpsSixZombiesLoadout() {
             <Form.Check
               type='switch'
               id='rollAugments'
-              onChange={handleRollAugmentsChange}
-              checked={rollAugments}
+              onChange={(e) => updateSettings({ rollAugments: e.target.checked })}
+              checked={settings.rollAugments}
             />
           </Col>
         </Row>
       </CustomModal>
     </>
   );
-}
-
-async function fetchLoadoutData(setData) {
-  sendEvent('button_click', {
-    button_id: 'bo6Zombies_fetchLoadoutData',
-    label: 'BlackOpsSixZombies',
-    category: 'COD_Loadouts',
-  });
-
-  try {
-    const game = 'black-ops-six-zombies';
-    const randClassName = fetchClassName();
-    const weapons = {
-      primary: {
-        weapon: fetchWeapon('all', 'black-ops-six'),
-        attachments: '',
-        ammoMod: fetchZombiesAmmoMod('black-ops-six'),
-      },
-      melee: fetchWeapon('melee', 'black-ops-six'),
-    };
-    //Get Primary Attachments
-    if (!weapons.primary.weapon.no_attach) {
-      weapons.primary.attachments = implodeObject(fetchAttachments(weapons.primary.weapon, 8));
-    }
-    const equipment = {
-      tactical: fetchEquipment('tactical', game),
-      lethal: fetchEquipment('lethal', game),
-      fieldUpgrade: fetchEquipment('field_upgrade', game),
-    };
-    const gobblegum = fetchZombiesGobblegum(game);
-    const zombieMap = fetchZombiesMap(game);
-    const augments = fetchZombiesAugments(game);
-
-    setData({ randClassName, weapons, equipment, gobblegum, zombieMap, augments });
-  } catch (error: unknown) {
-    if (error instanceof Error) {
-      console.error(error.message);
-    } else {
-      console.error('An unknown error occurred.');
-    }
-  }
 }
