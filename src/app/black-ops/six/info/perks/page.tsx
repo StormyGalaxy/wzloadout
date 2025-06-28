@@ -5,26 +5,33 @@ import type { Metadata } from 'next';
 import PageLayout from '@/components/PageLayout';
 // --- Components ---
 import PerkList from '@/components/info/PerkList';
+import Breadcrumbs from '@/components/common/breadcrumbs/Breadcrumbs';
+// --- Styles ---
+import styles from '@/components/generators/views/ModernLoadout.module.css';
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: 'Black Ops 6 Perks',
-  description: 'View all perks in Black Ops 6.',
+  title: 'Black Ops 6 Multiplayer Perks | All Perk Tiers & Info',
+  description:
+    'Get a tactical advantage in Call of Duty: Black Ops 6. Explore a complete list of all multiplayer perks across all three tiers, with detailed descriptions of their effects.',
   keywords: [
-    'COD Black Ops 6 RCG',
-    'black ops six random class generator',
-    'black ops six',
-    'black ops six rcg',
-    'class generator',
-    'zombies',
-    'treyarch zombies',
-    'black ops six zombies',
-    'black ops six rcg',
+    'Black Ops 6 perks',
+    'BO6 perks',
+    'Call of Duty Black Ops 6 perks',
+    'BO6 multiplayer perks',
+    'All BO6 perks',
+    'Black Ops 6 perk list',
+    'BO6 perk guide',
   ],
 };
 
 export default function BlackOpsSixPerksPage() {
   const dataKeys = ['name', 'type', 'game', 'isDlc'];
+  const breadcrumbLinks = [
+    { href: '/black-ops/six', text: 'Black Ops 6' },
+    { href: '/black-ops/six/info', text: 'Info Hub' },
+    { text: 'Perks' },
+  ];
 
   return (
     <PageLayout containerClassName='theme-black-ops'>
@@ -35,6 +42,7 @@ export default function BlackOpsSixPerksPage() {
         </div>
         <Row className='p-3 p-md-4 bg-light rounded mb-4'>
           <Col>
+            <Breadcrumbs links={breadcrumbLinks} className='mb-4' />
             <PerkList game='black-ops-six' dataKeys={dataKeys} />
           </Col>
         </Row>

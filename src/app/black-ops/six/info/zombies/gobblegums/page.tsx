@@ -5,26 +5,34 @@ import type { Metadata } from 'next';
 import PageLayout from '@/components/PageLayout';
 // --- Components ---
 import ZombiesGobblegumList from '@/components/info/ZombiesGobblegumList';
+import Breadcrumbs from '@/components/common/breadcrumbs/Breadcrumbs';
+// --- Styles ---
+import styles from '@/components/generators/views/ModernLoadout.module.css';
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: 'Black Ops 6 Zombies Gobblegums',
-  description: 'View all gobblegums in Black Ops 6 Zombies.',
+  title: 'Black Ops 6 Zombies Gobblegums | All Types & Effects',
+  description:
+    'Chew on this! Get a complete list of all Gobblegums in Call of Duty: Black Ops 6 Zombies. Learn about every Classic, Whimsical, Rare, Epic, and Legendary Gobblegum and its unique in-game effect.',
   keywords: [
-    'COD Black Ops 6 RCG',
-    'black ops six random class generator',
-    'black ops six',
-    'black ops six rcg',
-    'class generator',
-    'zombies',
-    'treyarch zombies',
-    'black ops six zombies',
-    'black ops six rcg',
+    'Black Ops 6 Gobblegums',
+    'BO6 Zombies Gobblegums',
+    'Call of Duty Black Ops 6 Zombies',
+    'BO6 Gobblegum list',
+    'all gobblegums bo6',
+    'classic gobblegums',
+    'whimsical gobblegums',
+    'BO6 zombies perks',
   ],
 };
 
 export default function BlackOpsSixZombiesGobblegumsPage() {
   const dataKeys = ['name', 'type', 'game', 'isDlc'];
+  const breadcrumbLinks = [
+    { href: '/black-ops/six', text: 'Black Ops 6' },
+    { href: '/black-ops/six/info', text: 'Info Hub' },
+    { text: 'Zombies Gobblegums' },
+  ];
 
   return (
     <PageLayout containerClassName='theme-black-ops'>
@@ -35,6 +43,7 @@ export default function BlackOpsSixZombiesGobblegumsPage() {
         </div>
         <Row className='p-3 p-md-4 bg-light rounded mb-4'>
           <Col>
+            <Breadcrumbs links={breadcrumbLinks} className='mb-4' />
             <ZombiesGobblegumList game='black-ops-six-zombies' dataKeys={dataKeys} />
           </Col>
         </Row>

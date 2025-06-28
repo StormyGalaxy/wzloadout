@@ -5,6 +5,9 @@ import type { Metadata } from 'next';
 import PageLayout from '@/components/PageLayout';
 // --- Components ---
 import WeaponList from '@/components/info/WeaponList';
+import Breadcrumbs from '@/components/common/breadcrumbs/Breadcrumbs';
+// --- Styles ---
+import styles from '@/components/generators/views/ModernLoadout.module.css';
 
 // --- Metadata ---
 export const metadata: Metadata = {
@@ -25,6 +28,12 @@ export const metadata: Metadata = {
 
 export default function BlackOpsSixWeaponsPage() {
   const dataKeys = ['name', 'type', 'game', 'no_attach_info', 'no_attach', 'isDlc'];
+  const breadcrumbLinks = [
+    { href: '/black-ops/six', text: 'Black Ops 6' },
+    { href: '/black-ops/six/info', text: 'Info Hub' },
+    { text: 'Weapons' },
+  ];
+
   return (
     <PageLayout containerClassName='theme-black-ops'>
       <Container>
@@ -34,6 +43,7 @@ export default function BlackOpsSixWeaponsPage() {
         </div>
         <Row className='p-3 p-md-4 bg-light rounded mb-4'>
           <Col>
+            <Breadcrumbs links={breadcrumbLinks} className='mb-4' />
             <WeaponList game='black-ops-six' link={'black-ops/six'} dataKeys={dataKeys} />
           </Col>
         </Row>

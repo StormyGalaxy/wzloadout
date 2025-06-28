@@ -5,26 +5,33 @@ import type { Metadata } from 'next';
 import PageLayout from '@/components/PageLayout';
 // --- Components ---
 import ZombiesFieldUpgradeList from '@/components/info/ZombiesFieldUpgradeList';
+import Breadcrumbs from '@/components/common/breadcrumbs/Breadcrumbs';
+// --- Styles ---
+import styles from '@/components/generators/views/ModernLoadout.module.css';
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: 'Black Ops 6 Zombies Field Upgrades',
-  description: 'View all field upgrades in Black Ops 6 Zombies.',
+  title: 'Black Ops 6 Zombies Field Upgrades | All Abilities & Tiers',
+  description:
+    'Turn the tide against the horde in Call of Duty: Black Ops 6 Zombies. Get a complete guide to all Field Upgrades, including their abilities, tiers, and cooldown times.',
   keywords: [
-    'COD Black Ops 6 RCG',
-    'black ops six random class generator',
-    'black ops six',
-    'black ops six rcg',
-    'class generator',
-    'zombies',
-    'treyarch zombies',
-    'black ops six zombies',
-    'black ops six rcg',
+    'Black Ops 6 Zombies Field Upgrades',
+    'BO6 Zombies Field Upgrades',
+    'Call of Duty Black Ops 6 Zombies',
+    'BO6 Field Upgrades list',
+    'all field upgrades bo6',
+    'zombies field upgrades',
+    'BO6 zombies abilities',
   ],
 };
 
 export default function BlackOpsSixZombiesFieldUpgradesPage() {
   const dataKeys = ['name', 'type', 'game', 'isDlc'];
+  const breadcrumbLinks = [
+    { href: '/black-ops/six', text: 'Black Ops 6' },
+    { href: '/black-ops/six/info', text: 'Info Hub' },
+    { text: 'Zombies Field Upgrades' },
+  ];
 
   return (
     <PageLayout containerClassName='theme-black-ops'>
@@ -35,6 +42,7 @@ export default function BlackOpsSixZombiesFieldUpgradesPage() {
         </div>
         <Row className='p-3 p-md-4 bg-light rounded mb-4'>
           <Col>
+            <Breadcrumbs links={breadcrumbLinks} className='mb-4' />
             <ZombiesFieldUpgradeList game='black-ops-six' dataKeys={dataKeys} />
           </Col>
         </Row>

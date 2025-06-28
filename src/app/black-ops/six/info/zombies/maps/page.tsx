@@ -5,26 +5,37 @@ import type { Metadata } from 'next';
 import PageLayout from '@/components/PageLayout';
 // --- Components ---
 import ZombiesMapsList from '@/components/info/ZombiesMapsList';
+import Breadcrumbs from '@/components/common/breadcrumbs/Breadcrumbs';
+// --- Styles ---
+import styles from '@/components/generators/views/ModernLoadout.module.css';
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: 'Black Ops 6 Zombies Maps',
-  description: 'View all maps in Black Ops 6 Zombies.',
+  title: 'Black Ops 6 Zombies Maps | Terminus, Liberty Falls & More',
+  description:
+    'Explore all the round-based Zombies maps in Call of Duty: Black Ops 6. Get detailed information and guides for Terminus, Liberty Falls, and all post-launch maps.',
   keywords: [
-    'COD Black Ops 6 RCG',
-    'black ops six random class generator',
-    'black ops six',
-    'black ops six rcg',
-    'class generator',
-    'zombies',
-    'treyarch zombies',
-    'black ops six zombies',
-    'black ops six rcg',
+    'Black Ops 6 Zombies maps',
+    'BO6 Zombies maps',
+    'Call of Duty Black Ops 6 Zombies',
+    'BO6 Zombies',
+    'round-based zombies',
+    'Terminus map',
+    'Liberty Falls map',
+    'Citadelle des Morts',
+    'The Tomb',
+    'Shattered Veil',
+    'BO6 easter eggs',
   ],
 };
 
 export default function BlackOpsSixZombiesMapsPage() {
   const dataKeys = ['name', 'type', 'game', 'isDlc'];
+  const breadcrumbLinks = [
+    { href: '/black-ops/six', text: 'Black Ops 6' },
+    { href: '/black-ops/six/info', text: 'Info Hub' },
+    { text: 'Zombies Maps' },
+  ];
 
   return (
     <PageLayout containerClassName='theme-black-ops'>
@@ -35,6 +46,7 @@ export default function BlackOpsSixZombiesMapsPage() {
         </div>
         <Row className='p-3 p-md-4 bg-light rounded mb-4'>
           <Col>
+            <Breadcrumbs links={breadcrumbLinks} className='mb-4' />
             <ZombiesMapsList game='black-ops-six-zombies' dataKeys={dataKeys} />
           </Col>
         </Row>

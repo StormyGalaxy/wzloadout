@@ -9,7 +9,7 @@ import WeaponDisplayClient from '@/components/info/WeaponDisplayClient';
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: 'Black Ops 6 Weapon',
+  title: 'Black Ops 6 Weapon Information',
   description: 'View information and all available attachments for the weapon in Black Ops 6.',
   keywords: [
     'COD Black Ops 6 RCG',
@@ -37,7 +37,7 @@ export default function BlackOpsSixWeaponPage() {
                 <p className='text-center'>Loading page...</p>
               </Col>
             }>
-            <WeaponDisplayClient game={game} />
+            <WeaponDisplayClient game={game} link='black-ops/six' />
           </Suspense>
         </Row>
       </Container>
