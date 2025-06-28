@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 
 export default function BlackOpsFourGeneratorPage() {
   const breadcrumbLinks = [
-    { href: '/black-ops/four', text: 'Black Ops Four' },
+    { href: '/black-ops/four', text: 'Black Ops 4' },
     { text: 'Multiplayer Generator' },
   ];
 
@@ -34,7 +34,7 @@ export default function BlackOpsFourGeneratorPage() {
     <PageLayout containerClassName='theme-black-ops'>
       <Container>
         <div className='text-center mb-4'>
-          <h2 className={styles.pageTitle}>Black Ops Four</h2>
+          <h2 className={styles.pageTitle}>Black Ops 4</h2>
           <p className={styles.pageSubtitle}>Random Class Generator</p>
         </div>
         <Row className='p-3 p-md-4 bg-light rounded mb-4'>

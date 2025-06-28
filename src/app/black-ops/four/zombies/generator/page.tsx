@@ -7,11 +7,11 @@ import BlackOpsFourZombiesLoadout from '@/components/generators/black-ops/four/B
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: 'Black Ops Four Zombies',
+  title: 'Black Ops 4 Zombies',
   description:
-    'Spice up your COD Zombies gameplay! Generate unique random loadouts for Call of Duty Black Ops Four Zombies. Discover new weapons, perks, and gear combinations.',
+    'Spice up your COD Zombies gameplay! Generate unique random loadouts for Call of Duty Black Ops 4 Zombies. Discover new weapons, perks, and gear combinations.',
   keywords: [
-    'COD Black Ops Four RCG',
+    'COD Black Ops 4 RCG',
     'black ops four random class generator',
     'black ops four',
     'black ops four rcg',
@@ -28,7 +28,7 @@ export default function BlackOpsFourZombiesGeneratorPage() {
     <PageLayout containerClassName='theme-black-ops'>
       <Container>
         <div className='text-center mb-4'>
-          <h2 className={styles.pageTitle}>Black Ops Four Zombies</h2>
+          <h2 className={styles.pageTitle}>Black Ops 4 Zombies</h2>
           <p className={styles.pageSubtitle}>Random Class Generator</p>
         </div>
         <Row className='p-3 p-md-4 bg-light rounded mb-4'>

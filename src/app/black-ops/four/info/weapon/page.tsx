@@ -9,10 +9,10 @@ import WeaponDisplayClient from '@/components/info/WeaponDisplayClient';
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: 'Black Ops Four Weapon',
-  description: 'View information and all available attachments for the weapon in Black Ops Four.',
+  title: 'Black Ops 4 Weapon Information',
+  description: 'View information and all available attachments for the weapon in Black Ops 4.',
   keywords: [
-    'COD Black Ops Four RCG',
+    'COD Black Ops 4 RCG',
     'black ops four random class generator',
     'black ops four',
     'black ops four rcg',
@@ -37,7 +37,7 @@ export default function BlackOpsFourWeaponPage() {
                 <p className='text-center'>Loading page...</p>
               </Col>
             }>
-            <WeaponDisplayClient game={game} />
+            <WeaponDisplayClient game={game} link='black-ops/four' />
           </Suspense>
         </Row>
       </Container>
