@@ -24,13 +24,6 @@ export const metadata: Metadata = {
   ],
 };
 
-const navLinks = [
-  { label: 'Home', href: '/' },
-  { label: 'Multiplayer Generator', href: '/black-ops/three/generator' },
-  { label: 'Loadout Info', href: '/black-ops/three/info' },
-  { label: 'Changelog', href: '/changelog' },
-];
-
 export default function BlackOpsThreeWeaponPage() {
   const game = 'black-ops-three';
 

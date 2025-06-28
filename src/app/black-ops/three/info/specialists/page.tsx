@@ -23,24 +23,16 @@ export const metadata: Metadata = {
   ],
 };
 
-const navLinks = [
-  { label: 'Home', href: '/' },
-  { label: 'Multiplayer Generator', href: '/black-ops/three/generator' },
-  { label: 'Loadout Info', href: '/black-ops/three/info' },
-  { label: 'Changelog', href: '/changelog' },
-];
-
 export default function BlackOpsThreeSpecialistsPage() {
   const dataKeys = ['name', 'type', 'game'];
 
   return (
     <PageLayout containerClassName='theme-black-ops'>
       <Container>
-        <h2 className='text-center mb-4'>
-          Black Ops 3<span className='d-none d-sm-inline-block'>&nbsp;-&nbsp;</span>
-          <br className='d-block d-sm-none' />
-          Specialists
-        </h2>
+        <div className='text-center mb-4'>
+          <h2 className={styles.pageTitle}>Black Ops 3</h2>
+          <p className={styles.pageSubtitle}>Specialists</p>
+        </div>
         <Row className='p-3 p-md-4 bg-light rounded mb-4'>
           <Col>
             <SpecialistList game='black-ops-three' dataKeys={dataKeys} />
