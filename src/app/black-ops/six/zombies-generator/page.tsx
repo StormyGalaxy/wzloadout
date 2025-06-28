@@ -7,11 +7,11 @@ import BlackOpsSixZombiesLoadout from '@/components/generators/black-ops/six/Bla
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: 'Black Ops Six Zombies',
+  title: 'Black Ops 6 Zombies',
   description:
-    'Spice up your COD Zombies gameplay! Generate unique random loadouts for Call of Duty Black Ops Six Zombies. Discover new weapons, perks, and gear combinations.',
+    'Spice up your COD Zombies gameplay! Generate unique random loadouts for Call of Duty Black Ops 6 Zombies. Discover new weapons, perks, and gear combinations.',
   keywords: [
-    'COD Black Ops Six RCG',
+    'COD Black Ops 6 RCG',
     'black ops six random class generator',
     'black ops six',
     'black ops six rcg',
@@ -36,7 +36,7 @@ export default function BlackOpsSixZombiesGeneratorPage() {
     <PageLayout containerClassName='theme-black-ops'>
       <Container>
         <h2 className='text-center mb-4'>
-          Black Ops Six Zombies
+          Black Ops 6 Zombies
           <span className='d-none d-sm-inline-block'>&nbsp;-&nbsp;</span>
           <br className='d-block d-sm-none' />
           Random Class Generator

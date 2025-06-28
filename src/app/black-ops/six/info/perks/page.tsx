@@ -8,10 +8,10 @@ import PerkList from '@/components/info/PerkList';
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: 'Black Ops Six Perks',
-  description: 'View all perks in Black Ops Six.',
+  title: 'Black Ops 6 Perks',
+  description: 'View all perks in Black Ops 6.',
   keywords: [
-    'COD Black Ops Six RCG',
+    'COD Black Ops 6 RCG',
     'black ops six random class generator',
     'black ops six',
     'black ops six rcg',
@@ -38,8 +38,7 @@ export default function BlackOpsSixPerksPage() {
     <PageLayout containerClassName='theme-black-ops'>
       <Container>
         <h2 className='text-center mb-4'>
-          Black Ops Six
-          <span className='d-none d-sm-inline-block'>&nbsp;-&nbsp;</span>
+          Black Ops 6<span className='d-none d-sm-inline-block'>&nbsp;-&nbsp;</span>
           <br className='d-block d-sm-none' />
           Perks
         </h2>

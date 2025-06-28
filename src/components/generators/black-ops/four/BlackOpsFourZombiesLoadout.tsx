@@ -14,7 +14,7 @@ import ListViewCard from '@/components/generators/views/ListViewCard';
 import { CustomModal } from '@silocitypages/ui-core';
 // --- Font Awesome ---
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSkull } from '@fortawesome/free-solid-svg-icons';
+import { faSkull, faGears } from '@fortawesome/free-solid-svg-icons';
 // --- Styles ---
 import styles from '@/components/generators/views/ModernLoadout.module.css';
 
@@ -118,6 +118,7 @@ export default function BlackOpsFourZombiesLoadout() {
               disabled={isGenerating}
               onClick={handleModal}
               className='w-50 me-2'>
+              <FontAwesomeIcon icon={faGears} className='me-2' />
               Settings
             </Button>
             <Button

@@ -8,10 +8,10 @@ import ZombiesFieldUpgradeList from '@/components/info/ZombiesFieldUpgradeList';
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: 'Black Ops Six Zombies Field Upgrades',
-  description: 'View all field upgrades in Black Ops Six Zombies.',
+  title: 'Black Ops 6 Zombies Field Upgrades',
+  description: 'View all field upgrades in Black Ops 6 Zombies.',
   keywords: [
-    'COD Black Ops Six RCG',
+    'COD Black Ops 6 RCG',
     'black ops six random class generator',
     'black ops six',
     'black ops six rcg',
@@ -38,8 +38,7 @@ export default function BlackOpsSixZombiesFieldUpgradesPage() {
     <PageLayout containerClassName='theme-black-ops'>
       <Container>
         <h2 className='text-center mb-4'>
-          Black Ops Six
-          <span className='d-none d-sm-inline-block'>&nbsp;-&nbsp;</span>
+          Black Ops 6<span className='d-none d-sm-inline-block'>&nbsp;-&nbsp;</span>
           <br className='d-block d-sm-none' />
           Zombies Field Upgrades
         </h2>

@@ -1,6 +1,6 @@
 [
   {
-    "title": "Black Ops VI",
+    "title": "Black Ops 6",
     "text": "",
     "variant": "black-ops",
     "buttons": [{ "link": "black-ops/six/generator", "disabled": false, "btnText": "Generator" }]

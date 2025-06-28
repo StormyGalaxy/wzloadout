@@ -8,10 +8,10 @@ import WildcardList from '@/components/info/WildcardList';
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: 'Black Ops Six Wildcards',
-  description: 'View all wildcards in Black Ops Six.',
+  title: 'Black Ops 6 Wildcards',
+  description: 'View all wildcards in Black Ops 6.',
   keywords: [
-    'COD Black Ops Six RCG',
+    'COD Black Ops 6 RCG',
     'black ops six random class generator',
     'black ops six',
     'black ops six rcg',
@@ -37,8 +37,7 @@ export default function BlackOpsSixWildcardPage() {
     <PageLayout containerClassName='theme-black-ops'>
       <Container>
         <h2 className='text-center mb-4'>
-          Black Ops Six
-          <span className='d-none d-sm-inline-block'>&nbsp;-&nbsp;</span>
+          Black Ops 6<span className='d-none d-sm-inline-block'>&nbsp;-&nbsp;</span>
           <br className='d-block d-sm-none' />
           Wildcards
         </h2>

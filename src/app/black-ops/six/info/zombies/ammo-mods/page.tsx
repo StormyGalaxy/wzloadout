@@ -8,10 +8,10 @@ import ZombiesAmmoModList from '@/components/info/ZombiesAmmoModList';
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: 'Black Ops Six Zombies Ammo Mods',
-  description: 'View all ammo mods in Black Ops Six Zombies.',
+  title: 'Black Ops 6 Zombies Ammo Mods',
+  description: 'View all ammo mods in Black Ops 6 Zombies.',
   keywords: [
-    'COD Black Ops Six RCG',
+    'COD Black Ops 6 RCG',
     'black ops six random class generator',
     'black ops six',
     'black ops six rcg',
@@ -36,8 +36,7 @@ export default function BlackOpsSixZombiesAmmoModsPage() {
     <PageLayout containerClassName='theme-black-ops'>
       <Container>
         <h2 className='text-center mb-4'>
-          Black Ops Six
-          <span className='d-none d-sm-inline-block'>&nbsp;-&nbsp;</span>
+          Black Ops 6<span className='d-none d-sm-inline-block'>&nbsp;-&nbsp;</span>
           <br className='d-block d-sm-none' />
           Zombies Ammo Mods
         </h2>

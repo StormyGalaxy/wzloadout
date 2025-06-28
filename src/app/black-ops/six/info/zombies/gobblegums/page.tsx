@@ -8,10 +8,10 @@ import ZombiesGobblegumList from '@/components/info/ZombiesGobblegumList';
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: 'Black Ops Six Zombies Gobblegums',
-  description: 'View all gobblegums in Black Ops Six Zombies.',
+  title: 'Black Ops 6 Zombies Gobblegums',
+  description: 'View all gobblegums in Black Ops 6 Zombies.',
   keywords: [
-    'COD Black Ops Six RCG',
+    'COD Black Ops 6 RCG',
     'black ops six random class generator',
     'black ops six',
     'black ops six rcg',
@@ -38,8 +38,7 @@ export default function BlackOpsSixZombiesGobblegumsPage() {
     <PageLayout containerClassName='theme-black-ops'>
       <Container>
         <h2 className='text-center mb-4'>
-          Black Ops Six
-          <span className='d-none d-sm-inline-block'>&nbsp;-&nbsp;</span>
+          Black Ops 6<span className='d-none d-sm-inline-block'>&nbsp;-&nbsp;</span>
           <br className='d-block d-sm-none' />
           Zombies Gobblegums
         </h2>
