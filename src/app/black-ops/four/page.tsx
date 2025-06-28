@@ -39,7 +39,7 @@ const toolCards = [
     title: 'Zombies Generator',
     description:
       'Defy death in the Chaos and Aether stories. Generate a random loadout with different elixirs, talismans, and starting weapons for your next adventure.',
-    href: '/black-ops/four/zombies-generator',
+    href: '/black-ops/four/zombies/generator',
     icon: faSkull,
   },
   {

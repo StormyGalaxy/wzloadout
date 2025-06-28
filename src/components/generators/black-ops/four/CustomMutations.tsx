@@ -1,7 +1,9 @@
+// src/components/generators/black-ops/four/CustomMutations.tsx
 'use client';
 
-import { useState, useEffect } from 'react';
 import { Row, Col, Tabs, Tab, Button, Spinner } from 'react-bootstrap';
+// --- Hooks ---
+import { useCustomMutations } from '@/hooks/black-ops/four/useCustomMutations';
 // --- Components ---
 import CustomSettingsGeneral from '@/components/generators/cod/custom-settings/CustomSettingsGeneral';
 import CustomSettingsSection from '@/components/generators/cod/custom-settings/CustomSettingsSection';
@@ -13,25 +15,7 @@ import enemiesSettings from '@/json/black-ops/four/zombies/custom-mutations/enem
 import playerSettings from '@/json/black-ops/four/zombies/custom-mutations/player.json';
 
 export default function CustomMutations() {
-  const [isLoading, setIsLoading] = useState(true);
-  const [key, setKey] = useState<string>('general');
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
-  }, []);
-
-  const handleClick = async () => {
-    setIsLoading(true);
-    setCount(count + 1);
-    setKey('general');
-
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
-  };
+  const { isLoading, key, setKey, count, generateSettings } = useCustomMutations();
 
   return (
     <>
@@ -43,7 +27,7 @@ export default function CustomMutations() {
         </div>
       ) : (
         <>
-          <Tabs activeKey={key} onSelect={(k) => setKey(k ?? 'general')} className='mb-3'>
+          <Tabs activeKey={key} onSelect={(k) => setKey(k ?? 'general')} className='mb-3' justify>
             <Tab eventKey='general' title='General'>
               <CustomSettingsGeneral data={generalSettings} count={count} />
             </Tab>
@@ -62,7 +46,7 @@ export default function CustomMutations() {
           </Tabs>
           <Row id='button-row'>
             <Col className='text-center'>
-              <Button variant='black-ops' href='#' onClick={handleClick}>
+              <Button variant='black-ops' onClick={generateSettings}>
                 Generate Settings
               </Button>
             </Col>
