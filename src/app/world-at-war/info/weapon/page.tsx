@@ -40,7 +40,7 @@ export default function WorldAtWarWeaponPage() {
   const game = 'world-at-war';
 
   return (
-    <PageLayout navLinks={navLinks} headerClassName='waw'>
+    <PageLayout containerClassName='theme-waw'>
       <Container fluid>
         <Row>
           <Suspense

@@ -1,186 +1,109 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+// --- React ---
+import { useMemo } from 'react';
 import { Row, Col, Button } from 'react-bootstrap';
-import SimpleGeneratorView from '@/components/generators/cod/SimpleGeneratorView';
+// --- Hooks ---
+import { useWorldAtWarGenerator } from '@/hooks/world-at-war/useWorldAtWarGenerator';
+// --- Components ---
 import CodClassName from '@/components/CodClassName';
-//Helpers
-import { implodeObject } from '@/helpers/implodeObject';
-import { scrollToTop } from '@/helpers/scrollToTop';
-import { fetchWeapon } from '@/helpers/fetch/fetchWeapon';
-import { fetchEquipment } from '@/helpers/fetch/fetchEquipment';
-import { fetchClassName } from '@/helpers/fetch/fetchClassName';
-//MWR Specific
-import { fetchAttachments } from '@/helpers/generator/world-at-war/fetchAttachments';
-import { fetchPerk } from '@/helpers/generator/world-at-war/fetchPerk';
-//Utils
-import { sendEvent } from '@silocitypages/utils';
-//json
-import defaultData from '@/json/cod/default-generator-info.json';
+import GeneratorSkeleton from '@/components/generators/views/skeletons/GeneratorSkeleton';
+import WeaponCard from '@/components/generators/views/WeaponCard';
+import ValueCardView from '@/components/generators/views/ValueCardView';
+import ListViewCard from '@/components/generators/views/ListViewCard';
+// --- Font Awesome ---
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faDice } from '@fortawesome/free-solid-svg-icons';
+// --- Styles ---
+import styles from '@/components/generators/views/ModernLoadout.module.css';
 
-export default function WorldAtWarLoadoutLoadout() {
-  const [isLoading, setIsLoading] = useState(true);
-  const [isGenerating, setIsGenerating] = useState(true);
-  const [data, setData] = useState(defaultData);
+const lethalMap: { [key: string]: string } = {
+  '2x Satchel Charge': 'Satchel Charge x2',
+  '2x Bouncing Betty': 'Bouncing Betty x2',
+};
 
-  useEffect(() => {
-    fetchLoadoutData(setData);
-    setIsGenerating(false);
-    setIsLoading(false);
-  }, []);
+export default function WorldAtWarLoadout() {
+  const { data, isLoading, isGenerating, generateLoadout } = useWorldAtWarGenerator();
 
-  const handleClick = async () => {
-    setIsGenerating(true);
+  const generatingClass = isGenerating ? styles.generating : '';
 
-    setTimeout(() => {
-      fetchLoadoutData(setData);
-      setIsGenerating(false);
-      scrollToTop();
-    }, 1000);
+  const cardProps = {
+    className: `${styles.card} ${generatingClass}`,
+    headerClassName: styles.cardHeader,
+    isGenerating,
   };
 
-  const { randClassName, perkObj, weapons, equipment } = data;
+  const equipmentValues = useMemo(() => {
+    const lethalName =
+      lethalMap[data.perkObj?.perk1 ?? ''] ||
+      (data.perkObj?.perk1 === '2x Primary Grenades'
+        ? `${data.equipment?.lethal?.name} x2`
+        : data.equipment?.lethal?.name);
+
+    const tacticalName =
+      data.perkObj?.perk1 === '3x Special Grenades' ? 'Smoke x3' : data.equipment?.tactical?.name;
+
+    return [
+      { title: 'Primary Grenade', value: lethalName || 'None' },
+      { title: 'Special Grenade', value: tacticalName || 'None' },
+    ];
+  }, [data.perkObj, data.equipment]);
 
   if (isLoading) {
-    return <div className='text-center'>Loading...</div>;
+    return <GeneratorSkeleton />;
   }
+
+  const { randClassName, perkObj, weapons } = data;
 
   return (
     <>
       <CodClassName isGenerating={isGenerating} value={randClassName} />
-      <Row className='justify-content-md-center'>
-        <Col sm className='text-center mb-3 mb-md-0'>
-          <SimpleGeneratorView
-            isGenerating={isGenerating}
-            title='Primary'
-            value={weapons.primary.weapon.name}
-          />
-          <br />
-          <SimpleGeneratorView
-            isGenerating={isGenerating}
-            title='Primary Attachment'
-            value={weapons.primary.weapon.no_attach ? 'No Attachment' : weapons.primary.attachments}
-          />
+
+      <Row className='justify-content-md-center text-center mb-4'>
+        <Col xs={12} md={6} className='mb-3'>
+          <WeaponCard title='Primary' weapon={weapons.primary} {...cardProps} />
         </Col>
-        <Col sm className='text-center mb-3 mb-md-0'>
-          <SimpleGeneratorView
-            isGenerating={isGenerating}
-            title='Sidearm'
-            value={weapons.secondary.weapon.name}
-          />
+        <Col xs={12} md={6} className='mb-3'>
+          <ValueCardView title='Sidearm' value={weapons.secondary?.name} {...cardProps} />
         </Col>
       </Row>
+
       <hr />
-      <Row className='justify-content-md-center mb-4'>
-        <Col sm className='text-center mb-3 mb-md-0'>
-          <SimpleGeneratorView
-            isGenerating={isGenerating}
-            title='Primary Grenade'
-            value={
-              lethalMap[perkObj.perk1] ||
-              (perkObj.perk1 === '2x Primary Grenades'
-                ? `${equipment.lethal.name} x2`
-                : equipment.lethal.name)
-            }
+
+      <Row className='justify-content-md-center text-center mb-4'>
+        <Col xs={12} md={6} lg={4} className='mb-3'>
+          <ListViewCard
+            title='Perks'
+            values={[
+              { title: 'Perk 1', value: perkObj?.perk1 || 'None' },
+              { title: 'Perk 2', value: perkObj?.perk2 || 'None' },
+              { title: 'Perk 3', value: perkObj?.perk3 || 'None' },
+            ]}
+            {...cardProps}
           />
         </Col>
-        <Col sm className='text-center mb-3 mb-md-0'>
-          <SimpleGeneratorView
-            isGenerating={isGenerating}
-            title='Special Grenade'
-            value={perkObj.perk1 === '3x Special Grenades' ? 'Smoke x3' : equipment.tactical.name}
-          />
+        <Col xs={12} md={6} lg={4} className='mb-3'>
+          <ListViewCard title='Equipment' values={equipmentValues} {...cardProps} />
         </Col>
-      </Row>
-      <hr />
-      <Row className='justify-content-md-center mb-4'>
-        <Col sm className='text-center mb-3 mb-md-0'>
-          <SimpleGeneratorView
-            isGenerating={isGenerating}
-            title='Perk 1'
-            value={perkObj.perk1 ? perkObj.perk1 : 'None'}
-          />
-        </Col>
-        <Col sm className='text-center mb-3 mb-md-0'>
-          <SimpleGeneratorView
-            isGenerating={isGenerating}
-            title='Perk 2'
-            value={perkObj.perk2 ? perkObj.perk2 : 'None'}
-          />
-        </Col>
-        <Col sm className='text-center mb-3 mb-md-0'>
-          <SimpleGeneratorView
-            isGenerating={isGenerating}
-            title='Perk 3'
-            value={perkObj.perk3 ? perkObj.perk3 : 'None'}
-          />
-        </Col>
-        <Col sm className='text-center mb-3 mb-md-0'>
-          <SimpleGeneratorView
-            isGenerating={isGenerating}
+        <Col xs={12} md={6} lg={4} className='mb-3'>
+          <ValueCardView
             title='Vehicle Perk'
-            value={perkObj.vehiclePerk ? perkObj.vehiclePerk : 'None'}
+            value={perkObj?.vehiclePerk || 'None'}
+            {...cardProps}
           />
         </Col>
       </Row>
-      <Row id='button-row'>
-        <Col className='text-center'>
-          <Button
-            variant='secondary'
-            disabled={isGenerating}
-            onClick={isGenerating ? undefined : handleClick}>
+
+      <hr />
+
+      <Row className='justify-content-md-center'>
+        <Col xs md='8' lg='6' className='text-center'>
+          <Button variant='secondary' disabled={isGenerating} onClick={() => generateLoadout()}>
+            <FontAwesomeIcon icon={faDice} className='me-2' />
             {isGenerating ? 'Generating Loadout...' : 'Generate Loadout'}
           </Button>
         </Col>
       </Row>
     </>
   );
-}
-
-const lethalMap = {
-  '2x Satchel Charge': 'Satchel Charge x2',
-  '2x Bouncing Betty': 'Bouncing Betty x2',
-};
-
-async function fetchLoadoutData(setData) {
-  sendEvent('button_click', {
-    button_id: 'waw_fetchLoadoutData',
-    label: 'WorldAtWarLoadout',
-    category: 'COD_Loadouts',
-  });
-
-  try {
-    const game = 'world-at-war';
-    const randClassName = fetchClassName();
-    const perkObj = {
-      perk1: fetchPerk('perk1'),
-      perk2: fetchPerk('perk2'),
-      perk3: fetchPerk('perk3'),
-      vehiclePerk: fetchPerk('vehicle-perk'),
-    };
-
-    const equipment = {
-      tactical: fetchEquipment('tactical', game),
-      lethal: fetchEquipment('lethal', game),
-    };
-
-    const weapons = {
-      primary: { weapon: fetchWeapon('primary', game), attachments: '' },
-      secondary: { weapon: fetchWeapon('secondary', game), attachments: '' },
-    };
-
-    weapons.primary.attachments = implodeObject(fetchAttachments(weapons.primary.weapon, 1));
-
-    if (perkObj.perk2 === 'Overkill') {
-      weapons.secondary.weapon = fetchWeapon('primary', game, weapons.primary.weapon.name);
-    }
-
-    setData({ randClassName, perkObj, weapons, equipment });
-  } catch (error: unknown) {
-    if (error instanceof Error) {
-      console.error(error.message);
-    } else {
-      console.error('An unknown error occurred.');
-    }
-  }
 }

@@ -27,23 +27,14 @@ export const metadata: Metadata = {
   ],
 };
 
-const navLinks = [
-  { label: 'Home', href: '/' },
-  { label: 'Multiplayer Generator', href: '/world-at-war/generator' },
-  { label: 'Loadout Info', href: '/world-at-war/info' },
-  { label: 'Changelog', href: '/changelog' },
-];
-
 export default function WorldAtWarWeaponsPage() {
   return (
-    <PageLayout navLinks={navLinks} headerClassName='waw'>
+    <PageLayout containerClassName='theme-waw'>
       <Container>
-        <h2 className='text-center mb-4'>
-          World At War
-          <span className='d-none d-sm-inline-block'>&nbsp;-&nbsp;</span>
-          <br className='d-block d-sm-none' />
-          Weapons
-        </h2>
+        <div className='text-center mb-4'>
+          <h2 className={styles.pageTitle}>World At War</h2>
+          <p className={styles.pageSubtitle}>Weapons</p>
+        </div>
         <Row className='p-3 p-md-4 bg-light rounded mb-4'>
           <Col>
             <WeaponList game='world-at-war' />

@@ -37,14 +37,12 @@ const navLinks = [
 
 export default function WorldAtWarPerksPage() {
   return (
-    <PageLayout navLinks={navLinks} headerClassName='waw'>
+    <PageLayout containerClassName='theme-waw'>
       <Container>
-        <h2 className='text-center mb-4'>
-          World At War
-          <span className='d-none d-sm-inline-block'>&nbsp;-&nbsp;</span>
-          <br className='d-block d-sm-none' />
-          Perks
-        </h2>
+        <div className='text-center mb-4'>
+          <h2 className={styles.pageTitle}>World At War</h2>
+          <p className={styles.pageSubtitle}>Perks</p>
+        </div>
         <Row className='p-3 p-md-4 bg-light rounded mb-4'>
           <Col>
             <PerkList game='world-at-war' />

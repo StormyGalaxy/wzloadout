@@ -15,6 +15,7 @@ export interface PerkObject {
   perk1Greed?: string;
   perk2Greed?: string;
   perk3Greed?: string;
+  vehiclePerk?: string;
 }
 
 export interface Equipment {
