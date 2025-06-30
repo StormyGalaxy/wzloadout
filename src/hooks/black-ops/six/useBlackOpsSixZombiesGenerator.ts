@@ -42,61 +42,66 @@ interface Bo6ZombiesData {
   augments: Record<string, Augment> | null;
 }
 
+const fetchNewBo6ZombiesLoadout = (): Bo6ZombiesData => {
+  const game = 'black-ops-six-zombies';
+  const randClassName = fetchClassName();
+  const primaryWeapon = fetchWeapon('all', 'black-ops-six');
+
+  const weapons = {
+    primary: {
+      ...primaryWeapon,
+      attachments: !primaryWeapon.no_attach
+        ? implodeObject(fetchAttachments(primaryWeapon, 8))
+        : 'No Attachments',
+      ammoMod: fetchZombiesAmmoMod('black-ops-six'),
+    },
+    melee: fetchWeapon('melee', 'black-ops-six'),
+  };
+
+  const equipment = {
+    tactical: fetchEquipment('tactical', game),
+    lethal: fetchEquipment('lethal', game),
+    fieldUpgrade: fetchEquipment('field_upgrade', game),
+  };
+
+  const gobblegum = fetchZombiesGobblegum(game);
+  const zombieMap = fetchZombiesMap(game);
+  const augments = fetchZombiesAugments(game);
+
+  return { randClassName, weapons, equipment, gobblegum, zombieMap, augments };
+};
+
 export const useBlackOpsSixZombiesGenerator = () => {
   const [status, setStatus] = useState<GeneratorStatus>('loading');
   const [settings, setSettings] = useState<Bo6ZombiesSettings>(defaultSettings);
   // Use the specific data interface for the state, casting the generic default data.
   const [data, setData] = useState<Bo6ZombiesData>(defaultData as unknown as Bo6ZombiesData);
 
-  const generateLoadout = useCallback(async (isInitialLoad = false) => {
+  const generateLoadout = useCallback((isInitialLoad = false) => {
     setStatus(isInitialLoad ? 'loading' : 'generating');
 
-    sendEvent('button_click', {
-      button_id: 'bo6Zombies_fetchLoadoutData',
-      label: 'BlackOpsSixZombies',
-      category: 'COD_Loadouts',
-    });
+    if (!isInitialLoad) {
+      sendEvent('button_click', {
+        button_id: 'bo6Zombies_fetchLoadoutData',
+        label: 'BlackOpsSixZombies',
+        category: 'COD_Loadouts',
+      });
+    }
 
-    try {
-      const game = 'black-ops-six-zombies';
-      const randClassName = fetchClassName();
-      const primaryWeapon = fetchWeapon('all', 'black-ops-six');
-
-      const weapons = {
-        primary: {
-          ...primaryWeapon,
-          attachments: !primaryWeapon.no_attach
-            ? implodeObject(fetchAttachments(primaryWeapon, 8))
-            : 'No Attachments',
-          ammoMod: fetchZombiesAmmoMod('black-ops-six'),
-        },
-        melee: fetchWeapon('melee', 'black-ops-six'),
-      };
-
-      const equipment = {
-        tactical: fetchEquipment('tactical', game),
-        lethal: fetchEquipment('lethal', game),
-        fieldUpgrade: fetchEquipment('field_upgrade', game),
-      };
-
-      const gobblegum = fetchZombiesGobblegum(game);
-      const zombieMap = fetchZombiesMap(game);
-      const augments = fetchZombiesAugments(game);
-
-      await new Promise((resolve) => setTimeout(resolve, 500));
-
-      setData({ randClassName, weapons, equipment, gobblegum, zombieMap, augments });
-    } catch (error: unknown) {
-      console.error(error instanceof Error ? error.message : 'An unknown error occurred.');
-      setStatus('idle');
-    } finally {
-      setTimeout(() => {
+    // Use a timeout to simulate generation time and update state
+    setTimeout(() => {
+      try {
+        const newLoadout = fetchNewBo6ZombiesLoadout();
+        setData(newLoadout);
+      } catch (error) {
+        console.error(error instanceof Error ? error.message : 'An unknown error occurred.');
+      } finally {
         setStatus('idle');
         if (!isInitialLoad) {
           scrollToTop();
         }
-      }, 500);
-    }
+      }
+    }, 1000);
   }, []);
 
   useEffect(() => {
@@ -107,7 +112,8 @@ export const useBlackOpsSixZombiesGenerator = () => {
         : defaultSettings;
     setSettings({ ...defaultSettings, ...storedSettings });
     generateLoadout(true);
-  }, [generateLoadout]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const updateSettings = (newSettings: Partial<Bo6ZombiesSettings>) => {
     setSettings((prev) => {
