@@ -10,17 +10,16 @@ import WeaponDisplayClient from '@/components/info/WeaponDisplayClient';
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: 'World War Two Weapons',
-  description: 'View information and all available attachments for the weapon in World War Two.',
+  title: 'World War 2 Weapon Information',
+  description: 'View information and all available attachments for the weapon in World War 2.',
   keywords: [
-    'COD World War Two RCG',
-    'world war two random class generator',
-    'world war two',
-    'world war two rcg',
-    'world war two random class generator',
+    'COD World War 2 RCG',
+    'world war 2 random class generator',
+    'world war 2',
+    'world war 2 rcg',
     'class generator',
-    'zombies',
-    'world war two zombies',
+    'world war 2 zombies',
+    'world war 2 rcg',
   ],
 };
 

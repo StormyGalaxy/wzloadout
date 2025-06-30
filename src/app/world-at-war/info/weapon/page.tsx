@@ -9,32 +9,18 @@ import WeaponDisplayClient from '@/components/info/WeaponDisplayClient';
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: 'World At War Weapons',
+  title: 'World At War Weapon Information',
   description: 'View information and all available attachments for the weapon in World At War.',
   keywords: [
     'COD World At War RCG',
-    'COD WAW RCG',
-    'waw random class generator',
-    'waw',
+    'world at war random class generator',
     'world at war',
     'world at war rcg',
-    'world at war random class generator',
     'class generator',
-    'zombies',
-    'world at war zombies',
     'world at war zombies',
     'world at war rcg',
-    'world at war random class generator',
   ],
 };
-
-const navLinks = [
-  { label: 'Home', href: '/' },
-  { label: 'Multiplayer Generator', href: '/world-at-war/generator' },
-
-  { label: 'Loadout Info', href: '/world-at-war/info' },
-  { label: 'Changelog', href: '/changelog' },
-];
 
 export default function WorldAtWarWeaponPage() {
   const game = 'world-at-war';
@@ -49,7 +35,7 @@ export default function WorldAtWarWeaponPage() {
                 <p className='text-center'>Loading page...</p>
               </Col>
             }>
-            <WeaponDisplayClient game={game} />
+            <WeaponDisplayClient game={game} link='world-at-war' />
           </Suspense>
         </Row>
       </Container>

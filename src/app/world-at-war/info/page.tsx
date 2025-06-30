@@ -1,72 +1,64 @@
-import { Container, Row, Col } from 'react-bootstrap';
 // --- Next ---
 import type { Metadata } from 'next';
-import Link from 'next/link';
 // --- Layout ---
 import PageLayout from '@/components/PageLayout';
 // --- Components ---
-import CodBadge from '@/components/CodBadge';
+import InfoHubClient from '@/components/info/info-hub-client/InfoHubClient';
+// --- Font Awesome ---
+import { faGun, faMedal, faExplosion } from '@fortawesome/free-solid-svg-icons';
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: 'Loadout Information',
+  title: 'World at War Info Hub | Weapons, Perks & Equipment',
   description:
-    'Spice up your COD gameplay! Generate unique random loadouts for Call of Duty World At War. Discover new weapons, perks, and gear combinations.',
+    'Your central hub for Call of Duty: World at War intel. Explore detailed information on all multiplayer weapons, perks, and equipment from the classic WWII shooter.',
   keywords: [
-    'COD World At War RCG',
-    'COD WAW RCG',
-    'waw random class generator',
-    'waw',
-    'world at war',
-    'world at war rcg',
-    'world at war random class generator',
-    'class generator',
-    'zombies',
-    'world at war zombies',
-    'world at war zombies',
-    'world at war rcg',
-    'world at war random class generator',
+    'World at War info',
+    'WaW info',
+    'WaW weapons',
+    'WaW perks',
+    'World at War equipment',
+    'COD WaW',
   ],
 };
 
-const badges = [
-  { title: 'Equipment', text: '', link: '/world-at-war/info/equipment' },
-  { title: 'Perks', text: '', link: '/world-at-war/info/perks' },
-  { title: 'Weapons', text: '', link: '/world-at-war/info/weapons' },
+const multiplayerLinks = [
+  {
+    icon: faGun,
+    title: 'Weapons',
+    description:
+      'Explore the full arsenal of authentic WWII firearms used in the Pacific and European theaters.',
+    link: '/world-at-war/info/weapons',
+  },
+  {
+    icon: faMedal,
+    title: 'Perks',
+    description:
+      'Learn about the three tiers of perks and the unique vehicle perks available to customize your class.',
+    link: '/world-at-war/info/perks',
+  },
+  {
+    icon: faExplosion,
+    title: 'Equipment',
+    description:
+      'Familiarize yourself with the lethal and tactical equipment that defined boots-on-the-ground combat.',
+    link: '/world-at-war/info/equipment',
+  },
 ];
+
+const breadcrumbLinks = [{ href: '/world-at-war', text: 'World at War' }, { text: 'Info Hub' }];
 
 export default function WorldAtWarInfoPage() {
   return (
     <PageLayout containerClassName='theme-waw'>
-      <Container>
-        <div className='text-center mb-4'>
-          <h2 className={styles.pageTitle}>World At War</h2>
-          <p className={styles.pageSubtitle}>Loadout Information</p>
-        </div>
-        <Row className='p-3 p-md-4 bg-light rounded mb-4'>
-          <Col lg={7} className='text-center'>
-            <p>
-              Step back into the gritty battlefields of World War 2 with our Call of Duty: World at
-              War data resource. Here you&apos;ll find essential information to refine your tactics
-              for this classic title. Access detailed breakdowns of all available multiplayer{' '}
-              <strong>weapons</strong>, <strong>perks</strong>, and <strong>equipment</strong> used
-              by the soldiers of the era. Use the links on this page to explore the gear that
-              defined the fight in CoD: WaW.
-            </p>
-          </Col>
-          <Col lg={5}>
-            <h4 className='text-center'>Links</h4>
-            <hr />
-            <div className='d-flex flex-wrap gap-2'>
-              {badges.map((item) => (
-                <Link key={item.title} href={item.link} className='text-decoration-none' passHref>
-                  <CodBadge name={item.title} variant='secondary' />
-                </Link>
-              ))}
-            </div>
-          </Col>
-        </Row>
-      </Container>
+      <InfoHubClient
+        heroTitle='World at War'
+        heroSubTitle='Your Central Hub for Multiplayer Intel'
+        multiplayerLink='/world-at-war/generator'
+        multiplayerLinks={multiplayerLinks}
+        buttonVariant='secondary'
+        breadcrumbs={breadcrumbLinks}
+      />
     </PageLayout>
   );
 }
