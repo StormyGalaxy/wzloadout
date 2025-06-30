@@ -1,7 +1,6 @@
 'use client';
 
 // --- React ---
-import { useMemo } from 'react';
 import { Row, Col, Button } from 'react-bootstrap';
 // --- Hooks ---
 import { useInfiniteWarfareGenerator } from '@/hooks/infinite-warfare/useInfiniteWarfareGenerator';
@@ -15,8 +14,6 @@ import PerkGreedLoadoutView from '@/components/generators/views/PerkGreedLoadout
 // --- Font Awesome ---
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDice } from '@fortawesome/free-solid-svg-icons';
-// --- Types ---
-import { Weapon } from '@/types/Generator';
 // --- Styles ---
 import styles from '@/components/generators/views/ModernLoadout.module.css';
 
@@ -31,19 +28,11 @@ export default function InfiniteWarfareLoadout() {
     isGenerating,
   };
 
-  const formatWeapon = (weaponData: any): Weapon => {
-    if (!weaponData?.name) return { name: 'None', type: '', game: '' };
-    const attachments = [weaponData.optic, weaponData.attachments].filter(Boolean).join(', ');
-    return { ...weaponData, attachments: attachments || 'None' };
-  };
-
   if (isLoading) {
     return <GeneratorSkeleton />;
   }
 
   const { randClassName, streaks, weapons, equipment, wildcards, combat_rig } = data;
-
-  console.log('weapons', weapons);
 
   return (
     <>

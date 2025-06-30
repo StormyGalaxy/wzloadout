@@ -5,8 +5,6 @@ import React from 'react';
 import { Row, Col, Button } from 'react-bootstrap';
 // --- Hooks ---
 import { useWorldWarTwoZombiesGenerator } from '@/hooks/world-war-two/useWorldWarTwoZombiesGenerator';
-// --- Helpers ---
-import { scrollToTop } from '@/helpers/scrollToTop';
 // --- Components ---
 import CodClassName from '@/components/CodClassName';
 import GeneratorSkeleton from '@/components/generators/views/skeletons/GeneratorSkeleton';
@@ -27,11 +25,6 @@ const WorldWarTwoZombiesLoadout: React.FC = () => {
     className: `${styles.card} ${generatingClass}`,
     headerClassName: styles.cardHeader,
     isGenerating: isGenerating,
-  };
-
-  const handleRegenerateClick = async () => {
-    scrollToTop();
-    await generateLoadout();
   };
 
   if (isLoading) {
@@ -72,7 +65,7 @@ const WorldWarTwoZombiesLoadout: React.FC = () => {
 
       <Row className='justify-content-md-center'>
         <Col xs md='8' lg='6' className='text-center'>
-          <Button variant='ww2' disabled={isGenerating} onClick={handleRegenerateClick}>
+          <Button variant='ww2' disabled={isGenerating} onClick={() => generateLoadout()}>
             <FontAwesomeIcon icon={faSkull} className='me-2' />
             {isGenerating ? 'Generating Loadout...' : 'Generate Loadout'}
           </Button>

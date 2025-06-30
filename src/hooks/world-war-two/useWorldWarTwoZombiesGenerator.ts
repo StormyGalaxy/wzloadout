@@ -1,6 +1,7 @@
 // --- React ---
 import { useState, useCallback, useEffect } from 'react';
 // --- Helpers ---
+import { scrollToTop } from '@/helpers/scrollToTop';
 import { fetchWeapon } from '@/helpers/fetch/fetchWeapon';
 import { fetchEquipment } from '@/helpers/fetch/fetchEquipment';
 import { fetchClassName } from '@/helpers/fetch/fetchClassName';
@@ -11,9 +12,23 @@ import { fetchZombiesPerks } from '@/helpers/fetch/zombies/fetchZombiesPerks';
 // --- Utils ---
 import { sendEvent } from '@silocitypages/utils';
 // --- Types ---
-import { ZombiesGeneratorData, GeneratorStatus } from '@/types/Generator';
+import { ZombiesGeneratorData, GeneratorStatus, Weapon } from '@/types/Generator';
 // --- Data ---
 import defaultData from '@/json/cod/default-zombies-generator-info.json';
+
+const fetchNewWw2ZombiesLoadout = () => {
+  const game = 'world-war-two-zombies';
+  const randClassName = fetchClassName();
+  const weapons = { primary: { ...fetchWeapon('primary', game), attachments: '' } };
+  const lethal = fetchEquipment('lethal', 'world-war-two').name;
+  const special = fetchEquipment('field_upgrade', game).name;
+  const character = fetchZombiesCharacter(game).name;
+  const zombieMap = fetchZombiesMap(game);
+  // Mods depend on the selected special
+  const mods = fetchZombiesPerks(`${game}-${special.toLowerCase()}`, 3);
+
+  return { ...defaultData, randClassName, weapons, lethal, special, character, zombieMap, mods };
+};
 
 export const useWorldWarTwoZombiesGenerator = () => {
   const [data, setData] = useState<ZombiesGeneratorData>(defaultData);
@@ -28,38 +43,26 @@ export const useWorldWarTwoZombiesGenerator = () => {
       category: 'COD_Loadouts',
     });
 
-    try {
-      const game = 'world-war-two-zombies';
-      const randClassName = fetchClassName();
-      const weapons = { primary: { ...fetchWeapon('primary', game), attachments: '' } };
-      const lethal = fetchEquipment('lethal', 'world-war-two').name;
-      const special = fetchEquipment('field_upgrade', game).name;
-      const character = fetchZombiesCharacter(game).name;
-      const zombieMap = fetchZombiesMap(game);
-      // Mods depend on the selected special
-      const mods = fetchZombiesPerks(`${game}-${special.toLowerCase()}`, 3);
-
-      // A brief timeout to give the feeling of generation
-      await new Promise((resolve) => setTimeout(resolve, 500));
-
-      setData({ ...data, randClassName, weapons, lethal, special, character, zombieMap, mods });
-    } catch (error: unknown) {
-      if (error instanceof Error) {
-        console.error(error.message);
-      } else {
-        console.error('An unknown error occurred.');
-      }
-      setStatus('idle');
-    } finally {
-      setTimeout(() => {
+    // Use a timeout to simulate generation time and update state
+    setTimeout(() => {
+      try {
+        const newLoadout = fetchNewWw2ZombiesLoadout();
+        setData(newLoadout);
+      } catch (error) {
+        console.error(error instanceof Error ? error.message : 'An unknown error occurred.');
+      } finally {
         setStatus('idle');
-      }, 500);
-    }
+        if (!isInitialLoad) {
+          scrollToTop();
+        }
+      }
+    }, 1000);
   }, []);
 
   useEffect(() => {
     generateLoadout(true);
-  }, [generateLoadout]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return {
     data,

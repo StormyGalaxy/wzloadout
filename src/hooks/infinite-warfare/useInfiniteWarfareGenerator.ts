@@ -84,8 +84,16 @@ const fetchNewLoadout = () => {
         : { name: '', type: '', game: '' },
     lethal: loadoutFrame.lethal ? fetchEquipment('lethal', game) : { name: '', type: '', game: '' },
   };
-  if (loadoutFrame.tacticalx2 && equipment.tactical.name) equipment.tactical.name += ' x2';
-  if (loadoutFrame.dangerClose && equipment.lethal.name) equipment.lethal.name += ' x2';
+  if (
+    loadoutFrame.tacticalx2 &&
+    equipment.tactical.name &&
+    !equipment.tactical.name.includes('x2')
+  ) {
+    equipment.tactical.name += ' x2';
+  }
+  if (loadoutFrame.dangerClose && equipment.lethal.name && !equipment.lethal.name.includes('x2')) {
+    equipment.lethal.name += ' x2';
+  }
 
   const wildcards = loadoutFrame?.wildcards.join(', ');
   const rig = fetchSpecialist(game);
@@ -112,13 +120,11 @@ export const useInfiniteWarfareGenerator = () => {
   const generateLoadout = useCallback(async (isInitialLoad = false) => {
     setStatus(isInitialLoad ? 'loading' : 'generating');
 
-    if (!isInitialLoad) {
-      sendEvent('button_click', {
-        button_id: 'iw_fetchLoadoutData',
-        label: 'InfiniteWarfare',
-        category: 'COD_Loadouts',
-      });
-    }
+    sendEvent('button_click', {
+      button_id: 'iw_fetchLoadoutData',
+      label: 'InfiniteWarfare',
+      category: 'COD_Loadouts',
+    });
 
     // Use a timeout to simulate generation time and update state
     setTimeout(() => {
@@ -138,6 +144,7 @@ export const useInfiniteWarfareGenerator = () => {
 
   useEffect(() => {
     generateLoadout(true);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return {
