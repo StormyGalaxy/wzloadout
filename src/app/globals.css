@@ -15,6 +15,7 @@
   --theme-color-light: #f8f9fa; /* Light theme color */
   --theme-color-dark: #212529; /* Dark theme color */
   --theme-color-accent: #007bff; /* Accent color */
+  --header-link-color: #fff;
 }
 
 .theme-cold-war {
@@ -29,9 +30,18 @@
   --theme-color: #f96800;
 }
 
+.theme-infinite-warfare {
+  --theme-color: #ffff02;
+  --header-link-color: #000;
+}
+
 #site-header {
   background: var(--theme-color) !important;
   margin-bottom: 25px;
+}
+
+#site-header a {
+  color: var(--header-link-color) !important;
 }
 
 .cod-container {
@@ -65,11 +75,6 @@
   border-bottom: black solid 1px;
 }
 
-/* Custom Header Colors */
-#site-header a {
-  color: white !important;
-}
-
 #site-header.warzone,
 #site-header.mwr {
   background: #198754 !important;
@@ -82,14 +87,6 @@
 
 #site-header.mw2 {
   background: #79c22b !important;
-}
-
-#site-header.infinite-warfare {
-  background: #ffff02 !important;
-}
-
-#site-header.infinite-warfare a {
-  color: #000 !important;
 }
 
 #site-header.waw {

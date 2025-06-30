@@ -39,5 +39,6 @@
   "wildcard": { "name": "", "description": "" },
   "wildcards": "",
   "basic": null,
-  "specialist": { "name": "", "type": "", "game": "" }
+  "specialist": { "name": "", "type": "", "game": "" },
+  "combat_rig": ""
 }

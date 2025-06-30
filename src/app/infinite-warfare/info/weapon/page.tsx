@@ -24,18 +24,11 @@ export const metadata: Metadata = {
   ],
 };
 
-const navLinks = [
-  { label: 'Home', href: '/' },
-  { label: 'Multiplayer Generator', href: '/infinite-warfare/generator' },
-  { label: 'Loadout Info', href: '/infinite-warfare/info' },
-  { label: 'Changelog', href: '/changelog' },
-];
-
 export default function InfiniteWarfareWeaponPage() {
   const game = 'infinite-warfare';
 
   return (
-    <PageLayout navLinks={navLinks} headerClassName='infinite-warfare'>
+    <PageLayout containerClassName='theme-infinite-warfare'>
       <Container fluid>
         <Row>
           <Suspense

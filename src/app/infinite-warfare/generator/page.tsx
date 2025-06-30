@@ -1,47 +1,49 @@
+// --- React ---
 import { Container, Row, Col } from 'react-bootstrap';
+// --- Next ---
 import type { Metadata } from 'next';
 // --- Layout ---
 import PageLayout from '@/components/PageLayout';
 // --- Loadout ---
 import InfiniteWarfareLoadout from '@/components/generators/infinite-warfare/InfiniteWarfareLoadout';
+import Breadcrumbs from '@/components/common/breadcrumbs/Breadcrumbs';
+// --- Styles ---
+import styles from '@/components/generators/views/ModernLoadout.module.css';
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: 'Infinite Warfare',
+  title: 'Infinite Warfare Random Class Generator | Multiplayer Loadouts',
   description:
-    'Spice up your COD gameplay! Generate unique random loadouts for Call of Duty Infinite Warfare. Discover new weapons, perks, and gear combinations.',
+    'Forge your loadout for futuristic combat in Call of Duty: Infinite Warfare. Generate random classes with unique Combat Rigs, weapon variants, perks, and equipment.',
   keywords: [
-    'COD Infinite Warfare RCG',
+    'Infinite Warfare random class generator',
+    'IW loadout generator',
+    'IW random loadout',
+    'Call of Duty Infinite Warfare',
+    'IW multiplayer',
+    'Infinite Warfare Combat Rigs',
+    'IW weapon variants',
     'COD IW RCG',
-    'iw random class generator',
-    'iw',
-    'infinite warfare',
-    'infinite warfare rcg',
-    'infinite warfare random class generator',
-    'infinite warfare rcg',
-    'infinite warfare random class generator',
   ],
 };
 
-const navLinks = [
-  { label: 'Home', href: '/' },
-  { label: 'Multiplayer Generator', href: '/infinite-warfare/generator' },
-  { label: 'Loadout Info', href: '/infinite-warfare/info' },
-  { label: 'Changelog', href: '/changelog' },
-];
-
 export default function InfiniteWarfareGeneratorPage() {
+  const breadcrumbLinks = [
+    { href: '/infinite-warfare', text: 'Infinite Warfare' },
+    { text: 'Multiplayer Generator' },
+  ];
+
   return (
-    <PageLayout navLinks={navLinks} headerClassName='infinite-warfare'>
+    <PageLayout containerClassName='theme-infinite-warfare'>
       <Container>
-        <h2 className='text-center mb-4'>
-          Infinite Warfare
-          <span className='d-none d-sm-inline-block'>&nbsp;-&nbsp;</span>
-          <br className='d-block d-sm-none' />
-          Random Class Generator
-        </h2>
+        <div className='text-center mb-4'>
+          <h2 className={styles.pageTitle}>Infinite Warfare</h2>
+          <p className={styles.pageSubtitle}>Random Class Generator</p>
+        </div>
+
         <Row className='p-3 p-md-4 bg-light rounded mb-4'>
           <Col className='mx-auto'>
+            <Breadcrumbs links={breadcrumbLinks} textOutline={true} className='mb-4' />
             <InfiniteWarfareLoadout />
           </Col>
         </Row>

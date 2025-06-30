@@ -41,3 +41,13 @@
 .breadcrumbContainer :global(.breadcrumb-item + .breadcrumb-item)::before {
   color: var(--bs-gray-500);
 }
+
+/* Optional text outline for light text on light backgrounds.
+  This targets ONLY the <a> tags within the breadcrumb items, so it will
+  affect the home icon and other links, but NOT the active item which is a <span>.
+  Using filter: drop-shadow() works on both text and SVGs.
+*/
+.textOutline :global(.breadcrumb-item a) {
+  filter: drop-shadow(1px 1px 0px rgba(0, 0, 0, 0.7)) drop-shadow(-1px -1px 0px rgba(0, 0, 0, 0.7))
+    drop-shadow(1px -1px 0px rgba(0, 0, 0, 0.7)) drop-shadow(-1px 1px 0px rgba(0, 0, 0, 0.7));
+}

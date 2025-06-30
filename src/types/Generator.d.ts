@@ -40,6 +40,8 @@ export interface GeneratorData {
   division?: string | null;
   basic?: string | null;
   specialist: Specialist;
+  rig?: Specialist;
+  combat_rig?: string;
 }
 
 export interface ZombiesGeneratorData {

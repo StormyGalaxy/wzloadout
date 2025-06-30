@@ -19,11 +19,22 @@ interface BreadcrumbsProps {
   links: BreadcrumbLink[];
   /** Optional class name to apply to the container. */
   className?: string;
+  /** Apply a text outline for better readability on light backgrounds. */
+  textOutline?: boolean;
 }
 
-const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ links, className }) => {
+const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ links, className, textOutline = false }) => {
+  // Combine the base class, any passed className, and the conditional text-outline class.
+  const containerClasses = [
+    styles.breadcrumbContainer,
+    className,
+    textOutline ? styles.textOutline : '',
+  ]
+    .filter(Boolean) // Remove any falsy values (like empty strings)
+    .join(' ');
+
   return (
-    <Breadcrumb className={`${styles.breadcrumbContainer} ${className}`}>
+    <Breadcrumb className={containerClasses}>
       <Breadcrumb.Item linkAs={Link} href='/'>
         <FontAwesomeIcon icon={faHouse} />
         <span className='visually-hidden'>Home</span>

@@ -18,8 +18,8 @@ export function getSniperAttachments(
   type: string,
   gun: string,
   count: number
-): Record<string, string> | Record<string, string[]> {
-  const attachments: Record<string, string> = {};
+): string[] | Record<string, string[]> {
+  const attachments: string[] = [];
   const data = attachmentsList[gun];
   const dataList = data[type];
   if (count === -1) {

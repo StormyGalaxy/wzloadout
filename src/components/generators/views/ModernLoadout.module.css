@@ -16,7 +16,7 @@
 
 .cardHeader {
   background-color: var(--theme-color, #343a40) !important;
-  color: white !important;
+  color: var(--header-link-color, #fff) !important;
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 1px;
