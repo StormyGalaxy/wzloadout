@@ -55,7 +55,7 @@ export default function WorldAtWarInfoPage() {
         <Row className='p-3 p-md-4 bg-light rounded mb-4'>
           <Col lg={7} className='text-center'>
             <p>
-              Step back into the gritty battlefields of World War II with our Call of Duty: World at
+              Step back into the gritty battlefields of World War 2 with our Call of Duty: World at
               War data resource. Here you&apos;ll find essential information to refine your tactics
               for this classic title. Access detailed breakdowns of all available multiplayer{' '}
               <strong>weapons</strong>, <strong>perks</strong>, and <strong>equipment</strong> used

@@ -4,6 +4,8 @@
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 // --- Next ---
 import Link from 'next/link';
+// --- Components ---
+import Breadcrumbs from '@/components/common/breadcrumbs/Breadcrumbs';
 // --- Font Awesome ---
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
@@ -39,6 +41,7 @@ export default function LandingPageComponent({
       </div>
 
       <Row className='p-3 p-md-4 bg-light rounded mb-4 justify-content-center'>
+        <Breadcrumbs links={[{ text: title }]} className='mb-4' />
         {toolCards.map((card) => (
           <Col xs={12} md={6} lg={4} className='mb-4' key={card.href}>
             <Card className='h-100 text-center'>

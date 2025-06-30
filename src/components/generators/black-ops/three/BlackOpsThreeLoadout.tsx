@@ -1,7 +1,6 @@
 'use client';
 
 // --- React ---
-import { useMemo } from 'react';
 import { Row, Col, Button } from 'react-bootstrap';
 // --- Hooks ---
 import { useBlackOpsThreeGenerator } from '@/hooks/black-ops/three/useBlackOpsThreeGenerator';

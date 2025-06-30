@@ -209,25 +209,25 @@
   {
     "Date": "January 31, 2025",
     "Type": "New",
-    "Link": { "Url": "world-war-two/custom-match", "Text": "World War II Custom Match:" },
+    "Link": { "Url": "world-war-two/custom-match", "Text": "World War 2 Custom Match:" },
     "Changes": "Generator is now available!"
   },
   {
     "Date": "January 30, 2025",
     "Type": "New",
-    "Link": { "Url": "world-war-two/generator", "Text": "World War II:" },
+    "Link": { "Url": "world-war-two/generator", "Text": "World War 2:" },
     "Changes": "Generator is now available!"
   },
   {
     "Date": "January 30, 2025",
     "Type": "New",
-    "Link": { "Url": "world-war-two/info", "Text": "World War II Generator Information" },
+    "Link": { "Url": "world-war-two/info", "Text": "World War 2 Generator Information" },
     "Changes": ""
   },
   {
     "Date": "January 30, 2025",
     "Type": "New",
-    "Link": { "Url": "world-war-two/zombies-generator", "Text": "World War II Zombies:" },
+    "Link": { "Url": "world-war-two/zombies-generator", "Text": "World War 2 Zombies:" },
     "Changes": "Generator is now available!"
   },
   {
