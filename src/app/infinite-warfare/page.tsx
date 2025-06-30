@@ -51,6 +51,7 @@ export default function InfiniteWarfareLandingPage() {
         subtitle="Venture to the final frontier. Below you'll find a suite of tools to enhance your futuristic combat experience, from generating random loadouts to exploring detailed intel."
         toolCards={toolCards}
         buttonVariant='infinite-warfare'
+        textOutline={true}
       />
     </PageLayout>
   );

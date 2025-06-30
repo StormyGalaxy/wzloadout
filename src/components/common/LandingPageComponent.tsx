@@ -25,6 +25,7 @@ interface LandingPageComponentProps {
   subtitle: string;
   toolCards: IToolCard[];
   buttonVariant: string;
+  textOutline?: boolean;
 }
 
 export default function LandingPageComponent({
@@ -32,6 +33,7 @@ export default function LandingPageComponent({
   subtitle,
   toolCards,
   buttonVariant,
+  textOutline = false,
 }: LandingPageComponentProps) {
   return (
     <Container>
@@ -41,7 +43,7 @@ export default function LandingPageComponent({
       </div>
 
       <Row className='p-3 p-md-4 bg-light rounded mb-4 justify-content-center'>
-        <Breadcrumbs links={[{ text: title }]} className='mb-4' />
+        <Breadcrumbs links={[{ text: title }]} textOutline={textOutline} className='mb-4' />
         {toolCards.map((card) => (
           <Col xs={12} md={6} lg={4} className='mb-4' key={card.href}>
             <Card className='h-100 text-center'>

@@ -34,6 +34,7 @@ interface InfoHubClientProps {
   zombiesLinks?: InfoLink[];
   buttonVariant: string;
   breadcrumbs?: BreadcrumbLink[];
+  textOutline?: boolean;
 }
 
 export default function InfoHubClient({
@@ -45,6 +46,7 @@ export default function InfoHubClient({
   zombiesLinks,
   buttonVariant,
   breadcrumbs,
+  textOutline = false,
 }: InfoHubClientProps) {
   return (
     <>
@@ -59,7 +61,9 @@ export default function InfoHubClient({
       </div>
 
       <Container className='py-5'>
-        {breadcrumbs && <Breadcrumbs links={breadcrumbs} className='mb-4' />}
+        {breadcrumbs && (
+          <Breadcrumbs links={breadcrumbs} textOutline={textOutline} className='mb-4' />
+        )}
         {/* --- Multiplayer Section --- */}
         <section id='multiplayer' className='mb-5'>
           <h2 className='display-5 text-center mb-4'>Multiplayer Arsenal</h2>

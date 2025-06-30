@@ -11,6 +11,7 @@ export interface WeaponInfoProps {
   game: string;
   link: string;
   linkText: string;
+  textOutline?: boolean;
 }
 
 export type InfoData = {

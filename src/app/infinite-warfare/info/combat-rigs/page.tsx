@@ -5,25 +5,34 @@ import type { Metadata } from 'next';
 import PageLayout from '@/components/PageLayout';
 // --- Components ---
 import SpecialistList from '@/components/info/SpecialistList';
+import Breadcrumbs from '@/components/common/breadcrumbs/Breadcrumbs';
+// --- Styles ---
+import styles from '@/components/generators/views/ModernLoadout.module.css';
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: 'Infinite Warfare Combat Rigs',
-  description: 'View all combat rigs in Infinite Warfare.',
+  title: 'Infinite Warfare Combat Rigs | All Rigs, Payloads & Traits',
+  description:
+    'Choose your suit of armor for futuristic warfare. Get a complete guide to all six Combat Rigs in Call of Duty: Infinite Warfare, with detailed information on their unique Payloads and persistent Traits.',
   keywords: [
-    'COD Infinite Warfare RCG',
-    'COD IW RCG',
-    'iw random class generator',
-    'iw',
-    'infinite warfare',
-    'infinite warfare rcg',
-    'infinite warfare random class generator',
-    'infinite warfare rcg',
-    'infinite warfare random class generator',
+    'Infinite Warfare Combat Rigs',
+    'IW Combat Rigs',
+    'Call of Duty Infinite Warfare',
+    'IW Rigs',
+    'All Combat Rigs IW',
+    'Infinite Warfare Payloads',
+    'Infinite Warfare Traits',
+    'IW classes',
   ],
 };
 
 export default function InfiniteWarfareSpecialistsPage() {
+  const breadcrumbLinks = [
+    { href: '/infinite-warfare', text: 'Infinite Warfare' },
+    { href: '/infinite-warfare/info', text: 'Info Hub' },
+    { text: 'Specialists' },
+  ];
+
   return (
     <PageLayout containerClassName='theme-infinite-warfare'>
       <Container>
@@ -33,6 +42,7 @@ export default function InfiniteWarfareSpecialistsPage() {
         </div>
         <Row className='p-3 p-md-4 bg-light rounded mb-4'>
           <Col>
+            <Breadcrumbs links={breadcrumbLinks} textOutline={true} className='mb-4' />
             <SpecialistList game='infinite-warfare' />
           </Col>
         </Row>

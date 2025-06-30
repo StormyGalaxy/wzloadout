@@ -24,7 +24,7 @@ const titleMap = {
   isDlc: 'DLC Weapon',
 };
 
-function WeaponInfo({ value, game, link, linkText }: WeaponInfoProps) {
+function WeaponInfo({ value, game, link, linkText, textOutline = false }: WeaponInfoProps) {
   const [isLoading, setIsLoading] = useState(true);
   const [weaponData, setWeponData] = useState<Weapon>({ name: '', type: '', game: '' });
   const [attachmentInfo, setAttachmentInfo] = useState({});
@@ -89,7 +89,7 @@ function WeaponInfo({ value, game, link, linkText }: WeaponInfoProps) {
     <Container id='weapon-info' className='p-3 p-md-4 bg-light rounded mb-4'>
       {!isLoading && (
         <>
-          <Breadcrumbs links={breadcrumbLinks} className='mb-4' />
+          <Breadcrumbs links={breadcrumbLinks} textOutline={textOutline} className='mb-4' />
           <Row className='justify-content-md-center'>
             {weaponData &&
               Object.entries(weaponData).map(([key, value]) => (

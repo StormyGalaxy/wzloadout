@@ -1,75 +1,84 @@
-import { Container, Row, Col } from 'react-bootstrap';
 // --- Next ---
 import type { Metadata } from 'next';
-import Link from 'next/link';
 // --- Layout ---
 import PageLayout from '@/components/PageLayout';
 // --- Components ---
-import CodBadge from '@/components/CodBadge';
+import InfoHubClient from '@/components/info/info-hub-client/InfoHubClient';
+// --- Font Awesome ---
+import {
+  faGun,
+  faMedal,
+  faPlane,
+  faExplosion,
+  faUserShield,
+} from '@fortawesome/free-solid-svg-icons';
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: 'Loadout Information',
+  title: 'Infinite Warfare Info Hub | Weapons, Rigs, Perks & More',
   description:
-    'Spice up your COD gameplay! Generate unique random loadouts for Call of Duty Infinite Warfare. Discover new weapons, perks, and gear combinations.',
+    'Your central hub for Call of Duty: Infinite Warfare intel. Explore detailed information on all multiplayer weapons, Combat Rigs, perks, and scorestreaks.',
   keywords: [
-    'COD Infinite Warfare RCG',
-    'COD IW RCG',
-    'iw random class generator',
-    'iw',
-    'infinite warfare',
-    'infinite warfare rcg',
-    'infinite warfare random class generator',
-    'infinite warfare rcg',
-    'infinite warfare random class generator',
+    'Infinite Warfare info',
+    'IW info',
+    'IW weapons',
+    'Infinite Warfare Combat Rigs',
+    'IW perks',
+    'IW scorestreaks',
+    'Call of Duty IW',
   ],
 };
 
-const badges = [
-  { title: 'Equipment', link: '/infinite-warfare/info/equipment' },
-  { title: 'Perks', link: '/infinite-warfare/info/perks' },
-  { title: 'Combat Rigs', link: '/infinite-warfare/info/combat-rigs' },
-  { title: 'Streaks', link: '/infinite-warfare/info/streaks' },
-  { title: 'Weapons', link: '/infinite-warfare/info/weapons' },
+const multiplayerLinks = [
+  {
+    icon: faGun,
+    title: 'Weapons',
+    description: 'Explore the full arsenal of advanced energy and ballistic firearms.',
+    link: '/infinite-warfare/info/weapons',
+  },
+  {
+    icon: faUserShield,
+    title: 'Combat Rigs',
+    description: 'Review all six Combat Rigs and their unique Payloads and Traits.',
+    link: '/infinite-warfare/info/combat-rigs',
+  },
+  {
+    icon: faMedal,
+    title: 'Perks',
+    description: 'Learn about the three tiers of perks available to customize your playstyle.',
+    link: '/infinite-warfare/info/perks',
+  },
+  {
+    icon: faPlane,
+    title: 'Scorestreaks',
+    description: 'Familiarize yourself with the lethal and tactical Scorestreaks you can earn.',
+    link: '/infinite-warfare/info/streaks',
+  },
+  {
+    icon: faExplosion,
+    title: 'Equipment',
+    description: 'View the standard and unique futuristic equipment options for your loadout.',
+    link: '/infinite-warfare/info/equipment',
+  },
+];
+
+const breadcrumbLinks = [
+  { href: '/infinite-warfare', text: 'Infinite Warfare' },
+  { text: 'Info Hub' },
 ];
 
 export default function InfiniteWarfareInfoPage() {
   return (
     <PageLayout containerClassName='theme-infinite-warfare'>
-      <Container>
-        <div className='text-center mb-4'>
-          <h2 className={styles.pageTitle}>Infinite Warfare</h2>
-          <p className={styles.pageSubtitle}>Loadout Information</p>
-        </div>
-        <Row className='p-3 p-md-4 bg-light rounded mb-4'>
-          <Col lg={7} className='text-center'>
-            <p>
-              Take the fight to the final frontier with our Call of Duty: Infinite Warfare intel
-              database. Prepare for futuristic warfare across the solar system by exploring
-              comprehensive guides on advanced <strong>Weapons</strong>, tactical{' '}
-              <strong>Equipment</strong>, essential <strong>Perks</strong>, powerful{' '}
-              <strong>Scorestreaks</strong>, and the unique <strong>Combat Rigs</strong> system with
-              their specialized Payloads and Traits. Find all the links you need on this page to
-              master Infinite Warfare&apos;s multiplayer arena.
-            </p>
-          </Col>
-          <Col lg={5}>
-            <h4 className='text-center'>Links</h4>
-            <hr />
-            <div className='d-flex flex-wrap gap-2'>
-              {badges.map((item) => (
-                <Link key={item.title} href={item.link} className='text-decoration-none' passHref>
-                  <CodBadge
-                    name={item.title}
-                    badgeOverwrite='bgInfiniteWarfare'
-                    needsDarkText={true}
-                  />
-                </Link>
-              ))}
-            </div>
-          </Col>
-        </Row>
-      </Container>
+      <InfoHubClient
+        heroTitle='Infinite Warfare'
+        heroSubTitle='Your Central Hub for Multiplayer Intel'
+        multiplayerLink='/infinite-warfare/generator'
+        multiplayerLinks={multiplayerLinks}
+        buttonVariant='infinite-warfare'
+        breadcrumbs={breadcrumbLinks}
+        textOutline={true}
+      />
     </PageLayout>
   );
 }

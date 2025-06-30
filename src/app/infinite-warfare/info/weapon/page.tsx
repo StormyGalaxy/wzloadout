@@ -9,18 +9,16 @@ import WeaponDisplayClient from '@/components/info/WeaponDisplayClient';
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: 'Infinite Warfare Weapons',
+  title: 'Infinite Warfare Weapon Information',
   description: 'View information and all available attachments for the weapon in Infinite Warfare.',
   keywords: [
     'COD Infinite Warfare RCG',
-    'COD IW RCG',
-    'iw random class generator',
-    'iw',
+    'infinite warfare random class generator',
     'infinite warfare',
     'infinite warfare rcg',
-    'infinite warfare random class generator',
+    'class generator',
+    'infinite warfare zombies',
     'infinite warfare rcg',
-    'infinite warfare random class generator',
   ],
 };
 
@@ -37,7 +35,7 @@ export default function InfiniteWarfareWeaponPage() {
                 <p className='text-center'>Loading page...</p>
               </Col>
             }>
-            <WeaponDisplayClient game={game} />
+            <WeaponDisplayClient game={game} link='infinite-warfare' textOutline={true} />
           </Suspense>
         </Row>
       </Container>
