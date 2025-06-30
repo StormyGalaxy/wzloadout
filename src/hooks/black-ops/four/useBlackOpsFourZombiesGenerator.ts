@@ -86,13 +86,11 @@ export const useBlackOpsFourZombiesGenerator = () => {
   const generateLoadout = useCallback((isInitialLoad = false) => {
     setStatus(isInitialLoad ? 'loading' : 'generating');
 
-    if (!isInitialLoad) {
-      sendEvent('button_click', {
-        button_id: 'bo4Zombies_fetchLoadoutData',
-        label: 'BlackOpsFourZombies',
-        category: 'COD_Loadouts',
-      });
-    }
+    sendEvent('button_click', {
+      button_id: 'bo4Zombies_fetchLoadoutData',
+      label: 'BlackOpsFourZombies',
+      category: 'COD_Loadouts',
+    });
 
     // Use a timeout to simulate generation time and update state
     setTimeout(() => {

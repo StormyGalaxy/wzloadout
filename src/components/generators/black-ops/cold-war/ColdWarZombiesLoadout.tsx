@@ -3,9 +3,7 @@
 // --- React ---
 import { Row, Col, Button } from 'react-bootstrap';
 // --- Hooks ---
-import { useColdWarZombiesLoadout } from '@/hooks/black-ops/cold-war/useColdWarZombiesLoadout';
-// --- Helpers ---
-import { scrollToTop } from '@/helpers/scrollToTop';
+import { useColdWarZombiesGenerator } from '@/hooks/black-ops/cold-war/useColdWarZombiesGenerator';
 // --- Components ---
 import CodClassName from '@/components/CodClassName';
 import GeneratorSkeleton from '@/components/generators/views/skeletons/GeneratorSkeleton';
@@ -19,18 +17,13 @@ import { faSkull } from '@fortawesome/free-solid-svg-icons';
 import styles from '@/components/generators/views/ModernLoadout.module.css';
 
 export default function ColdWarZombiesLoadout() {
-  const { isLoading, isGenerating, data, generateLoadout } = useColdWarZombiesLoadout();
+  const { isLoading, isGenerating, data, generateLoadout } = useColdWarZombiesGenerator();
   const generatingClass = isGenerating ? styles.generating : '';
 
   const cardProps = {
     className: `${styles.card} ${generatingClass}`,
     headerClassName: styles.cardHeader,
     isGenerating: isGenerating,
-  };
-
-  const handleRegenerateClick = async () => {
-    scrollToTop();
-    await generateLoadout();
   };
 
   if (isLoading) {
@@ -72,7 +65,7 @@ export default function ColdWarZombiesLoadout() {
       {/* --- Generate Button --- */}
       <Row className='mt-4'>
         <Col className='text-center'>
-          <Button variant='danger' disabled={isGenerating} onClick={handleRegenerateClick}>
+          <Button variant='danger' disabled={isGenerating} onClick={() => generateLoadout()}>
             <FontAwesomeIcon icon={faSkull} className='me-2' />
             {isGenerating ? 'Generating...' : 'Generate New Loadout'}
           </Button>

@@ -80,13 +80,11 @@ export const useBlackOpsSixZombiesGenerator = () => {
   const generateLoadout = useCallback((isInitialLoad = false) => {
     setStatus(isInitialLoad ? 'loading' : 'generating');
 
-    if (!isInitialLoad) {
-      sendEvent('button_click', {
-        button_id: 'bo6Zombies_fetchLoadoutData',
-        label: 'BlackOpsSixZombies',
-        category: 'COD_Loadouts',
-      });
-    }
+    sendEvent('button_click', {
+      button_id: 'bo6Zombies_fetchLoadoutData',
+      label: 'BlackOpsSixZombies',
+      category: 'COD_Loadouts',
+    });
 
     // Use a timeout to simulate generation time and update state
     setTimeout(() => {
