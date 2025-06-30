@@ -6,7 +6,6 @@ import { Row, Col, Button, Form } from 'react-bootstrap';
 // --- Hooks ---
 import { useBlackOpsFourZombiesGenerator } from '@/hooks/black-ops/four/useBlackOpsFourZombiesGenerator';
 // --- Components ---
-import SimpleGeneratorView from '@/components/generators/cod/SimpleGeneratorView';
 import CodClassName from '@/components/CodClassName';
 import GeneratorSkeleton from '@/components/generators/views/skeletons/GeneratorSkeleton';
 import ValueCardView from '@/components/generators/views/ValueCardView';

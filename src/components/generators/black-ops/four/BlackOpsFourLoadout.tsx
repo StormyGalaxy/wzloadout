@@ -11,8 +11,6 @@ import ListViewCard from '@/components/generators/views/ListViewCard';
 import PerkGreedLoadoutView from '@/components/generators/views/PerkGreedLoadoutView';
 import ValueCardView from '@/components/generators/views/ValueCardView';
 import StreaksView from '@/components/generators/views/StreaksView';
-// --- Helpers ---
-import { scrollToTop } from '@/helpers/scrollToTop';
 // --- Font Awesome ---
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDice } from '@fortawesome/free-solid-svg-icons';
@@ -27,11 +25,6 @@ export default function BlackOpsFourLoadout() {
     className: `${styles.card} ${generatingClass}`,
     headerClassName: styles.cardHeader,
     isGenerating: isGenerating,
-  };
-
-  const handleRegenerateClick = async () => {
-    scrollToTop();
-    await generateLoadout();
   };
 
   const { randClassName, perkObj, streaks, weapons, equipment, wildcards, specialist } = data;
@@ -123,7 +116,7 @@ export default function BlackOpsFourLoadout() {
 
       <Row id='button-row'>
         <Col className='text-center'>
-          <Button variant='black-ops' disabled={isGenerating} onClick={handleRegenerateClick}>
+          <Button variant='black-ops' disabled={isGenerating} onClick={() => generateLoadout()}>
             <FontAwesomeIcon icon={faDice} className='me-2' />
             {isGenerating ? 'Generating Loadout...' : 'Generate Loadout'}
           </Button>

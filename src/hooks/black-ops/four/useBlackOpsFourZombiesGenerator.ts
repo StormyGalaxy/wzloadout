@@ -47,73 +47,68 @@ function fetchZombiesMode() {
   };
 }
 
+const fetchNewBo4ZombiesLoadout = (): Bo4ZombiesData => {
+  const game = 'black-ops-four-zombies';
+  const randClassName = fetchClassName();
+  const story_key = fetchZombiesStory();
+  const story = {
+    key: story_key,
+    display: story_key
+      .split('_')
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' '),
+  };
+  const weapons = {
+    starting: fetchWeapon('all', game),
+    special: fetchWeapon('all', `${story_key}-${game}`),
+  };
+  const equipment = { lethal: fetchEquipment('lethal', game) };
+  const elixers = fetchZombiesGobblegum(game);
+  const talisman = fetchZombiesGobblegum(`${game}-talismans`, 1);
+  const zombieMap = fetchZombiesMap(`${story_key}-${game}`);
+
+  if (zombieMap?.mode === 'Classic/Rush') {
+    const zombiesMode = fetchZombiesMode();
+    zombieMap.difficulty = zombiesMode.difficulty;
+    zombieMap.mode = zombiesMode.mode;
+  }
+
+  const zombiePerks = fetchZombiesPerks(game);
+
+  return { randClassName, story, weapons, equipment, elixers, talisman, zombieMap, zombiePerks };
+};
+
 export const useBlackOpsFourZombiesGenerator = () => {
   const [status, setStatus] = useState('loading');
   const [settings, setSettings] = useState<Bo4ZombiesSettings>(defaultSettings);
-  const [data, setData] = useState<Bo4ZombiesData>(defaultData);
+  const [data, setData] = useState<Bo4ZombiesData>(defaultData as unknown as Bo4ZombiesData);
 
-  const fetchAndSetData = useCallback(async () => {
-    sendEvent('button_click', {
-      button_id: 'bo4Zombies_fetchLoadoutData',
-      label: 'BlackOpsFourZombies',
-      category: 'COD_Loadouts',
-    });
+  const generateLoadout = useCallback((isInitialLoad = false) => {
+    setStatus(isInitialLoad ? 'loading' : 'generating');
 
-    try {
-      const game = 'black-ops-four-zombies';
-      const randClassName = fetchClassName();
-      const story_key = fetchZombiesStory();
-      const story = {
-        key: story_key,
-        display: story_key
-          .split('_')
-          .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-          .join(' '),
-      };
-      const weapons = {
-        starting: fetchWeapon('all', game),
-        special: fetchWeapon('all', `${story_key}-${game}`),
-      };
-      const equipment = { lethal: fetchEquipment('lethal', game) };
-      const elixers = fetchZombiesGobblegum(game);
-      const talisman = fetchZombiesGobblegum(`${game}-talismans`, 1);
-      const zombieMap = fetchZombiesMap(`${story_key}-${game}`);
-
-      if (zombieMap?.mode === 'Classic/Rush') {
-        const zombiesMode = fetchZombiesMode();
-        zombieMap.difficulty = zombiesMode.difficulty;
-        zombieMap.mode = zombiesMode.mode;
-      }
-
-      const zombiePerks = fetchZombiesPerks(game);
-
-      setData({
-        randClassName,
-        story,
-        weapons,
-        equipment,
-        elixers,
-        talisman,
-        zombieMap,
-        zombiePerks,
+    if (!isInitialLoad) {
+      sendEvent('button_click', {
+        button_id: 'bo4Zombies_fetchLoadoutData',
+        label: 'BlackOpsFourZombies',
+        category: 'COD_Loadouts',
       });
-    } catch (error: unknown) {
-      if (error instanceof Error) {
-        console.error(error.message);
-      } else {
-        console.error('An unknown error occurred.');
-      }
     }
-  }, []);
 
-  const generateLoadout = useCallback(async () => {
-    setStatus('generating');
-    await fetchAndSetData();
+    // Use a timeout to simulate generation time and update state
     setTimeout(() => {
-      setStatus('idle');
-      scrollToTop();
-    }, 500);
-  }, [fetchAndSetData]);
+      try {
+        const newLoadout = fetchNewBo4ZombiesLoadout();
+        setData(newLoadout);
+      } catch (error) {
+        console.error(error instanceof Error ? error.message : 'An unknown error occurred.');
+      } finally {
+        setStatus('idle');
+        if (!isInitialLoad) {
+          scrollToTop();
+        }
+      }
+    }, 1000);
+  }, []);
 
   useEffect(() => {
     const rawStoredSettings = getLocalStorage('bo4ZombiesSettings');
@@ -121,15 +116,10 @@ export const useBlackOpsFourZombiesGenerator = () => {
       typeof rawStoredSettings === 'object' && rawStoredSettings !== null
         ? rawStoredSettings
         : defaultSettings;
-    const completeSettings = { ...defaultSettings, ...(storedSettings as Bo4ZombiesSettings) };
-    setSettings(completeSettings);
-
-    fetchAndSetData().finally(() => {
-      setTimeout(() => {
-        setStatus('idle');
-      }, 500);
-    });
-  }, [fetchAndSetData]);
+    setSettings({ ...defaultSettings, ...storedSettings });
+    generateLoadout(true);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const updateSettings = (newSettings: Partial<Bo4ZombiesSettings>) => {
     const updated = { ...settings, ...newSettings };
