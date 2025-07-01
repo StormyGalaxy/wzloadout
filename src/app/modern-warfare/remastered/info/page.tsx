@@ -1,64 +1,64 @@
-import { Container, Row, Col } from 'react-bootstrap';
 // --- Next ---
 import type { Metadata } from 'next';
-import Link from 'next/link';
 // --- Layout ---
 import PageLayout from '@/components/PageLayout';
 // --- Components ---
-import CodBadge from '@/components/CodBadge';
+import InfoHubClient from '@/components/info/info-hub-client/InfoHubClient';
+// --- Font Awesome ---
+import { faGun, faMedal, faExplosion } from '@fortawesome/free-solid-svg-icons';
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: 'Loadout Information',
+  title: 'Modern Warfare Remastered Info Hub | Weapons, Perks & Equipment',
   description:
-    'Spice up your COD gameplay! Generate unique random loadouts for Modern Warfare Remastered. Discover new weapons, perks, and gear combinations.',
+    'The complete info hub for Call of Duty: Modern Warfare Remastered. Find detailed information on all multiplayer weapons, perks, and equipment.',
   keywords: [
-    'COD Modern Warfare Remastered RCG',
-    'modern warfare remastered random class generator',
-    'modern warfare remastered',
-    'modern warfare remastered rcg',
-    'class generator',
+    'Modern Warfare Remastered info',
+    'MWR info',
+    'MWR weapons',
+    'Modern Warfare Remastered perks',
+    'MWR equipment',
+    'Call of Duty MWR',
   ],
 };
 
-const badges = [
-  { title: 'Equipment', link: '/modern-warfare/remastered/info/equipment' },
-  { title: 'Perks', link: '/modern-warfare/remastered/info/perks' },
-  { title: 'Weapons', link: '/modern-warfare/remastered/info/weapons' },
+const multiplayerLinks = [
+  {
+    icon: faGun,
+    title: 'Weapons',
+    description: 'Explore the full arsenal of classic and modern firearms.',
+    link: '/modern-warfare/remastered/info/weapons',
+  },
+  {
+    icon: faMedal,
+    title: 'Perks',
+    description: 'Learn about the three tiers of perks to customize your playstyle.',
+    link: '/modern-warfare/remastered/info/perks',
+  },
+  {
+    icon: faExplosion,
+    title: 'Equipment',
+    description: 'View the tactical and lethal equipment options for your loadout.',
+    link: '/modern-warfare/remastered/info/equipment',
+  },
+];
+
+const breadcrumbLinks = [
+  { href: '/modern-warfare/remastered', text: 'Modern Warfare Remastered' },
+  { text: 'Info Hub' },
 ];
 
 export default function ModernWarfareRemasteredInfoPage() {
   return (
     <PageLayout containerClassName='theme-mwr'>
-      <Container>
-        <div className='text-center mb-4'>
-          <h2 className={styles.pageTitle}>Modern Warfare Remastered</h2>
-          <p className={styles.pageSubtitle}>Loadout Information</p>
-        </div>
-        <Row className='p-3 p-md-4 bg-light rounded mb-4'>
-          <Col lg={7} className='text-center'>
-            <p>
-              Relive a groundbreaking era of Call of Duty with our resources for Modern Warfare
-              Remastered. This section brings you the essential details for the remastered classic
-              that defined modern online combat. Find comprehensive lists and stats for all the
-              iconic <strong>Weapons</strong>, tactical <strong>Equipment</strong>, and
-              game-changing <strong>Perks</strong> available in multiplayer. Use the links on this
-              page to master the arsenal of the original Modern Warfare.
-            </p>
-          </Col>
-          <Col lg={5}>
-            <h4 className='text-center'>Links</h4>
-            <hr />
-            <div className='d-flex flex-wrap gap-2'>
-              {badges.map((item) => (
-                <Link key={item.title} href={item.link} className='text-decoration-none' passHref>
-                  <CodBadge name={item.title} variant='success' />
-                </Link>
-              ))}
-            </div>
-          </Col>
-        </Row>
-      </Container>
+      <InfoHubClient
+        heroTitle='Modern Warfare Remastered'
+        heroSubTitle='Your Central Hub for Multiplayer Intel'
+        multiplayerLink='/modern-warfare/remastered/generator'
+        multiplayerLinks={multiplayerLinks}
+        buttonVariant='success'
+        breadcrumbs={breadcrumbLinks}
+      />
     </PageLayout>
   );
 }

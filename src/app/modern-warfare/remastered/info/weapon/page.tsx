@@ -9,7 +9,7 @@ import WeaponDisplayClient from '@/components/info/WeaponDisplayClient';
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: 'Modern Warfare Remastered Weapons',
+  title: 'Modern Warfare Remastered Weapon Information',
   description:
     'View information and all available attachments for the weapon in Modern Warfare Remastered.',
   keywords: [
@@ -18,6 +18,7 @@ export const metadata: Metadata = {
     'modern warfare remastered',
     'modern warfare remastered rcg',
     'class generator',
+    'modern warfare remastered rcg',
   ],
 };
 
@@ -34,7 +35,7 @@ export default function ModernWarfareRemasteredWeaponPage() {
                 <p className='text-center'>Loading page...</p>
               </Col>
             }>
-            <WeaponDisplayClient game={game} />
+            <WeaponDisplayClient game={game} link='modern-warfare/remastered' />
           </Suspense>
         </Row>
       </Container>
