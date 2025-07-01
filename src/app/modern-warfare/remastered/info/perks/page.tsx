@@ -19,23 +19,14 @@ export const metadata: Metadata = {
   ],
 };
 
-const navLinks = [
-  { label: 'Home', href: '/' },
-  { label: 'Multiplayer Generator', href: '/modern-warfare/remastered/generator' },
-  { label: 'Loadout Info', href: '/modern-warfare/remastered/info' },
-  { label: 'Changelog', href: '/changelog' },
-];
-
 export default function ModernWarfareRemasteredPerksPage() {
   return (
-    <PageLayout navLinks={navLinks} headerClassName='mwr'>
+    <PageLayout containerClassName='theme-mwr'>
       <Container>
-        <h2 className='text-center mb-4'>
-          Modern Warfare Remastered
-          <span className='d-none d-sm-inline-block'>&nbsp;-&nbsp;</span>
-          <br className='d-block d-sm-none' />
-          Perks
-        </h2>
+        <div className='text-center mb-4'>
+          <h2 className={styles.pageTitle}>Modern Warfare Remastered</h2>
+          <p className={styles.pageSubtitle}>Perks</p>
+        </div>
         <Row className='p-3 p-md-4 bg-light rounded mb-4'>
           <Col>
             <PerkList game='modern-warfare-remastered' />

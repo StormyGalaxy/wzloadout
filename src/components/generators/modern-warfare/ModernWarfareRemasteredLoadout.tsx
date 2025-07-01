@@ -1,177 +1,79 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+// --- React ---
 import { Row, Col, Button } from 'react-bootstrap';
+// --- Components
 import SimpleGeneratorView from '@/components/generators/cod/SimpleGeneratorView';
 import CodClassName from '@/components/CodClassName';
-//Helpers
-import { implodeObject } from '@/helpers/implodeObject';
-import { scrollToTop } from '@/helpers/scrollToTop';
-import { fetchWeapon } from '@/helpers/fetch/fetchWeapon';
-import { fetchEquipment } from '@/helpers/fetch/fetchEquipment';
-import { fetchClassName } from '@/helpers/fetch/fetchClassName';
-//MWR Specific
-import { fetchAttachments } from '@/helpers/generator/modern-warfare/remastered/fetchAttachments';
-import { fetchPerk } from '@/helpers/generator/modern-warfare/remastered/fetchPerk';
-//Utils
-import { sendEvent } from '@silocitypages/utils';
-//json
-import defaultData from '@/json/cod/default-generator-info.json';
+import GeneratorSkeleton from '@/components/generators/views/skeletons/GeneratorSkeleton';
+import ListViewCard from '@/components/generators/views/ListViewCard';
+import WeaponCard from '@/components/generators/views/WeaponCard';
+import ValueCardView from '@/components/generators/views/ValueCardView';
+// --- Hooks ---
+import { useModernWarfareRemasteredGenerator } from '@/hooks/modern-warfare/remastered/useModernWarfareRemasteredGenerator';
+// --- Font Awesome ---
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faDice } from '@fortawesome/free-solid-svg-icons';
+// --- Styles ---
+import styles from '@/components/generators/views/ModernLoadout.module.css';
 
 export default function ModernWarfareRemasteredLoadout() {
-  const [isLoading, setIsLoading] = useState(true);
-  const [isGenerating, setIsGenerating] = useState(true);
-  const [data, setData] = useState(defaultData);
+  const { data, isLoading, isGenerating, generateLoadout } = useModernWarfareRemasteredGenerator();
+  const generatingClass = isGenerating ? styles.generating : '';
 
-  useEffect(() => {
-    fetchLoadoutData(setData);
-    setIsGenerating(false);
-    setIsLoading(false);
-  }, []);
-
-  const handleClick = async () => {
-    setIsGenerating(true);
-
-    setTimeout(() => {
-      fetchLoadoutData(setData);
-      setIsGenerating(false);
-      scrollToTop();
-    }, 1000);
+  const cardProps = {
+    className: `${styles.card} ${generatingClass}`,
+    headerClassName: styles.cardHeader,
+    isGenerating,
   };
 
   const { randClassName, perkObj, weapons, equipment } = data;
 
   if (isLoading) {
-    return <div className='text-center'>Loading...</div>;
+    return <GeneratorSkeleton />;
   }
+
+  const perkData = [
+    { title: 'Perk 1', value: perkObj?.perk1 ?? 'None' },
+    { title: 'Perk 2', value: perkObj?.perk2 ?? 'None' },
+    { title: 'Perk 3', value: perkObj?.perk3 ?? 'None' },
+  ];
 
   return (
     <>
       <CodClassName isGenerating={isGenerating} value={randClassName} />
-      <Row className='justify-content-md-center'>
-        <Col sm className='text-center mb-3 mb-md-0'>
-          <SimpleGeneratorView
-            isGenerating={isGenerating}
-            title='Primary'
-            value={weapons.primary.weapon.name}
-          />
-          <br />
-          <SimpleGeneratorView
-            isGenerating={isGenerating}
-            title='Primary Attachments'
-            value={
-              weapons.primary.weapon.no_attach ? 'No Attachments' : weapons.primary.attachments
-            }
-          />
+      <Row className='justify-content-md-center text-center mb-4'>
+        <Col xs={12} md={6} lg={4} className='mb-3'>
+          <WeaponCard title='Primary' weapon={weapons.primary} {...cardProps} />
         </Col>
-        <Col sm className='text-center mb-3 mb-md-0'>
-          <SimpleGeneratorView
-            isGenerating={isGenerating}
-            title='Secondary'
-            value={weapons.secondary.weapon.name}
-          />
-          <br />
-          <SimpleGeneratorView
-            isGenerating={isGenerating}
-            title='Secondary Attachments'
-            value={
-              weapons.secondary.weapon.no_attach ? 'No Attachments' : weapons.secondary.attachments
-            }
-          />
+        <Col xs={12} md={6} lg={4} className='mb-3'>
+          <WeaponCard title='Secondary' weapon={weapons.secondary} {...cardProps} />
         </Col>
-        <Col sm className='text-center'>
-          <SimpleGeneratorView
-            isGenerating={isGenerating}
-            title='Melee'
-            value={weapons.melee.name}
-          />
+        <Col xs={12} md={6} lg={4} className='mb-3'>
+          <ValueCardView title='Melee' value={weapons?.melee?.name ?? ''} {...cardProps} />
         </Col>
       </Row>
       <hr />
-      <Row className='justify-content-md-center mb-4'>
-        <Col sm className='text-center mb-3 mb-md-0'>
-          <SimpleGeneratorView
-            isGenerating={isGenerating}
+      <Row className='justify-content-md-center text-center mb-4'>
+        <Col xs={12} md={6} className='mb-3'>
+          <ValueCardView
             title='Tactical'
-            value={equipment.tactical.name}
+            value={equipment?.tactical?.name ?? 'None'}
+            {...cardProps}
           />
         </Col>
-        <Col sm className='text-center mb-3 mb-md-0'>
-          <SimpleGeneratorView
-            isGenerating={isGenerating}
-            title='Perk 1'
-            value={perkObj.perk1 ? perkObj.perk1 : 'None'}
-          />
-        </Col>
-        <Col sm className='text-center mb-3 mb-md-0'>
-          <SimpleGeneratorView
-            isGenerating={isGenerating}
-            title='Perk 2'
-            value={perkObj.perk2 ? perkObj.perk2 : 'None'}
-          />
-        </Col>
-        <Col sm className='text-center mb-3 mb-md-0'>
-          <SimpleGeneratorView
-            isGenerating={isGenerating}
-            title='Perk 3'
-            value={perkObj.perk3 ? perkObj.perk3 : 'None'}
-          />
+        <Col xs={12} md={6} className='mb-3'>
+          <ListViewCard title='Perks' values={perkData} {...cardProps} />
         </Col>
       </Row>
       <Row id='button-row'>
         <Col className='text-center'>
-          <Button
-            variant='success'
-            disabled={isGenerating}
-            onClick={isGenerating ? undefined : handleClick}>
-            {isGenerating ? 'Generating Loadout...' : 'Generate Loadout'}
+          <Button variant='success' disabled={isGenerating} onClick={() => generateLoadout()}>
+            <FontAwesomeIcon icon={faDice} className='me-2' />
+            {isGenerating ? 'Generating...' : 'Generate New Loadout'}
           </Button>
         </Col>
       </Row>
     </>
   );
-}
-
-async function fetchLoadoutData(setData) {
-  sendEvent('button_click', {
-    button_id: 'mwr_fetchLoadoutData',
-    label: 'ModernWarfareRemastered',
-    category: 'COD_Loadouts',
-  });
-
-  try {
-    const game = 'modern-warfare-remastered';
-    const randClassName = fetchClassName();
-    const perkObj = {
-      perk1: fetchPerk('perk1'),
-      perk2: fetchPerk('perk2'),
-      perk3: fetchPerk('perk3'),
-    };
-    const equipment = { tactical: fetchEquipment('tactical', game) };
-
-    const weapons = {
-      primary: { weapon: fetchWeapon('primary', game), attachments: '' },
-      secondary: { weapon: fetchWeapon('secondary', game), attachments: '' },
-      melee: fetchWeapon('melee', game),
-    };
-
-    weapons.primary.attachments = implodeObject(fetchAttachments(weapons.primary.weapon, 1));
-
-    if (perkObj.perk2 === 'Overkill') {
-      weapons.secondary.weapon = fetchWeapon('primary', game, weapons.primary.weapon.name);
-    }
-
-    //Verify if secondary weapon has attachments
-    if (!weapons.secondary.weapon?.no_attach) {
-      weapons.secondary.attachments = implodeObject(fetchAttachments(weapons.secondary.weapon, 1));
-    }
-
-    setData({ randClassName, perkObj, weapons, equipment });
-  } catch (error: unknown) {
-    if (error instanceof Error) {
-      console.error(error.message);
-    } else {
-      console.error('An unknown error occurred.');
-    }
-  }
 }

@@ -19,7 +19,6 @@ import styles from '@/components/generators/views/ModernLoadout.module.css';
 
 export default function BlackOpsSixLoadout() {
   const { data, isLoading, isGenerating, generateLoadout } = useBlackOpsSixGenerator();
-
   const generatingClass = isGenerating ? styles.generating : '';
 
   const cardProps = {

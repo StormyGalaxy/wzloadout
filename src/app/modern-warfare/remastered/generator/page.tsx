@@ -4,40 +4,44 @@ import type { Metadata } from 'next';
 import PageLayout from '@/components/PageLayout';
 // --- Loadout ---
 import ModernWarfareRemasteredLoadout from '@/components/generators/modern-warfare/ModernWarfareRemasteredLoadout';
+import Breadcrumbs from '@/components/common/breadcrumbs/Breadcrumbs';
+// --- Styles ---
+import styles from '@/components/generators/views/ModernLoadout.module.css';
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: 'Modern Warfare Remastered',
+  title: 'Modern Warfare Remastered Random Class Generator - COD MWR Loadouts',
   description:
-    'Spice up your COD gameplay! Generate unique random loadouts for Modern Warfare Remastered. Discover new weapons, perks, and gear combinations.',
+    'Generate unique random classes and loadouts for Call of Duty: Modern Warfare Remastered. Challenge yourself with new weapon, attachment, perk, and equipment combinations to spice up your multiplayer experience.',
   keywords: [
-    'COD Modern Warfare Remastered RCG',
-    'modern warfare remastered random class generator',
-    'modern warfare remastered',
-    'modern warfare remastered rcg',
-    'class generator',
+    'Call of Duty Modern Warfare Remastered',
+    'Modern Warfare Remastered Random Class Generator',
+    'MWR Random Class Generator',
+    'COD MWR Loadouts',
+    'Random Loadout Generator MWR',
+    'Modern Warfare Remastered Perks',
+    'Modern Warfare Remastered Weapons',
+    'COD MWR Generator',
   ],
 };
 
-const navLinks = [
-  { label: 'Home', href: '/' },
-  { label: 'Multiplayer Generator', href: '/modern-warfare/remastered/generator' },
-  { label: 'Loadout Info', href: '/modern-warfare/remastered/info' },
-  { label: 'Changelog', href: '/changelog' },
-];
-
 export default function ModernWarfareRemasteredGeneratorPage() {
+  const breadcrumbLinks = [
+    { href: '/modern-warfare/remastered', text: 'Modern Warfare Remastered' },
+    { text: 'Multiplayer Generator' },
+  ];
+
   return (
-    <PageLayout navLinks={navLinks} headerClassName='mwr'>
+    <PageLayout containerClassName='theme-mwr'>
       <Container>
-        <h2 className='text-center mb-4'>
-          Modern Warfare Remastered
-          <span className='d-none d-sm-inline-block'>&nbsp;-&nbsp;</span>
-          <br className='d-block d-sm-none' />
-          Random Class Generator
-        </h2>
+        <div className='text-center mb-4'>
+          <h2 className={styles.pageTitle}>Modern Warfare Remastered</h2>
+          <p className={styles.pageSubtitle}>Random Class Generator</p>
+        </div>
+
         <Row className='p-3 p-md-4 bg-light rounded mb-4'>
           <Col className='mx-auto'>
+            <Breadcrumbs links={breadcrumbLinks} className='mb-4' />
             <ModernWarfareRemasteredLoadout />
           </Col>
         </Row>

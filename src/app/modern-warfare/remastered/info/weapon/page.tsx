@@ -21,18 +21,11 @@ export const metadata: Metadata = {
   ],
 };
 
-const navLinks = [
-  { label: 'Home', href: '/' },
-  { label: 'Multiplayer Generator', href: '/modern-warfare/remastered/generator' },
-  { label: 'Loadout Info', href: '/modern-warfare/remastered/info' },
-  { label: 'Changelog', href: '/changelog' },
-];
-
 export default function ModernWarfareRemasteredWeaponPage() {
   const game = 'modern-warfare-remastered';
 
   return (
-    <PageLayout navLinks={navLinks} headerClassName='mwr'>
+    <PageLayout containerClassName='theme-mwr'>
       <Container fluid>
         <Row>
           <Suspense

@@ -39,6 +39,11 @@
   --theme-color: #6c757d;
 }
 
+.theme-warzone,
+.theme-mwr {
+  --theme-color: #198754 !important;
+}
+
 #site-header {
   background: var(--theme-color) !important;
   margin-bottom: 25px;
@@ -77,11 +82,6 @@
   background-color: #212529;
   color: white;
   border-bottom: black solid 1px;
-}
-
-#site-header.warzone,
-#site-header.mwr {
-  background: #198754 !important;
 }
 
 #site-header.modern-warfare,
