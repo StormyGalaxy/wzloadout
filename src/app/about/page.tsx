@@ -4,7 +4,13 @@ import type { Metadata } from 'next';
 import PageLayout from '@/components/PageLayout';
 // --- Font Awesome ---
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCrosshairs, faSkull, faParachuteBox, faMapPin } from '@fortawesome/free-solid-svg-icons';
+import {
+  faCrosshairs,
+  faSkull,
+  faParachuteBox,
+  faMapPin,
+  faTools,
+} from '@fortawesome/free-solid-svg-icons';
 // --- Utils ---
 import { generateGithubLink } from '@silocitypages/utils';
 
@@ -52,22 +58,38 @@ export default function AboutPage() {
             <h2 className='fw-bold mb-4 text-center'>What We Offer</h2>
           </Col>
           <Col md={3} className='text-center mb-4'>
-            <FontAwesomeIcon icon={faCrosshairs} size='2x' className='text-primary mb-3' />
+            <FontAwesomeIcon
+              icon={faCrosshairs}
+              style={{ width: '40px', height: '40px' }}
+              className='text-primary mb-3'
+            />
             <h4 className='fw-semibold'>Multiplayer</h4>
             <p>Explore endless loadout possibilities for a fresh challenge every match.</p>
           </Col>
           <Col md={3} className='text-center mb-4'>
-            <FontAwesomeIcon icon={faSkull} size='2x' className='text-danger mb-3' />
+            <FontAwesomeIcon
+              icon={faSkull}
+              style={{ width: '40px', height: '40px' }}
+              className='text-danger mb-3'
+            />
             <h4 className='fw-semibold'>Zombies</h4>
             <p>Generate surprising loadouts to survive the undead hordes.</p>
           </Col>
           <Col md={3} className='text-center mb-4'>
-            <FontAwesomeIcon icon={faParachuteBox} size='2x' className='text-success mb-3' />
+            <FontAwesomeIcon
+              icon={faParachuteBox}
+              style={{ width: '40px', height: '40px' }}
+              className='text-success mb-3'
+            />
             <h4 className='fw-semibold'>Warzone</h4>
             <p>Gear up for mayhem with random loadouts and drop zones.</p>
           </Col>
           <Col md={3} className='text-center mb-4'>
-            <FontAwesomeIcon icon={faMapPin} size='2x' className='text-info mb-3' />
+            <FontAwesomeIcon
+              icon={faMapPin}
+              style={{ width: '40px', height: '40px' }}
+              className='text-info mb-3'
+            />
             <h4 className='fw-semibold'>Drop Zones</h4>
             <p>
               Let fate decide your next landing spot in Warzone for an extra layer of randomness.
@@ -88,14 +110,54 @@ export default function AboutPage() {
         </Row>
 
         <Row className='mt-5 bg-light rounded p-4'>
-          <Col md={12}>
-            <h2 className='fw-bold mb-4 text-center'>Keeping Our Product Free with AI</h2>
-            <p className='fs-6 lh-lg text-center'>
-              To keep our services free for the community, we utilize AI to generate all our images.
-              This approach allows us to minimize operational costs without compromising on a rich
-              visual experience. We are committed to leveraging cutting-edge technology to provide a
-              high-quality, accessible tool for all Call of Duty fans.
+          <Col md={12} className='text-center'>
+            <h2 className='fw-bold mb-4'>
+              <FontAwesomeIcon
+                icon={faTools}
+                style={{ width: '40px', height: '40px' }}
+                className='me-2'
+              />
+              Built With
+            </h2>
+            <p className='fs-6 lh-lg'>
+              To keep our services free for the community, we utilize cutting-edge technology like
+              AI to generate all our images. This approach minimizes operational costs without
+              compromising on a rich visual experience. This site is built upon a foundation of
+              powerful, modern tools:
             </p>
+            <ul className='list-unstyled lh-lg'>
+              <li>
+                <a
+                  href='https://github.com/SiloCityLabs/SiloCityPages'
+                  target='_blank'
+                  rel='noopener noreferrer'>
+                  <strong>SiloCityPages</strong>
+                </a>
+                : A framework by SiloCityLabs leveraging Bootstrap, React, and Next.js for efficient
+                static site development.
+              </li>
+              <li>
+                <a href='https://nextjs.org/' target='_blank' rel='noopener noreferrer'>
+                  <strong>Next.js</strong>
+                </a>
+                : A React framework for building fast and scalable web applications.
+              </li>
+              <li>
+                <a
+                  href='https://react-bootstrap.netlify.app/'
+                  target='_blank'
+                  rel='noopener noreferrer'>
+                  <strong>React Bootstrap</strong>
+                </a>
+                : The most popular front-end framework, rebuilt for React.
+              </li>
+              <li>
+                <a href='https://pages.github.com/' target='_blank' rel='noopener noreferrer'>
+                  <strong>GitHub Pages</strong>
+                </a>
+                : Websites for you and your projects, hosted directly from your GitHub repository.
+              </li>
+            </ul>
           </Col>
         </Row>
 
