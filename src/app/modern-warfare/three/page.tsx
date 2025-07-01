@@ -50,7 +50,7 @@ export default function ModernWarfareThreeLandingPage() {
         title='Modern Warfare 3'
         subtitle='Your central hub for our Modern Warfare 3 (2023) tools and resources.'
         toolCards={toolCards}
-        buttonVariant='mw3'
+        buttonVariant='danger'
       />
     </PageLayout>
   );

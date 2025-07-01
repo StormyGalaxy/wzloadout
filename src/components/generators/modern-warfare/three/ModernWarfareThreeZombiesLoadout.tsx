@@ -1,163 +1,71 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+// --- React ---
 import { Row, Col, Button } from 'react-bootstrap';
-import SimpleGeneratorView from '@/components/generators/cod/SimpleGeneratorView';
+// --- Hooks ---
+import { useModernWarfareThreeZombiesGenerator } from '@/hooks/modern-warfare/three/useModernWarfareThreeZombiesGenerator';
+// --- Components ---
 import CodClassName from '@/components/CodClassName';
-//Helpers
-import { implodeObject } from '@/helpers/implodeObject';
-import { scrollToTop } from '@/helpers/scrollToTop';
-import { fetchWeapon } from '@/helpers/fetch/fetchWeapon';
-import { fetchAttachments } from '@/helpers/fetch/fetchAttachments';
-import { fetchEquipment } from '@/helpers/fetch/fetchEquipment';
-import { fetchClassName } from '@/helpers/fetch/fetchClassName';
-//Utils
-import { sendEvent } from '@silocitypages/utils';
-//json
-import defaultData from '@/json/cod/default-zombies-generator-info.json';
+import GeneratorSkeleton from '@/components/generators/views/skeletons/GeneratorSkeleton';
+import WeaponCard from '@/components/generators/views/WeaponCard';
+import ValueCardView from '@/components/generators/views/ValueCardView';
+// --- Font Awesome ---
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSkull } from '@fortawesome/free-solid-svg-icons';
+// --- Styles ---
+import styles from '@/components/generators/views/ModernLoadout.module.css';
 
 export default function ModernWarfareThreeZombiesLoadout() {
-  const [isLoading, setIsLoading] = useState(true);
-  const [isGenerating, setIsGenerating] = useState(true);
-  const [data, setData] = useState(defaultData);
+  const { data, isLoading, isGenerating, generateLoadout } =
+    useModernWarfareThreeZombiesGenerator();
+  const generatingClass = isGenerating ? styles.generating : '';
 
-  useEffect(() => {
-    fetchLoadoutData(setData);
-    setIsGenerating(false);
-    setIsLoading(false);
-  }, []);
-
-  const handleClick = async () => {
-    setIsGenerating(true);
-
-    setTimeout(() => {
-      fetchLoadoutData(setData);
-      setIsGenerating(false);
-      scrollToTop();
-    }, 1000);
+  const cardProps = {
+    className: `${styles.card} ${generatingClass}`,
+    headerClassName: styles.cardHeader,
+    isGenerating,
   };
 
-  const { randClassName, weapons, equipment } = data;
-
   if (isLoading) {
-    return <div className='text-center'>Loading...</div>;
+    return <GeneratorSkeleton />;
   }
+
+  const { randClassName, weapons, equipment } = data;
 
   return (
     <>
       <CodClassName isGenerating={isGenerating} value={randClassName} />
-      <Row className='justify-content-md-center'>
-        <Col sm className='text-center mb-3 mb-md-0'>
-          <SimpleGeneratorView
-            isGenerating={isGenerating}
-            title='Primary'
-            value={weapons.primary.weapon.name}
-          />
-          <br />
-          <SimpleGeneratorView
-            isGenerating={isGenerating}
-            title='Primary Attachments'
-            value={
-              weapons.primary.weapon.no_attach ? 'No Attachments' : weapons.primary.attachments
-            }
-          />
+
+      <Row className='justify-content-md-center text-center mb-4'>
+        <Col xs={12} md={6} className='mb-3'>
+          <WeaponCard title='Primary' weapon={weapons.primary} {...cardProps} />
         </Col>
-        <Col sm className='text-center mb-3 mb-md-0'>
-          <SimpleGeneratorView
-            isGenerating={isGenerating}
-            title='Secondary'
-            value={weapons.secondary.weapon.name}
-          />
-          <br />
-          <SimpleGeneratorView
-            isGenerating={isGenerating}
-            title='Secondary Attachments'
-            value={
-              weapons.secondary.weapon.no_attach ? 'No Attachments' : weapons.secondary.attachments
-            }
-          />
+        <Col xs={12} md={6} className='mb-3'>
+          <WeaponCard title='Secondary' weapon={weapons.secondary} {...cardProps} />
         </Col>
       </Row>
       <hr />
-      <Row className='justify-content-md-center mb-4'>
-        <Col xs md='4' lg='3' className='text-center'>
-          <SimpleGeneratorView
-            isGenerating={isGenerating}
-            title='Tactical'
-            value={equipment.tactical.name}
-          />
+
+      <Row className='justify-content-md-center text-center mb-4'>
+        <Col xs={12} md={4} className='mb-3'>
+          <ValueCardView title='Lethal' value={equipment.lethal?.name ?? ''} {...cardProps} />
         </Col>
-        <Col xs md='4' lg='3' className='text-center'>
-          <SimpleGeneratorView
-            isGenerating={isGenerating}
-            title='Lethal'
-            value={equipment.lethal.name}
-          />
+        <Col xs={12} md={4} className='mb-3'>
+          <ValueCardView title='Tactical' value={equipment.tactical?.name ?? ''} {...cardProps} />
         </Col>
-        <Col xs md='4' lg='3' className='text-center'>
-          <SimpleGeneratorView
-            isGenerating={isGenerating}
-            title='Field Upgrade'
-            value={equipment.fieldUpgrade.name}
-          />
+        <Col xs={12} md={4} className='mb-3'>
+          <ValueCardView title='Perks' value={equipment.fieldUpgrade?.name ?? ''} {...cardProps} />
         </Col>
       </Row>
+
       <Row className='justify-content-md-center'>
         <Col xs md='8' lg='6' className='text-center'>
-          <Button
-            variant='danger'
-            disabled={isGenerating}
-            onClick={isGenerating ? undefined : handleClick}>
+          <Button variant='danger' disabled={isGenerating} onClick={() => generateLoadout()}>
+            <FontAwesomeIcon icon={faSkull} className='me-2' />
             {isGenerating ? 'Generating Loadout...' : 'Generate Loadout'}
           </Button>
         </Col>
       </Row>
     </>
   );
-}
-
-async function fetchLoadoutData(setData) {
-  sendEvent('button_click', {
-    button_id: 'mw3Zombies_fetchLoadoutData',
-    label: 'ModernWarfareThreeZombies',
-    category: 'COD_Loadouts',
-  });
-
-  try {
-    const game = 'modern-warfare-three-zombies';
-    const randClassName = fetchClassName();
-    const weapons = {
-      primary: { weapon: fetchWeapon('all', 'modern-warfare-three'), attachments: '' },
-      secondary: { weapon: fetchWeapon('secondary', 'modern-warfare-three'), attachments: '' },
-    };
-
-    //Get Primary Attachments
-    if (!weapons.primary.weapon.no_attach) {
-      weapons.primary.attachments = implodeObject(fetchAttachments(weapons.primary.weapon));
-    }
-    //Get secondary Weapon
-    weapons.secondary.weapon = fetchWeapon(
-      'all',
-      'modern-warfare-three',
-      weapons.primary.weapon.name
-    );
-    //Get Secondary Attachments
-    if (!weapons.secondary.weapon.no_attach) {
-      weapons.secondary.attachments = implodeObject(fetchAttachments(weapons.secondary.weapon));
-    }
-    //Get Equipment
-    const equipment = {
-      tactical: fetchEquipment('tactical', game),
-      lethal: fetchEquipment('lethal', game),
-      fieldUpgrade: fetchEquipment('field_upgrade', game),
-    };
-
-    setData({ randClassName, weapons, equipment });
-  } catch (error: unknown) {
-    if (error instanceof Error) {
-      console.error(error.message);
-    } else {
-      console.error('An unknown error occurred.');
-    }
-  }
 }
