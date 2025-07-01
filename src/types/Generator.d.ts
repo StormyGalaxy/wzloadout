@@ -18,19 +18,16 @@ export interface PerkObject {
   vehiclePerk?: string;
 }
 
-export interface Equipment {
-  name: string;
-}
-
 export interface GeneratorData {
   randClassName: string;
   streaks: string;
   weapons: { primary: Weapon; secondary: Weapon; melee?: Weapon };
   equipment: {
-    tactical?: Equipment;
-    lethal?: Equipment;
-    fieldUpgrade?: Equipment | null;
-    fieldUpgrade2?: Equipment | null;
+    tactical?: GeneratorItem;
+    lethal?: GeneratorItem;
+    fieldUpgrade?: GeneratorItem | null;
+    fieldUpgrade2?: GeneratorItem | null;
+    vest?: GeneratorItem | null;
     gear?: string;
     equipment?: string;
   };

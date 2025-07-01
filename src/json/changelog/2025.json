@@ -2,6 +2,12 @@
   {
     "Date": "July 1, 2025",
     "Type": "Upgrade",
+    "Link": { "Url": "modern-warfare/three", "Text": "Modern Warfare 3:" },
+    "Changes": "Redesigned the entire game's hub, including all generators and the information hub, and added a new landing page for easier navigation and access."
+  },
+  {
+    "Date": "July 1, 2025",
+    "Type": "Upgrade",
     "Link": { "Url": "modern-warfare/two", "Text": "Modern Warfare 2:" },
     "Changes": "Redesigned the entire game's hub, including all generators and the information hub, and added a new landing page for easier navigation and access."
   },

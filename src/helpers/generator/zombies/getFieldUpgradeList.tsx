@@ -4,7 +4,7 @@ import bo6List from '@/json/black-ops/six/zombies/field_upgrade.json';
 import vanguardList from '@/json/vanguard/zombies/artifacts.json';
 // --- Cold War Zombies ---
 import coldWarList from '@/json/black-ops/cold-war/zombies/field_upgrade.json';
-// --- Modern Warfare Three Zombies ---
+// --- Modern Warfare 3 Zombies ---
 import mw3List from '@/json/modern-warfare/three/zombies/field_upgrade.json';
 // --- World War 2 Zombies ---
 import ww2List from '@/json/world-war-two/zombies/special.json';

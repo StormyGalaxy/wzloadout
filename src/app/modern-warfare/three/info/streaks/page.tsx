@@ -8,10 +8,10 @@ import StreakList from '@/components/info/StreakList';
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: 'Modern Warfare Three Streaks',
-  description: 'View all streaks in Modern Warfare Three.',
+  title: 'Modern Warfare 3 Streaks',
+  description: 'View all streaks in Modern Warfare 3.',
   keywords: [
-    'COD Modern Warfare Three RCG',
+    'COD Modern Warfare 3 RCG',
     'modern warfare three random class generator',
     'modern warfare three',
     'modern warfare three rcg',
@@ -19,24 +19,14 @@ export const metadata: Metadata = {
   ],
 };
 
-const navLinks = [
-  { label: 'Home', href: '/' },
-  { label: 'Multiplayer Generator', href: '/modern-warfare/three/generator' },
-  { label: 'Zombies Generator', href: '/modern-warfare/three/zombies-generator' },
-  { label: 'Loadout Info', href: '/modern-warfare/three/info' },
-  { label: 'Changelog', href: '/changelog' },
-];
-
 export default function ModernWarfareThreeStreaksPage() {
   return (
-    <PageLayout navLinks={navLinks} headerClassName='modern-warfare'>
+    <PageLayout containerClassName='theme-mw3'>
       <Container>
-        <h2 className='text-center mb-4'>
-          Modern Warfare Three
-          <span className='d-none d-sm-inline-block'>&nbsp;-&nbsp;</span>
-          <br className='d-block d-sm-none' />
-          Streaks
-        </h2>
+        <div className='text-center mb-4'>
+          <h2 className={styles.pageTitle}>Modern Warfare 3</h2>
+          <p className={styles.pageSubtitle}>Streaks</p>
+        </div>
         <Row className='p-3 p-md-4 bg-light rounded mb-4'>
           <Col>
             <StreakList game='modern-warfare-three' />

@@ -25,7 +25,7 @@ import bo4ZombiesList from '@/json/black-ops/four/zombies/perks.json';
 import coldWarPerk1List from '@/json/black-ops/cold-war/perk/perk1.json';
 import coldWarPerk2List from '@/json/black-ops/cold-war/perk/perk2.json';
 import coldWarPerk3List from '@/json/black-ops/cold-war/perk/perk3.json';
-// --- Modern Warfare Three ---
+// --- Modern Warfare 3 ---
 import mw3BootsList from '@/json/modern-warfare/three/perk/boots.json';
 import mw3GearList from '@/json/modern-warfare/three/perk/gear.json';
 import mw3GlovesList from '@/json/modern-warfare/three/perk/gloves.json';

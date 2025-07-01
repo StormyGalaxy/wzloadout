@@ -48,6 +48,11 @@
   --theme-color: #198754 !important;
 }
 
+.theme-mw3,
+.theme-vanguard {
+  --theme-color: #dc3545 !important;
+}
+
 #site-header {
   background: var(--theme-color) !important;
   margin-bottom: 25px;
@@ -86,11 +91,6 @@
   background-color: #212529;
   color: white;
   border-bottom: black solid 1px;
-}
-
-#site-header.modern-warfare,
-#site-header.vanguard {
-  background: #dc3545 !important;
 }
 
 /* Cutom Button Colors */

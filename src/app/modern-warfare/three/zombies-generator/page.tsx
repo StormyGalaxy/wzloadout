@@ -9,9 +9,9 @@ import ModernWarfareThreeZombiesLoadout from '@/components/generators/modern-war
 export const metadata: Metadata = {
   title: 'Modern Warfare Zombies',
   description:
-    'Spice up your COD Zombies gameplay! Generate unique random loadouts for Modern Warfare Three. Discover new weapons, perks, and gear combinations.',
+    'Spice up your COD Zombies gameplay! Generate unique random loadouts for Modern Warfare 3. Discover new weapons, perks, and gear combinations.',
   keywords: [
-    'COD Modern Warfare Three RCG',
+    'COD Modern Warfare 3 RCG',
     'modern warfare three random class generator',
     'modern warfare three',
     'modern warfare three rcg',
@@ -22,24 +22,14 @@ export const metadata: Metadata = {
   ],
 };
 
-const navLinks = [
-  { label: 'Home', href: '/' },
-  { label: 'Multiplayer Generator', href: '/modern-warfare/three/generator' },
-  { label: 'Zombies Generator', href: '/modern-warfare/three/zombies-generator' },
-  { label: 'Loadout Info', href: '/modern-warfare/three/info' },
-  { label: 'Changelog', href: '/changelog' },
-];
-
 export default function ModernWarfareThreeZombiesGeneratorPage() {
   return (
-    <PageLayout navLinks={navLinks} headerClassName='modern-warfare'>
+    <PageLayout containerClassName='theme-mw3'>
       <Container>
-        <h2 className='text-center mb-4'>
-          Modern Warfare Three Zombies
-          <span className='d-none d-sm-inline-block'>&nbsp;-&nbsp;</span>
-          <br className='d-block d-sm-none' />
-          Random Class Generator
-        </h2>
+        <div className='text-center mb-4'>
+          <h2 className={styles.pageTitle}>Modern Warfare 3 Zombies</h2>
+          <p className={styles.pageSubtitle}>Random Class Generator</p>
+        </div>
         <Row className='p-3 p-md-4 bg-light rounded mb-4'>
           <Col className='mx-auto'>
             <ModernWarfareThreeZombiesLoadout />

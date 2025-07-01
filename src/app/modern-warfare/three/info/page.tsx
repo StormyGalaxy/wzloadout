@@ -11,23 +11,15 @@ import CodBadge from '@/components/CodBadge';
 export const metadata: Metadata = {
   title: 'Loadout Information',
   description:
-    'Spice up your COD gameplay! Generate unique random loadouts for Modern Warfare Three. Discover new weapons, perks, and gear combinations.',
+    'Spice up your COD gameplay! Generate unique random loadouts for Modern Warfare 3. Discover new weapons, perks, and gear combinations.',
   keywords: [
-    'COD Modern Warfare Three RCG',
+    'COD Modern Warfare 3 RCG',
     'modern warfare three random class generator',
     'modern warfare three',
     'modern warfare three rcg',
     'class generator',
   ],
 };
-
-const navLinks = [
-  { label: 'Home', href: '/' },
-  { label: 'Multiplayer Generator', href: '/modern-warfare/three/generator' },
-  { label: 'Zombies Generator', href: '/modern-warfare/three/zombies-generator' },
-  { label: 'Loadout Info', href: '/modern-warfare/three/info' },
-  { label: 'Changelog', href: '/changelog' },
-];
 
 const badges = [
   { title: 'Equipment', link: '/modern-warfare/three/info/equipment' },
@@ -39,14 +31,12 @@ const badges = [
 
 export default function ModernWarfareThreeInfoPage() {
   return (
-    <PageLayout navLinks={navLinks} headerClassName='modern-warfare'>
+    <PageLayout containerClassName='theme-mw3'>
       <Container>
-        <h2 className='text-center mb-4'>
-          Modern Warfare Three
-          <span className='d-none d-sm-inline-block'>&nbsp;-&nbsp;</span>
-          <br className='d-block d-sm-none' />
-          Loadout Information
-        </h2>
+        <div className='text-center mb-4'>
+          <h2 className={styles.pageTitle}>Modern Warfare 3</h2>
+          <p className={styles.pageSubtitle}>Loadout Information</p>
+        </div>
         <Row className='p-3 p-md-4 bg-light rounded mb-4'>
           <Col lg={7} className='text-center'>
             <p>

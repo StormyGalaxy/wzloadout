@@ -4,41 +4,45 @@ import type { Metadata } from 'next';
 import PageLayout from '@/components/PageLayout';
 // --- Loadout ---
 import ModernWarfareThreeLoadout from '@/components/generators/modern-warfare/three/ModernWarfareThreeLoadout';
+import Breadcrumbs from '@/components/common/breadcrumbs/Breadcrumbs';
+// --- Styles ---
+import styles from '@/components/generators/views/ModernLoadout.module.css';
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: 'Modern Warfare Three',
+  title: 'Modern Warfare 3 (2023) Random Class Generator | COD MW3 Loadouts',
   description:
-    'Spice up your COD gameplay! Generate unique random loadouts for Modern Warfare Three. Discover new weapons, perks, and gear combinations.',
+    'Challenge yourself with unique, randomly generated loadouts for Call of Duty: Modern Warfare 3 (2023). Discover new combinations of weapons, attachments, perks (Gear), and equipment to keep your multiplayer gameplay fresh and unpredictable.',
   keywords: [
-    'COD Modern Warfare Three RCG',
-    'modern warfare three random class generator',
-    'modern warfare three',
-    'modern warfare three rcg',
-    'class generator',
+    'Modern Warfare 3 random class generator',
+    'COD MW3 random class generator',
+    'MW3 loadout generator',
+    'Call of Duty Modern Warfare 3 (2023)',
+    'MW3 random loadouts',
+    'Modern Warfare 3 perks',
+    'MW3 gear',
+    'MW3 weapons',
+    'COD MW3 generator',
   ],
 };
 
-const navLinks = [
-  { label: 'Home', href: '/' },
-  { label: 'Multiplayer Generator', href: '/modern-warfare/three/generator' },
-  { label: 'Zombies Generator', href: '/modern-warfare/three/zombies-generator' },
-  { label: 'Loadout Info', href: '/modern-warfare/three/info' },
-  { label: 'Changelog', href: '/changelog' },
-];
-
 export default function ModernWarfareThreeGeneratorPage() {
+  const breadcrumbLinks = [
+    { href: '/modern-warfare/three', text: 'Modern Warfare 3' },
+    { text: 'Multiplayer Generator' },
+  ];
+
   return (
-    <PageLayout navLinks={navLinks} headerClassName='modern-warfare'>
+    <PageLayout containerClassName='theme-mw3'>
       <Container>
-        <h2 className='text-center mb-4'>
-          Modern Warfare Three
-          <span className='d-none d-sm-inline-block'>&nbsp;-&nbsp;</span>
-          <br className='d-block d-sm-none' />
-          Random Class Generator
-        </h2>
+        <div className='text-center mb-4'>
+          <h2 className={styles.pageTitle}>Modern Warfare 3</h2>
+          <p className={styles.pageSubtitle}>Random Class Generator</p>
+        </div>
+
         <Row className='p-3 p-md-4 bg-light rounded mb-4'>
           <Col className='mx-auto'>
+            <Breadcrumbs links={breadcrumbLinks} className='mb-4' />
             <ModernWarfareThreeLoadout />
           </Col>
         </Row>
