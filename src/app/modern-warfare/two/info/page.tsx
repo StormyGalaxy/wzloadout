@@ -1,67 +1,71 @@
-import { Container, Row, Col } from 'react-bootstrap';
 // --- Next ---
 import type { Metadata } from 'next';
-import Link from 'next/link';
 // --- Layout ---
 import PageLayout from '@/components/PageLayout';
 // --- Components ---
-import CodBadge from '@/components/CodBadge';
+import InfoHubClient from '@/components/info/info-hub-client/InfoHubClient';
+// --- Font Awesome ---
+import { faGun, faMedal, faExplosion, faPlane } from '@fortawesome/free-solid-svg-icons';
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: 'Loadout Information',
+  title: 'Modern Warfare 2 (2022) Info Hub | Weapons, Perks & More',
   description:
-    'Spice up your COD gameplay! Generate unique random loadouts for Modern Warfare Two. Discover new weapons, perks, and gear combinations.',
+    'Your central hub for Call of Duty: Modern Warfare 2 (2022) intel. Explore detailed information on all multiplayer weapons, perks, streaks, and equipment.',
   keywords: [
-    'COD Modern Warfare Two RCG',
-    'modern warfare two random class generator',
-    'modern warfare two',
-    'modern warfare two rcg',
-    'class generator',
+    'Modern Warfare 2 info',
+    'MW2 info',
+    'MW2 weapons',
+    'Modern Warfare 2 perks',
+    'MW2 streaks',
+    'MW2 equipment',
+    'Call of Duty MW2',
   ],
 };
 
-const badges = [
-  { title: 'Equipment', link: '/modern-warfare/two/info/equipment' },
-  { title: 'Perks', link: '/modern-warfare/two/info/perks' },
-  { title: 'Streaks', link: '/modern-warfare/two/info/streaks' },
-  { title: 'Weapons', link: '/modern-warfare/two/info/weapons' },
+const multiplayerLinks = [
+  {
+    icon: faGun,
+    title: 'Weapons',
+    description: 'Explore the full arsenal of modern firearms and weapon platforms.',
+    link: '/modern-warfare/two/info/weapons',
+  },
+  {
+    icon: faMedal,
+    title: 'Perks',
+    description: 'Learn about the Perk Packages available to customize your playstyle.',
+    link: '/modern-warfare/two/info/perks',
+  },
+  {
+    icon: faExplosion,
+    title: 'Equipment',
+    description: 'View the tactical and lethal equipment options for your loadout.',
+    link: '/modern-warfare/two/info/equipment',
+  },
+  {
+    icon: faPlane,
+    title: 'Streaks',
+    description: 'Familiarize yourself with the lethal and tactical Killstreaks you can earn.',
+    link: '/modern-warfare/two/info/streaks',
+  },
+];
+
+const breadcrumbLinks = [
+  { href: '/modern-warfare/two', text: 'Modern Warfare 2' },
+  { text: 'Info Hub' },
 ];
 
 export default function ModernWarfareTwoInfoPage() {
   return (
     <PageLayout containerClassName='theme-mw2'>
-      <Container>
-        <div className='text-center mb-4'>
-          <h2 className={styles.pageTitle}>Modern Warfare Two</h2>
-          <p className={styles.pageSubtitle}>Loadout Information</p>
-        </div>
-        <Row className='p-3 p-md-4 bg-light rounded mb-4'>
-          <Col lg={7} className='text-center'>
-            <p>
-              Gear up for the global conflict depicted in Call of Duty: Modern Warfare II [2022]
-              with our comprehensive data collection. This section details the tools of modern
-              warfare featured in this title. Explore the innovative <strong>Weapon</strong>{' '}
-              Platforms to customize your loadout, choose the right tactical and lethal{' '}
-              <strong>Equipment</strong>, select powerful <strong>Perk Packages</strong> to gain
-              advantages during the match, and learn about the devastating <strong>Streaks</strong>{' '}
-              (Killstreaks or Scorestreaks) you can call in. Find all the essential links on this
-              page.
-            </p>
-          </Col>
-          <Col lg={5}>
-            <h4 className='text-center'>Links</h4>
-            <hr />
-            <div className='d-flex flex-wrap gap-2'>
-              {badges.map((item) => (
-                <Link key={item.title} href={item.link} className='text-decoration-none' passHref>
-                  <CodBadge name={item.title} badgeOverwrite='bgMw2' />
-                </Link>
-              ))}
-            </div>
-          </Col>
-        </Row>
-      </Container>
+      <InfoHubClient
+        heroTitle='Modern Warfare 2'
+        heroSubTitle='Your Central Hub for Multiplayer Intel'
+        multiplayerLink='/modern-warfare/two/generator'
+        multiplayerLinks={multiplayerLinks}
+        buttonVariant='mw2'
+        breadcrumbs={breadcrumbLinks}
+      />
     </PageLayout>
   );
 }

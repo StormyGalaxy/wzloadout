@@ -35,7 +35,7 @@ export default function ModernWarfareTwoGeneratorPage() {
     <PageLayout containerClassName='theme-mw2'>
       <Container>
         <div className='text-center mb-4'>
-          <h2 className={styles.pageTitle}>Modern Warfare Two</h2>
+          <h2 className={styles.pageTitle}>Modern Warfare 2</h2>
           <p className={styles.pageSubtitle}>Random Class Generator</p>
         </div>
 

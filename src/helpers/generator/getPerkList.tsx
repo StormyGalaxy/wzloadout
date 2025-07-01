@@ -42,7 +42,7 @@ import ww2FreefireList from '@/json/world-war-two/zombies/mods/freefire.json';
 import ww2FrontlineList from '@/json/world-war-two/zombies/mods/frontline.json';
 import ww2ShellshockList from '@/json/world-war-two/zombies/mods/shellshock.json';
 import ww2UniversalList from '@/json/world-war-two/zombies/mods/universal.json';
-// --- Modern Warfare Two ---
+// --- Modern Warfare 2 ---
 import mw2BaseList from '@/json/modern-warfare/two/perk/base.json';
 import mw2BonusList from '@/json/modern-warfare/two/perk/bonus.json';
 import mw2UltimateList from '@/json/modern-warfare/two/perk/ultimate.json';

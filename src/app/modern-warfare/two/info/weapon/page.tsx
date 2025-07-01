@@ -9,15 +9,15 @@ import WeaponDisplayClient from '@/components/info/WeaponDisplayClient';
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: 'Modern Warfare Two Weapons',
-  description:
-    'View information and all available attachments for the weapon in Modern Warfare Two.',
+  title: 'Modern Warfare 2 Weapon Information',
+  description: 'View information and all available attachments for the weapon in Modern Warfare 2.',
   keywords: [
-    'COD Modern Warfare Two RCG',
-    'modern warfare two random class generator',
-    'modern warfare two',
-    'modern warfare two rcg',
+    'COD Modern Warfare 2 RCG',
+    'modern warfare 2 random class generator',
+    'modern warfare 2',
+    'modern warfare 2 rcg',
     'class generator',
+    'modern warfare 2 rcg',
   ],
 };
 
@@ -34,7 +34,7 @@ export default function ModernWarfareTwoWeaponPage() {
                 <p className='text-center'>Loading page...</p>
               </Col>
             }>
-            <WeaponDisplayClient game={game} />
+            <WeaponDisplayClient game={game} link='modern-warfare/two' />
           </Suspense>
         </Row>
       </Container>

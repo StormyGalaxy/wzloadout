@@ -2,7 +2,7 @@
   {
     "Date": "July 1, 2025",
     "Type": "Upgrade",
-    "Link": { "Url": "modern-warfare/two", "Text": "Modern Warfare Two:" },
+    "Link": { "Url": "modern-warfare/two", "Text": "Modern Warfare 2:" },
     "Changes": "Redesigned the entire game's hub, including all generators and the information hub, and added a new landing page for easier navigation and access."
   },
   {
@@ -212,16 +212,13 @@
   {
     "Date": "February 4, 2025",
     "Type": "New",
-    "Link": { "Url": "modern-warfare/two/generator", "Text": "Modern Warfare Two:" },
+    "Link": { "Url": "modern-warfare/two/generator", "Text": "Modern Warfare 2:" },
     "Changes": "Generator is now available!"
   },
   {
     "Date": "February 4, 2025",
     "Type": "New",
-    "Link": {
-      "Url": "modern-warfare/two/info",
-      "Text": "Modern Warfare Two Generator Information"
-    },
+    "Link": { "Url": "modern-warfare/two/info", "Text": "Modern Warfare 2 Generator Information" },
     "Changes": ""
   },
   {
