@@ -12,33 +12,36 @@ import styles from '@/components/generators/views/ModernLoadout.module.css';
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: 'World War Two Streaks',
-  description: 'View all streaks in World War Two.',
+  title: 'Call of Duty: WW2 Scorestreaks Guide | All Streaks List',
+  description:
+    'A complete guide to all Scorestreaks available in Call of Duty: WW2 multiplayer. Learn the cost and function of every streak, from the Molotov Cocktail to the Ball Turret Gunner, to dominate the battlefield.',
   keywords: [
-    'COD World War Two RCG',
-    'world war two random class generator',
-    'world war two',
-    'world war two rcg',
-    'world war two random class generator',
-    'class generator',
-    'zombies',
-    'world war two zombies',
+    'Call of Duty WW2 Scorestreaks',
+    'COD WW2 Scorestreaks',
+    'WW2 Scorestreaks list',
+    'All WW2 Scorestreaks',
+    'Recon Aircraft',
+    'Fighter Pilot',
+    'Artillery Barrage',
+    'Paratroopers',
+    'Ball Turret Gunner',
+    'COD WW2 streaks',
   ],
 };
 
 export default function WorldWarTwoStreaksPage() {
   const breadcrumbLinks = [
-    { href: '/world-war-two', text: 'World War Two' },
+    { href: '/world-war-two', text: 'World War 2' },
     { href: '/world-war-two/info', text: 'Info Hub' },
-    { text: 'Streaks' },
+    { text: 'Scorestreaks' },
   ];
 
   return (
     <PageLayout containerClassName='theme-ww2'>
       <Container>
         <div className='text-center mb-4'>
-          <h2 className={styles.pageTitle}>World War Two</h2>
-          <p className={styles.pageSubtitle}>Streaks</p>
+          <h2 className={styles.pageTitle}>World War 2</h2>
+          <p className={styles.pageSubtitle}>Scorestreaks</p>
         </div>
 
         <Row className='p-3 p-md-4 bg-light rounded mb-4'>

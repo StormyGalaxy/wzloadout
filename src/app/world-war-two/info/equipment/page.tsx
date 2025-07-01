@@ -12,23 +12,25 @@ import styles from '@/components/generators/views/ModernLoadout.module.css';
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: 'World War Two Equipment',
-  description: 'View all equipment in World War Two.',
+  title: 'Call of Duty: WW2 Equipment List | Lethal & Tactical Gear',
+  description:
+    'A complete guide to all lethal and tactical equipment in Call of Duty: WW2 multiplayer. Learn about the M18 Smoke Grenade, British No. 69, Bouncing Betty, and more to gain a tactical advantage.',
   keywords: [
-    'COD World War Two RCG',
-    'world war two random class generator',
-    'world war two',
-    'world war two rcg',
-    'world war two random class generator',
-    'class generator',
-    'zombies',
-    'world war two zombies',
+    'Call of Duty WW2 equipment',
+    'COD WW2 equipment',
+    'WW2 lethal equipment',
+    'WW2 tactical equipment',
+    'WW2 equipment list',
+    'M18 Smoke Grenade',
+    'British No. 69',
+    'Bouncing Betty',
+    'Sticky Bomb',
   ],
 };
 
 export default function WorldWarTwoEquipmentPage() {
   const breadcrumbLinks = [
-    { href: '/world-war-two', text: 'World War Two' },
+    { href: '/world-war-two', text: 'World War 2' },
     { href: '/world-war-two/info', text: 'Info Hub' },
     { text: 'Equipment' },
   ];
@@ -37,7 +39,7 @@ export default function WorldWarTwoEquipmentPage() {
     <PageLayout containerClassName='theme-ww2'>
       <Container>
         <div className='text-center mb-4'>
-          <h2 className={styles.pageTitle}>World War Two</h2>
+          <h2 className={styles.pageTitle}>World War 2</h2>
           <p className={styles.pageSubtitle}>Equipment</p>
         </div>
 

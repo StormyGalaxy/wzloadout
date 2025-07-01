@@ -10,11 +10,11 @@ import styles from '@/components/generators/views/ModernLoadout.module.css';
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: 'WWII Multiplayer Random Class Generator',
+  title: 'WW2 Multiplayer Random Class Generator',
   description:
-    'Generate random multiplayer loadouts for Call of Duty: WWII. Discover unique combinations of divisions, weapons, basic training, and equipment to challenge yourself in your next match.',
+    'Generate random multiplayer loadouts for Call of Duty: WW2. Discover unique combinations of divisions, weapons, basic training, and equipment to challenge yourself in your next match.',
   keywords: [
-    'COD World War Two RCG',
+    'COD World War 2 RCG',
     'world war two random class generator',
     'world war two multiplayer',
     'wwii random class generator',
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 
 export default function WorldWarTwoGeneratorPage() {
   const breadcrumbLinks = [
-    { href: '/world-war-two', text: 'World War Two' },
+    { href: '/world-war-two', text: 'World War 2' },
     { text: 'Multiplayer Generator' },
   ];
 
@@ -36,7 +36,7 @@ export default function WorldWarTwoGeneratorPage() {
     <PageLayout containerClassName='theme-ww2'>
       <Container>
         <div className='text-center mb-4'>
-          <h2 className={styles.pageTitle}>World War Two</h2>
+          <h2 className={styles.pageTitle}>World War 2</h2>
           <p className={styles.pageSubtitle}>Random Class Generator</p>
         </div>
 

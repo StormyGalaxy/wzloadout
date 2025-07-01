@@ -44,7 +44,7 @@ const multiplayerLinks = [
   },
   {
     icon: faPlane,
-    title: 'Streaks',
+    title: 'Scorestreaks',
     description: 'Familiarize yourself with the lethal and tactical Killstreaks you can earn.',
     link: '/modern-warfare/two/info/streaks',
   },

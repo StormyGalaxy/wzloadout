@@ -27,7 +27,7 @@ const toolCards = [
   {
     title: 'Multiplayer Generator',
     description:
-      'Return to the gritty battlefields of WWII. Generate random classes with classic weapons and perks to challenge your skills in the original boots-on-the-ground combat.',
+      'Return to the gritty battlefields of WW2. Generate random classes with classic weapons and perks to challenge your skills in the original boots-on-the-ground combat.',
     href: '/world-at-war/generator',
     icon: faGun,
   },

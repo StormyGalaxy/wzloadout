@@ -12,7 +12,7 @@ import styles from '@/components/generators/views/ModernLoadout.module.css';
 export const metadata: Metadata = {
   title: 'World at War Random Class Generator | Multiplayer Loadouts',
   description:
-    'Return to the battlefields of WWII. Generate unique random classes for Call of Duty: World at War, featuring classic weapons, perks, and equipment to challenge your skills.',
+    'Return to the battlefields of WW2. Generate unique random classes for Call of Duty: World at War, featuring classic weapons, perks, and equipment to challenge your skills.',
   keywords: [
     'World at War random class generator',
     'WaW loadout generator',

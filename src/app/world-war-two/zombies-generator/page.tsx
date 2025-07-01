@@ -10,13 +10,13 @@ import styles from '@/components/generators/views/ModernLoadout.module.css';
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: 'WWII Zombies Random Loadout Generator',
+  title: 'WW2 Zombies Random Loadout Generator',
   description:
-    'Challenge the undead in Call of Duty: WWII Zombies! Generate a completely random loadout, including character, weapon, special ability, and mods. A fun way to test your skills and add variety to your game.',
+    'Challenge the undead in Call of Duty: WW2 Zombies! Generate a completely random loadout, including character, weapon, special ability, and mods. A fun way to test your skills and add variety to your game.',
   keywords: [
-    'COD WWII Zombies',
-    'WWII Zombies generator',
-    'Call of Duty WWII Zombies',
+    'COD WW2 Zombies',
+    'WW2 Zombies generator',
+    'Call of Duty WW2 Zombies',
     'random zombies loadout',
     'ww2 zombies class generator',
     'cod ww2 zombies specials',
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 
 export default function WorldWarTwoZombiesGeneratorPage() {
   const breadcrumbLinks = [
-    { href: '/world-war-two', text: 'World War Two' },
+    { href: '/world-war-two', text: 'World War 2' },
     { text: 'Zombies Generator' },
   ];
 
@@ -36,7 +36,7 @@ export default function WorldWarTwoZombiesGeneratorPage() {
     <PageLayout containerClassName='theme-ww2'>
       <Container>
         <div className='text-center mb-4'>
-          <h2 className={styles.pageTitle}>World War Two Zombies</h2>
+          <h2 className={styles.pageTitle}>World War 2 Zombies</h2>
           <p className={styles.pageSubtitle}>Random Class Generator</p>
         </div>
 

@@ -9,11 +9,11 @@ import { faGun, faMedal, faExplosion, faPlane, faSkull } from '@fortawesome/free
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: 'Modern Warfare III (2023) Info Hub | Weapons, Perks & More',
+  title: 'Modern Warfare 3 (2023) Info Hub | Weapons, Perks & More',
   description:
-    'Your complete hub for Call of Duty: Modern Warfare III (2023) intel. Explore detailed information on all multiplayer and zombies weapons, perks (gear), streaks, and equipment.',
+    'Your complete hub for Call of Duty: Modern Warfare 3 (2023) intel. Explore detailed information on all multiplayer and zombies weapons, perks (gear), streaks, and equipment.',
   keywords: [
-    'Modern Warfare III info',
+    'Modern Warfare 3 info',
     'MW3 info',
     'MW3 weapons',
     'Modern Warfare 3 perks',
@@ -46,7 +46,7 @@ const multiplayerLinks = [
   },
   {
     icon: faPlane,
-    title: 'Streaks',
+    title: 'Scorestreaks',
     description: 'Familiarize yourself with the lethal and tactical Killstreaks you can earn.',
     link: '/modern-warfare/three/info/streaks',
   },
@@ -62,7 +62,7 @@ const zombiesLinks = [
 ];
 
 const breadcrumbLinks = [
-  { href: '/modern-warfare/three', text: 'Modern Warfare III' },
+  { href: '/modern-warfare/three', text: 'Modern Warfare 3' },
   { text: 'Info Hub' },
 ];
 
@@ -70,7 +70,7 @@ export default function ModernWarfareThreeInfoPage() {
   return (
     <PageLayout containerClassName='theme-mw3'>
       <InfoHubClient
-        heroTitle='Modern Warfare III'
+        heroTitle='Modern Warfare 3'
         heroSubTitle='Your Central Hub for Multiplayer & Zombies Intel'
         multiplayerLink='/modern-warfare/three/generator'
         zombiesLink='/modern-warfare/three/zombies'

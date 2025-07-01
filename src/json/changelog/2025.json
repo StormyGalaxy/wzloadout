@@ -50,7 +50,7 @@
   {
     "Date": "June 26, 2025",
     "Type": "Upgrade",
-    "Link": { "Url": "world-war-two", "Text": "World War Two:" },
+    "Link": { "Url": "world-war-two", "Text": "World War 2:" },
     "Changes": "Redesigned the entire game's hub, including all generators and the information hub, and added a new landing page for easier navigation and access."
   },
   {

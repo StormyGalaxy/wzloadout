@@ -10,13 +10,13 @@ import styles from '@/components/generators/views/ModernLoadout.module.css';
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: 'WWII Custom Match Generator',
+  title: 'WW2 Custom Match Generator',
   description:
-    'Create and randomize custom matches for Call of Duty: WWII. Easily set up teams, game modes, maps, and rules for a unique private match experience with friends.',
+    'Create and randomize custom matches for Call of Duty: WW2. Easily set up teams, game modes, maps, and rules for a unique private match experience with friends.',
   keywords: [
-    'COD WWII custom match',
-    'WWII private match generator',
-    'Call of Duty WWII custom games',
+    'COD WW2 custom match',
+    'WW2 private match generator',
+    'Call of Duty WW2 custom games',
     'ww2 custom match settings',
     'cod wwii party games',
     'world war two custom match',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 
 export default function WorldWarTwoCustomMatchPage() {
   const breadcrumbLinks = [
-    { href: '/world-war-two', text: 'World War Two' },
+    { href: '/world-war-two', text: 'World War 2' },
     { text: 'Custom Match' },
   ];
 
@@ -35,7 +35,7 @@ export default function WorldWarTwoCustomMatchPage() {
     <PageLayout containerClassName='theme-ww2'>
       <Container>
         <div className='text-center mb-4'>
-          <h2 className={styles.pageTitle}>World War Two</h2>
+          <h2 className={styles.pageTitle}>World War 2</h2>
           <p className={styles.pageSubtitle}>Custom Match Generator</p>
         </div>
 

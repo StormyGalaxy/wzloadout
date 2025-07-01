@@ -17,11 +17,11 @@ import {
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: 'Call of Duty: WWII - Info Hub',
+  title: 'Call of Duty: WW2 - Info Hub',
   description:
-    'Your central hub for Call of Duty: WWII (2017) intel. Explore detailed information on all multiplayer weapons, perks, scorestreaks, equipment, and a complete guide to Nazi Zombies maps, perks, and special abilities.',
+    'Your central hub for Call of Duty: WW2 (2017) intel. Explore detailed information on all multiplayer weapons, perks, scorestreaks, equipment, and a complete guide to Nazi Zombies maps, perks, and special abilities.',
   keywords: [
-    'COD World War Two RCG',
+    'COD World War 2 RCG',
     'world war two random class generator',
     'world war two info',
     'wwii weapons',
@@ -35,7 +35,7 @@ const multiplayerLinks = [
   {
     icon: faGun,
     title: 'Weapons',
-    description: 'Explore the full arsenal of authentic WWII firearms, from rifles to sidearms.',
+    description: 'Explore the full arsenal of authentic WW2 firearms, from rifles to sidearms.',
     link: '/world-war-two/info/weapons',
   },
   {
@@ -81,13 +81,13 @@ const zombiesLinks = [
   },
 ];
 
-const breadcrumbLinks = [{ href: '/world-war-two', text: 'World War Two' }, { text: 'Info Hub' }];
+const breadcrumbLinks = [{ href: '/world-war-two', text: 'World War 2' }, { text: 'Info Hub' }];
 
 export default function WorldWarTwoInfoPage() {
   return (
     <PageLayout containerClassName='theme-ww2'>
       <InfoHubClient
-        heroTitle='Call of Duty: WWII'
+        heroTitle='Call of Duty: WW2'
         heroSubTitle='Your Central Hub for Multiplayer & Zombies Intel'
         multiplayerLink='/world-war-two/generator'
         multiplayerLinks={multiplayerLinks}

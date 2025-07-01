@@ -11,7 +11,7 @@ import { faGun, faMedal, faExplosion } from '@fortawesome/free-solid-svg-icons';
 export const metadata: Metadata = {
   title: 'World at War Info Hub | Weapons, Perks & Equipment',
   description:
-    'Your central hub for Call of Duty: World at War intel. Explore detailed information on all multiplayer weapons, perks, and equipment from the classic WWII shooter.',
+    'Your central hub for Call of Duty: World at War intel. Explore detailed information on all multiplayer weapons, perks, and equipment from the classic WW2 shooter.',
   keywords: [
     'World at War info',
     'WaW info',
@@ -27,7 +27,7 @@ const multiplayerLinks = [
     icon: faGun,
     title: 'Weapons',
     description:
-      'Explore the full arsenal of authentic WWII firearms used in the Pacific and European theaters.',
+      'Explore the full arsenal of authentic WW2 firearms used in the Pacific and European theaters.',
     link: '/world-at-war/info/weapons',
   },
   {

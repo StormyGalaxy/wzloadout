@@ -8,7 +8,7 @@ import { fetchStreaks } from '@/helpers/fetch/fetchStreaks';
 import { fetchAttachments } from '@/helpers/fetch/fetchAttachments';
 import { fetchEquipment } from '@/helpers/fetch/fetchEquipment';
 import { fetchClassName } from '@/helpers/fetch/fetchClassName';
-// World War Two Specific Helpers
+// World War 2 Specific Helpers
 import { fetchPerk } from '@/helpers/generator/world-war-two/fetchPerk';
 // --- Utils ---
 import { sendEvent } from '@silocitypages/utils';

@@ -9,19 +9,19 @@ import { faGun, faSkull, faSliders, faCircleInfo } from '@fortawesome/free-solid
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: 'Call of Duty: WWII Loadout, Class & Match Generators',
+  title: 'Call of Duty: WW2 Loadout, Class & Match Generators',
   description:
-    'Dominate the battlefields of WWII with our Call of Duty: World War Two tools. Generate random multiplayer and zombies classes, create custom matches, and explore detailed loadout information. Your ultimate companion for COD: WWII!',
+    'Dominate the battlefields of WW2 with our Call of Duty: World War 2 tools. Generate random multiplayer and zombies classes, create custom matches, and explore detailed loadout information. Your ultimate companion for COD: WW2!',
   keywords: [
-    'Call of Duty WWII',
-    'COD WWII',
-    'WWII random class generator',
-    'COD WWII loadouts',
-    'WWII zombies generator',
-    'WWII custom match',
-    'Call of Duty World War Two',
-    'COD World War Two generator',
-    'COD World War Two RCG',
+    'Call of Duty WW2',
+    'COD WW2',
+    'WW2 random class generator',
+    'COD WW2 loadouts',
+    'WW2 zombies generator',
+    'WW2 custom match',
+    'Call of Duty World War 2',
+    'COD World War 2 generator',
+    'COD World War 2 RCG',
     'world war two random class generator',
     'world war two',
     'world war two rcg',
@@ -56,7 +56,7 @@ const toolCards = [
   {
     title: 'Loadout Info',
     description:
-      'Get all the details on the weapons, attachments, perks, and equipment available in Call of Duty: WWII. A perfect resource for theory-crafting your next dominant class setup.',
+      'Get all the details on the weapons, attachments, perks, and equipment available in Call of Duty: WW2. A perfect resource for theory-crafting your next dominant class setup.',
     href: '/world-war-two/info',
     icon: faCircleInfo,
   },
@@ -66,8 +66,8 @@ export default function WorldWarTwoLandingPage() {
   return (
     <PageLayout containerClassName='theme-ww2'>
       <LandingPageComponent
-        title='Call of Duty: WWII'
-        subtitle="Your central hub for all things Call of Duty: World War Two. Below you'll find a suite of tools to enhance your gameplay, from generating random loadouts to creating custom matches for you and your friends."
+        title='Call of Duty: WW2'
+        subtitle="Your central hub for all things Call of Duty: World War 2. Below you'll find a suite of tools to enhance your gameplay, from generating random loadouts to creating custom matches for you and your friends."
         toolCards={toolCards}
         buttonVariant='ww2'
       />

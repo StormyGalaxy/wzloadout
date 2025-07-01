@@ -12,10 +12,10 @@ import styles from '@/components/generators/views/ModernLoadout.module.css';
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: 'World War Two Zombies Perks',
-  description: 'View all perks in World War Two Zombies.',
+  title: 'World War 2 Zombies Perks',
+  description: 'View all perks in World War 2 Zombies.',
   keywords: [
-    'COD World War Two RCG',
+    'COD World War 2 RCG',
     'world war two random class generator',
     'world war two',
     'world war two rcg',
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 
 export default function WorldWarTwoZombiesArtifactsPage() {
   const breadcrumbLinks = [
-    { href: '/world-war-two', text: 'World War Two' },
+    { href: '/world-war-two', text: 'World War 2' },
     { href: '/world-war-two/info', text: 'Info Hub' },
     { text: 'Zombies Perks' },
   ];
@@ -37,7 +37,7 @@ export default function WorldWarTwoZombiesArtifactsPage() {
     <PageLayout containerClassName='theme-ww2'>
       <Container>
         <div className='text-center mb-4'>
-          <h2 className={styles.pageTitle}>World War Two</h2>
+          <h2 className={styles.pageTitle}>World War 2</h2>
           <p className={styles.pageSubtitle}>Zombies Perks</p>
         </div>
 

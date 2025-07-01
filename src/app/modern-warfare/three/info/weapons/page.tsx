@@ -5,22 +5,36 @@ import type { Metadata } from 'next';
 import PageLayout from '@/components/PageLayout';
 // --- Components ---
 import WeaponList from '@/components/info/WeaponList';
+import Breadcrumbs from '@/components/common/breadcrumbs/Breadcrumbs';
+// --- Styles ---
+import styles from '@/components/generators/views/ModernLoadout.module.css';
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: 'Modern Warfare 3 Weapons',
-  description: 'View all weapons in Modern Warfare 3.',
+  title: 'Modern Warfare 3 (2023) Weapon Stats & Info | All Guns',
+  description:
+    'Explore a complete database of all primary and secondary weapons in Call of Duty: Modern Warfare 3 (2023). View detailed stats, available attachments, and information for every assault rifle, SMG, sniper, and more.',
   keywords: [
-    'COD Modern Warfare 3 RCG',
-    'modern warfare three random class generator',
-    'modern warfare three',
-    'modern warfare three rcg',
-    'class generator',
+    'Modern Warfare 3 weapons',
+    'MW3 weapon stats',
+    'COD MW3 guns',
+    'All MW3 weapons',
+    'Modern Warfare 3 attachments',
+    'MCW',
+    'Striker',
+    'KATT-AMR',
+    'SVA 545',
   ],
 };
 
 export default function ModernWarfareThreeWeaponsPage() {
   const dataKeys = ['name', 'type', 'game', 'no_attach', 'no_attach_info', 'isDlc'];
+  const breadcrumbLinks = [
+    { href: '/modern-warfare/three', text: 'Modern Warfare 3' },
+    { href: '/modern-warfare/three/info', text: 'Info Hub' },
+    { text: 'Weapons' },
+  ];
+
   return (
     <PageLayout containerClassName='theme-mw3'>
       <Container>
@@ -28,8 +42,10 @@ export default function ModernWarfareThreeWeaponsPage() {
           <h2 className={styles.pageTitle}>Modern Warfare 3</h2>
           <p className={styles.pageSubtitle}>Weapons</p>
         </div>
+
         <Row className='p-3 p-md-4 bg-light rounded mb-4'>
           <Col>
+            <Breadcrumbs links={breadcrumbLinks} className='mb-4' />
             <WeaponList
               game='modern-warfare-three'
               dataKeys={dataKeys}

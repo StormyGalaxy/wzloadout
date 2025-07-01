@@ -9,14 +9,15 @@ import WeaponDisplayClient from '@/components/info/WeaponDisplayClient';
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: 'Modern Warfare 3 Weapons',
+  title: 'Modern Warfare 3 Weapon Information',
   description: 'View information and all available attachments for the weapon in Modern Warfare 3.',
   keywords: [
     'COD Modern Warfare 3 RCG',
-    'modern warfare three random class generator',
-    'modern warfare three',
-    'modern warfare three rcg',
+    'modern warfare 3 random class generator',
+    'modern warfare 3',
+    'modern warfare 3 rcg',
     'class generator',
+    'modern warfare 3 rcg',
   ],
 };
 
@@ -33,7 +34,7 @@ export default function ModernWarfareThreeWeaponPage() {
                 <p className='text-center'>Loading page...</p>
               </Col>
             }>
-            <WeaponDisplayClient game={game} />
+            <WeaponDisplayClient game={game} link='modern-warfare/three' />
           </Suspense>
         </Row>
       </Container>

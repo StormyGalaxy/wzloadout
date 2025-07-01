@@ -30,7 +30,7 @@ export default function ColdWarStreaksPage() {
   const breadcrumbLinks = [
     { href: '/black-ops/cold-war', text: 'Black Ops Cold War' },
     { href: '/black-ops/cold-war/info', text: 'Info Hub' },
-    { text: 'Streaks' },
+    { text: 'Scorestreaks' },
   ];
 
   return (
@@ -38,7 +38,7 @@ export default function ColdWarStreaksPage() {
       <Container>
         <div className='text-center mb-4'>
           <h2 className={styles.pageTitle}>Black Ops Cold War</h2>
-          <p className={styles.pageSubtitle}>Streaks</p>
+          <p className={styles.pageSubtitle}>Scorestreaks</p>
         </div>
         <Row className='p-3 p-md-4 bg-light rounded mb-4'>
           <Col>

@@ -33,10 +33,10 @@ import mw3GlovesList from '@/json/modern-warfare/three/perk/gloves.json';
 import mwrPerk1List from '@/json/modern-warfare/remastered/perk/perk1.json';
 import mwrPerk2List from '@/json/modern-warfare/remastered/perk/perk2.json';
 import mwrPerk3List from '@/json/modern-warfare/remastered/perk/perk3.json';
-// --- World War Two ---
+// --- World War 2 ---
 import ww2DivisionList from '@/json/world-war-two/division.json';
 import ww2BasicTrainingList from '@/json/world-war-two/basic-training.json';
-// --- World War Two Zombies ---
+// --- World War 2 Zombies ---
 import ww2CamouflageList from '@/json/world-war-two/zombies/mods/camouflage.json';
 import ww2FreefireList from '@/json/world-war-two/zombies/mods/freefire.json';
 import ww2FrontlineList from '@/json/world-war-two/zombies/mods/frontline.json';
