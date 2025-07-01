@@ -10,7 +10,8 @@ import { faGun, faCircleInfo } from '@fortawesome/free-solid-svg-icons';
 // --- Metadata ---
 export const metadata: Metadata = {
   title: 'Modern Warfare Remastered Loadout & Class Generators',
-  description: '',
+  description:
+    'The central hub for all things Call of Duty: Modern Warfare Remastered. Access our multiplayer random class generator and explore our comprehensive information hub for weapons, perks, and more.',
   keywords: [
     'Modern Warfare Remastered',
     'COD Modern Warfare Remastered',
@@ -24,28 +25,26 @@ export const metadata: Metadata = {
 const toolCards = [
   {
     title: 'Multiplayer Generator',
-    description:
-      'Break the meta and discover new loadouts. Generate random classes with unique weapons, perks, and wildcards to keep your gameplay fresh.',
-    href: '/black-ops/cold-war/generator',
+    description: 'Generate random classes for a unique challenge in every match.',
+    href: '/modern-warfare/remastered/generator',
     icon: faGun,
   },
   {
     title: 'Info Hub',
-    description:
-      'Get the intel on the entire Black Ops Cold War arsenal. Browse detailed information on weapons, perks, equipment, scorestreaks, and zombies content.',
-    href: '/black-ops/cold-war/info',
+    description: 'Explore detailed information about weapons, perks, and equipment.',
+    href: '/modern-warfare/remastered/info',
     icon: faCircleInfo,
   },
 ];
 
 export default function ModernWarfareRemasteredLandingPage() {
   return (
-    <PageLayout containerClassName='theme-cold-war'>
+    <PageLayout containerClassName='theme-mwr'>
       <LandingPageComponent
-        title='Black Ops Cold War'
-        subtitle='Dive back into the 1980s. Here are all the tools you need for Black Ops Cold War multiplayer and zombies, from random class generators to a full info hub.'
+        title='Modern Warfare Remastered'
+        subtitle='Your central hub for our Modern Warfare Remastered tools and resources.'
         toolCards={toolCards}
-        buttonVariant='danger'
+        buttonVariant='success'
       />
     </PageLayout>
   );
