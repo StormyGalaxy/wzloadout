@@ -21,18 +21,11 @@ export const metadata: Metadata = {
   ],
 };
 
-const navLinks = [
-  { label: 'Home', href: '/' },
-  { label: 'Multiplayer Generator', href: '/modern-warfare/two/generator' },
-  { label: 'Loadout Info', href: '/modern-warfare/two/info' },
-  { label: 'Changelog', href: '/changelog' },
-];
-
 export default function ModernWarfareTwoWeaponPage() {
   const game = 'modern-warfare-two';
 
   return (
-    <PageLayout navLinks={navLinks} headerClassName='mw2'>
+    <PageLayout containerClassName='theme-mw2'>
       <Container fluid>
         <Row>
           <Suspense

@@ -58,7 +58,6 @@ export default function BlackOpsSixLoadout() {
           <ValueCardView title='Melee' value={weapons?.melee?.name ?? ''} {...cardProps} />
         </Col>
       </Row>
-
       <hr />
 
       <Row className='justify-content-md-center text-center mb-4'>

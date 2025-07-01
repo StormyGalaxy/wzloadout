@@ -3,7 +3,6 @@
 // --- React ---
 import { Row, Col, Button } from 'react-bootstrap';
 // --- Components
-import SimpleGeneratorView from '@/components/generators/cod/SimpleGeneratorView';
 import CodClassName from '@/components/CodClassName';
 import GeneratorSkeleton from '@/components/generators/views/skeletons/GeneratorSkeleton';
 import ListViewCard from '@/components/generators/views/ListViewCard';

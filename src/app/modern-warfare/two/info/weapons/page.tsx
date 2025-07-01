@@ -19,24 +19,15 @@ export const metadata: Metadata = {
   ],
 };
 
-const navLinks = [
-  { label: 'Home', href: '/' },
-  { label: 'Multiplayer Generator', href: '/modern-warfare/two/generator' },
-  { label: 'Loadout Info', href: '/modern-warfare/two/info' },
-  { label: 'Changelog', href: '/changelog' },
-];
-
 export default function ModernWarfareTwoWeaponsPage() {
   const dataKeys = ['name', 'type', 'game', 'no_attach', 'no_attach_info', 'isDlc'];
   return (
-    <PageLayout navLinks={navLinks} headerClassName='mw2'>
+    <PageLayout containerClassName='theme-mw2'>
       <Container>
-        <h2 className='text-center mb-4'>
-          Modern Warfare Two
-          <span className='d-none d-sm-inline-block'>&nbsp;-&nbsp;</span>
-          <br className='d-block d-sm-none' />
-          Weapons
-        </h2>
+        <div className='text-center mb-4'>
+          <h2 className={styles.pageTitle}>Modern Warfare Two</h2>
+          <p className={styles.pageSubtitle}>Weapons</p>
+        </div>
         <Row className='p-3 p-md-4 bg-light rounded mb-4'>
           <Col>
             <WeaponList game='modern-warfare-two' dataKeys={dataKeys} link={'modern-warfare/two'} />

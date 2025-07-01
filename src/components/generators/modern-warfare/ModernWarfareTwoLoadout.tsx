@@ -1,195 +1,85 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import { Row, Col, Button } from 'react-bootstrap';
-import SimpleGeneratorView from '@/components/generators/cod/SimpleGeneratorView';
+// --- React ---
+import { Container, Row, Col, Button } from 'react-bootstrap';
+// --- Components ---
 import CodClassName from '@/components/CodClassName';
-//Helpers
-import { implodeObject } from '@/helpers/implodeObject';
-import { scrollToTop } from '@/helpers/scrollToTop';
-import { fetchWeapon } from '@/helpers/fetch/fetchWeapon';
-import { fetchStreaks } from '@/helpers/fetch/fetchStreaks';
-import { fetchAttachments } from '@/helpers/fetch/fetchAttachments';
-import { fetchEquipment } from '@/helpers/fetch/fetchEquipment';
-import { fetchClassName } from '@/helpers/fetch/fetchClassName';
-//MW2 Specific
-import { fetchPerks } from '@/helpers/generator/modern-warfare/two/fetchPerks';
-//Utils
-import { sendEvent } from '@silocitypages/utils';
-//json
-import defaultData from '@/json/cod/default-generator-info.json';
+import GeneratorSkeleton from '@/components/generators/views/skeletons/GeneratorSkeleton';
+import WeaponCard from '@/components/generators/views/WeaponCard';
+import ValueCardView from '@/components/generators/views/ValueCardView';
+import ListViewCard from '@/components/generators/views/ListViewCard';
+import StreaksView from '@/components/generators/views/StreaksView';
+// --- Hooks ---
+import { useModernWarfareTwoGenerator } from '@/hooks/modern-warfare/two/useModernWarfareTwoGenerator';
+// --- Font Awesome ---
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faDice } from '@fortawesome/free-solid-svg-icons';
+// --- Styles ---
+import styles from '@/components/generators/views/ModernLoadout.module.css';
 
 export default function ModernWarfareTwoLoadout() {
-  const [isLoading, setIsLoading] = useState(true);
-  const [isGenerating, setIsGenerating] = useState(true);
-  const [data, setData] = useState(defaultData);
+  const { data, isLoading, isGenerating, generateLoadout } = useModernWarfareTwoGenerator();
+  const generatingClass = isGenerating ? styles.generating : '';
 
-  useEffect(() => {
-    fetchLoadoutData(setData);
-    setIsGenerating(false);
-    setIsLoading(false);
-  }, []);
-
-  const handleClick = async () => {
-    setIsGenerating(true);
-
-    setTimeout(() => {
-      fetchLoadoutData(setData);
-      setIsGenerating(false);
-      scrollToTop();
-    }, 1000);
+  const cardProps = {
+    className: `${styles.card} ${generatingClass}`,
+    headerClassName: styles.cardHeader,
+    isGenerating,
   };
 
   const { randClassName, perks, streaks, weapons, equipment } = data;
 
+  const equipmentData = [
+    { title: 'Lethal', value: equipment.lethal?.name ?? '' },
+    { title: 'Tactical', value: equipment.tactical?.name ?? '' },
+    {
+      title: 'Field Upgrade',
+      value: equipment?.fieldUpgrade?.name ? equipment.fieldUpgrade.name : 'None',
+    },
+    {
+      title: 'Field Upgrade 2',
+      value: equipment?.fieldUpgrade2?.name ? equipment.fieldUpgrade2.name : 'None',
+    },
+  ];
+
   if (isLoading) {
-    return <div className='text-center'>Loading...</div>;
+    return <GeneratorSkeleton />;
   }
 
   return (
-    <>
+    <Container>
       <CodClassName isGenerating={isGenerating} value={randClassName} />
-      <Row className='justify-content-md-center'>
-        <Col sm className='text-center mb-3 mb-md-0'>
-          <SimpleGeneratorView
-            isGenerating={isGenerating}
-            title='Primary'
-            value={weapons.primary.weapon.name}
-          />
-          <br />
-          <SimpleGeneratorView
-            isGenerating={isGenerating}
-            title='Primary Attachments'
-            value={
-              weapons.primary.weapon.no_attach ? 'No Attachments' : weapons.primary.attachments
-            }
-          />
+      <Row className='justify-content-md-center text-center mb-4'>
+        <Col xs={12} md={6} className='mb-3'>
+          <WeaponCard title='Primary' weapon={weapons.primary} {...cardProps} />
         </Col>
-        <Col sm className='text-center mb-3 mb-md-0'>
-          <SimpleGeneratorView
-            isGenerating={isGenerating}
-            title='Secondary'
-            value={weapons.secondary.weapon.name}
-          />
-          <br />
-          <SimpleGeneratorView
-            isGenerating={isGenerating}
-            title='Secondary Attachments'
-            value={
-              weapons.secondary.weapon.no_attach ? 'No Attachments' : weapons.secondary.attachments
-            }
-          />
+        <Col xs={12} md={6} className='mb-3'>
+          <WeaponCard title='Secondary' weapon={weapons.secondary} {...cardProps} />
         </Col>
       </Row>
       <hr />
-      <Row className='justify-content-md-center'>
-        <Col sm className='text-center mb-3 mb-md-0'>
-          <SimpleGeneratorView
-            isGenerating={isGenerating}
-            title='Tactical'
-            value={equipment.tactical.name}
-          />
+
+      <Row className='justify-content-md-center text-center mb-4'>
+        <Col xs={12} md={4} className='mb-3'>
+          <ListViewCard title='Equipment' values={equipmentData} {...cardProps} />
         </Col>
-        <Col sm className='text-center mb-3 mb-md-0'>
-          <SimpleGeneratorView
-            isGenerating={isGenerating}
-            title='Lethal'
-            value={equipment.lethal.name}
-          />
+        <Col xs={12} md={4} className='mb-3'>
+          <ValueCardView title='Perks' value={perks} {...cardProps} />
         </Col>
-        <Col sm className='text-center'>
-          <SimpleGeneratorView isGenerating={isGenerating} title='Perks' value={perks} />
+        <Col xs={12} md={4} className='mb-3'>
+          <StreaksView streaks={streaks} {...cardProps} />
         </Col>
       </Row>
-      <hr />
-      <Row className='mb-5'>
-        <Col sm className='text-center mb-3 mb-md-0'>
-          <SimpleGeneratorView
-            isGenerating={isGenerating}
-            title='Field Upgrade'
-            value={equipment.fieldUpgrade.name ? equipment.fieldUpgrade.name : 'None'}
-          />
-        </Col>
-        <Col sm className='text-center mb-3 mb-md-0'>
-          <SimpleGeneratorView
-            isGenerating={isGenerating}
-            title='Field Upgrade 2'
-            value={equipment.fieldUpgrade2.name ? equipment.fieldUpgrade2.name : 'None'}
-          />
-        </Col>
-        <Col sm className='text-center'>
-          <SimpleGeneratorView isGenerating={isGenerating} title='Streaks' value={streaks} />
-        </Col>
-      </Row>
-      <Row id='button-row'>
+
+      {/* --- Generate Button --- */}
+      <Row className='mt-4'>
         <Col className='text-center'>
-          <Button
-            variant='mw2'
-            disabled={isGenerating}
-            onClick={isGenerating ? undefined : handleClick}>
-            {isGenerating ? 'Generating Loadout...' : 'Generate Loadout'}
+          <Button variant='mw2' disabled={isGenerating} onClick={() => generateLoadout()}>
+            <FontAwesomeIcon icon={faDice} className='me-2' />
+            {isGenerating ? 'Generating...' : 'Generate New Loadout'}
           </Button>
         </Col>
       </Row>
-    </>
+    </Container>
   );
-}
-
-async function fetchLoadoutData(setData) {
-  sendEvent('button_click', {
-    button_id: 'mw2_fetchLoadoutData',
-    label: 'ModernWarfareTwo',
-    category: 'COD_Loadouts',
-  });
-
-  try {
-    const game = 'modern-warfare-two';
-    const hasFieldUpgrade2 = Math.random() < 0.35;
-    const randClassName = fetchClassName();
-    const streaks = fetchStreaks(game);
-    const equipment = {
-      tactical: fetchEquipment('tactical', game),
-      lethal: fetchEquipment('lethal', game),
-      fieldUpgrade: fetchEquipment('field_upgrade', game),
-      fieldUpgrade2: { name: '', type: '' },
-    };
-
-    if (hasFieldUpgrade2) {
-      //Loop to make sure we don't get the same field upgrade
-      while (true) {
-        equipment.fieldUpgrade2 = fetchEquipment('field_upgrade', game);
-
-        if (equipment.fieldUpgrade.name !== equipment.fieldUpgrade2.name) {
-          break;
-        }
-      }
-    }
-
-    const perks = fetchPerks();
-
-    const weapons = {
-      primary: { weapon: fetchWeapon('primary', game), attachments: '' },
-      secondary: { weapon: fetchWeapon('secondary', game), attachments: '' },
-    };
-
-    //Check for overkill
-    if (perks.includes('Overkill')) {
-      weapons.secondary.weapon = fetchWeapon('primary', game, weapons.primary.weapon.name);
-    }
-
-    weapons.primary.attachments = implodeObject(fetchAttachments(weapons.primary.weapon));
-
-    //Verify if secondary weapon has attachments
-    if (!weapons.secondary.weapon?.no_attach) {
-      weapons.secondary.attachments = implodeObject(fetchAttachments(weapons.secondary.weapon));
-    }
-
-    setData({ randClassName, perks, streaks, weapons, equipment });
-  } catch (error: unknown) {
-    if (error instanceof Error) {
-      console.error(error.message);
-    } else {
-      console.error('An unknown error occurred.');
-    }
-  }
 }

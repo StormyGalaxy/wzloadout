@@ -39,6 +39,10 @@
   --theme-color: #6c757d;
 }
 
+.theme-mw2 {
+  --theme-color: #79c22b;
+}
+
 .theme-warzone,
 .theme-mwr {
   --theme-color: #198754 !important;
@@ -87,10 +91,6 @@
 #site-header.modern-warfare,
 #site-header.vanguard {
   background: #dc3545 !important;
-}
-
-#site-header.mw2 {
-  background: #79c22b !important;
 }
 
 /* Cutom Button Colors */

@@ -53,13 +53,11 @@ export const useColdWarZombiesGenerator = () => {
   const generateLoadout = useCallback((isInitialLoad = false) => {
     setStatus(isInitialLoad ? 'loading' : 'generating');
 
-    if (!isInitialLoad) {
-      sendEvent('button_click', {
-        button_id: 'coldWarZombies_fetchLoadoutData',
-        label: 'ColdWarZombies',
-        category: 'COD_Loadouts',
-      });
-    }
+    sendEvent('button_click', {
+      button_id: 'coldWarZombies_fetchLoadoutData',
+      label: 'ColdWarZombies',
+      category: 'COD_Loadouts',
+    });
 
     // Use a timeout to simulate generation time and update state
     setTimeout(() => {
