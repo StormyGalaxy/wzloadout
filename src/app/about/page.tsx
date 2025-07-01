@@ -8,7 +8,21 @@ import { faCrosshairs, faSkull, faParachuteBox, faMapPin } from '@fortawesome/fr
 // --- Utils ---
 import { generateGithubLink } from '@silocitypages/utils';
 
-export const metadata: Metadata = { title: 'About' };
+export const metadata: Metadata = {
+  title: 'About COD RCG - The Ultimate Call of Duty Random Class Generator',
+  description:
+    'Learn about COD RCG, the ultimate random generator hub for Call of Duty fans. Discover our mission, the tech behind our site, and how we use AI to keep the product free.',
+  keywords: [
+    'Call of Duty',
+    'Random Class Generator',
+    'COD RCG',
+    'About Us',
+    'Modern Warfare',
+    'Warzone',
+    'Black Ops',
+    'Zombies',
+  ],
+};
 
 export default function AboutPage() {
   const appName = process.env.NEXT_PUBLIC_APP_NAME || 'COD RCG';
@@ -17,73 +31,84 @@ export default function AboutPage() {
     process.env.NEXT_PUBLIC_APP_GITHUB_REPO,
     { template: 'feature-request-template.md' }
   );
+
   return (
     <PageLayout>
-      <Container className='main-content mt-3 mb-3'>
-        <Row className='shadow-lg mt-3 p-3 bg-body rounded'>
-          <h2 className='fw-bold mb-3 text-center'>About {process.env.NEXT_PUBLIC_APP_NAME}</h2>
-          <Col lg={8}>
-            <p className='lead fs-6 lh-lg text-center'>
-              Dive into <strong>{appName}</strong>, the{' '}
-              <strong>ultimate random generator hub</strong> for Call of Duty fans! Created to add
-              fun and unpredictability to your sessions, our site offers robust class generators for{' '}
-              <em>every CoD game &ndash; past, present, and future</em>. Explore endless
-              possibilities for{' '}
-              <FontAwesomeIcon icon={faCrosshairs} className='icon-spacer' size='sm' />
-              <strong>Multiplayer</strong>, generate surprising loadouts for{' '}
-              <FontAwesomeIcon icon={faSkull} className='icon-spacer' />
-              <strong>Zombies</strong>, and gear up for mayhem in{' '}
-              <FontAwesomeIcon icon={faParachuteBox} className='icon-spacer' />
-              <strong>Warzone</strong>. Looking for an extra layer of randomness? Let our generator
-              pick your next <FontAwesomeIcon icon={faMapPin} className='icon-spacer' />
-              <strong>Warzone drop zone</strong>! Built as a{' '}
-              <strong>fully open-source project</strong>, <strong>{appName}</strong> is dedicated to{' '}
-              <strong>shaking up your gameplay</strong> and keeping things exciting,{' '}
-              <em>one random loadout at a time</em>.
+      <Container className='main-content my-5'>
+        <Row className='justify-content-center text-center'>
+          <Col md={8}>
+            <h1 className='display-4 fw-bold mb-4'>About {appName}</h1>
+            <p className='lead fs-5 lh-lg'>
+              Welcome to <strong>{appName}</strong>, your ultimate destination for Call of Duty
+              random class generation. Our mission is to inject fun and unpredictability into your
+              gaming sessions by providing robust generators for every CoD game—past, present, and
+              future.
             </p>
-            <h4>Tech used to build this site</h4>
-            <div>
-              <ul>
-                <li>
-                  <a href='https://github.com/SiloCityLabs/SiloCityPages' target='_blank'>
-                    SiloCityPages
-                  </a>
-                  {' - '} A framework by SiloCityLabs leveraging Bootstrap, React, and Next.js for
-                  efficient static site development. Deploy seamlessly to GitHub Pages.
-                </li>
-                <li>
-                  <a href='https://pages.github.com/' target='_blank'>
-                    GitHub Pages
-                  </a>
-                </li>
-                <li>
-                  <a href='https://nextjs.org/' target='_blank'>
-                    NextJs
-                  </a>
-                </li>
-                <li>
-                  <a href='https://react-bootstrap.netlify.app/' target='_blank'>
-                    React Bootstrap
-                  </a>
-                </li>
-                <li>
-                  <a href='https://git-scm.com/' target='_blank'>
-                    Git
-                  </a>
-                  {' - '} Version control software
-                </li>
-              </ul>
-            </div>
           </Col>
-          <Col lg={4}>
-            <h4>Contact Us</h4>
+        </Row>
+
+        <Row className='shadow-sm mt-5 p-4 bg-light rounded'>
+          <Col md={12}>
+            <h2 className='fw-bold mb-4 text-center'>What We Offer</h2>
+          </Col>
+          <Col md={3} className='text-center mb-4'>
+            <FontAwesomeIcon icon={faCrosshairs} size='2x' className='text-primary mb-3' />
+            <h4 className='fw-semibold'>Multiplayer</h4>
+            <p>Explore endless loadout possibilities for a fresh challenge every match.</p>
+          </Col>
+          <Col md={3} className='text-center mb-4'>
+            <FontAwesomeIcon icon={faSkull} size='2x' className='text-danger mb-3' />
+            <h4 className='fw-semibold'>Zombies</h4>
+            <p>Generate surprising loadouts to survive the undead hordes.</p>
+          </Col>
+          <Col md={3} className='text-center mb-4'>
+            <FontAwesomeIcon icon={faParachuteBox} size='2x' className='text-success mb-3' />
+            <h4 className='fw-semibold'>Warzone</h4>
+            <p>Gear up for mayhem with random loadouts and drop zones.</p>
+          </Col>
+          <Col md={3} className='text-center mb-4'>
+            <FontAwesomeIcon icon={faMapPin} size='2x' className='text-info mb-3' />
+            <h4 className='fw-semibold'>Drop Zones</h4>
             <p>
-              Have you found a bug, an error or just havea cool feature we should add to the site?
-              Create a ticket on our Github{' '}
+              Let fate decide your next landing spot in Warzone for an extra layer of randomness.
+            </p>
+          </Col>
+        </Row>
+
+        <Row className='mt-5 justify-content-center'>
+          <Col md={8} className='text-center'>
+            <h2 className='fw-bold mb-4'>Our Philosophy</h2>
+            <p className='fs-5 lh-lg'>
+              Built as a <strong>fully open-source project</strong>, {appName} is dedicated to
+              shaking up your gameplay and keeping things exciting, one random loadout at a time. We
+              believe in community-driven development and continuously improving our offerings based
+              on your feedback.
+            </p>
+          </Col>
+        </Row>
+
+        <Row className='mt-5 bg-light rounded p-4'>
+          <Col md={12}>
+            <h2 className='fw-bold mb-4 text-center'>Keeping Our Product Free with AI</h2>
+            <p className='fs-6 lh-lg text-center'>
+              To keep our services free for the community, we utilize AI to generate all our images.
+              This approach allows us to minimize operational costs without compromising on a rich
+              visual experience. We are committed to leveraging cutting-edge technology to provide a
+              high-quality, accessible tool for all Call of Duty fans.
+            </p>
+          </Col>
+        </Row>
+
+        <Row className='mt-5 justify-content-center'>
+          <Col md={8} className='text-center'>
+            <h2 className='fw-bold mb-4'>Get Involved</h2>
+            <p className='fs-5'>
+              Have a bug to report, a feature to suggest, or just want to contribute? Create a
+              ticket on our{' '}
               <a href={githubLink} target='_blank' rel='noopener noreferrer'>
-                here
-              </a>{' '}
-              and we will look into it!
+                GitHub page
+              </a>
+              , and we&apos;ll look into it!
             </p>
           </Col>
         </Row>

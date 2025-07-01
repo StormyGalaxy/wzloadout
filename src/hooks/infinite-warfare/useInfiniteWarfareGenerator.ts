@@ -51,7 +51,7 @@ const fetchNewLoadout = () => {
   const perkObj = { ...initialPerks, ...perkGreed };
   const streaks = fetchStreaks(game);
 
-  let primaryWeapon = loadoutFrame.primary ? fetchWeapon('primary', game) : defaultWeapon;
+  const primaryWeapon = loadoutFrame.primary ? fetchWeapon('primary', game) : defaultWeapon;
   let secondaryWeapon = loadoutFrame.secondary ? fetchWeapon('secondary', game) : defaultWeapon;
 
   if (loadoutFrame.overkill) {
