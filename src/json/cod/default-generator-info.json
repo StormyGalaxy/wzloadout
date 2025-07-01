@@ -33,6 +33,7 @@
     "tactical": { "name": "", "type": "", "game": "" },
     "lethal": { "name": "", "type": "", "game": "" },
     "fieldUpgrade": { "name": "", "type": "", "game": "" },
+    "fieldUpgrade2": { "name": "", "type": "", "game": "" },
     "gear": "",
     "equipment": ""
   },
