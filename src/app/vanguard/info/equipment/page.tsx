@@ -5,27 +5,35 @@ import type { Metadata } from 'next';
 import PageLayout from '@/components/PageLayout';
 // --- Components ---
 import EquipmentList from '@/components/info/EquipmentList';
+import Breadcrumbs from '@/components/common/breadcrumbs/Breadcrumbs';
+// --- Styles ---
+import styles from '@/components/generators/views/ModernLoadout.module.css';
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: 'Vanguard Equipment',
-  description: 'View all equipment in Vanguard.',
+  title: 'Call of Duty: Vanguard Equipment List | Lethal & Tactical Gear',
+  description:
+    'A complete guide to all lethal and tactical equipment in Call of Duty: Vanguard multiplayer. Learn about the MK2 Frag Grenade, Stun Grenade, Gammon Bomb, and more to gain a tactical advantage.',
   keywords: [
-    'COD Vanguard RCG',
-    'vanguard random class generator',
-    'vanguard',
-    'vanguard rcg',
-    'vanguard random class generator',
-    'class generator',
-    'zombies',
-    'treyarch zombies',
-    'vanguard zombies',
-    'vanguard rcg',
-    'vanguard random class generator',
+    'Call of Duty Vanguard equipment',
+    'COD Vanguard equipment',
+    'Vanguard lethal equipment',
+    'Vanguard tactical equipment',
+    'Vanguard equipment list',
+    'MK2 Frag Grenade',
+    'Stun Grenade',
+    'Gammon Bomb',
+    'S-Mine 44',
   ],
 };
 
 export default function VanguardEquipmentPage() {
+  const breadcrumbLinks = [
+    { href: '/vanguard', text: 'Vanguard' },
+    { href: '/vanguard/info', text: 'Info Hub' },
+    { text: 'Equipment' },
+  ];
+
   return (
     <PageLayout containerClassName='theme-vanguard'>
       <Container>
@@ -33,8 +41,10 @@ export default function VanguardEquipmentPage() {
           <h2 className={styles.pageTitle}>Vanguard</h2>
           <p className={styles.pageSubtitle}>Equipment</p>
         </div>
+
         <Row className='p-3 p-md-4 bg-light rounded mb-4'>
           <Col>
+            <Breadcrumbs links={breadcrumbLinks} className='mb-4' />
             <EquipmentList game='vanguard' />
           </Col>
         </Row>

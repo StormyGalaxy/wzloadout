@@ -5,27 +5,35 @@ import type { Metadata } from 'next';
 import PageLayout from '@/components/PageLayout';
 // --- Components ---
 import ZombiesFieldUpgradeList from '@/components/info/ZombiesFieldUpgradeList';
+import Breadcrumbs from '@/components/common/breadcrumbs/Breadcrumbs';
+// --- Styles ---
+import styles from '@/components/generators/views/ModernLoadout.module.css';
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: 'Vanguard Zombies Artifacts',
-  description: 'View all artifacts in Vanguard Zombies.',
+  title: 'Call of Duty: Vanguard Zombies Artifacts Guide | All Abilities',
+  description:
+    'A complete guide to all five powerful Artifacts in Call of Duty: Vanguard Zombies. Learn about the unique abilities of the Energy Mine, Aether Shroud, Ring of Fire, and more to enhance your survival against the undead.',
   keywords: [
-    'COD Vanguard RCG',
-    'vanguard random class generator',
-    'vanguard',
-    'vanguard rcg',
-    'vanguard random class generator',
-    'class generator',
-    'zombies',
-    'treyarch zombies',
-    'vanguard zombies',
-    'vanguard rcg',
-    'vanguard random class generator',
+    'Call of Duty Vanguard Zombies Artifacts',
+    'Vanguard Zombies Artifacts',
+    'COD Vanguard Zombies',
+    'Vanguard Artifacts guide',
+    'Energy Mine',
+    'Aether Shroud',
+    'Ring of Fire',
+    'Frost Blast',
+    'Healing Aura',
   ],
 };
 
 export default function VanguardZombiesArtifactsPage() {
+  const breadcrumbLinks = [
+    { href: '/vanguard', text: 'Vanguard' },
+    { href: '/vanguard/info', text: 'Info Hub' },
+    { text: 'Zombies Artifacts' },
+  ];
+
   return (
     <PageLayout containerClassName='theme-vanguard'>
       <Container>
@@ -33,8 +41,10 @@ export default function VanguardZombiesArtifactsPage() {
           <h2 className={styles.pageTitle}>Vanguard</h2>
           <p className={styles.pageSubtitle}>Zombies Artifacts</p>
         </div>
+
         <Row className='p-3 p-md-4 bg-light rounded mb-4'>
           <Col>
+            <Breadcrumbs links={breadcrumbLinks} className='mb-4' />
             <ZombiesFieldUpgradeList game='vanguard' />
           </Col>
         </Row>

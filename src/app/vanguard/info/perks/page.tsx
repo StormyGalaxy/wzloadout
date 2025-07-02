@@ -5,27 +5,36 @@ import type { Metadata } from 'next';
 import PageLayout from '@/components/PageLayout';
 // --- Components ---
 import PerkList from '@/components/info/PerkList';
+import Breadcrumbs from '@/components/common/breadcrumbs/Breadcrumbs';
+// --- Styles ---
+import styles from '@/components/generators/views/ModernLoadout.module.css';
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: 'Vanguard Perks',
-  description: 'View all perks in Vanguard.',
+  title: 'Call of Duty: Vanguard Perks List & Guide | All Tiers',
+  description:
+    'Discover a complete list of all multiplayer perks available in Call of Duty: Vanguard. Learn about the effects of each perk across all three tiers to optimize your loadout and dominate the competition.',
   keywords: [
-    'COD Vanguard RCG',
-    'vanguard random class generator',
-    'vanguard',
-    'vanguard rcg',
-    'vanguard random class generator',
-    'class generator',
-    'zombies',
-    'treyarch zombies',
-    'vanguard zombies',
-    'vanguard rcg',
-    'vanguard random class generator',
+    'Call of Duty Vanguard perks',
+    'COD Vanguard perks',
+    'Vanguard perk list',
+    'All Vanguard perks',
+    'Ghost',
+    'Ninja',
+    'High Alert',
+    'Overkill',
+    'Double Time',
+    'Vanguard loadouts',
   ],
 };
 
 export default function VanguardPerksPage() {
+  const breadcrumbLinks = [
+    { href: '/vanguard', text: 'Vanguard' },
+    { href: '/vanguard/info', text: 'Info Hub' },
+    { text: 'Perks' },
+  ];
+
   return (
     <PageLayout containerClassName='theme-vanguard'>
       <Container>
@@ -35,6 +44,7 @@ export default function VanguardPerksPage() {
         </div>
         <Row className='p-3 p-md-4 bg-light rounded mb-4'>
           <Col>
+            <Breadcrumbs links={breadcrumbLinks} className='mb-4' />
             <PerkList game='vanguard' />
           </Col>
         </Row>

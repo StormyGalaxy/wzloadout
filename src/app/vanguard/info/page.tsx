@@ -1,77 +1,96 @@
-import { Container, Row, Col } from 'react-bootstrap';
 // --- Next ---
 import type { Metadata } from 'next';
-import Link from 'next/link';
 // --- Layout ---
 import PageLayout from '@/components/PageLayout';
 // --- Components ---
-import CodBadge from '@/components/CodBadge';
+import InfoHubClient from '@/components/info/info-hub-client/InfoHubClient';
+// --- Font Awesome ---
+import {
+  faGun,
+  faMedal,
+  faPlane,
+  faExplosion,
+  faMapLocationDot,
+  faWandSparkles,
+} from '@fortawesome/free-solid-svg-icons';
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: 'Loadout Information',
+  title: 'Call of Duty: Vanguard - Info Hub',
   description:
-    'Spice up your COD gameplay! Generate unique random loadouts for Call of Duty Vanguard. Discover new weapons, perks, and gear combinations.',
+    'Your central hub for Call of Duty: Vanguard intel. Explore detailed information on all multiplayer weapons, perks, streaks, equipment, and a complete guide to Zombies maps, artifacts, and covenants.',
   keywords: [
     'COD Vanguard RCG',
     'vanguard random class generator',
-    'vanguard',
-    'vanguard rcg',
-    'vanguard random class generator',
-    'class generator',
-    'zombies',
-    'treyarch zombies',
-    'vanguard zombies',
-    'vanguard rcg',
-    'vanguard random class generator',
+    'vanguard info',
+    'vanguard weapons',
+    'vanguard perks',
+    'vanguard streaks',
+    'vanguard zombies maps',
+    'vanguard covenants',
+    'vanguard artifacts',
   ],
 };
 
-const badges = [
-  { title: 'Equipment', link: '/vanguard/info/equipment' },
-  { title: 'Perks', link: '/vanguard/info/perks' },
-  { title: 'Streaks', link: '/vanguard/info/streaks' },
-  { title: 'Weapons', link: '/vanguard/info/weapons' },
-  { title: 'Zombies Artifacts', link: '/vanguard/info/zombies/artifacts' },
-  { title: 'Zombies Maps', link: '/vanguard/info/zombies/maps' },
+const multiplayerLinks = [
+  {
+    icon: faGun,
+    title: 'Weapons',
+    description: 'Explore the full arsenal of WW2 firearms, from rifles to sidearms.',
+    link: '/vanguard/info/weapons',
+  },
+  {
+    icon: faMedal,
+    title: 'Perks',
+    description: 'Review the full list of perks to customize your loadout.',
+    link: '/vanguard/info/perks',
+  },
+  {
+    icon: faPlane,
+    title: 'Killstreaks',
+    description: 'Learn about the game-changing Killstreaks you can call in to support your team.',
+    link: '/vanguard/info/streaks',
+  },
+  {
+    icon: faExplosion,
+    title: 'Equipment',
+    description:
+      'Familiarize yourself with the lethal and tactical equipment available for your loadout.',
+    link: '/vanguard/info/equipment',
+  },
 ];
+
+const zombiesLinks = [
+  {
+    icon: faMapLocationDot,
+    title: 'Zombies Maps',
+    description: 'Uncover the secrets and layouts of the dark and chilling Zombies maps.',
+    link: '/vanguard/info/zombies/maps',
+  },
+  {
+    icon: faWandSparkles,
+    title: 'Zombies Artifacts',
+    description:
+      'Discover the powerful Artifacts you can wield to turn the tide against the undead.',
+    link: '/vanguard/info/zombies/artifacts',
+  },
+];
+
+const breadcrumbLinks = [{ href: '/vanguard', text: 'Vanguard' }, { text: 'Info Hub' }];
 
 export default function VanguardInfoPage() {
   return (
     <PageLayout containerClassName='theme-vanguard'>
-      <Container>
-        <div className='text-center mb-4'>
-          <h2 className={styles.pageTitle}>Vanguard</h2>
-          <p className={styles.pageSubtitle}>Loadout Information</p>
-        </div>
-        <Row className='p-3 p-md-4 bg-light rounded mb-4'>
-          <Col lg={7} className='text-center'>
-            <p>
-              Welcome to your central hub for all essential Call of Duty: Vanguard data! Whether
-              you&apos;re fine-tuning your multiplayer strategy or preparing to face the undead
-              hordes, we&apos;ve compiled the information you need. Our loadout section details
-              every multiplayer <strong>weapon</strong>, <strong>perk</strong>, piece of{' '}
-              <strong>equipment</strong>, <strong>wildcard</strong>, and <strong>killstreak</strong>{' '}
-              available. For Zombies slayers, explore the available <strong>maps</strong>, discover
-              the powerful <strong>Artifacts</strong> to aid your survival, and learn about the
-              various <strong>Covenants</strong> you can acquire at the Altar, including those that
-              function like <strong>ammo mods</strong>, to customize your build and overcome the
-              darkness. Find all the links on this page to get started.
-            </p>
-          </Col>
-          <Col lg={5}>
-            <h4 className='text-center'>Links</h4>
-            <hr />
-            <div className='d-flex flex-wrap gap-2'>
-              {badges.map((item) => (
-                <Link key={item.title} href={item.link} className='text-decoration-none' passHref>
-                  <CodBadge name={item.title} variant='danger' />
-                </Link>
-              ))}
-            </div>
-          </Col>
-        </Row>
-      </Container>
+      <InfoHubClient
+        heroTitle='Call of Duty: Vanguard'
+        heroSubTitle='Your Central Hub for Multiplayer & Zombies Intel'
+        multiplayerLink='/vanguard/generator'
+        multiplayerLinks={multiplayerLinks}
+        zombiesLink='/vanguard/zombies-generator'
+        zombiesLinks={zombiesLinks}
+        buttonVariant='danger'
+        breadcrumbs={breadcrumbLinks}
+      />
     </PageLayout>
   );
 }

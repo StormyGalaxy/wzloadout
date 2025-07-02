@@ -9,20 +9,16 @@ import WeaponDisplayClient from '@/components/info/WeaponDisplayClient';
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: 'Vanguard Weapons',
+  title: 'Vanguard Weapon Information',
   description: 'View information and all available attachments for the weapon in Vanguard.',
   keywords: [
     'COD Vanguard RCG',
     'vanguard random class generator',
     'vanguard',
     'vanguard rcg',
-    'vanguard random class generator',
     'class generator',
-    'zombies',
-    'treyarch zombies',
     'vanguard zombies',
     'vanguard rcg',
-    'vanguard random class generator',
   ],
 };
 
@@ -39,7 +35,7 @@ export default function VanguardWeaponPage() {
                 <p className='text-center'>Loading page...</p>
               </Col>
             }>
-            <WeaponDisplayClient game={game} />
+            <WeaponDisplayClient game={game} link='vanguard' />
           </Suspense>
         </Row>
       </Container>
