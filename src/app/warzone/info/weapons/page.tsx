@@ -39,12 +39,10 @@ export default function WarzoneWeaponsPage() {
   return (
     <PageLayout navLinks={navLinks} headerClassName='warzone'>
       <Container>
-        <h2 className='text-center mb-4'>
-          Warzone
-          <span className='d-none d-sm-inline-block'>&nbsp;-&nbsp;</span>
-          <br className='d-block d-sm-none' />
-          Weapons
-        </h2>
+        <div className='text-center mb-4'>
+          <h2 className={styles.pageTitle}>Warzone</h2>
+          <p className={styles.pageSubtitle}>Weapons</p>
+        </div>
         <Row className='p-3 p-md-4 bg-light rounded mb-4'>
           <Col>
             <WeaponList game='warzone' dataKeys={dataKeys} />

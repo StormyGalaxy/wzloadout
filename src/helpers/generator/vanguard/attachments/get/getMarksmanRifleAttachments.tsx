@@ -1,8 +1,8 @@
 // --- Data ---
-import g43 from '@/json/vanguard/attachments/marksman_rifle/g43.json';
-import m1garand from '@/json/vanguard/attachments/marksman_rifle/m1garand.json';
-import m1916 from '@/json/vanguard/attachments/marksman_rifle/m1916.json';
-import svt40 from '@/json/vanguard/attachments/marksman_rifle/svt40.json';
+import g43 from '@/data/vanguard/attachments/marksman_rifle/g43.json';
+import m1garand from '@/data/vanguard/attachments/marksman_rifle/m1garand.json';
+import m1916 from '@/data/vanguard/attachments/marksman_rifle/m1916.json';
+import svt40 from '@/data/vanguard/attachments/marksman_rifle/svt40.json';
 // --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 

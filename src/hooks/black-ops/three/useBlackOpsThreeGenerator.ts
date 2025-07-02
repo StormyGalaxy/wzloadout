@@ -18,7 +18,7 @@ import { LoadoutFrame } from '@/types/BlackOps3';
 // --- Utils ---
 import { sendEvent } from '@silocitypages/utils';
 // --- Data ---
-import defaultData from '@/json/cod/default-generator-info.json';
+import defaultData from '@/data/cod/default-generator-info.json';
 
 const defaultWeapon = {
   name: '',

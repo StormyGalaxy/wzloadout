@@ -1,7 +1,7 @@
 // --- Data ---
-import rgl80 from '@/json/modern-warfare/three/attachments/launcher/rgl80.json';
-import stormender from '@/json/modern-warfare/three/attachments/launcher/stormender.json';
-import torque35 from '@/json/modern-warfare/three/attachments/launcher/torque35.json';
+import rgl80 from '@/data/modern-warfare/three/attachments/launcher/rgl80.json';
+import stormender from '@/data/modern-warfare/three/attachments/launcher/stormender.json';
+import torque35 from '@/data/modern-warfare/three/attachments/launcher/torque35.json';
 // --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 

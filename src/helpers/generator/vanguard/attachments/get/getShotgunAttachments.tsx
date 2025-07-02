@@ -1,8 +1,8 @@
 // --- Data ---
-import combatShotgun from '@/json/vanguard/attachments/shotgun/combatShotgun.json';
-import doubleBarrel from '@/json/vanguard/attachments/shotgun/doubleBarrel.json';
-import einhornRevolving from '@/json/vanguard/attachments/shotgun/einhornRevolving.json';
-import graceyAuto from '@/json/vanguard/attachments/shotgun/graceyAuto.json';
+import combatShotgun from '@/data/vanguard/attachments/shotgun/combatShotgun.json';
+import doubleBarrel from '@/data/vanguard/attachments/shotgun/doubleBarrel.json';
+import einhornRevolving from '@/data/vanguard/attachments/shotgun/einhornRevolving.json';
+import graceyAuto from '@/data/vanguard/attachments/shotgun/graceyAuto.json';
 // --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 

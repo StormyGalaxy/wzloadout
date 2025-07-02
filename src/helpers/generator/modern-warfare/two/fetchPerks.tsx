@@ -1,6 +1,6 @@
-import baseList from '@/json/modern-warfare/two/perk/base.json';
-import bonusList from '@/json/modern-warfare/two/perk/bonus.json';
-import ultimateList from '@/json/modern-warfare/two/perk/ultimate.json';
+import baseList from '@/data/modern-warfare/two/perk/base.json';
+import bonusList from '@/data/modern-warfare/two/perk/bonus.json';
+import ultimateList from '@/data/modern-warfare/two/perk/ultimate.json';
 import { randomListItem } from '@silocitypages/utils';
 
 export function fetchPerks(): string {

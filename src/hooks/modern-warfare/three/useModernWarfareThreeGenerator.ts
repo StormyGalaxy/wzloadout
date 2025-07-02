@@ -15,7 +15,7 @@ import { GeneratorData, GeneratorStatus } from '@/types/Generator';
 // --- Utils ---
 import { sendEvent } from '@silocitypages/utils';
 // --- Data ---
-import defaultData from '@/json/cod/default-generator-info.json';
+import defaultData from '@/data/cod/default-generator-info.json';
 
 const fetchNewMw3Loadout = (): GeneratorData => {
   sendEvent('button_click', {

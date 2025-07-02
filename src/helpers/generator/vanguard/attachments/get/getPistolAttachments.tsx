@@ -1,9 +1,9 @@
 // --- Data ---
-import one911 from '@/json/vanguard/attachments/pistol/1911.json';
-import klauser from '@/json/vanguard/attachments/pistol/klauser.json';
-import machinePistol from '@/json/vanguard/attachments/pistol/machinePistol.json';
-import ratt from '@/json/vanguard/attachments/pistol/ratt.json';
-import topBreak from '@/json/vanguard/attachments/pistol/topBreak.json';
+import one911 from '@/data/vanguard/attachments/pistol/1911.json';
+import klauser from '@/data/vanguard/attachments/pistol/klauser.json';
+import machinePistol from '@/data/vanguard/attachments/pistol/machinePistol.json';
+import ratt from '@/data/vanguard/attachments/pistol/ratt.json';
+import topBreak from '@/data/vanguard/attachments/pistol/topBreak.json';
 // --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 

@@ -1,7 +1,7 @@
 // --- Data ---
-import default1 from '@/json/world-at-war/attachments/lmg/default.json';
-import type99 from '@/json/world-at-war/attachments/lmg/type99.json';
-import fg42 from '@/json/world-at-war/attachments/lmg/fg42.json';
+import default1 from '@/data/world-at-war/attachments/lmg/default.json';
+import type99 from '@/data/world-at-war/attachments/lmg/type99.json';
+import fg42 from '@/data/world-at-war/attachments/lmg/fg42.json';
 // --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 

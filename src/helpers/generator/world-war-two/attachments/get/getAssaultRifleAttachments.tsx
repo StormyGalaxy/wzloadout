@@ -1,6 +1,6 @@
 // --- Data ---
-import default1 from '@/json/world-war-two/attachments/assault_rifle/default1.json';
-import default2 from '@/json/world-war-two/attachments/assault_rifle/default2.json';
+import default1 from '@/data/world-war-two/attachments/assault_rifle/default1.json';
+import default2 from '@/data/world-war-two/attachments/assault_rifle/default2.json';
 // --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 

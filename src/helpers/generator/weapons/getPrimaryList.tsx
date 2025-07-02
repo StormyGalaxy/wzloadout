@@ -1,24 +1,24 @@
 // --- Utils ---
 import { mergeObjectsWithRekey } from '@silocitypages/utils';
 // --- Data ---
-import bo6List from '@/json/black-ops/six/weapon/primary.json';
-import mw3List from '@/json/modern-warfare/three/weapon/primary.json';
-import vanguardList from '@/json/vanguard/weapon/primary.json';
-import coldWarList from '@/json/black-ops/cold-war/weapon/primary.json';
-import bo3List from '@/json/black-ops/three/weapon/primary.json';
-import bo4List from '@/json/black-ops/four/weapon/primary.json';
-import mwrList from '@/json/modern-warfare/remastered/weapon/primary.json';
-import ww2List from '@/json/world-war-two/weapon/primary.json';
-import ww2ZombieList from '@/json/world-war-two/zombies/weapon.json';
-import iwList from '@/json/infinite-warfare/weapon/primary.json';
-import wawList from '@/json/world-at-war/weapon/primary.json';
+import bo6List from '@/data/black-ops/six/weapon/primary.json';
+import mw3List from '@/data/modern-warfare/three/weapon/primary.json';
+import vanguardList from '@/data/vanguard/weapon/primary.json';
+import coldWarList from '@/data/black-ops/cold-war/weapon/primary.json';
+import bo3List from '@/data/black-ops/three/weapon/primary.json';
+import bo4List from '@/data/black-ops/four/weapon/primary.json';
+import mwrList from '@/data/modern-warfare/remastered/weapon/primary.json';
+import ww2List from '@/data/world-war-two/weapon/primary.json';
+import ww2ZombieList from '@/data/world-war-two/zombies/weapon.json';
+import iwList from '@/data/infinite-warfare/weapon/primary.json';
+import wawList from '@/data/world-at-war/weapon/primary.json';
 // --- Modern Warfare 2 ---
-import mw2List from '@/json/modern-warfare/two/weapon/primary.json';
-import mw2RiotList from '@/json/modern-warfare/two/weapon/riot.json';
+import mw2List from '@/data/modern-warfare/two/weapon/primary.json';
+import mw2RiotList from '@/data/modern-warfare/two/weapon/riot.json';
 // --- Black Ops 4 Zombies ---
-import bo4ZombieList from '@/json/black-ops/four/zombies/start_weapon.json';
-import bo4ZombieAetherSpecialList from '@/json/black-ops/four/zombies/aether_story/special_weapon.json';
-import bo4ZombieChaosSpecialList from '@/json/black-ops/four/zombies/chaos_story/special_weapon.json';
+import bo4ZombieList from '@/data/black-ops/four/zombies/start_weapon.json';
+import bo4ZombieAetherSpecialList from '@/data/black-ops/four/zombies/aether_story/special_weapon.json';
+import bo4ZombieChaosSpecialList from '@/data/black-ops/four/zombies/chaos_story/special_weapon.json';
 // --- Types ---
 import { Weapon } from '@/types/Generator';
 

@@ -1,10 +1,10 @@
 // --- Data ---
-import hornet from '@/json/infinite-warfare/attachments/classic/hornet.json';
-import m1 from '@/json/infinite-warfare/attachments/classic/m1.json';
-import mactav45 from '@/json/infinite-warfare/attachments/classic/mactav45.json';
-import osa from '@/json/infinite-warfare/attachments/classic/osa.json';
-import sravage from '@/json/infinite-warfare/attachments/classic/sravage.json';
-import tf141 from '@/json/infinite-warfare/attachments/classic/tf141.json';
+import hornet from '@/data/infinite-warfare/attachments/classic/hornet.json';
+import m1 from '@/data/infinite-warfare/attachments/classic/m1.json';
+import mactav45 from '@/data/infinite-warfare/attachments/classic/mactav45.json';
+import osa from '@/data/infinite-warfare/attachments/classic/osa.json';
+import sravage from '@/data/infinite-warfare/attachments/classic/sravage.json';
+import tf141 from '@/data/infinite-warfare/attachments/classic/tf141.json';
 // --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 

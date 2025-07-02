@@ -41,12 +41,10 @@ export default function WhereWeDroppinPage() {
   return (
     <PageLayout navLinks={navLinks} headerClassName='warzone'>
       <Container>
-        <h2 className='text-center mb-4'>
-          Warzone
-          <span className='d-none d-sm-inline-block'>&nbsp;-&nbsp;</span>
-          <br className='d-block d-sm-none' />
-          Where We Droppin?
-        </h2>
+        <div className='text-center mb-4'>
+          <h2 className={styles.pageTitle}>Warzone</h2>
+          <p className={styles.pageSubtitle}>Where We Droppin?</p>
+        </div>
         <Row className='p-3 p-md-4 bg-light rounded mb-4'>
           <Col className='mx-auto'>
             <WarzoneDropSpot />

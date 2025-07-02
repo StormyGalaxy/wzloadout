@@ -1,6 +1,6 @@
 // --- Data ---
-import default1 from '@/json/infinite-warfare/attachments/smg/default1.json';
-import default2 from '@/json/infinite-warfare/attachments/smg/default2.json';
+import default1 from '@/data/infinite-warfare/attachments/smg/default1.json';
+import default2 from '@/data/infinite-warfare/attachments/smg/default2.json';
 // --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 

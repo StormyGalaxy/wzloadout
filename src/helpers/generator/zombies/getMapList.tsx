@@ -1,17 +1,17 @@
 // --- Utils ---
 import { mergeObjectsWithRekey } from '@silocitypages/utils';
 // --- Black Ops 6 Zombies ---
-import bo6List from '@/json/black-ops/six/zombies/map.json';
+import bo6List from '@/data/black-ops/six/zombies/map.json';
 // --- Vanguard Zombies ---
-import vanguardList from '@/json/vanguard/zombies/map.json';
+import vanguardList from '@/data/vanguard/zombies/map.json';
 // --- Cold War Zombies ---
-import coldWarCoreList from '@/json/black-ops/cold-war/zombies/map/core.json';
-import coldWarOnslaughtList from '@/json/black-ops/cold-war/zombies/map/onslaught.json';
+import coldWarCoreList from '@/data/black-ops/cold-war/zombies/map/core.json';
+import coldWarOnslaughtList from '@/data/black-ops/cold-war/zombies/map/onslaught.json';
 // --- Black Ops 4 Zombies ---
-import bo4AetherList from '@/json/black-ops/four/zombies/aether_story/map.json';
-import bo4ChaosList from '@/json/black-ops/four/zombies/chaos_story/map.json';
+import bo4AetherList from '@/data/black-ops/four/zombies/aether_story/map.json';
+import bo4ChaosList from '@/data/black-ops/four/zombies/chaos_story/map.json';
 // --- World War 2 Zombies ---
-import ww2List from '@/json/world-war-two/zombies/map.json';
+import ww2List from '@/data/world-war-two/zombies/map.json';
 // --- Types ---
 import { ZombiesMap } from '@/types/Generator';
 

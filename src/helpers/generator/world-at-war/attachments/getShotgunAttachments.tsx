@@ -1,6 +1,6 @@
 // --- Data ---
-import m1897trenchgun from '@/json/world-at-war/attachments/shotgun/m1897trenchgun.json';
-import doublebarreledshotgun from '@/json/world-at-war/attachments/shotgun/doublebarreledshotgun.json';
+import m1897trenchgun from '@/data/world-at-war/attachments/shotgun/m1897trenchgun.json';
+import doublebarreledshotgun from '@/data/world-at-war/attachments/shotgun/doublebarreledshotgun.json';
 // --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 

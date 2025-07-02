@@ -12,7 +12,7 @@ import { GeneratorData, GeneratorStatus } from '@/types/Generator';
 // --- Utils ---
 import { sendEvent } from '@silocitypages/utils';
 // --- Data ---
-import defaultData from '@/json/cod/default-zombies-generator-info.json';
+import defaultData from '@/data/cod/default-zombies-generator-info.json';
 
 const fetchNewMw3ZombiesLoadout = (): GeneratorData => {
   sendEvent('button_click', {

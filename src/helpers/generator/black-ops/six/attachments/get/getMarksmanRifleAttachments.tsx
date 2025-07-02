@@ -1,10 +1,10 @@
 // --- Data ---
-import aek973 from '@/json/black-ops/six/attachments/marksman_rifle/aek973.json';
-import dm10 from '@/json/black-ops/six/attachments/marksman_rifle/dm10.json';
-import swat556 from '@/json/black-ops/six/attachments/marksman_rifle/swat556.json';
-import tsarkov762 from '@/json/black-ops/six/attachments/marksman_rifle/tsarkov762.json';
+import aek973 from '@/data/black-ops/six/attachments/marksman_rifle/aek973.json';
+import dm10 from '@/data/black-ops/six/attachments/marksman_rifle/dm10.json';
+import swat556 from '@/data/black-ops/six/attachments/marksman_rifle/swat556.json';
+import tsarkov762 from '@/data/black-ops/six/attachments/marksman_rifle/tsarkov762.json';
 // --- DLC ---
-import tr2 from '@/json/black-ops/six/attachments/marksman_rifle/tr2.json';
+import tr2 from '@/data/black-ops/six/attachments/marksman_rifle/tr2.json';
 // --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 

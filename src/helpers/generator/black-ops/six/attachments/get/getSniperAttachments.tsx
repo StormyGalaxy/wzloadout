@@ -1,9 +1,9 @@
 // --- Data ---
-import lr762 from '@/json/black-ops/six/attachments/sniper/lr762.json';
-import lw3a1Frostline from '@/json/black-ops/six/attachments/sniper/lw3a1Frostline.json';
-import svd from '@/json/black-ops/six/attachments/sniper/svd.json';
-import amrmod4 from '@/json/black-ops/six/attachments/sniper/amrmod4.json';
-import hdr from '@/json/black-ops/six/attachments/sniper/hdr.json';
+import lr762 from '@/data/black-ops/six/attachments/sniper/lr762.json';
+import lw3a1Frostline from '@/data/black-ops/six/attachments/sniper/lw3a1Frostline.json';
+import svd from '@/data/black-ops/six/attachments/sniper/svd.json';
+import amrmod4 from '@/data/black-ops/six/attachments/sniper/amrmod4.json';
+import hdr from '@/data/black-ops/six/attachments/sniper/hdr.json';
 // --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 

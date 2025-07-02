@@ -5,8 +5,8 @@ import PageLayout from '@/components/PageLayout';
 // --- Components ---
 import { SclCard } from '@silocitypages/ui-core';
 // --- Data ---
-import generatorList from '@/json/index/generator-list.json';
-import zombieGeneratorList from '@/json/index/zombie-generator-list.json';
+import generatorList from '@/data/index/generator-list.json';
+import zombieGeneratorList from '@/data/index/zombie-generator-list.json';
 
 export default function HomePage() {
   return (

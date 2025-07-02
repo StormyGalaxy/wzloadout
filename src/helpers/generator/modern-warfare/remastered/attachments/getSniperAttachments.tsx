@@ -1,5 +1,5 @@
 // --- Data ---
-import default1 from '@/json/modern-warfare/remastered/attachments/sniper/default1.json';
+import default1 from '@/data/modern-warfare/remastered/attachments/sniper/default1.json';
 // --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 

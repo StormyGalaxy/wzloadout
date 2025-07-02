@@ -1,7 +1,7 @@
 // --- Data ---
-import asg89 from '@/json/black-ops/six/attachments/shotgun/asg89.json';
-import marinesp from '@/json/black-ops/six/attachments/shotgun/marineSp.json';
-import maelstrom from '@/json/black-ops/six/attachments/shotgun/maelstrom.json';
+import asg89 from '@/data/black-ops/six/attachments/shotgun/asg89.json';
+import marinesp from '@/data/black-ops/six/attachments/shotgun/marineSp.json';
+import maelstrom from '@/data/black-ops/six/attachments/shotgun/maelstrom.json';
 // --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 

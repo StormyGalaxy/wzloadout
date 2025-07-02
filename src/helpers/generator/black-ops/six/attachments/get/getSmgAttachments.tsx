@@ -1,13 +1,13 @@
 // --- Data ---
-import c9 from '@/json/black-ops/six/attachments/smg/c9.json';
-import jackalpdw from '@/json/black-ops/six/attachments/smg/jackalPdw.json';
-import kompakt92 from '@/json/black-ops/six/attachments/smg/kompakt92.json';
-import ksv from '@/json/black-ops/six/attachments/smg/ksv.json';
-import pp919 from '@/json/black-ops/six/attachments/smg/pp919.json';
-import tanto22 from '@/json/black-ops/six/attachments/smg/tanto22.json';
+import c9 from '@/data/black-ops/six/attachments/smg/c9.json';
+import jackalpdw from '@/data/black-ops/six/attachments/smg/jackalPdw.json';
+import kompakt92 from '@/data/black-ops/six/attachments/smg/kompakt92.json';
+import ksv from '@/data/black-ops/six/attachments/smg/ksv.json';
+import pp919 from '@/data/black-ops/six/attachments/smg/pp919.json';
+import tanto22 from '@/data/black-ops/six/attachments/smg/tanto22.json';
 //DLC Weapons
-import saug from '@/json/black-ops/six/attachments/smg/saug.json';
-import ppsh41 from '@/json/black-ops/six/attachments/smg/ppsh41.json';
+import saug from '@/data/black-ops/six/attachments/smg/saug.json';
+import ppsh41 from '@/data/black-ops/six/attachments/smg/ppsh41.json';
 // --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 

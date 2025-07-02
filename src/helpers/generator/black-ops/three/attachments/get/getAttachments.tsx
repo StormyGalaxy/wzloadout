@@ -1,13 +1,13 @@
 // --- Data ---
-import assault_rifle from '@/json/black-ops/three/attachments/assault_rifle/attachments.json';
-import lmg from '@/json/black-ops/three/attachments/lmg/attachments.json';
-import pistol from '@/json/black-ops/three/attachments/pistol/attachments.json';
-import shotgun from '@/json/black-ops/three/attachments/shotgun/attachments.json';
-import smg from '@/json/black-ops/three/attachments/smg/attachments.json';
-import sniper from '@/json/black-ops/three/attachments/sniper/attachments.json';
+import assault_rifle from '@/data/black-ops/three/attachments/assault_rifle/attachments.json';
+import lmg from '@/data/black-ops/three/attachments/lmg/attachments.json';
+import pistol from '@/data/black-ops/three/attachments/pistol/attachments.json';
+import shotgun from '@/data/black-ops/three/attachments/shotgun/attachments.json';
+import smg from '@/data/black-ops/three/attachments/smg/attachments.json';
+import sniper from '@/data/black-ops/three/attachments/sniper/attachments.json';
 // --- Weapon Specific ---
-import nxShadowclaw from '@/json/black-ops/three/attachments/special/nxShadowclaw.json';
-import rifte9 from '@/json/black-ops/three/attachments/pistol/rifte9.json';
+import nxShadowclaw from '@/data/black-ops/three/attachments/special/nxShadowclaw.json';
+import rifte9 from '@/data/black-ops/three/attachments/pistol/rifte9.json';
 // --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 

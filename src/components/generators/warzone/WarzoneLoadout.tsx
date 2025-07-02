@@ -19,7 +19,7 @@ import { getEnabledGames } from '@/helpers/generator/getEnabledGames';
 // --- Utils ---
 import { sendEvent } from '@silocitypages/utils';
 // --- Data ---
-import defaultData from '@/json/cod/default-generator-info.json';
+import defaultData from '@/data/cod/default-generator-info.json';
 // --- DB ---
 import { getDocumentByColumn } from '@silocitypages/data-access';
 import { useDatabase } from '@/contexts/DatabaseContext';

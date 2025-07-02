@@ -1,5 +1,5 @@
 // --- World War 2 Zombies ---
-import ww2CharacterList from '@/json/world-war-two/zombies/character.json';
+import ww2CharacterList from '@/data/world-war-two/zombies/character.json';
 // --- Types ---
 import { ItemList } from '@/types/Generator';
 

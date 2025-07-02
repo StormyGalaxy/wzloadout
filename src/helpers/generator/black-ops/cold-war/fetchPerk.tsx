@@ -1,7 +1,7 @@
 // --- Data ---
-import perk1 from '@/json/black-ops/cold-war/perk/perk1.json';
-import perk2 from '@/json/black-ops/cold-war/perk/perk2.json';
-import perk3 from '@/json/black-ops/cold-war/perk/perk3.json';
+import perk1 from '@/data/black-ops/cold-war/perk/perk1.json';
+import perk2 from '@/data/black-ops/cold-war/perk/perk2.json';
+import perk3 from '@/data/black-ops/cold-war/perk/perk3.json';
 // --- Utils ---
 import { randomListItem } from '@silocitypages/utils';
 // --- Types ---

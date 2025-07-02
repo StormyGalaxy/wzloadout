@@ -14,7 +14,7 @@ import { Bo4ZombiesSettings, Weapon, GeneratorItem, ZombiesMap } from '@/types/G
 // --- Utils ---
 import { sendEvent, setLocalStorage, getLocalStorage } from '@silocitypages/utils';
 // --- Data ---
-import defaultData from '@/json/cod/default-zombies-generator-info.json';
+import defaultData from '@/data/cod/default-zombies-generator-info.json';
 
 const defaultSettings: Bo4ZombiesSettings = {
   rollMap: true,

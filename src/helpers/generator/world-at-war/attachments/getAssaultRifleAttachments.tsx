@@ -1,8 +1,8 @@
 // --- Data ---
-import default1 from '@/json/world-at-war/attachments/assault_rifle/default.json';
-import gewehr43 from '@/json/world-at-war/attachments/assault_rifle/gewehr43.json';
-import m1garand from '@/json/world-at-war/attachments/assault_rifle/m1garand.json';
-import m1a1carbine from '@/json/world-at-war/attachments/assault_rifle/m1a1carbine.json';
+import default1 from '@/data/world-at-war/attachments/assault_rifle/default.json';
+import gewehr43 from '@/data/world-at-war/attachments/assault_rifle/gewehr43.json';
+import m1garand from '@/data/world-at-war/attachments/assault_rifle/m1garand.json';
+import m1a1carbine from '@/data/world-at-war/attachments/assault_rifle/m1a1carbine.json';
 // --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 

@@ -1,9 +1,9 @@
 // --- Utils ---
 import { mergeObjectsWithRekey } from '@silocitypages/utils';
 // --- Black Ops 6 Zombies ---
-import bo6AmmoModList from '@/json/black-ops/six/zombies/augments/ammo-mods.json';
-import bo6FieldUpgradeList from '@/json/black-ops/six/zombies/augments/field-upgrades.json';
-import bo6PerkAColaList from '@/json/black-ops/six/zombies/augments/perk-a-colas.json';
+import bo6AmmoModList from '@/data/black-ops/six/zombies/augments/ammo-mods.json';
+import bo6FieldUpgradeList from '@/data/black-ops/six/zombies/augments/field-upgrades.json';
+import bo6PerkAColaList from '@/data/black-ops/six/zombies/augments/perk-a-colas.json';
 // --- Types ---
 import { Augment } from '@/types/Generator';
 

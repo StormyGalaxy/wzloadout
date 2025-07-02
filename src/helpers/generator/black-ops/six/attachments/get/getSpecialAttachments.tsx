@@ -1,6 +1,6 @@
 // --- Data ---
-import sirin9mm from '@/json/black-ops/six/attachments/special/sirin9mm.json';
-import d13sector from '@/json/black-ops/six/attachments/special/d13sector.json';
+import sirin9mm from '@/data/black-ops/six/attachments/special/sirin9mm.json';
+import d13sector from '@/data/black-ops/six/attachments/special/d13sector.json';
 // --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 

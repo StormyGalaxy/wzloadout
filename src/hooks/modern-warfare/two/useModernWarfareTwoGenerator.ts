@@ -15,7 +15,7 @@ import { sendEvent } from '@silocitypages/utils';
 // --- Types ---
 import { GeneratorData, GeneratorStatus } from '@/types/Generator';
 // --- Data ---
-import defaultData from '@/json/cod/default-generator-info.json';
+import defaultData from '@/data/cod/default-generator-info.json';
 
 const fetchNewMW2Loadout = (): GeneratorData => {
   const game = 'modern-warfare-two';

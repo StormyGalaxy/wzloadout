@@ -6,8 +6,8 @@ import { Tabs, Tab } from 'react-bootstrap';
 // --- Components ---
 import Changelog from '@/components/changelog/Changelog';
 // --- Data ---
-import changelog2024 from '@/json/changelog/2024.json';
-import changelog2025 from '@/json/changelog/2025.json';
+import changelog2024 from '@/data/changelog/2024.json';
+import changelog2025 from '@/data/changelog/2025.json';
 
 export default function ChangelogTabs() {
   const [key, setKey] = useState<string>('2025');

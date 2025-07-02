@@ -1,10 +1,10 @@
 // --- Utils ---
 import { mergeObjectsWithRekey } from '@silocitypages/utils';
 // --- Data ---
-import bo6List from '@/json/black-ops/six/weapon/melee.json';
-import mw3List from '@/json/modern-warfare/three/weapon/melee.json';
-import mw2List from '@/json/modern-warfare/two/weapon/melee.json';
-import mwrList from '@/json/modern-warfare/remastered/weapon/melee.json';
+import bo6List from '@/data/black-ops/six/weapon/melee.json';
+import mw3List from '@/data/modern-warfare/three/weapon/melee.json';
+import mw2List from '@/data/modern-warfare/two/weapon/melee.json';
+import mwrList from '@/data/modern-warfare/remastered/weapon/melee.json';
 // --- Types ---
 import { Weapon } from '@/types/Generator';
 

@@ -14,7 +14,7 @@ import { sendEvent } from '@silocitypages/utils';
 // --- Types ---
 import { GeneratorData, GeneratorStatus, PerkObject } from '@/types/Generator';
 // --- Data ---
-import defaultData from '@/json/cod/default-generator-info.json';
+import defaultData from '@/data/cod/default-generator-info.json';
 
 const fetchNewWawLoadout = (): GeneratorData => {
   const game = 'world-at-war';

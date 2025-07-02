@@ -1,7 +1,7 @@
 // --- Data ---
-import glovesList from '@/json/modern-warfare/three/perk/gloves.json';
-import bootsList from '@/json/modern-warfare/three/perk/boots.json';
-import gearList from '@/json/modern-warfare/three/perk/gear.json';
+import glovesList from '@/data/modern-warfare/three/perk/gloves.json';
+import bootsList from '@/data/modern-warfare/three/perk/boots.json';
+import gearList from '@/data/modern-warfare/three/perk/gear.json';
 // --- Utils ---
 import { randomListItem } from '@silocitypages/utils';
 

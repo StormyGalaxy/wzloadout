@@ -1,15 +1,15 @@
 // --- Data ---
-import armaguerra43 from '@/json/vanguard/attachments/smg/armaguerra43.json';
-import h4blixen from '@/json/vanguard/attachments/smg/h4blixen.json';
-import m1928 from '@/json/vanguard/attachments/smg/m1928.json';
-import marco5 from '@/json/vanguard/attachments/smg/marco5.json';
-import mp40 from '@/json/vanguard/attachments/smg/mp40.json';
-import owenGun from '@/json/vanguard/attachments/smg/owenGun.json';
-import ppsh41 from '@/json/vanguard/attachments/smg/ppsh41.json';
-import ra225 from '@/json/vanguard/attachments/smg/ra225.json';
-import sten from '@/json/vanguard/attachments/smg/sten.json';
-import type100 from '@/json/vanguard/attachments/smg/type100.json';
-import welgun from '@/json/vanguard/attachments/smg/welgun.json';
+import armaguerra43 from '@/data/vanguard/attachments/smg/armaguerra43.json';
+import h4blixen from '@/data/vanguard/attachments/smg/h4blixen.json';
+import m1928 from '@/data/vanguard/attachments/smg/m1928.json';
+import marco5 from '@/data/vanguard/attachments/smg/marco5.json';
+import mp40 from '@/data/vanguard/attachments/smg/mp40.json';
+import owenGun from '@/data/vanguard/attachments/smg/owenGun.json';
+import ppsh41 from '@/data/vanguard/attachments/smg/ppsh41.json';
+import ra225 from '@/data/vanguard/attachments/smg/ra225.json';
+import sten from '@/data/vanguard/attachments/smg/sten.json';
+import type100 from '@/data/vanguard/attachments/smg/type100.json';
+import welgun from '@/data/vanguard/attachments/smg/welgun.json';
 // --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 

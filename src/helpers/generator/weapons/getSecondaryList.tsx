@@ -1,20 +1,20 @@
 // --- Utils ---
 import { mergeObjectsWithRekey } from '@silocitypages/utils';
 // --- Data ---
-import bo6List from '@/json/black-ops/six/weapon/secondary.json';
-import mw3List from '@/json/modern-warfare/three/weapon/secondary.json';
-import mw3MeleeList from '@/json/modern-warfare/three/weapon/melee.json';
-import mw2List from '@/json/modern-warfare/two/weapon/secondary.json';
-import mw2MeleeList from '@/json/modern-warfare/two/weapon/melee.json';
-import vanguardList from '@/json/vanguard/weapon/secondary.json';
-import coldWarList from '@/json/black-ops/cold-war/weapon/secondary.json';
-import bo3List from '@/json/black-ops/three/weapon/secondary.json';
-import bo4List from '@/json/black-ops/four/weapon/secondary.json';
-import mwrList from '@/json/modern-warfare/remastered/weapon/side_arm.json';
-import ww2List from '@/json/world-war-two/weapon/secondary.json';
-import ww2MeleeList from '@/json/world-war-two/weapon/melee.json';
-import iwList from '@/json/infinite-warfare/weapon/secondary.json';
-import wawList from '@/json/world-at-war/weapon/side_arm.json';
+import bo6List from '@/data/black-ops/six/weapon/secondary.json';
+import mw3List from '@/data/modern-warfare/three/weapon/secondary.json';
+import mw3MeleeList from '@/data/modern-warfare/three/weapon/melee.json';
+import mw2List from '@/data/modern-warfare/two/weapon/secondary.json';
+import mw2MeleeList from '@/data/modern-warfare/two/weapon/melee.json';
+import vanguardList from '@/data/vanguard/weapon/secondary.json';
+import coldWarList from '@/data/black-ops/cold-war/weapon/secondary.json';
+import bo3List from '@/data/black-ops/three/weapon/secondary.json';
+import bo4List from '@/data/black-ops/four/weapon/secondary.json';
+import mwrList from '@/data/modern-warfare/remastered/weapon/side_arm.json';
+import ww2List from '@/data/world-war-two/weapon/secondary.json';
+import ww2MeleeList from '@/data/world-war-two/weapon/melee.json';
+import iwList from '@/data/infinite-warfare/weapon/secondary.json';
+import wawList from '@/data/world-at-war/weapon/side_arm.json';
 // --- Types ---
 import { Weapon } from '@/types/Generator';
 

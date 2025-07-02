@@ -1,8 +1,8 @@
 // --- Data ---
-import threeLineRifle from '@/json/vanguard/attachments/sniper/3lineRifle.json';
-import gorenkoAntitankRifle from '@/json/vanguard/attachments/sniper/gorenkoAntitankRifle.json';
-import kar98k from '@/json/vanguard/attachments/sniper/kar98k.json';
-import type99 from '@/json/vanguard/attachments/sniper/type99.json';
+import threeLineRifle from '@/data/vanguard/attachments/sniper/3lineRifle.json';
+import gorenkoAntitankRifle from '@/data/vanguard/attachments/sniper/gorenkoAntitankRifle.json';
+import kar98k from '@/data/vanguard/attachments/sniper/kar98k.json';
+import type99 from '@/data/vanguard/attachments/sniper/type99.json';
 // --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 

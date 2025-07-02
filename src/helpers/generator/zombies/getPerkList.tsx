@@ -1,13 +1,13 @@
 // --- Utils ---
 import { mergeObjectsWithRekey } from '@silocitypages/utils';
 // --- Black Ops 4 Zombies ---
-import bo4List from '@/json/black-ops/four/zombies/perks.json';
+import bo4List from '@/data/black-ops/four/zombies/perks.json';
 // --- World War 2 ---
-import ww2CamouflageList from '@/json/world-war-two/zombies/mods/camouflage.json';
-import ww2FreefireList from '@/json/world-war-two/zombies/mods/freefire.json';
-import ww2FrontlineList from '@/json/world-war-two/zombies/mods/frontline.json';
-import ww2ShellshockList from '@/json/world-war-two/zombies/mods/shellshock.json';
-import ww2UniversalList from '@/json/world-war-two/zombies/mods/universal.json';
+import ww2CamouflageList from '@/data/world-war-two/zombies/mods/camouflage.json';
+import ww2FreefireList from '@/data/world-war-two/zombies/mods/freefire.json';
+import ww2FrontlineList from '@/data/world-war-two/zombies/mods/frontline.json';
+import ww2ShellshockList from '@/data/world-war-two/zombies/mods/shellshock.json';
+import ww2UniversalList from '@/data/world-war-two/zombies/mods/universal.json';
 // --- Types ---
 import { ItemList } from '@/types/Generator';
 

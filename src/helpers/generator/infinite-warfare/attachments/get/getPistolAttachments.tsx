@@ -1,9 +1,9 @@
 // --- Data ---
-import emc from '@/json/infinite-warfare/attachments/pistol/emc.json';
-import hailstorm from '@/json/infinite-warfare/attachments/pistol/hailstorm.json';
-import kendall44 from '@/json/infinite-warfare/attachments/pistol/kendall44.json';
-import oni from '@/json/infinite-warfare/attachments/pistol/oni.json';
-import stallion44 from '@/json/infinite-warfare/attachments/pistol/stallion44.json';
+import emc from '@/data/infinite-warfare/attachments/pistol/emc.json';
+import hailstorm from '@/data/infinite-warfare/attachments/pistol/hailstorm.json';
+import kendall44 from '@/data/infinite-warfare/attachments/pistol/kendall44.json';
+import oni from '@/data/infinite-warfare/attachments/pistol/oni.json';
+import stallion44 from '@/data/infinite-warfare/attachments/pistol/stallion44.json';
 // --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 

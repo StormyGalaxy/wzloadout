@@ -1,7 +1,7 @@
 // --- Data ---
-import gallosa12 from '@/json/black-ops/cold-war/attachments/shotgun/gallosa12.json';
-import hauer77 from '@/json/black-ops/cold-war/attachments/shotgun/hauer77.json';
-import ironhide410 from '@/json/black-ops/cold-war/attachments/shotgun/ironhide410.json';
+import gallosa12 from '@/data/black-ops/cold-war/attachments/shotgun/gallosa12.json';
+import hauer77 from '@/data/black-ops/cold-war/attachments/shotgun/hauer77.json';
+import ironhide410 from '@/data/black-ops/cold-war/attachments/shotgun/ironhide410.json';
 // --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 

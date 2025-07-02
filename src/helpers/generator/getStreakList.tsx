@@ -1,13 +1,13 @@
 // --- Data ---
-import bo6List from '@/json/black-ops/six/streaks.json';
-import mw3List from '@/json/modern-warfare/three/streaks.json';
-import vanguardList from '@/json/vanguard/streaks.json';
-import bo3List from '@/json/black-ops/three/streaks.json';
-import bo4List from '@/json/black-ops/four/streaks.json';
-import coldWarList from '@/json/black-ops/cold-war/streaks.json';
-import ww2List from '@/json/world-war-two/streaks.json';
-import mw2List from '@/json/modern-warfare/two/streaks.json';
-import iwList from '@/json/infinite-warfare/streaks.json';
+import bo6List from '@/data/black-ops/six/streaks.json';
+import mw3List from '@/data/modern-warfare/three/streaks.json';
+import vanguardList from '@/data/vanguard/streaks.json';
+import bo3List from '@/data/black-ops/three/streaks.json';
+import bo4List from '@/data/black-ops/four/streaks.json';
+import coldWarList from '@/data/black-ops/cold-war/streaks.json';
+import ww2List from '@/data/world-war-two/streaks.json';
+import mw2List from '@/data/modern-warfare/two/streaks.json';
+import iwList from '@/data/infinite-warfare/streaks.json';
 // --- Types ---
 import { Streak } from '@/types/Generator';
 

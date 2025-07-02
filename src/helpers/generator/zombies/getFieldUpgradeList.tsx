@@ -1,13 +1,13 @@
 // --- Black Ops 6 Zombies ---
-import bo6List from '@/json/black-ops/six/zombies/field_upgrade.json';
+import bo6List from '@/data/black-ops/six/zombies/field_upgrade.json';
 // --- Vanguard Zombies ---
-import vanguardList from '@/json/vanguard/zombies/artifacts.json';
+import vanguardList from '@/data/vanguard/zombies/artifacts.json';
 // --- Cold War Zombies ---
-import coldWarList from '@/json/black-ops/cold-war/zombies/field_upgrade.json';
+import coldWarList from '@/data/black-ops/cold-war/zombies/field_upgrade.json';
 // --- Modern Warfare 3 Zombies ---
-import mw3List from '@/json/modern-warfare/three/zombies/field_upgrade.json';
+import mw3List from '@/data/modern-warfare/three/zombies/field_upgrade.json';
 // --- World War 2 Zombies ---
-import ww2List from '@/json/world-war-two/zombies/special.json';
+import ww2List from '@/data/world-war-two/zombies/special.json';
 // --- Types ---
 import { ItemList } from '@/types/Generator';
 

@@ -1,7 +1,7 @@
 // --- Data ---
-import renetti from '@/json/modern-warfare/three/attachments/pistol/renetti.json';
-import tyr from '@/json/modern-warfare/three/attachments/pistol/tyr.json';
-import wspStinger from '@/json/modern-warfare/three/attachments/pistol/wspStinger.json';
+import renetti from '@/data/modern-warfare/three/attachments/pistol/renetti.json';
+import tyr from '@/data/modern-warfare/three/attachments/pistol/tyr.json';
+import wspStinger from '@/data/modern-warfare/three/attachments/pistol/wspStinger.json';
 // --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 

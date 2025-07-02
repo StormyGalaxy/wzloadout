@@ -1,14 +1,14 @@
 // --- Data ---
-import default556 from '@/json/black-ops/six/attachments/assault_rifle/default556.json';
-import ak74 from '@/json/black-ops/six/attachments/assault_rifle/ak74.json';
-import asval from '@/json/black-ops/six/attachments/assault_rifle/asVal.json';
-import goblinmk2 from '@/json/black-ops/six/attachments/assault_rifle/goblinMk2.json';
-import xm4 from '@/json/black-ops/six/attachments/assault_rifle/xm4.json';
+import default556 from '@/data/black-ops/six/attachments/assault_rifle/default556.json';
+import ak74 from '@/data/black-ops/six/attachments/assault_rifle/ak74.json';
+import asval from '@/data/black-ops/six/attachments/assault_rifle/asVal.json';
+import goblinmk2 from '@/data/black-ops/six/attachments/assault_rifle/goblinMk2.json';
+import xm4 from '@/data/black-ops/six/attachments/assault_rifle/xm4.json';
 // --- DLC ---
-import krigc from '@/json/black-ops/six/attachments/assault_rifle/krigC.json';
-import cypher091 from '@/json/black-ops/six/attachments/assault_rifle/cypher091.json';
-import kilo141 from '@/json/black-ops/six/attachments/assault_rifle/kilo141.json';
-import cr56amax from '@/json/black-ops/six/attachments/assault_rifle/cr56amax.json';
+import krigc from '@/data/black-ops/six/attachments/assault_rifle/krigC.json';
+import cypher091 from '@/data/black-ops/six/attachments/assault_rifle/cypher091.json';
+import kilo141 from '@/data/black-ops/six/attachments/assault_rifle/kilo141.json';
+import cr56amax from '@/data/black-ops/six/attachments/assault_rifle/cr56amax.json';
 // --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 

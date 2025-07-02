@@ -12,8 +12,8 @@ import CustomSettingsSection from '@/components/generators/cod/custom-settings/C
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSliders } from '@fortawesome/free-solid-svg-icons';
 // --- Data ---
-import generalSettings from '@/json/world-war-two/custom-match/general.json';
-import rulesSettings from '@/json/world-war-two/custom-match/rules.json';
+import generalSettings from '@/data/world-war-two/custom-match/general.json';
+import rulesSettings from '@/data/world-war-two/custom-match/rules.json';
 
 const CustomMatch: React.FC = () => {
   const { isLoading, key, setKey, count, generateSettings } = useCustomMatchGenerator();

@@ -1,7 +1,7 @@
 // --- Data ---
-import default1 from '@/json/infinite-warfare/attachments/sniper/default1.json';
-import default2 from '@/json/infinite-warfare/attachments/sniper/default2.json';
-import trek50 from '@/json/infinite-warfare/attachments/sniper/trek50.json';
+import default1 from '@/data/infinite-warfare/attachments/sniper/default1.json';
+import default2 from '@/data/infinite-warfare/attachments/sniper/default2.json';
+import trek50 from '@/data/infinite-warfare/attachments/sniper/trek50.json';
 // --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 

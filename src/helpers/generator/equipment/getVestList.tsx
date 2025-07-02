@@ -1,5 +1,5 @@
 // --- Data ---
-import mw3List from '@/json/modern-warfare/three/equipment/vest.json';
+import mw3List from '@/data/modern-warfare/three/equipment/vest.json';
 // --- Types ---
 import { ItemList } from '@/types/Generator';
 

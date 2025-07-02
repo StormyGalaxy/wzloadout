@@ -1,7 +1,7 @@
 // --- Data ---
-import perk1 from '@/json/modern-warfare/remastered/perk/perk1.json';
-import perk2 from '@/json/modern-warfare/remastered/perk/perk2.json';
-import perk3 from '@/json/modern-warfare/remastered/perk/perk3.json';
+import perk1 from '@/data/modern-warfare/remastered/perk/perk1.json';
+import perk2 from '@/data/modern-warfare/remastered/perk/perk2.json';
+import perk3 from '@/data/modern-warfare/remastered/perk/perk3.json';
 // --- Helpers ---
 import { randomListItem } from '@silocitypages/utils';
 // --- Types ---

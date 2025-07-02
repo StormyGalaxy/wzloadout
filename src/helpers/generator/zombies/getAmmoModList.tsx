@@ -1,5 +1,5 @@
 // --- Black Ops 6 Zombies ---
-import bo6List from '@/json/black-ops/six/zombies/ammo_mod.json';
+import bo6List from '@/data/black-ops/six/zombies/ammo_mod.json';
 // --- Types ---
 import { ItemList } from '@/types/Generator';
 

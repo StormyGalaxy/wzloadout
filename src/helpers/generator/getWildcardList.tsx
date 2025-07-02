@@ -1,9 +1,9 @@
 // --- Data ---
-import bo6List from '@/json/black-ops/six/wildcard.json';
-import warzoneList from '@/json/warzone/wildcard.json';
-import bo3List from '@/json/black-ops/three/wildcard.json';
-import bo4List from '@/json/black-ops/four/wildcard.json';
-import coldWarList from '@/json/black-ops/cold-war/wildcard.json';
+import bo6List from '@/data/black-ops/six/wildcard.json';
+import warzoneList from '@/data/warzone/wildcard.json';
+import bo3List from '@/data/black-ops/three/wildcard.json';
+import bo4List from '@/data/black-ops/four/wildcard.json';
+import coldWarList from '@/data/black-ops/cold-war/wildcard.json';
 // --- Types ---
 import { ItemList } from '@/types/Generator';
 

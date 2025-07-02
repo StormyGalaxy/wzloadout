@@ -14,7 +14,7 @@ import { sendEvent } from '@silocitypages/utils';
 // --- Types ---
 import { ZombiesGeneratorData, GeneratorStatus, Weapon } from '@/types/Generator';
 // --- Data ---
-import defaultData from '@/json/cod/default-zombies-generator-info.json';
+import defaultData from '@/data/cod/default-zombies-generator-info.json';
 
 const fetchNewWw2ZombiesLoadout = () => {
   const game = 'world-war-two-zombies';

@@ -24,7 +24,7 @@ import {
 // --- Utils ---
 import { sendEvent, setLocalStorage, getLocalStorage } from '@silocitypages/utils';
 // --- Data ---
-import defaultData from '@/json/cod/default-zombies-generator-info.json';
+import defaultData from '@/data/cod/default-zombies-generator-info.json';
 
 const defaultSettings: Bo6ZombiesSettings = {
   rollMap: true,

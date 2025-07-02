@@ -16,7 +16,7 @@ import { sendEvent } from '@silocitypages/utils';
 // --- Types ---
 import { GeneratorData, Weapon, GeneratorStatus } from '@/types/Generator';
 // --- Data ---
-import defaultData from '@/json/cod/default-generator-info.json';
+import defaultData from '@/data/cod/default-generator-info.json';
 
 // This function contains the core generation logic and is defined outside the hook
 // so that it doesn't get recreated on every render and cause dependency issues.

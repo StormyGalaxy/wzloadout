@@ -1,6 +1,6 @@
 // --- Data ---
-import default1 from '@/json/world-war-two/attachments/smg/default1.json';
-import zk383 from '@/json/world-war-two/attachments/smg/zk383.json';
+import default1 from '@/data/world-war-two/attachments/smg/default1.json';
+import zk383 from '@/data/world-war-two/attachments/smg/zk383.json';
 // --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 

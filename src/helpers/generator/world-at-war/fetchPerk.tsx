@@ -1,8 +1,8 @@
 // --- Data ---
-import perk1 from '@/json/world-at-war/perk/perk1.json';
-import perk2 from '@/json/world-at-war/perk/perk2.json';
-import perk3 from '@/json/world-at-war/perk/perk3.json';
-import vehiclePerk from '@/json/world-at-war/perk/vehicle-perk.json';
+import perk1 from '@/data/world-at-war/perk/perk1.json';
+import perk2 from '@/data/world-at-war/perk/perk2.json';
+import perk3 from '@/data/world-at-war/perk/perk3.json';
+import vehiclePerk from '@/data/world-at-war/perk/vehicle-perk.json';
 // --- Utils ---
 import { randomListItem } from '@silocitypages/utils';
 // --- Types ---

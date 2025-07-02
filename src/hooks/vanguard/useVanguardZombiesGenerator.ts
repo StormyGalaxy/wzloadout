@@ -13,7 +13,7 @@ import { ZombiesGeneratorData, GeneratorStatus } from '@/types/Generator';
 // --- Utils ---
 import { sendEvent } from '@silocitypages/utils';
 // --- Data ---
-import defaultData from '@/json/cod/default-zombies-generator-info.json';
+import defaultData from '@/data/cod/default-zombies-generator-info.json';
 
 const fetchNewVanguardZombiesLoadout = (): ZombiesGeneratorData => {
   const game = 'vanguard-zombies';

@@ -1,9 +1,9 @@
 // --- Data ---
-import gpmg7 from '@/json/black-ops/six/attachments/lmg/gpmg7.json';
-import pu21 from '@/json/black-ops/six/attachments/lmg/pu21.json';
-import xmg from '@/json/black-ops/six/attachments/lmg/xmg.json';
+import gpmg7 from '@/data/black-ops/six/attachments/lmg/gpmg7.json';
+import pu21 from '@/data/black-ops/six/attachments/lmg/pu21.json';
+import xmg from '@/data/black-ops/six/attachments/lmg/xmg.json';
 // --- DLC ---
-import feng82 from '@/json/black-ops/six/attachments/lmg/feng82.json';
+import feng82 from '@/data/black-ops/six/attachments/lmg/feng82.json';
 // --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 

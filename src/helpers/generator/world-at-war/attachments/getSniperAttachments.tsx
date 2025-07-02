@@ -1,5 +1,5 @@
 // --- Data ---
-import default1 from '@/json/world-at-war/attachments/sniper/default.json';
+import default1 from '@/data/world-at-war/attachments/sniper/default.json';
 // --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 

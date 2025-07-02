@@ -1,8 +1,8 @@
 // --- Data ---
-import thompson from '@/json/world-at-war/attachments/smg/thompson.json';
-import mp40 from '@/json/world-at-war/attachments/smg/mp40.json';
-import type100 from '@/json/world-at-war/attachments/smg/type100.json';
-import ppsh41 from '@/json/world-at-war/attachments/smg/ppsh41.json';
+import thompson from '@/data/world-at-war/attachments/smg/thompson.json';
+import mp40 from '@/data/world-at-war/attachments/smg/mp40.json';
+import type100 from '@/data/world-at-war/attachments/smg/type100.json';
+import ppsh41 from '@/data/world-at-war/attachments/smg/ppsh41.json';
 // --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 

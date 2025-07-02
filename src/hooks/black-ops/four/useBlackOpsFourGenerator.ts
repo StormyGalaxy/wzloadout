@@ -24,7 +24,7 @@ import type {
 } from '@/types/Generator';
 import type { LoadoutFrame } from '@/types/BlackOps4';
 // --- Data ---
-import defaultData from '@/json/cod/default-generator-info.json';
+import defaultData from '@/data/cod/default-generator-info.json';
 
 const defaultWeapon = {
   name: '',

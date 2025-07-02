@@ -1,8 +1,8 @@
 // --- Utils ---
 import { randomListItem } from '@silocitypages/utils';
 // --- Data ---
-import division from '@/json/world-war-two/division.json';
-import basicTraining from '@/json/world-war-two/basic-training.json';
+import division from '@/data/world-war-two/division.json';
+import basicTraining from '@/data/world-war-two/basic-training.json';
 // --- Types ---
 import { WW2Perk } from '@/types/Generator';
 

@@ -1,8 +1,8 @@
 // --- Data ---
-import kap45mkii from '@/json/black-ops/four/attachments/pistol/kap45mkii.json';
-import mozu from '@/json/black-ops/four/attachments/pistol/mozu.json';
-import rk7garrison from '@/json/black-ops/four/attachments/pistol/rk7garrison.json';
-import strife from '@/json/black-ops/four/attachments/pistol/strife.json';
+import kap45mkii from '@/data/black-ops/four/attachments/pistol/kap45mkii.json';
+import mozu from '@/data/black-ops/four/attachments/pistol/mozu.json';
+import rk7garrison from '@/data/black-ops/four/attachments/pistol/rk7garrison.json';
+import strife from '@/data/black-ops/four/attachments/pistol/strife.json';
 // --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 

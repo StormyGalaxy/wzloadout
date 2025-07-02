@@ -1,7 +1,7 @@
 // --- Data ---
-import default1 from '@/json/world-war-two/attachments/shotgun/default1.json';
-import m30LuftwaffeDrilling from '@/json/world-war-two/attachments/shotgun/m30LuftwaffeDrilling.json';
-import sawedoffShotgun from '@/json/world-war-two/attachments/shotgun/sawedoffShotgun.json';
+import default1 from '@/data/world-war-two/attachments/shotgun/default1.json';
+import m30LuftwaffeDrilling from '@/data/world-war-two/attachments/shotgun/m30LuftwaffeDrilling.json';
+import sawedoffShotgun from '@/data/world-war-two/attachments/shotgun/sawedoffShotgun.json';
 // --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 

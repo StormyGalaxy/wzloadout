@@ -10,10 +10,10 @@ import { WarzoneDropSpotSettings } from '@/types/Generator';
 //Utils
 import { sendEvent, setLocalStorage, getLocalStorage } from '@silocitypages/utils';
 //Json
-import area99Spots from '@/json/warzone/drop_spots/area99.json';
-import rebirthIslandSpots from '@/json/warzone/drop_spots/rebirth_island.json';
-import urzikstanSpots from '@/json/warzone/drop_spots/urzikstan.json';
-import verdanskSpots from '@/json/warzone/drop_spots/verdansk.json';
+import area99Spots from '@/data/warzone/drop_spots/area99.json';
+import rebirthIslandSpots from '@/data/warzone/drop_spots/rebirth_island.json';
+import urzikstanSpots from '@/data/warzone/drop_spots/urzikstan.json';
+import verdanskSpots from '@/data/warzone/drop_spots/verdansk.json';
 
 const defaultSettings: WarzoneDropSpotSettings = { warzoneMap: 'urzikstan' };
 

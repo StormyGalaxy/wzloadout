@@ -1,7 +1,7 @@
 // --- Data ---
-import bo3List from '@/json/black-ops/three/specialists.json';
-import bo4List from '@/json/black-ops/four/specialists.json';
-import iwList from '@/json/infinite-warfare/combat-rig.json';
+import bo3List from '@/data/black-ops/three/specialists.json';
+import bo4List from '@/data/black-ops/four/specialists.json';
+import iwList from '@/data/infinite-warfare/combat-rig.json';
 // --- Types ---
 import { Specialist } from '@/types/Generator';
 

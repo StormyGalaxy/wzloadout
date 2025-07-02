@@ -1,8 +1,8 @@
 // --- Data ---
-import lw3tundra from '@/json/black-ops/cold-war/attachments/sniper/lw3tundra.json';
-import m82 from '@/json/black-ops/cold-war/attachments/sniper/m82.json';
-import pelington703 from '@/json/black-ops/cold-war/attachments/sniper/pelington703.json';
-import swissk31 from '@/json/black-ops/cold-war/attachments/sniper/swissk31.json';
+import lw3tundra from '@/data/black-ops/cold-war/attachments/sniper/lw3tundra.json';
+import m82 from '@/data/black-ops/cold-war/attachments/sniper/m82.json';
+import pelington703 from '@/data/black-ops/cold-war/attachments/sniper/pelington703.json';
+import swissk31 from '@/data/black-ops/cold-war/attachments/sniper/swissk31.json';
 // --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 

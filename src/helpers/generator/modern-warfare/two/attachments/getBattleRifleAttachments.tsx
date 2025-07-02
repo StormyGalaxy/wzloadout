@@ -1,9 +1,9 @@
 // --- Data ---
-import lachmann762 from '@/json/modern-warfare/two/attachments/battle_rifle/lachmann762.json';
-import cronensquall from '@/json/modern-warfare/two/attachments/battle_rifle/cronenSquall.json';
-import ftacrecon from '@/json/modern-warfare/two/attachments/battle_rifle/ftacRecon.json';
-import taqv from '@/json/modern-warfare/two/attachments/battle_rifle/taqv.json';
-import so14 from '@/json/modern-warfare/two/attachments/battle_rifle/so14.json';
+import lachmann762 from '@/data/modern-warfare/two/attachments/battle_rifle/lachmann762.json';
+import cronensquall from '@/data/modern-warfare/two/attachments/battle_rifle/cronenSquall.json';
+import ftacrecon from '@/data/modern-warfare/two/attachments/battle_rifle/ftacRecon.json';
+import taqv from '@/data/modern-warfare/two/attachments/battle_rifle/taqv.json';
+import so14 from '@/data/modern-warfare/two/attachments/battle_rifle/so14.json';
 // --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 

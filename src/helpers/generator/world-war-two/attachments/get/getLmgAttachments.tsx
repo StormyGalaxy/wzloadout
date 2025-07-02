@@ -1,5 +1,5 @@
 // --- Data ---
-import default1 from '@/json/world-war-two/attachments/lmg/default1.json';
+import default1 from '@/data/world-war-two/attachments/lmg/default1.json';
 // --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 

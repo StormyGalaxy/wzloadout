@@ -1,7 +1,7 @@
 // --- Data ---
-import default1 from '@/json/infinite-warfare/attachments/lmg/default1.json';
-import default2 from '@/json/infinite-warfare/attachments/lmg/default2.json';
-import auger from '@/json/infinite-warfare/attachments/lmg/auger.json';
+import default1 from '@/data/infinite-warfare/attachments/lmg/default1.json';
+import default2 from '@/data/infinite-warfare/attachments/lmg/default2.json';
+import auger from '@/data/infinite-warfare/attachments/lmg/auger.json';
 // --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 

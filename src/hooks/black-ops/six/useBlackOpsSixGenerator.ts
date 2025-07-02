@@ -15,7 +15,7 @@ import { GeneratorData, GeneratorStatus, Weapon } from '@/types/Generator';
 // --- Utils ---
 import { sendEvent } from '@silocitypages/utils';
 // --- Data ---
-import defaultData from '@/json/cod/default-generator-info.json';
+import defaultData from '@/data/cod/default-generator-info.json';
 
 const fetchNewBo6Loadout = (): GeneratorData => {
   const game = 'black-ops-six';

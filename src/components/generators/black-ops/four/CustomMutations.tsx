@@ -11,11 +11,11 @@ import CustomSettingsSection from '@/components/generators/cod/custom-settings/C
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faVial } from '@fortawesome/free-solid-svg-icons';
 // --- Data ---
-import generalSettings from '@/json/black-ops/four/zombies/custom-mutations/general.json';
-import systemsSettings from '@/json/black-ops/four/zombies/custom-mutations/systems.json';
-import weaponSettings from '@/json/black-ops/four/zombies/custom-mutations/weapons.json';
-import enemiesSettings from '@/json/black-ops/four/zombies/custom-mutations/enemies.json';
-import playerSettings from '@/json/black-ops/four/zombies/custom-mutations/player.json';
+import generalSettings from '@/data/black-ops/four/zombies/custom-mutations/general.json';
+import systemsSettings from '@/data/black-ops/four/zombies/custom-mutations/systems.json';
+import weaponSettings from '@/data/black-ops/four/zombies/custom-mutations/weapons.json';
+import enemiesSettings from '@/data/black-ops/four/zombies/custom-mutations/enemies.json';
+import playerSettings from '@/data/black-ops/four/zombies/custom-mutations/player.json';
 
 export default function CustomMutations() {
   const { isLoading, key, setKey, count, generateSettings } = useCustomMutations();
