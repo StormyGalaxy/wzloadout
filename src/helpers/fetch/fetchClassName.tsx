@@ -1,5 +1,5 @@
-import adList from '../../json/cod/adjectives.json';
-import nounList from '../../json/cod/nouns.json';
+import adList from '@/data/cod/adjectives.json';
+import nounList from '@/data/cod/nouns.json';
 import { randomListItem } from '@silocitypages/utils';
 
 export function fetchClassName(): string {

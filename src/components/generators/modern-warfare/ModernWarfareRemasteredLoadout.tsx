@@ -42,13 +42,13 @@ export default function ModernWarfareRemasteredLoadout() {
     <>
       <CodClassName isGenerating={isGenerating} value={randClassName} />
       <Row className='justify-content-md-center text-center mb-4'>
-        <Col xs={12} md={6} lg={4} className='mb-3'>
+        <Col xs={12} md={4} className='mb-3'>
           <WeaponCard title='Primary' weapon={weapons.primary} {...cardProps} />
         </Col>
-        <Col xs={12} md={6} lg={4} className='mb-3'>
+        <Col xs={12} md={4} className='mb-3'>
           <WeaponCard title='Secondary' weapon={weapons.secondary} {...cardProps} />
         </Col>
-        <Col xs={12} md={6} lg={4} className='mb-3'>
+        <Col xs={12} md={4} className='mb-3'>
           <ValueCardView title='Melee' value={weapons?.melee?.name ?? ''} {...cardProps} />
         </Col>
       </Row>

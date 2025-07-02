@@ -1,221 +1,125 @@
 'use client';
 
 // --- React ---
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { Row, Col, Button } from 'react-bootstrap';
+// --- Hooks ---
+import { useDatabase } from '@/contexts/DatabaseContext';
+import { useWarzoneGenerator } from '@/hooks/warzone/useWarzoneGenerator';
 // --- Components ---
-import SimpleGeneratorView from '@/components/generators/cod/SimpleGeneratorView';
 import CodClassName from '@/components/CodClassName';
-// --- Helpers ---
-import { implodeObject } from '@/helpers/implodeObject';
-import { scrollToTop } from '@/helpers/scrollToTop';
-import { fetchWeapon } from '@/helpers/fetch/fetchWeapon';
-import { fetchPerks } from '@/helpers/fetch/fetchPerks';
-import { fetchAttachments } from '@/helpers/fetch/fetchAttachments';
-import { fetchEquipment } from '@/helpers/fetch/fetchEquipment';
-import { fetchWildcard } from '@/helpers/fetch/fetchWildcard';
-import { fetchClassName } from '@/helpers/fetch/fetchClassName';
-import { getEnabledGames } from '@/helpers/generator/getEnabledGames';
-// --- Utils ---
-import { sendEvent } from '@silocitypages/utils';
-// --- Data ---
-import defaultData from '@/data/cod/default-generator-info.json';
+import GeneratorSkeleton from '@/components/generators/views/skeletons/GeneratorSkeleton';
+import WeaponCard from '@/components/generators/views/WeaponCard';
+import ValueCardView from '@/components/generators/views/ValueCardView';
+import ListViewCard from '@/components/generators/views/ListViewCard';
+// --- Font Awesome ---
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faDice } from '@fortawesome/free-solid-svg-icons';
 // --- DB ---
 import { getDocumentByColumn } from '@silocitypages/data-access';
-import { useDatabase } from '@/contexts/DatabaseContext';
 // --- Types ---
 import type { sclSettings } from '@silocitypages/ui-core';
+// --- Styles ---
+import styles from '@/components/generators/views/ModernLoadout.module.css';
 
 export default function WarzoneLoadout() {
   const { dbs, isReady } = useDatabase();
-  const [isLoading, setIsLoading] = useState(true);
-  const [isGenerating, setIsGenerating] = useState(true);
-  const [data, setData] = useState(defaultData);
   const [settings, setSettings] = useState<sclSettings>({});
+  const settingsFetched = useRef(false);
 
+  const { data, isLoading, isGenerating, generateLoadout } = useWarzoneGenerator();
+
+  // Fetch settings once and then trigger the initial loadout generation.
   useEffect(() => {
-    async function fetchData() {
-      if (dbs.settings) {
-        try {
-          const wzSettings = await getDocumentByColumn(dbs.settings, 'name', 'warzone', 'settings');
-          if (wzSettings && wzSettings.value !== '') {
-            setSettings(JSON.parse(wzSettings.value as string));
+    if (isReady && !settingsFetched.current) {
+      settingsFetched.current = true;
+
+      async function fetchAndGenerate() {
+        let loadedSettings: sclSettings = {};
+        if (dbs.settings) {
+          try {
+            const wzSettings = await getDocumentByColumn(
+              dbs.settings,
+              'name',
+              'warzone',
+              'settings'
+            );
+            if (wzSettings && wzSettings.value !== '') {
+              loadedSettings = JSON.parse(wzSettings.value as string);
+              setSettings(loadedSettings);
+            }
+          } catch (err: unknown) {
+            console.warn(err instanceof Error ? err.message : 'Failed to fetch settings.');
           }
-        } catch (err: unknown) {
-          const errorMessage = err instanceof Error ? err.message : 'Failed to fetch settings.';
-          console.warn(errorMessage);
-        } finally {
-          setIsLoading(false);
         }
+        // Generate the initial loadout with the loaded (or empty) settings.
+        generateLoadout(loadedSettings, true);
       }
+      fetchAndGenerate();
     }
-    if (isReady) {
-      fetchData();
-    }
-  }, [dbs, isReady]);
+  }, [dbs, isReady, generateLoadout]);
 
-  useEffect(() => {
-    fetchLoadoutData(setData, settings);
-    setIsGenerating(false);
-    setIsLoading(false);
-  }, [settings]);
+  const generatingClass = isGenerating ? styles.generating : '';
 
-  const handleClick = async () => {
-    setIsGenerating(true);
-
-    setTimeout(() => {
-      fetchLoadoutData(setData, settings);
-      setIsGenerating(false);
-      scrollToTop();
-    }, 1000);
+  const cardProps = {
+    className: `${styles.card} ${generatingClass}`,
+    headerClassName: styles.cardHeader,
+    isGenerating,
   };
+
+  if (isLoading) {
+    return <GeneratorSkeleton />;
+  }
 
   const { randClassName, perks, weapons, equipment, wildcard } = data;
 
-  if (!isReady || isLoading) {
-    return <div className='text-center'>Loading...</div>;
-  }
+  console.log('data', data);
+
+  const equipmentData = [
+    { title: 'Lethal', value: equipment.lethal?.name ?? '' },
+    { title: 'Tactical', value: equipment.tactical?.name ?? '' },
+  ];
 
   return (
     <>
       <CodClassName isGenerating={isGenerating} value={randClassName} />
-      <Row className='justify-content-md-center'>
-        <Col sm className='text-center mb-3 mb-md-0'>
-          <SimpleGeneratorView
-            isGenerating={isGenerating}
-            title='Primary'
-            value={weapons.primary.weapon.name}
-          />
-          <br />
-          <SimpleGeneratorView
-            isGenerating={isGenerating}
-            title='Primary Attachments'
-            value={
-              weapons.primary.weapon.no_attach ? 'No Attachments' : weapons.primary.attachments
-            }
-          />
+
+      <Row className='justify-content-md-center text-center mb-4'>
+        <Col xs={12} md={4} className='mb-3'>
+          <WeaponCard title='Primary' weapon={weapons.primary} {...cardProps} />
         </Col>
-        <Col sm className='text-center mb-3 mb-md-0'>
-          <SimpleGeneratorView
-            isGenerating={isGenerating}
-            title='Secondary'
-            value={weapons.secondary.weapon.name}
-          />
-          <br />
-          <SimpleGeneratorView
-            isGenerating={isGenerating}
-            title='Secondary Attachments'
-            value={
-              weapons.secondary.weapon.no_attach ? 'No Attachments' : weapons.secondary.attachments
-            }
-          />
+        <Col xs={12} md={4} className='mb-3'>
+          <WeaponCard title='Secondary' weapon={weapons.secondary} {...cardProps} />
         </Col>
-        <Col sm className='text-center'>
-          <SimpleGeneratorView
-            isGenerating={isGenerating}
-            title='Melee'
-            value={weapons.melee.name}
-          />
+        <Col xs={12} md={4} className='mb-3'>
+          <ValueCardView title='Melee' value={weapons?.melee?.name ?? ''} {...cardProps} />
         </Col>
       </Row>
       <hr />
+
+      <Row className='justify-content-md-center text-center mb-4'>
+        <Col xs={12} md={4} className='mb-3'>
+          <ListViewCard title='Equipment' values={equipmentData} {...cardProps} />
+        </Col>
+        <Col xs={12} md={4} className='mb-3'>
+          <ValueCardView title='Perks' value={perks} {...cardProps} />
+        </Col>
+        <Col xs={12} md={4} className='mb-3'>
+          <ValueCardView title='Wildcard' value={wildcard?.name ?? ''} {...cardProps} />
+        </Col>
+      </Row>
+
       <Row className='justify-content-md-center'>
-        <Col sm className='text-center mb-3 mb-md-0'>
-          <SimpleGeneratorView
-            isGenerating={isGenerating}
-            title='Tactical'
-            value={equipment.tactical.name}
-          />
-        </Col>
-        <Col sm className='text-center mb-3 mb-md-0'>
-          <SimpleGeneratorView
-            isGenerating={isGenerating}
-            title='Lethal'
-            value={equipment.lethal.name}
-          />
-        </Col>
-      </Row>
-      <hr />
-      <Row className='mb-5'>
-        <Col sm className='text-center mb-3 mb-md-0'>
-          <SimpleGeneratorView isGenerating={isGenerating} title='Perks' value={perks} />
-        </Col>
-        <Col sm className='text-center'>
-          <SimpleGeneratorView isGenerating={isGenerating} title='Wildcard' value={wildcard.name} />
-        </Col>
-      </Row>
-      <Row id='button-row'>
-        <Col className='text-center'>
+        <Col xs md='8' lg='6' className='text-center'>
           <Button
             variant='success'
             disabled={isGenerating}
-            onClick={isGenerating ? undefined : handleClick}>
+            onClick={() => generateLoadout(settings)}>
+            <FontAwesomeIcon icon={faDice} className='me-2' />
             {isGenerating ? 'Generating Loadout...' : 'Generate Loadout'}
           </Button>
         </Col>
       </Row>
     </>
   );
-}
-
-async function fetchLoadoutData(setData, settings) {
-  sendEvent('button_click', {
-    button_id: 'warzone_fetchLoadoutData',
-    label: 'Warzone',
-    category: 'COD_Loadouts',
-  });
-
-  try {
-    const game = 'warzone';
-    const randClassName = fetchClassName();
-    const wildcard = fetchWildcard(game);
-    //Figure out primary attachment count
-    const primAttachCount = wildcard.name === 'Gunfighter' ? 8 : 5;
-    const primGame = settings?.weapons ? getEnabledGames(settings.weapons.primary) : '';
-    const secGame = settings?.weapons ? getEnabledGames(settings.weapons.secondary) : '';
-    const meleeGame = settings?.weapons ? getEnabledGames(settings.weapons.melee) : '';
-
-    const perks = fetchPerks(game);
-    const weapons = {
-      primary: {
-        weapon: fetchWeapon('primary', primGame ? primGame : 'black-ops-six'),
-        attachments: '',
-      },
-      secondary: {
-        weapon: fetchWeapon('secondary', secGame ? secGame : 'black-ops-six'),
-        attachments: '',
-      },
-      melee: fetchWeapon('melee', meleeGame ? meleeGame : 'black-ops-six'),
-    };
-    //Get Primary Attachments
-    //TODO: I think you can only get gunfighter for BO6 Weapons (8 attachments)
-    weapons.primary.attachments = implodeObject(
-      fetchAttachments(weapons.primary.weapon, primAttachCount)
-    );
-    //Check for overkill
-    if (wildcard.name === 'Overkill') {
-      weapons.secondary.weapon = fetchWeapon(
-        'primary',
-        primGame ? primGame : 'black-ops-six',
-        weapons.primary.weapon.name
-      );
-    }
-    //Verify if secondary weapon has attachments
-    if (!weapons.secondary.weapon?.no_attach) {
-      weapons.secondary.attachments = implodeObject(fetchAttachments(weapons.secondary.weapon));
-    }
-
-    const equipment = {
-      tactical: fetchEquipment('tactical', game),
-      lethal: fetchEquipment('lethal', game),
-    };
-
-    setData({ randClassName, perks, weapons, equipment, wildcard });
-  } catch (error: unknown) {
-    if (error instanceof Error) {
-      console.error(error.message);
-    } else {
-      console.error('An unknown error occurred.');
-    }
-  }
 }
