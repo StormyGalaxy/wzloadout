@@ -11,11 +11,16 @@
 
 /* Theme Colors */
 :root {
-  --theme-color: #343a40; /* Default theme color */
+  --theme-color: #0a74da; /* Default theme color */
   --theme-color-light: #f8f9fa; /* Light theme color */
   --theme-color-dark: #212529; /* Dark theme color */
-  --theme-color-accent: #007bff; /* Accent color */
+  --theme-color-accent: #00c4ff; /* Accent color */
   --header-link-color: #fff;
+}
+
+body {
+  background-color: #fff !important;
+  color: #212529 !important;
 }
 
 .theme-cold-war {

@@ -1,0 +1,62 @@
+[
+  {
+    "name": "Black Ops 6",
+    "link": "/black-ops/six",
+    "logoUrl": "https://placehold.co/200x150/0A74DA/FFFFFF?text=BO6"
+  },
+  {
+    "name": "Modern Warfare 3",
+    "link": "/modern-warfare/three",
+    "logoUrl": "https://placehold.co/200x150/0A74DA/FFFFFF?text=MW3"
+  },
+  {
+    "name": "Modern Warfare 2",
+    "link": "/modern-warfare/two",
+    "logoUrl": "https://placehold.co/200x150/1E1E1E/FFFFFF?text=MW2"
+  },
+  {
+    "name": "Vanguard",
+    "link": "/vanguard",
+    "logoUrl": "https://placehold.co/200x150/1E1E1E/FFFFFF?text=Vanguard"
+  },
+  {
+    "name": "Cold War",
+    "link": "/black-ops/cold-war",
+    "logoUrl": "https://placehold.co/200x150/1E1E1E/FFFFFF?text=BOCW"
+  },
+  {
+    "name": "Warzone",
+    "link": "/warzone",
+    "logoUrl": "https://placehold.co/200x150/0A74DA/FFFFFF?text=Warzone"
+  },
+  {
+    "name": "Black Ops 4",
+    "link": "/black-ops/four",
+    "logoUrl": "https://placehold.co/200x150/1E1E1E/FFFFFF?text=BO4"
+  },
+  {
+    "name": "WWII",
+    "link": "/world-war-two",
+    "logoUrl": "https://placehold.co/200x150/1E1E1E/FFFFFF?text=WWII"
+  },
+  {
+    "name": "Infinite Warfare",
+    "link": "/infinite-warfare",
+    "logoUrl": "https://placehold.co/200x150/1E1E1E/FFFFFF?text=IW"
+  },
+  {
+    "name": "MW Remastered",
+    "link": "/modern-warfare/remastered",
+    "logoUrl": "https://placehold.co/200x150/1E1E1E/FFFFFF?text=MWR"
+  },
+  {
+    "name": "Black Ops 3",
+    "link": "/black-ops/three",
+    "logoUrl": "https://placehold.co/200x150/1E1E1E/FFFFFF?text=BO3"
+  },
+  {
+    "name": "World at War",
+    "link": "/world-at-war",
+    "logoUrl": "https://placehold.co/200x150/1E1E1E/FFFFFF?text=WaW"
+  }
+]

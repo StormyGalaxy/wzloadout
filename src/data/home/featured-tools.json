@@ -1,0 +1,20 @@
+[
+  {
+    "title": "MW3 Loadout Generator",
+    "description": "Get the best random loadouts for Modern Warfare 3. Perfect for challenging yourself or finding a new meta.",
+    "link": "/modern-warfare/three/generator",
+    "game": "Modern Warfare 3"
+  },
+  {
+    "title": "Warzone Drop Picker",
+    "description": "Can't decide where to drop in Urzikstan? Let us pick a random POI for you and your squad.",
+    "link": "/warzone/where-we-droppin/br/urzikstan",
+    "game": "Warzone"
+  },
+  {
+    "title": "Black Ops 6 Intel",
+    "description": "Stay up to date with the latest weapons, perks, and killstreaks for the upcoming Black Ops 6.",
+    "link": "/black-ops/six/info",
+    "game": "Black Ops 6"
+  }
+]
