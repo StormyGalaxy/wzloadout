@@ -1,0 +1,16 @@
+[
+  {
+    "title": "Battle Royale",
+    "drops": [
+      { "title": "Verdansk", "link": "where-we-droppin/br/verdansk" },
+      { "title": "Urzikstan", "link": "where-we-droppin/br/urzikstan" }
+    ]
+  },
+  {
+    "title": "Resurgence",
+    "drops": [
+      { "title": "Rebirth Island", "link": "where-we-droppin/resurgence/rebirth-island" },
+      { "title": "Area 99", "link": "where-we-droppin/resurgence/area99" }
+    ]
+  }
+]

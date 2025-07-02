@@ -1,0 +1,108 @@
+/* Hero Section Styles */
+.hero-section {
+  position: relative;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  background-image: url('/images/where-we-droppin/hero.webp');
+  background-size: cover;
+  background-position: center;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+  margin-top: -25px;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+}
+
+.hero-content p {
+  font-size: 1.5rem;
+  margin-top: 1rem;
+}
+
+.cta-button {
+  margin-top: 2rem;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 50px;
+  transition:
+    transform 0.2s ease-in-out,
+    box-shadow 0.2s ease-in-out;
+}
+
+.cta-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Section Styles */
+.feature-section {
+  padding: 4rem 0;
+}
+
+.feature-section h2 {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-weight: 700;
+}
+
+/* How it Works Section */
+.how-it-works-card {
+  border: none;
+  text-align: center;
+  padding: 2rem;
+}
+
+.how-it-works-card .icon,
+.feature-section .icon {
+  font-size: 3rem;
+  color: var(--theme-color) !important;
+  margin-bottom: 1rem;
+}
+
+/* Drop Generator Section */
+.where-we-droppin-card {
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 0.5rem;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  transition: box-shadow 0.3s ease;
+}
+
+.where-we-droppin-card:hover {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

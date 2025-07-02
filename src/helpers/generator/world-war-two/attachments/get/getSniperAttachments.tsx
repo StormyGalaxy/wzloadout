@@ -14,19 +14,13 @@ export function getSniperAttachments(gun: string, count: number): string[] {
   const attachments: string[] = [];
   const data = attachmentsList[gun];
 
-  console.log('Sniper Attachments: ', gun, data, count);
-
   if (data) {
     if (count === -1) {
-      console.log('Sniper Attachments 1.25: ');
       return data;
     }
-    console.log('Sniper Attachments 1.5: ');
 
     randomizeAttachments(attachments, data, count);
-    console.log('Sniper Attachments 1.75: ', attachments);
   }
-  console.log('Sniper Attachments 2: ', attachments);
 
   return attachments;
 }

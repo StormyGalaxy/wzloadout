@@ -1,0 +1,60 @@
+.rouletteContainer {
+  font-family: var(--font-inter);
+}
+
+.rouletteTitle {
+  font-family: var(--font-bangers);
+  color: var(--fort-purple);
+  font-size: 2.8rem;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* --- ADD THIS NEW STYLE --- */
+.mapName {
+  font-size: 1.5rem; /* Larger than before */
+  color: var(--fort-purple); /* Use the theme's purple */
+  font-weight: 500;
+}
+
+.winnerDisplay {
+  font-weight: bold;
+  font-size: 2rem;
+  color: var(--theme-color);
+  min-height: 48px; /* Prevent layout shift */
+  transition:
+    transform 0.3s ease-in-out,
+    text-shadow 0.3s ease-in-out;
+}
+
+/* Winner reveal animation */
+.winnerReveal {
+  transform: scale(1.2);
+  text-shadow:
+    0 0 5px #fff,
+    0 0 10px #fff,
+    0 0 15px var(--theme-color),
+    0 0 20px var(--theme-color);
+}
+
+/* Spinner styling */
+.spinner {
+  width: 32px;
+  height: 32px;
+}
+
+/* Button styling */
+.randomizeButton {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.randomizeButton:hover:not(:disabled) {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(40, 167, 69, 0.4);
+}
+
+.randomizeButton:active:not(:disabled) {
+  transform: scale(0.98);
+}

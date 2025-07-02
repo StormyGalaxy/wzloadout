@@ -73,8 +73,6 @@ export default function WarzoneLoadout() {
 
   const { randClassName, perks, weapons, equipment, wildcard } = data;
 
-  console.log('data', data);
-
   const equipmentData = [
     { title: 'Lethal', value: equipment.lethal?.name ?? '' },
     { title: 'Tactical', value: equipment.tactical?.name ?? '' },

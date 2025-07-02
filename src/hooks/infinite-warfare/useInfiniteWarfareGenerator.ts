@@ -58,8 +58,6 @@ const fetchNewLoadout = () => {
     secondaryWeapon = fetchWeapon('primary', game, primaryWeapon.name);
   }
 
-  console.log(loadoutFrame);
-
   const weapons = {
     primary: {
       ...primaryWeapon,
