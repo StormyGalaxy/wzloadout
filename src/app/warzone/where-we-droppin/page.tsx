@@ -29,17 +29,9 @@ export const metadata: Metadata = {
   ],
 };
 
-const navLinks = [
-  { label: 'Home', href: '/' },
-  { label: 'Generator', href: '/warzone/generator' },
-  { label: 'Where We Droppin?', href: '/warzone/where-we-droppin' },
-  { label: 'Loadout Info', href: '/warzone/info' },
-  { label: 'Changelog', href: '/changelog' },
-];
-
 export default function WhereWeDroppinPage() {
   return (
-    <PageLayout navLinks={navLinks} headerClassName='warzone'>
+    <PageLayout containerClassName='theme-warzone'>
       <Container>
         <div className='text-center mb-4'>
           <h2 className={styles.pageTitle}>Warzone</h2>

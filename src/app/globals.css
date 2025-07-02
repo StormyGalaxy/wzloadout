@@ -72,27 +72,6 @@
   flex-grow: 1;
 }
 
-/* Icon */
-.icon-spacer {
-  margin-right: 0.3em;
-  position: relative;
-  top: -3px;
-
-  font-size: 1em;
-  width: 1em;
-  height: 1em;
-  vertical-align: middle;
-  color: #333;
-}
-
-/* Temp top banner */
-#we-are-back-banner {
-  text-align: center;
-  background-color: #212529;
-  color: white;
-  border-bottom: black solid 1px;
-}
-
 /* Cutom Button Colors */
 /* Black Ops Orange - #F96800 */
 .btn-black-ops {
