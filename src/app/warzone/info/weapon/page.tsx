@@ -9,20 +9,19 @@ import WeaponDisplayClient from '@/components/info/WeaponDisplayClient';
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: 'Warzone Weapons',
+  title: 'Warzone Weapon Information',
   description: 'View information and all available attachments for the weapon in Warzone.',
   keywords: [
     'COD Warzone RCG',
     'warzone random class generator',
     'warzone',
     'warzone rcg',
-    'warzone random class generator',
     'class generator',
+    'warzone zombies',
     'warzone rcg',
-    'warzone random class generator',
-    'black ops 6',
-    'modern warfare 3',
-    'modern warfare 2',
+    'black-ops-6',
+    'Modern Warfare 3',
+    'Modern Warfare 2',
   ],
 };
 
@@ -39,7 +38,7 @@ export default function WarzoneWeaponPage() {
                 <p className='text-center'>Loading page...</p>
               </Col>
             }>
-            <WeaponDisplayClient game={game} />
+            <WeaponDisplayClient game={game} link='warzone' />
           </Suspense>
         </Row>
       </Container>

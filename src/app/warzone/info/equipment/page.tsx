@@ -5,27 +5,36 @@ import type { Metadata } from 'next';
 import PageLayout from '@/components/PageLayout';
 // --- Components ---
 import EquipmentList from '@/components/info/EquipmentList';
+import Breadcrumbs from '@/components/common/breadcrumbs/Breadcrumbs';
+// --- Styles ---
+import styles from '@/components/generators/views/ModernLoadout.module.css';
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: 'Warzone Equipment',
-  description: 'View all equipment in Warzone.',
+  title: 'Warzone Equipment Guide | Best Lethal & Tactical Gear',
+  description:
+    'A complete guide to all lethal and tactical equipment in Call of Duty: Warzone. Learn about the best equipment to use for your loadout, including Semtex, Throwing Knives, Stun Grenades, and more.',
   keywords: [
-    'COD Warzone RCG',
-    'warzone random class generator',
-    'warzone',
-    'warzone rcg',
-    'warzone random class generator',
-    'class generator',
-    'warzone rcg',
-    'warzone random class generator',
-    'black ops 6',
-    'modern warfare 3',
-    'modern warfare 2',
+    'Warzone equipment',
+    'Warzone tactical equipment',
+    'Warzone lethal equipment',
+    'Best Warzone equipment',
+    'COD Warzone',
+    'Semtex',
+    'Throwing Knife',
+    'Stun Grenade',
+    'Smoke Grenade',
+    'Warzone loadouts',
   ],
 };
 
 export default function WarzoneEquipmentPage() {
+  const breadcrumbLinks = [
+    { href: '/warzone', text: 'Warzone' },
+    { href: '/warzone/info', text: 'Info Hub' },
+    { text: 'Equipment' },
+  ];
+
   return (
     <PageLayout containerClassName='theme-warzone'>
       <Container>
@@ -33,8 +42,10 @@ export default function WarzoneEquipmentPage() {
           <h2 className={styles.pageTitle}>Warzone</h2>
           <p className={styles.pageSubtitle}>Equipment</p>
         </div>
+
         <Row className='p-3 p-md-4 bg-light rounded mb-4'>
           <Col>
+            <Breadcrumbs links={breadcrumbLinks} className='mb-4' />
             <EquipmentList game='warzone' />
           </Col>
         </Row>

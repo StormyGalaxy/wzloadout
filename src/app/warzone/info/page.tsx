@@ -1,73 +1,68 @@
-import { Container, Row, Col } from 'react-bootstrap';
 // --- Next ---
 import type { Metadata } from 'next';
-import Link from 'next/link';
 // --- Layout ---
 import PageLayout from '@/components/PageLayout';
 // --- Components ---
-import CodBadge from '@/components/CodBadge';
+import InfoHubClient from '@/components/info/info-hub-client/InfoHubClient';
+// --- Font Awesome ---
+import { faGun, faMedal, faExplosion, faStar } from '@fortawesome/free-solid-svg-icons';
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: 'Loadout Information',
+  title: 'Call of Duty: Warzone - Info Hub',
   description:
-    'Spice up your COD gameplay! Generate unique random loadouts for Call of Duty Warzone. Discover new weapons, perks, and gear combinations.',
+    'Your central hub for Call of Duty: Warzone intel. Explore detailed information on all weapons, perks, wildcards, and equipment to dominate the battle royale.',
   keywords: [
-    'COD Warzone RCG',
-    'warzone random class generator',
-    'warzone',
-    'warzone rcg',
-    'warzone random class generator',
-    'class generator',
-    'warzone rcg',
-    'warzone random class generator',
-    'black ops 6',
-    'modern warfare 3',
-    'modern warfare 2',
+    'COD Warzone Info',
+    'Warzone weapons',
+    'Warzone perks',
+    'Warzone wildcards',
+    'Warzone equipment',
+    'Warzone meta',
+    'Call of Duty Warzone',
   ],
 };
 
-const badges = [
-  { title: 'Equipment', link: '/warzone/info/equipment' },
-  { title: 'Perks', link: '/warzone/info/perks' },
-  { title: 'Weapons', link: '/warzone/info/weapons' },
-  { title: 'Wildcards', link: '/warzone/info/wildcards' },
+const multiplayerLinks = [
+  {
+    icon: faGun,
+    title: 'Weapons',
+    description: 'Explore the full arsenal of firearms integrated into Warzone.',
+    link: '/warzone/info/weapons',
+  },
+  {
+    icon: faMedal,
+    title: 'Perks',
+    description: 'Review the essential perks needed to gain an advantage and survive.',
+    link: '/warzone/info/perks',
+  },
+  {
+    icon: faExplosion,
+    title: 'Equipment',
+    description: 'Familiarize yourself with the lethal and tactical equipment in your arsenal.',
+    link: '/warzone/info/equipment',
+  },
+  {
+    icon: faStar,
+    title: 'Wildcards',
+    description: 'Learn about the game-changing Wildcards available to customize your loadout.',
+    link: '/warzone/info/wildcards',
+  },
 ];
+
+const breadcrumbLinks = [{ href: '/warzone', text: 'Warzone' }, { text: 'Info Hub' }];
 
 export default function WarzoneInfoPage() {
   return (
     <PageLayout containerClassName='theme-warzone'>
-      <Container>
-        <div className='text-center mb-4'>
-          <h2 className={styles.pageTitle}>Warzone</h2>
-          <p className={styles.pageSubtitle}>Loadout Information</p>
-        </div>
-        <Row className='p-3 p-md-4 bg-light rounded mb-4'>
-          <Col lg={7} className='text-center'>
-            <p>
-              Drop into the massive battle royale arenas of Call of Duty: Warzone fully prepared
-              with our tactical guide. This section provides crucial intel for survival and victory
-              across Warzone&apos;s ever-evolving battlegrounds. Explore detailed information on the
-              meta <strong>Weapons</strong>, essential <strong>Perks</strong>, powerful{' '}
-              <strong>Wildcards</strong> to enhance your loadouts, vital tactical and lethal{' '}
-              <strong>Equipment</strong>, and strategic breakdowns of key{' '}
-              <strong>Drop Spots</strong> across all current Warzone maps. Use the links on this
-              page to gear up, plan your drop, and dominate your next match.
-            </p>
-          </Col>
-          <Col lg={5}>
-            <h4 className='text-center'>Links</h4>
-            <hr />
-            <div className='d-flex flex-wrap gap-2'>
-              {badges.map((item) => (
-                <Link key={item.title} href={item.link} className='text-decoration-none' passHref>
-                  <CodBadge name={item.title} variant='success' />
-                </Link>
-              ))}
-            </div>
-          </Col>
-        </Row>
-      </Container>
+      <InfoHubClient
+        heroTitle='Call of Duty: Warzone'
+        heroSubTitle='Your Central Hub for Battle Royale Intel'
+        multiplayerLink='/warzone/generator'
+        multiplayerLinks={multiplayerLinks}
+        buttonVariant='success'
+        breadcrumbs={breadcrumbLinks}
+      />
     </PageLayout>
   );
 }

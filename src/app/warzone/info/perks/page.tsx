@@ -5,28 +5,36 @@ import type { Metadata } from 'next';
 import PageLayout from '@/components/PageLayout';
 // --- Components ---
 import PerkList from '@/components/info/PerkList';
+import Breadcrumbs from '@/components/common/breadcrumbs/Breadcrumbs';
+// --- Styles ---
+import styles from '@/components/generators/views/ModernLoadout.module.css';
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: 'Warzone Perks',
-  description: 'View all perks in Warzone.',
+  title: 'Warzone Perks Guide | All Perk Packages & Best Choices',
+  description:
+    'A complete guide to all perk packages and individual perks available in Call of Duty: Warzone. Learn about the best perks to use for your loadout, including selections from Modern Warfare II, Modern Warfare III, and Black Ops 6.',
   keywords: [
-    'COD Warzone RCG',
-    'warzone random class generator',
-    'warzone',
-    'warzone rcg',
-    'warzone random class generator',
-    'class generator',
-    'warzone rcg',
-    'warzone random class generator',
-    'black ops 6',
-    'modern warfare 3',
-    'modern warfare 2',
+    'Warzone perks',
+    'Warzone perk packages',
+    'Best Warzone perks',
+    'COD Warzone perks',
+    'Warzone meta perks',
+    'High Alert',
+    'Ghost',
+    'Double Time',
+    'Fast Hands',
+    'Warzone loadouts',
   ],
 };
 
 export default function WarzonePerksPage() {
   const dataKeys = ['name', 'type', 'game', 'isDlc'];
+  const breadcrumbLinks = [
+    { href: '/warzone', text: 'Warzone' },
+    { href: '/warzone/info', text: 'Info Hub' },
+    { text: 'Perks' },
+  ];
 
   return (
     <PageLayout containerClassName='theme-warzone'>
@@ -37,6 +45,7 @@ export default function WarzonePerksPage() {
         </div>
         <Row className='p-3 p-md-4 bg-light rounded mb-4'>
           <Col>
+            <Breadcrumbs links={breadcrumbLinks} className='mb-4' />
             <PerkList game='warzone' dataKeys={dataKeys} />
           </Col>
         </Row>
