@@ -1,86 +1,61 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+// --- React ---
 import { Row, Col, Button } from 'react-bootstrap';
+// --- Hooks ---
+import { useVanguardZombiesGenerator } from '@/hooks/vanguard/useVanguardZombiesGenerator';
 // --- Components ---
-import SimpleGeneratorView from '@/components/generators/cod/SimpleGeneratorView';
 import CodClassName from '@/components/CodClassName';
-// -- Helpers ---
-import { implodeObject } from '@/helpers/implodeObject';
-import { scrollToTop } from '@/helpers/scrollToTop';
-import { fetchWeapon } from '@/helpers/fetch/fetchWeapon';
-import { fetchAttachments } from '@/helpers/fetch/fetchAttachments';
-import { fetchEquipment } from '@/helpers/fetch/fetchEquipment';
-import { fetchClassName } from '@/helpers/fetch/fetchClassName';
-// -- Zombies Specific ---
-import { fetchZombiesMap } from '@/helpers/fetch/zombies/fetchZombiesMap';
-// -- Utils ---
-import { sendEvent } from '@silocitypages/utils';
-// -- Data ---
-import defaultData from '@/json/cod/default-zombies-generator-info.json';
+import GeneratorSkeleton from '@/components/generators/views/skeletons/GeneratorSkeleton';
+import WeaponCard from '@/components/generators/views/WeaponCard';
+import ValueCardView from '@/components/generators/views/ValueCardView';
+// --- Font Awesome ---
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSkull } from '@fortawesome/free-solid-svg-icons';
+// --- Styles ---
+import styles from '@/components/generators/views/ModernLoadout.module.css';
+// --- Types ---
+import type { Weapon } from '@/types/Generator';
 
-function VanguardZombiesLoadout() {
-  const [isLoading, setIsLoading] = useState(true);
-  const [isGenerating, setIsGenerating] = useState(true);
-  const [data, setData] = useState(defaultData);
+export default function VanguardZombiesLoadout() {
+  const { data, isLoading, isGenerating, generateLoadout } = useVanguardZombiesGenerator();
+  const generatingClass = isGenerating ? styles.generating : '';
 
-  useEffect(() => {
-    fetchLoadoutData(setData);
-    setIsLoading(false);
-    setIsGenerating(false);
-  }, []);
-
-  const handleClick = async () => {
-    setIsGenerating(true);
-
-    setTimeout(() => {
-      fetchLoadoutData(setData);
-      setIsGenerating(false);
-      scrollToTop();
-    }, 1000);
+  const cardProps = {
+    className: `${styles.card} ${generatingClass}`,
+    headerClassName: styles.cardHeader,
+    isGenerating,
   };
 
-  const { randClassName, weapons, artifact, zombieMap } = data;
-
   if (isLoading) {
-    return <div className='text-center'>Loading...</div>;
+    return <GeneratorSkeleton />;
   }
+
+  const { randClassName, weapons, artifact, zombieMap } = data;
 
   return (
     <>
       <CodClassName isGenerating={isGenerating} value={randClassName} />
-      <Row className='justify-content-md-center mb-4'>
-        <Col xs md='8' lg='6' className='text-center'>
-          <SimpleGeneratorView
-            isGenerating={isGenerating}
-            title='Primary'
-            value={weapons.primary.weapon.name}
-          />
-          <br />
-          <SimpleGeneratorView
-            isGenerating={isGenerating}
-            title='Primary Attachments'
-            value={
-              weapons.primary.weapon.no_attach ? 'No Attachments' : weapons.primary.attachments
-            }
-          />
+
+      <Row className='justify-content-md-center text-center mb-4'>
+        <Col xs={12} md={6} lg={4} className='mb-3'>
+          <WeaponCard title='Primary' weapon={weapons?.primary ?? ({} as Weapon)} {...cardProps} />
         </Col>
       </Row>
       <hr />
-      <Row className='justify-content-md-center mb-4'>
-        <Col xs md='4' lg='3' className='text-center'>
-          <SimpleGeneratorView isGenerating={isGenerating} title='Artifact' value={artifact} />
+      <Row className='justify-content-md-center text-center mb-4'>
+        <Col xs={12} md={6} lg={4} className='mb-3'>
+          <ValueCardView title='Artifact' value={artifact?.name ?? ''} {...cardProps} />
         </Col>
-        <Col xs md='4' lg='3' className='text-center'>
-          <SimpleGeneratorView isGenerating={isGenerating} title='Map' value={zombieMap.name} />
+        <Col xs={12} md={6} lg={4} className='mb-3'>
+          <ValueCardView title='Map' value={zombieMap.name} {...cardProps} />
         </Col>
       </Row>
+
       <Row className='justify-content-md-center'>
         <Col xs md='8' lg='6' className='text-center'>
-          <Button
-            variant='danger'
-            disabled={isGenerating}
-            onClick={isGenerating ? undefined : handleClick}>
+          <Button variant='danger' disabled={isGenerating} onClick={() => generateLoadout()}>
+            <FontAwesomeIcon icon={faSkull} className='me-2' />
             {isGenerating ? 'Generating Loadout...' : 'Generate Loadout'}
           </Button>
         </Col>
@@ -88,33 +63,3 @@ function VanguardZombiesLoadout() {
     </>
   );
 }
-
-async function fetchLoadoutData(setData) {
-  sendEvent('button_click', {
-    button_id: 'vanguardZombies_fetchLoadoutData',
-    label: 'VanguardZombies',
-    category: 'COD_Loadouts',
-  });
-
-  try {
-    const game = 'vanguard-zombies';
-    const randClassName = fetchClassName();
-    const weapons = { primary: { weapon: fetchWeapon('all', 'vanguard'), attachments: '' } };
-    //Get Primary Attachments
-    if (!weapons.primary.weapon.no_attach) {
-      weapons.primary.attachments = implodeObject(fetchAttachments(weapons.primary.weapon, 8));
-    }
-    const artifact = fetchEquipment('field_upgrade', game).name;
-    const zombieMap = fetchZombiesMap(game);
-
-    setData({ randClassName, weapons, artifact, zombieMap });
-  } catch (error: unknown) {
-    if (error instanceof Error) {
-      console.error(error.message);
-    } else {
-      console.error('An unknown error occurred.');
-    }
-  }
-}
-
-export default VanguardZombiesLoadout;

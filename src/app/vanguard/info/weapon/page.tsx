@@ -26,19 +26,11 @@ export const metadata: Metadata = {
   ],
 };
 
-const navLinks = [
-  { label: 'Home', href: '/' },
-  { label: 'Multiplayer Generator', href: '/vanguard/generator' },
-  { label: 'Zombies Generator', href: '/vanguard/zombies-generator' },
-  { label: 'Loadout Info', href: '/vanguard/info' },
-  { label: 'Changelog', href: '/changelog' },
-];
-
 export default function VanguardWeaponPage() {
   const game = 'vanguard';
 
   return (
-    <PageLayout navLinks={navLinks} headerClassName='vanguard'>
+    <PageLayout containerClassName='theme-vanguard'>
       <Container fluid>
         <Row>
           <Suspense

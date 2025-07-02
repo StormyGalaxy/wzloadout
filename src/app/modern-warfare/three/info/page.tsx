@@ -73,7 +73,7 @@ export default function ModernWarfareThreeInfoPage() {
         heroTitle='Modern Warfare 3'
         heroSubTitle='Your Central Hub for Multiplayer & Zombies Intel'
         multiplayerLink='/modern-warfare/three/generator'
-        zombiesLink='/modern-warfare/three/zombies'
+        zombiesLink='/modern-warfare/three/zombies-generator'
         multiplayerLinks={multiplayerLinks}
         zombiesLinks={zombiesLinks}
         buttonVariant='danger'

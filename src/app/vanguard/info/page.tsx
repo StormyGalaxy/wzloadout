@@ -27,14 +27,6 @@ export const metadata: Metadata = {
   ],
 };
 
-const navLinks = [
-  { label: 'Home', href: '/' },
-  { label: 'Multiplayer Generator', href: '/vanguard/generator' },
-  { label: 'Zombies Generator', href: '/vanguard/zombies-generator' },
-  { label: 'Loadout Info', href: '/vanguard/info' },
-  { label: 'Changelog', href: '/changelog' },
-];
-
 const badges = [
   { title: 'Equipment', link: '/vanguard/info/equipment' },
   { title: 'Perks', link: '/vanguard/info/perks' },
@@ -46,14 +38,12 @@ const badges = [
 
 export default function VanguardInfoPage() {
   return (
-    <PageLayout navLinks={navLinks} headerClassName='vanguard'>
+    <PageLayout containerClassName='theme-vanguard'>
       <Container>
-        <h2 className='text-center mb-4'>
-          Vanguard
-          <span className='d-none d-sm-inline-block'>&nbsp;-&nbsp;</span>
-          <br className='d-block d-sm-none' />
-          Loadout Information
-        </h2>
+        <div className='text-center mb-4'>
+          <h2 className={styles.pageTitle}>Vanguard</h2>
+          <p className={styles.pageSubtitle}>Loadout Information</p>
+        </div>
         <Row className='p-3 p-md-4 bg-light rounded mb-4'>
           <Col lg={7} className='text-center'>
             <p>

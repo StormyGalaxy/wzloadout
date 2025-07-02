@@ -4,47 +4,41 @@ import type { Metadata } from 'next';
 import PageLayout from '@/components/PageLayout';
 // --- Loadout ---
 import VanguardZombiesLoadout from '@/components/generators/vanguard/VanguardZombiesLoadout';
+import Breadcrumbs from '@/components/common/breadcrumbs/Breadcrumbs';
+// --- Styles ---
+import styles from '@/components/generators/views/ModernLoadout.module.css';
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: 'Vanguard Zombies',
+  title: 'Call of Duty: Vanguard Zombies Random Loadout Generator',
   description:
-    'Spice up your COD Zombies gameplay! Generate unique random loadouts for Call of Duty Vanguard Zombies. Discover new weapons, perks, and gear combinations.',
+    'Generate unique, random loadouts for Call of Duty: Vanguard Zombies. Challenge yourself with new combinations of weapons, covenants, and artifacts to survive the undead hordes in Der Anfang and Terra Maledicta.',
   keywords: [
-    'COD Vanguard RCG',
-    'vanguard random class generator',
-    'vanguard',
-    'vanguard rcg',
-    'vanguard random class generator',
-    'class generator',
-    'zombies',
-    'treyarch zombies',
-    'vanguard zombies',
-    'vanguard rcg',
-    'vanguard random class generator',
+    'Call of Duty Vanguard Zombies',
+    'Vanguard Zombies random loadout',
+    'COD Vanguard Zombies generator',
+    'Vanguard Zombies loadouts',
+    'Der Anfang',
+    'Terra Maledicta',
+    'Vanguard covenants',
+    'Vanguard artifacts',
   ],
 };
 
-const navLinks = [
-  { label: 'Home', href: '/' },
-  { label: 'Multiplayer Generator', href: '/vanguard/generator' },
-  { label: 'Zombies Generator', href: '/vanguard/zombies-generator' },
-  { label: 'Loadout Info', href: '/vanguard/info' },
-  { label: 'Changelog', href: '/changelog' },
-];
-
 export default function VanguardZombiesGeneratorPage() {
+  const breadcrumbLinks = [{ href: '/vanguard', text: 'Vanguard' }, { text: 'Zombies Generator' }];
+
   return (
-    <PageLayout navLinks={navLinks} headerClassName='vanguard'>
+    <PageLayout containerClassName='theme-vanguard'>
       <Container>
-        <h2 className='text-center mb-4'>
-          Vanguard Zombies
-          <span className='d-none d-sm-inline-block'>&nbsp;-&nbsp;</span>
-          <br className='d-block d-sm-none' />
-          Random Class Generator
-        </h2>
+        <div className='text-center mb-4'>
+          <h2 className={styles.pageTitle}>Vanguard Zombies</h2>
+          <p className={styles.pageSubtitle}>Random Class Generator</p>
+        </div>
+
         <Row className='p-3 p-md-4 bg-light rounded mb-4'>
           <Col className='mx-auto'>
+            <Breadcrumbs links={breadcrumbLinks} className='mb-4' />
             <VanguardZombiesLoadout />
           </Col>
         </Row>

@@ -25,24 +25,14 @@ export const metadata: Metadata = {
   ],
 };
 
-const navLinks = [
-  { label: 'Home', href: '/' },
-  { label: 'Multiplayer Generator', href: '/vanguard/generator' },
-  { label: 'Zombies Generator', href: '/vanguard/zombies-generator' },
-  { label: 'Loadout Info', href: '/vanguard/info' },
-  { label: 'Changelog', href: '/changelog' },
-];
-
 export default function VanguardZombiesArtifactsPage() {
   return (
-    <PageLayout navLinks={navLinks} headerClassName='vanguard'>
+    <PageLayout containerClassName='theme-vanguard'>
       <Container>
-        <h2 className='text-center mb-4'>
-          Vanguard
-          <span className='d-none d-sm-inline-block'>&nbsp;-&nbsp;</span>
-          <br className='d-block d-sm-none' />
-          Zombies Artifacts
-        </h2>
+        <div className='text-center mb-4'>
+          <h2 className={styles.pageTitle}>Vanguard</h2>
+          <p className={styles.pageSubtitle}>Zombies Artifacts</p>
+        </div>
         <Row className='p-3 p-md-4 bg-light rounded mb-4'>
           <Col>
             <ZombiesFieldUpgradeList game='vanguard' />

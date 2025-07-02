@@ -4,47 +4,43 @@ import type { Metadata } from 'next';
 import PageLayout from '@/components/PageLayout';
 // --- Loadout ---
 import VanguardLoadout from '@/components/generators/vanguard/VanguardLoadout';
+import Breadcrumbs from '@/components/common/breadcrumbs/Breadcrumbs';
+// --- Styles ---
+import styles from '@/components/generators/views/ModernLoadout.module.css';
 
 // --- Metadata ---
 export const metadata: Metadata = {
-  title: 'Vanguard',
+  title: 'Call of Duty: Vanguard Random Class Generator | COD Loadouts',
   description:
-    'Spice up your COD gameplay! Generate unique random loadouts for Call of Duty Vanguard. Discover new weapons, perks, and gear combinations.',
+    'Challenge yourself with unique, randomly generated loadouts for Call of Duty: Vanguard. Discover new combinations of weapons, attachments, perks, and equipment to keep your multiplayer gameplay fresh and exciting.',
   keywords: [
+    'Call of Duty Vanguard',
+    'Vanguard random class generator',
     'COD Vanguard RCG',
-    'vanguard random class generator',
-    'vanguard',
-    'vanguard rcg',
-    'vanguard random class generator',
-    'class generator',
-    'zombies',
-    'treyarch zombies',
-    'vanguard zombies',
-    'vanguard rcg',
-    'vanguard random class generator',
+    'Vanguard loadout generator',
+    'Vanguard random loadouts',
+    'Vanguard perks',
+    'Vanguard weapons',
+    'COD Vanguard generator',
   ],
 };
 
-const navLinks = [
-  { label: 'Home', href: '/' },
-  { label: 'Multiplayer Generator', href: '/vanguard/generator' },
-  { label: 'Zombies Generator', href: '/vanguard/zombies-generator' },
-  { label: 'Loadout Info', href: '/vanguard/info' },
-  { label: 'Changelog', href: '/changelog' },
-];
-
 export default function VanguardGeneratorPage() {
+  const breadcrumbLinks = [
+    { href: '/vanguard', text: 'Vanguard' },
+    { text: 'Multiplayer Generator' },
+  ];
+
   return (
-    <PageLayout navLinks={navLinks} headerClassName='vanguard'>
+    <PageLayout containerClassName='theme-vanguard'>
       <Container>
-        <h2 className='text-center mb-4'>
-          Vanguard
-          <span className='d-none d-sm-inline-block'>&nbsp;-&nbsp;</span>
-          <br className='d-block d-sm-none' />
-          Random Class Generator
-        </h2>
+        <div className='text-center mb-4'>
+          <h2 className={styles.pageTitle}>Vanguard</h2>
+          <p className={styles.pageSubtitle}>Random Class Generator</p>
+        </div>
         <Row className='p-3 p-md-4 bg-light rounded mb-4'>
           <Col className='mx-auto'>
+            <Breadcrumbs links={breadcrumbLinks} className='mb-4' />
             <VanguardLoadout />
           </Col>
         </Row>
