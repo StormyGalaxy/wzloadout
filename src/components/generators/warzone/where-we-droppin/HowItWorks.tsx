@@ -2,13 +2,18 @@
 
 // --- React ---
 import { Container, Row, Col, Card } from 'react-bootstrap';
+// --- Components ---
+import Breadcrumbs from '@/components/common/breadcrumbs/Breadcrumbs';
 // --- FontAwesome ---
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDice, faMap, faParachuteBox } from '@fortawesome/free-solid-svg-icons';
 
 const HowItWorks = () => {
+  const breadcrumbLinks = [{ href: '/warzone', text: 'Warzone' }, { text: 'Where We Droppin' }];
+
   return (
     <Container className='feature-section text-center'>
+      <Breadcrumbs links={breadcrumbLinks} className='mb-4' />
       <h2>How It Works</h2>
       <Row>
         <Col md={4} className='mb-4'>
