@@ -236,7 +236,6 @@ Our CI pipeline (`.github/workflows/ci.yml`) will run checks for linting, format
 This project is licensed under the **Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0) License**.
 
 - You are free to:
-
   - **Share** — copy and redistribute the material in any medium or format
   - **Adapt** — remix, transform, and build upon the material for any purpose, even commercially.
 
