@@ -9,14 +9,15 @@ const CommunitySupport = () => {
   return (
     <Card className={styles.toolCard}>
       <Card.Body>
-        <Card.Title>We Want to Hear From You!</Card.Title>
+        <Card.Title>Help Us Build the Future of CODRCG</Card.Title>
         <Card.Text className='text-muted'>
-          Our community is the most important part of COD RCG. Join our Discord, give us feedback,
-          or report any bugs you find.
+          Our community is the most important part of COD RCG. We could use your help building new
+          features, finding bugs, and gathering data from all the Call of Duty games to make this
+          the best random class generator.
         </Card.Text>
         <Stack gap={2}>
           <Button href='/feedback' variant='primary'>
-            Submit Feedback
+            Suggest a Feature
           </Button>
           <Button href='/feedback' variant='outline-danger'>
             Report a Bug

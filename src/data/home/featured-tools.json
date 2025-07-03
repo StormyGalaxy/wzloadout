@@ -1,20 +1,128 @@
 [
   {
+    "title": "Black Ops Cold War Loadout Generator",
+    "description": "Create unique multiplayer loadouts with diverse Wildcards and a classic Pick 10 feel. Find your next go-to class setup.",
+    "link": "/black-ops/cold-war/generator",
+    "game": "Black Ops Cold War"
+  },
+  {
+    "title": "Black Ops Cold War Zombies Loadout Generator",
+    "description": "Assemble the perfect loadout to survive the Dark Aether. Get recommendations for weapons, field upgrades, and perks.",
+    "link": "/black-ops/cold-war/zombies-generator",
+    "game": "Black Ops Cold War"
+  },
+  {
+    "title": "Black Ops 4 Loadout Generator",
+    "description": "Master the specialist system by generating random classes. Discover powerful combinations of gear and perks for your next match.",
+    "link": "/black-ops/four/generator",
+    "game": "Black Ops 4"
+  },
+  {
+    "title": "Black Ops 4 Zombies Loadout Generator",
+    "description": "Challenge the Chaos or Aether story with a random loadout. Find the ideal mix of elixirs, talismans, and special weapons.",
+    "link": "/black-ops/four/zombies/generator",
+    "game": "Black Ops 4"
+  },
+  {
+    "title": "Black Ops 4 Zombies Custom Mutations",
+    "description": "Generate random settings for a custom zombies experience. Create a unique challenge by tweaking dozens of game rules.",
+    "link": "/black-ops/four/zombies/custom-mutations",
+    "game": "Black Ops 4"
+  },
+  {
+    "title": "Black Ops 6 Loadout Generator",
+    "description": "Prepare for the launch of Black Ops 6. Experiment with the next evolution of loadouts and find a new strategy.",
+    "link": "/black-ops/six/generator",
+    "game": "Black Ops 6"
+  },
+  {
+    "title": "Black Ops 6 Zombies Loadout Generator",
+    "description": "Get ready for the return of round-based zombies! Generate a random class to take on the new undead threats.",
+    "link": "/black-ops/six/zombies-generator",
+    "game": "Black Ops 6"
+  },
+  {
+    "title": "Black Ops 3 Loadout Generator",
+    "description": "Explore the advanced movement and specialist abilities of BO3 with a randomly generated class. Perfect for revisiting a classic.",
+    "link": "/black-ops/three/generator",
+    "game": "Black Ops 3"
+  },
+  {
+    "title": "Infinite Warfare Loadout Generator",
+    "description": "Dominate in zero-g with a fresh loadout. Generate classes with unique Combat Rigs, payloads, and traits.",
+    "link": "/infinite-warfare/generator",
+    "game": "Infinite Warfare"
+  },
+  {
+    "title": "MWR Loadout Generator",
+    "description": "Rediscover boots-on-the-ground combat. Get a classic loadout and challenge your skills in this remastered favorite.",
+    "link": "/modern-warfare/remastered/generator",
+    "game": "Modern Warfare Remastered"
+  },
+  {
     "title": "MW3 Loadout Generator",
-    "description": "Get the best random loadouts for Modern Warfare 3. Perfect for challenging yourself or finding a new meta.",
+    "description": "Navigate the complex gunsmith of Modern Warfare 3. Let us generate a full build, from primary weapon to gear.",
     "link": "/modern-warfare/three/generator",
     "game": "Modern Warfare 3"
   },
   {
-    "title": "Warzone Drop Picker",
-    "description": "Can't decide where to drop in Urzikstan? Let us pick a random POI for you and your squad.",
-    "link": "/warzone/where-we-droppin/br/urzikstan",
+    "title": "MW3 Zombies Loadout Generator",
+    "description": "Prepare for the open-world zombie experience. Get a random loadout to take on hordes and complete contracts.",
+    "link": "/modern-warfare/three/zombies-generator",
+    "game": "Modern Warfare 3"
+  },
+  {
+    "title": "MW2 Loadout Generator",
+    "description": "Create a random class for Modern Warfare 2's fast-paced multiplayer. Find a new weapon build and perk package.",
+    "link": "/modern-warfare/two/generator",
+    "game": "Modern Warfare 2"
+  },
+  {
+    "title": "Vanguard Loadout Generator",
+    "description": "Experiment with Vanguard's extensive attachment system. Generate a unique loadout with up to 10 attachments.",
+    "link": "/vanguard/generator",
+    "game": "Vanguard"
+  },
+  {
+    "title": "Vanguard Zombies Loadout Generator",
+    "description": "Survive the undead with a random class. Discover powerful combinations of artifacts, covenants, and perks.",
+    "link": "/vanguard/zombies-generator",
+    "game": "Vanguard"
+  },
+  {
+    "title": "Warzone Loadout Generator",
+    "description": "Struggling to pick a loadout for your next drop? Generate a complete class, including weapons and perks, for any playstyle.",
+    "link": "/warzone/generator",
     "game": "Warzone"
   },
   {
-    "title": "Black Ops 6 Intel",
-    "description": "Stay up to date with the latest weapons, perks, and killstreaks for the upcoming Black Ops 6.",
-    "link": "/black-ops/six/info",
-    "game": "Black Ops 6"
+    "title": "Warzone Where We Droppin",
+    "description": "Can't decide where to drop in Warzone? Let us pick a random POI for you and your squad. Hot drop or safe landing?",
+    "link": "/warzone/where-we-droppin",
+    "game": "Warzone"
+  },
+  {
+    "title": "World At War Loadout Generator",
+    "description": "Return to the gritty battlefields of WWII. Get a random class and experience the game that started zombies.",
+    "link": "/world-at-war/generator",
+    "game": "World At War"
+  },
+  {
+    "title": "World War 2 Loadout Generator",
+    "description": "Challenge yourself in boots-on-the-ground combat. Generate a class with different division skills and training.",
+    "link": "/world-war-two/generator",
+    "game": "World War 2"
+  },
+  {
+    "title": "World War 2 Zombies Loadout Generator",
+    "description": "Gear up to fight the undead army. Get a randomized loadout with different mods, special abilities, and perks.",
+    "link": "/world-war-two/zombies-generator",
+    "game": "World War 2"
+  },
+  {
+    "title": "World War 2 Custom Match",
+    "description": "Generate random settings for a custom multiplayer match. Create a fun and unpredictable experience for you and your friends.",
+    "link": "/world-war-two/custom-match",
+    "game": "World War 2"
   }
 ]
