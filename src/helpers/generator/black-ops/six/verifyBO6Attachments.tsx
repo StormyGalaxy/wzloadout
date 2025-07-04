@@ -4,6 +4,7 @@ const AKIMBO = 'Akimbo';
 const BURST = '3-Round Burst Mod'; // This is the generic 3-Round Burst Mod
 const G_GRIP = 'G-Grip';
 const STRYDER_BURST = 'Stryder .22 3-Round Burst Mod'; // Constant for the specific mod
+const SVD_FULL_AUTO_MOD = 'SVD Full Auto Mod';
 
 /**
  * Verifies attachment compatibility rules for Black Ops 6, preventing invalid attachment combinations.
@@ -43,12 +44,15 @@ export function verifyBO6Attachments(
   const hasThreeRoundBurst = issetAttachment.fireMods && attachments['fire_mods'] === BURST;
   const hasGGrip = issetAttachment.underbarrel && attachments['underbarrel'] === G_GRIP;
   const hasStryderBurst = issetAttachment.fireMods && attachments['fire_mods'] === STRYDER_BURST;
+  const hasSVDFullAutoMod =
+    issetAttachment.fireMods && attachments['fire_mods'] === SVD_FULL_AUTO_MOD; // New check
 
   // State of the attachment currently being considered
   const isCurrentAkimbo = attachment === AKIMBO;
   const isCurrentBurst = attachment === BURST;
   const isCurrentGGrip = attachment === G_GRIP;
   const isCurrentStryderBurst = attachment === STRYDER_BURST;
+  const isCurrentSVDFullAutoMod = attachment === SVD_FULL_AUTO_MOD; // New check
 
   // --- Akimbo Incompatibility Checks ---
   if (
@@ -91,15 +95,37 @@ export function verifyBO6Attachments(
     return false;
   }
 
-  // Determine if Akimbo, generic 3-Round Burst, or Stryder Burst will be in the loadout AFTER this attachment is (potentially) added.
+  // --- SVD Full Auto Mod Incompatibility Checks (NEW) ---
+  if (
+    (isCurrentSVDFullAutoMod &&
+      attachmentBooleans.isFireMods &&
+      (issetAttachment.barrel ||
+        issetAttachment.underbarrel ||
+        issetAttachment.magazine ||
+        issetAttachment.stock)) ||
+    (hasSVDFullAutoMod &&
+      (attachmentBooleans.isBarrel ||
+        attachmentBooleans.isUnderbarrel ||
+        attachmentBooleans.isMagazine ||
+        attachmentBooleans.isStock))
+  ) {
+    return false; // Prevent adding the incompatible attachment
+  }
+
+  // Determine if Akimbo, generic 3-Round Burst, Stryder Burst, or SVD Full Auto Mod
+  // will be in the loadout AFTER this attachment is (potentially) added.
   const willHaveAkimboInFinalLoadout = hasAkimbo || (isCurrentAkimbo && attachmentType === 'stock');
   const willHaveThreeRoundBurstInFinalLoadout =
     hasThreeRoundBurst || (isCurrentBurst && attachmentType === 'fire_mods');
   const willHaveStryderBurstInFinalLoadout =
     hasStryderBurst || (isCurrentStryderBurst && attachmentType === 'fire_mods');
+  const willHaveSVDFullAutoModInFinalLoadout =
+    hasSVDFullAutoMod || (isCurrentSVDFullAutoMod && attachmentType === 'fire_mods'); // New check
 
   // Adjust the total allowed attachment count based on the presence of specific mods
-  if (count > 6 && willHaveStryderBurstInFinalLoadout) {
+  if (count > 5 && willHaveSVDFullAutoModInFinalLoadout) {
+    modifyCount(5); // SVD Full Auto Mod limits to a maximum of 5 attachments (highest priority)
+  } else if (count > 6 && willHaveStryderBurstInFinalLoadout) {
     modifyCount(6); // Stryder Burst limits to a maximum of 6 attachments
   } else if (count > 7 && (willHaveAkimboInFinalLoadout || willHaveThreeRoundBurstInFinalLoadout)) {
     modifyCount(7); // Akimbo or generic 3-Round Burst limits to a maximum of 7 attachments

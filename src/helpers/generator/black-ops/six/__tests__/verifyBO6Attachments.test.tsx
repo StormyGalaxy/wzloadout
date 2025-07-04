@@ -25,15 +25,14 @@ describe('verifyBO6Attachments', () => {
       magazine: '',
       rear_grip: '',
     };
-    // Updated baseAttachData to include 'Stryder .22 3-Round Burst Mod'
     baseAttachData = {
       stock: ['Akimbo', 'Normal Stock'],
       underbarrel: ['Foregrip', 'G-Grip'],
       laser: ['Tactical Laser', 'Strelok Laser', 'Target Laser', 'Standard Laser'],
       barrel: ['Long Barrel', 'Short Barrel'],
-      fire_mods: ['3-Round Burst Mod', 'Stryder .22 3-Round Burst Mod'], // Added new mod here
+      fire_mods: ['3-Round Burst Mod', 'Stryder .22 3-Round Burst Mod', 'SVD Full Auto Mod'],
       muzzle: ['Suppressor'],
-      magazine: ['Extended Mag', 'Fast Mag'], // Added another magazine for completeness
+      magazine: ['Extended Mag', 'Fast Mag'],
       optic: ['Red Dot Sight'],
       rear_grip: ['Rubberized Grip'],
     };
@@ -351,8 +350,7 @@ describe('verifyBO6Attachments', () => {
       mockModifyCount
     );
     expect(result).toBe(true);
-    // Updated expectation to 6 as per the new rule
-    expect(mockModifyCount).toHaveBeenCalledWith(6);
+    expect(mockModifyCount).toHaveBeenCalledWith(6); // Expect 6 as per new rule
   });
 
   test('should allow a magazine if Stryder .22 3-Round Burst Mod is not selected', () => {
@@ -374,6 +372,213 @@ describe('verifyBO6Attachments', () => {
       baseAttachments,
       'Long Barrel',
       'barrel',
+      8,
+      mockModifyCount
+    );
+    expect(result).toBe(true);
+    expect(mockModifyCount).not.toHaveBeenCalled();
+  });
+
+  // --- SVD Full Auto Mod Incompatibility Tests (NEW) ---
+
+  test('should block SVD Full Auto Mod if a barrel is already selected', () => {
+    baseAttachments.barrel = 'Long Barrel';
+    const result = verifyBO6Attachments(
+      baseAttachData,
+      baseAttachments,
+      'SVD Full Auto Mod',
+      'fire_mods',
+      8,
+      mockModifyCount
+    );
+    expect(result).toBe(false);
+    expect(mockModifyCount).not.toHaveBeenCalled();
+  });
+
+  test('should block SVD Full Auto Mod if an underbarrel is already selected', () => {
+    baseAttachments.underbarrel = 'Foregrip';
+    const result = verifyBO6Attachments(
+      baseAttachData,
+      baseAttachments,
+      'SVD Full Auto Mod',
+      'fire_mods',
+      8,
+      mockModifyCount
+    );
+    expect(result).toBe(false);
+    expect(mockModifyCount).not.toHaveBeenCalled();
+  });
+
+  test('should block SVD Full Auto Mod if a magazine is already selected', () => {
+    baseAttachments.magazine = 'Extended Mag';
+    const result = verifyBO6Attachments(
+      baseAttachData,
+      baseAttachments,
+      'SVD Full Auto Mod',
+      'fire_mods',
+      8,
+      mockModifyCount
+    );
+    expect(result).toBe(false);
+    expect(mockModifyCount).not.toHaveBeenCalled();
+  });
+
+  test('should block SVD Full Auto Mod if a stock is already selected', () => {
+    baseAttachments.stock = 'Normal Stock';
+    const result = verifyBO6Attachments(
+      baseAttachData,
+      baseAttachments,
+      'SVD Full Auto Mod',
+      'fire_mods',
+      8,
+      mockModifyCount
+    );
+    expect(result).toBe(false);
+    expect(mockModifyCount).not.toHaveBeenCalled();
+  });
+
+  test('should block a barrel if SVD Full Auto Mod is already selected', () => {
+    baseAttachments.fire_mods = 'SVD Full Auto Mod';
+    const result = verifyBO6Attachments(
+      baseAttachData,
+      baseAttachments,
+      'Short Barrel',
+      'barrel',
+      8,
+      mockModifyCount
+    );
+    expect(result).toBe(false);
+    expect(mockModifyCount).not.toHaveBeenCalled();
+  });
+
+  test('should block an underbarrel if SVD Full Auto Mod is already selected', () => {
+    baseAttachments.fire_mods = 'SVD Full Auto Mod';
+    const result = verifyBO6Attachments(
+      baseAttachData,
+      baseAttachments,
+      'Bipod',
+      'underbarrel',
+      8,
+      mockModifyCount
+    );
+    expect(result).toBe(false);
+    expect(mockModifyCount).not.toHaveBeenCalled();
+  });
+
+  test('should block a magazine if SVD Full Auto Mod is already selected', () => {
+    baseAttachments.fire_mods = 'SVD Full Auto Mod';
+    const result = verifyBO6Attachments(
+      baseAttachData,
+      baseAttachments,
+      'Fast Mag',
+      'magazine',
+      8,
+      mockModifyCount
+    );
+    expect(result).toBe(false);
+    expect(mockModifyCount).not.toHaveBeenCalled();
+  });
+
+  test('should block a stock if SVD Full Auto Mod is already selected', () => {
+    baseAttachments.fire_mods = 'SVD Full Auto Mod';
+    const result = verifyBO6Attachments(
+      baseAttachData,
+      baseAttachments,
+      'Heavy Stock',
+      'stock',
+      8,
+      mockModifyCount
+    );
+    expect(result).toBe(false);
+    expect(mockModifyCount).not.toHaveBeenCalled();
+  });
+
+  test('should allow SVD Full Auto Mod if no incompatible attachments are present', () => {
+    const result = verifyBO6Attachments(
+      baseAttachData,
+      baseAttachments,
+      'SVD Full Auto Mod',
+      'fire_mods',
+      8,
+      mockModifyCount
+    );
+    expect(result).toBe(true);
+    expect(mockModifyCount).toHaveBeenCalledWith(5); // Expect 5 as per new rule
+  });
+
+  test('should reduce count to 5 if SVD Full Auto Mod is present and count is > 5', () => {
+    baseAttachments.fire_mods = 'SVD Full Auto Mod';
+    const result = verifyBO6Attachments(
+      baseAttachData,
+      baseAttachments,
+      'Muzzle Break',
+      'muzzle',
+      7,
+      mockModifyCount
+    );
+    expect(result).toBe(true);
+    expect(mockModifyCount).toHaveBeenCalledWith(5);
+  });
+
+  test('should not reduce count if SVD Full Auto Mod is present and count is 5 or less', () => {
+    baseAttachments.fire_mods = 'SVD Full Auto Mod';
+    const result = verifyBO6Attachments(
+      baseAttachData,
+      baseAttachments,
+      'Muzzle Break',
+      'muzzle',
+      5,
+      mockModifyCount
+    );
+    expect(result).toBe(true);
+    expect(mockModifyCount).not.toHaveBeenCalled();
+  });
+
+  test('should allow a barrel if SVD Full Auto Mod is not selected', () => {
+    const result = verifyBO6Attachments(
+      baseAttachData,
+      baseAttachments,
+      'Long Barrel',
+      'barrel',
+      8,
+      mockModifyCount
+    );
+    expect(result).toBe(true);
+    expect(mockModifyCount).not.toHaveBeenCalled();
+  });
+
+  test('should allow an underbarrel if SVD Full Auto Mod is not selected', () => {
+    const result = verifyBO6Attachments(
+      baseAttachData,
+      baseAttachments,
+      'Foregrip',
+      'underbarrel',
+      8,
+      mockModifyCount
+    );
+    expect(result).toBe(true);
+    expect(mockModifyCount).not.toHaveBeenCalled();
+  });
+
+  test('should allow a magazine if SVD Full Auto Mod is not selected', () => {
+    const result = verifyBO6Attachments(
+      baseAttachData,
+      baseAttachments,
+      'Extended Mag',
+      'magazine',
+      8,
+      mockModifyCount
+    );
+    expect(result).toBe(true);
+    expect(mockModifyCount).not.toHaveBeenCalled();
+  });
+
+  test('should allow a stock if SVD Full Auto Mod is not selected', () => {
+    const result = verifyBO6Attachments(
+      baseAttachData,
+      baseAttachments,
+      'Normal Stock',
+      'stock',
       8,
       mockModifyCount
     );
