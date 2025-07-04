@@ -99,7 +99,7 @@ function handleObjectData(
       // Only run verification for the specific game.
       if (game === 'black-ops-six') {
         // Pass a mutable reference to currentCount and update it in place if needed
-        let tempCount = currentCount;
+        const tempCount = currentCount;
         addAttachment = verifyBO6Attachments(
           data, // attachData
           attachArr,

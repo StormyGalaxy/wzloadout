@@ -2,6 +2,7 @@ import { isset } from '@/helpers/isset';
 
 const AKIMBO = 'Akimbo';
 const BURST = '3-Round Burst Mod';
+const G_GRIP = 'G-Grip';
 
 /**
  * Verifies attachment compatibility rules for Black Ops 6, preventing invalid attachment combinations.
@@ -36,39 +37,62 @@ export function verifyBO6Attachments(
   const issetAttachment = getIssetAttachments(attachments);
   const LASER_INCOMPATIBLE_WITH_AKIMBO = ['Tactical Laser', 'Strelok Laser', 'Target Laser'];
 
+  // Current state of attachments
   const hasAkimbo = issetAttachment.stock && attachments['stock'] === AKIMBO;
   const hasThreeRoundBurst = issetAttachment.fireMods && attachments['fire_mods'] === BURST;
+  const hasGGrip = issetAttachment.underbarrel && attachments['underbarrel'] === G_GRIP; // New check for G-Grip
 
+  // State of the attachment currently being considered
   const isCurrentAkimbo = attachment === AKIMBO;
+  const isCurrentBurst = attachment === BURST;
+  const isCurrentGGrip = attachment === G_GRIP; // New check for proposed G-Grip
 
+  // --- Akimbo Incompatibility Checks ---
   if (
+    // Scenario 1: Proposed attachment is Akimbo, AND an incompatible existing attachment is present
     (isCurrentAkimbo && (issetAttachment.optic || issetAttachment.underbarrel)) ||
     (isCurrentAkimbo &&
       issetAttachment.laser &&
       LASER_INCOMPATIBLE_WITH_AKIMBO.includes(attachments['laser'])) ||
-    (hasAkimbo && (attachmentBooleans.isStock || attachmentBooleans.isOptic)) ||
-    (hasAkimbo && attachmentBooleans.isLaser && LASER_INCOMPATIBLE_WITH_AKIMBO.includes(attachment))
+    // Scenario 2: Akimbo is ALREADY selected, AND the proposed attachment is incompatible
+    (hasAkimbo && (attachmentBooleans.isStock || attachmentBooleans.isOptic)) || // If Akimbo is present, can't add another stock or an optic
+    (hasAkimbo && attachmentBooleans.isLaser && LASER_INCOMPATIBLE_WITH_AKIMBO.includes(attachment)) // If Akimbo is present, can't add certain lasers
   ) {
     if (Object.keys(attachData.stock || {}).length === 1 && count > 7) {
       modifyCount(7);
     }
-    return false;
+    return false; // Prevent adding the attachment
   }
 
-  const isCurrentBurst = attachment === BURST;
-
+  // --- 3-Round Burst Mod Incompatibility Checks ---
   if (
+    // Scenario 1: Proposed attachment is 3-Round Burst, AND an incompatible existing attachment is present
     (isCurrentBurst && (issetAttachment.barrel || issetAttachment.underbarrel)) ||
+    // Scenario 2: 3-Round Burst is ALREADY selected, AND the proposed attachment is incompatible
     (hasThreeRoundBurst && (attachmentBooleans.isBarrel || attachmentBooleans.isUnderbarrel))
   ) {
-    return false;
+    return false; // Prevent adding the attachment
   }
 
-  if ((hasAkimbo || hasThreeRoundBurst) && count > 7) {
+  // --- G-Grip and Laser Incompatibility Checks (NEW) ---
+  if (
+    (isCurrentGGrip && attachmentBooleans.isUnderbarrel && issetAttachment.laser) || // Proposed G-Grip, and a laser is present
+    (attachmentBooleans.isLaser && hasGGrip) // Proposed laser, and G-Grip is present
+  ) {
+    return false; // Prevent adding the attachment
+  }
+
+  // Determine if Akimbo or 3-Round Burst will be in the loadout AFTER this attachment is (potentially) added.
+  const willHaveAkimboInFinalLoadout = hasAkimbo || (isCurrentAkimbo && attachmentType === 'stock');
+  const willHaveThreeRoundBurstInFinalLoadout =
+    hasThreeRoundBurst || (isCurrentBurst && attachmentType === 'fire_mods');
+
+  // Lower the count to 7 if it's at 8 and akimbo or 3-round burst is selected (or will be selected after this addition)
+  if ((willHaveAkimboInFinalLoadout || willHaveThreeRoundBurstInFinalLoadout) && count > 7) {
     modifyCount(7);
   }
 
-  return true;
+  return true; // Allow the attachment
 }
 
 function getAttachmentBooleans(attachmentType: string) {
