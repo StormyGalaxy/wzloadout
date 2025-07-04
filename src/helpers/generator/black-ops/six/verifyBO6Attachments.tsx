@@ -5,6 +5,7 @@ const BURST = '3-Round Burst Mod'; // This is the generic 3-Round Burst Mod
 const G_GRIP = 'G-Grip';
 const STRYDER_BURST = 'Stryder .22 3-Round Burst Mod'; // Constant for the specific mod
 const SVD_FULL_AUTO_MOD = 'SVD Full Auto Mod';
+const TR2_CQB_AUTO_CONVERSION = 'TR2 CQB Auto Conversion';
 
 /**
  * Verifies attachment compatibility rules for Black Ops 6, preventing invalid attachment combinations.
@@ -45,14 +46,17 @@ export function verifyBO6Attachments(
   const hasGGrip = issetAttachment.underbarrel && attachments['underbarrel'] === G_GRIP;
   const hasStryderBurst = issetAttachment.fireMods && attachments['fire_mods'] === STRYDER_BURST;
   const hasSVDFullAutoMod =
-    issetAttachment.fireMods && attachments['fire_mods'] === SVD_FULL_AUTO_MOD; // New check
+    issetAttachment.fireMods && attachments['fire_mods'] === SVD_FULL_AUTO_MOD;
+  const hasTR2CQBAutoConversion =
+    issetAttachment.fireMods && attachments['fire_mods'] === TR2_CQB_AUTO_CONVERSION;
 
   // State of the attachment currently being considered
   const isCurrentAkimbo = attachment === AKIMBO;
   const isCurrentBurst = attachment === BURST;
   const isCurrentGGrip = attachment === G_GRIP;
   const isCurrentStryderBurst = attachment === STRYDER_BURST;
-  const isCurrentSVDFullAutoMod = attachment === SVD_FULL_AUTO_MOD; // New check
+  const isCurrentSVDFullAutoMod = attachment === SVD_FULL_AUTO_MOD;
+  const isCurrentTR2CQBAutoConversion = attachment === TR2_CQB_AUTO_CONVERSION;
 
   // --- Akimbo Incompatibility Checks ---
   if (
@@ -95,7 +99,7 @@ export function verifyBO6Attachments(
     return false;
   }
 
-  // --- SVD Full Auto Mod Incompatibility Checks (NEW) ---
+  // --- SVD Full Auto Mod Incompatibility Checks ---
   if (
     (isCurrentSVDFullAutoMod &&
       attachmentBooleans.isFireMods &&
@@ -109,6 +113,14 @@ export function verifyBO6Attachments(
         attachmentBooleans.isMagazine ||
         attachmentBooleans.isStock))
   ) {
+    return false;
+  }
+
+  // --- TR2 CQB Auto Conversion Incompatibility Checks (NEW) ---
+  if (
+    (isCurrentTR2CQBAutoConversion && attachmentBooleans.isFireMods && issetAttachment.barrel) || // Proposed TR2 CQB, and a barrel is present
+    (hasTR2CQBAutoConversion && attachmentBooleans.isBarrel) // TR2 CQB is present, and a barrel is proposed
+  ) {
     return false; // Prevent adding the incompatible attachment
   }
 
@@ -120,7 +132,7 @@ export function verifyBO6Attachments(
   const willHaveStryderBurstInFinalLoadout =
     hasStryderBurst || (isCurrentStryderBurst && attachmentType === 'fire_mods');
   const willHaveSVDFullAutoModInFinalLoadout =
-    hasSVDFullAutoMod || (isCurrentSVDFullAutoMod && attachmentType === 'fire_mods'); // New check
+    hasSVDFullAutoMod || (isCurrentSVDFullAutoMod && attachmentType === 'fire_mods');
 
   // Adjust the total allowed attachment count based on the presence of specific mods
   if (count > 5 && willHaveSVDFullAutoModInFinalLoadout) {

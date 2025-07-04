@@ -25,12 +25,18 @@ describe('verifyBO6Attachments', () => {
       magazine: '',
       rear_grip: '',
     };
+    // Updated baseAttachData to include all fire mods for testing
     baseAttachData = {
       stock: ['Akimbo', 'Normal Stock'],
       underbarrel: ['Foregrip', 'G-Grip'],
       laser: ['Tactical Laser', 'Strelok Laser', 'Target Laser', 'Standard Laser'],
       barrel: ['Long Barrel', 'Short Barrel'],
-      fire_mods: ['3-Round Burst Mod', 'Stryder .22 3-Round Burst Mod', 'SVD Full Auto Mod'],
+      fire_mods: [
+        '3-Round Burst Mod',
+        'Stryder .22 3-Round Burst Mod',
+        'SVD Full Auto Mod',
+        'TR2 CQB Auto Conversion',
+      ],
       muzzle: ['Suppressor'],
       magazine: ['Extended Mag', 'Fast Mag'],
       optic: ['Red Dot Sight'],
@@ -125,8 +131,8 @@ describe('verifyBO6Attachments', () => {
   });
 
   test('should reduce count to 7 if Akimbo is selected and count is > 7, and passes other checks', () => {
-    baseAttachments.stock = 'Akimbo';
-    baseAttachData.stock = ['Akimbo']; // Simplify to just Akimbo for this specific test case
+    baseAttachments.stock = 'Akimbo'; // Corrected to string
+    baseAttachData.stock = ['Akimbo']; // Ensure only Akimbo is an option in attachData for this specific test case
     const result = verifyBO6Attachments(
       baseAttachData,
       baseAttachments,
@@ -140,7 +146,7 @@ describe('verifyBO6Attachments', () => {
   });
 
   test('should not reduce count if Akimbo is selected and count is already 7 or less', () => {
-    baseAttachments.stock = 'Akimbo';
+    baseAttachments.stock = 'Akimbo'; // Corrected to string
     baseAttachData.stock = ['Akimbo']; // Simplify for this test
     const result = verifyBO6Attachments(
       baseAttachData,
@@ -350,7 +356,7 @@ describe('verifyBO6Attachments', () => {
       mockModifyCount
     );
     expect(result).toBe(true);
-    expect(mockModifyCount).toHaveBeenCalledWith(6); // Expect 6 as per new rule
+    expect(mockModifyCount).toHaveBeenCalledWith(6);
   });
 
   test('should allow a magazine if Stryder .22 3-Round Burst Mod is not selected', () => {
@@ -379,7 +385,7 @@ describe('verifyBO6Attachments', () => {
     expect(mockModifyCount).not.toHaveBeenCalled();
   });
 
-  // --- SVD Full Auto Mod Incompatibility Tests (NEW) ---
+  // --- SVD Full Auto Mod Incompatibility Tests ---
 
   test('should block SVD Full Auto Mod if a barrel is already selected', () => {
     baseAttachments.barrel = 'Long Barrel';
@@ -579,6 +585,62 @@ describe('verifyBO6Attachments', () => {
       baseAttachments,
       'Normal Stock',
       'stock',
+      8,
+      mockModifyCount
+    );
+    expect(result).toBe(true);
+    expect(mockModifyCount).not.toHaveBeenCalled();
+  });
+
+  // --- TR2 CQB Auto Conversion Incompatibility Tests ---
+
+  test('should block TR2 CQB Auto Conversion if a barrel is already selected', () => {
+    baseAttachments.barrel = 'Long Barrel';
+    const result = verifyBO6Attachments(
+      baseAttachData,
+      baseAttachments,
+      'TR2 CQB Auto Conversion',
+      'fire_mods',
+      8,
+      mockModifyCount
+    );
+    expect(result).toBe(false);
+    expect(mockModifyCount).not.toHaveBeenCalled();
+  });
+
+  test('should block a barrel if TR2 CQB Auto Conversion is already selected', () => {
+    baseAttachments.fire_mods = 'TR2 CQB Auto Conversion';
+    const result = verifyBO6Attachments(
+      baseAttachData,
+      baseAttachments,
+      'Short Barrel',
+      'barrel',
+      8,
+      mockModifyCount
+    );
+    expect(result).toBe(false);
+    expect(mockModifyCount).not.toHaveBeenCalled();
+  });
+
+  test('should allow TR2 CQB Auto Conversion if no barrel is selected', () => {
+    const result = verifyBO6Attachments(
+      baseAttachData,
+      baseAttachments,
+      'TR2 CQB Auto Conversion',
+      'fire_mods',
+      8,
+      mockModifyCount
+    );
+    expect(result).toBe(true);
+    expect(mockModifyCount).not.toHaveBeenCalled(); // TR2 CQB does not change count
+  });
+
+  test('should allow a barrel if TR2 CQB Auto Conversion is not selected', () => {
+    const result = verifyBO6Attachments(
+      baseAttachData,
+      baseAttachments,
+      'Long Barrel',
+      'barrel',
       8,
       mockModifyCount
     );

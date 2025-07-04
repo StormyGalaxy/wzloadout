@@ -55,5 +55,11 @@
     "Strelok Laser",
     "Target Laser"
   ],
-  "fire_mods": ["Rapid Fire", "5.56 NATO Overpressured", "Recoil Springs", "5.56 NATO FMJ"]
+  "fire_mods": [
+    "Rapid Fire",
+    "5.56 NATO Overpressured",
+    "Recoil Springs",
+    "5.56 NATO FMJ",
+    "TR2 CQB Auto Conversion"
+  ]
 }
