@@ -2,7 +2,7 @@
 
 [![Visit Site](https://img.shields.io/badge/Visit-codrcg.com-blue?style=for-the-badge&logo=rocket)](https://codrcg.com)
 
-Welcome to the **Call of Duty Random Class Generator (COD RCG)**! This is your essential utility website and toolkit for the popular [Call of Duty](https://store.steampowered.com/app/1938090/Call_of_Duty/) franchise, providing helpful tools and information to enhance your gameplay experience. You can also refer to it as the **COD RCG**.
+Welcome to the **Call of Duty Random Class Generator (COD RCG)**! This is your essential utility website and toolkit for the popular [Call of Duty](https://www.callofduty.com/) franchise, providing helpful tools and information to enhance your gameplay experience. You can also refer to it as the **COD RCG**.
 
 This project is built using the [SiloCityPages](https://github.com/SiloCityLabs/SiloCityPages) Next.js starter. You can find the original SiloCityPages README [in our wiki: [README]-SiloCityPages](https://github.com/SiloCityLabs/codrcg.com/wiki/%5BREADME%5D-SiloCityPages).
 
@@ -96,7 +96,7 @@ You can also provide general feedback through the [Feedback Form](https://codrcg
 
 The **Call of Duty Random Class Generator** is a fan-made project and is not officially affiliated with Activision Publishing, Inc. or the "Call of Duty" franchise. All game content, names, and trademarks are the property of their respective owners.
 
-For official information, please visit the [Official Call of Duty website](https://store.steampowered.com/app/1938090/Call_of_Duty/).
+For official information, please visit the [Official Call of Duty website](https://www.callofduty.com/).
 
 ## 📄 License
 
