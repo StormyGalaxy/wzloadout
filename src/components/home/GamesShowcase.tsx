@@ -27,6 +27,7 @@ const GamesShowcase = ({ games }: GamesShowcaseProps) => {
                 src={game.logoUrl}
                 alt={`${game.name} Logo`}
                 className={styles.gameLogo}
+                loading='lazy'
               />
               <div className={styles.gameNameOverlay}>
                 <span className='text-white'>{game.name}</span>
