@@ -26,7 +26,7 @@ const fetchNewMW2Loadout = (): GeneratorData => {
     tactical: fetchEquipment('tactical', game),
     lethal: fetchEquipment('lethal', game),
     fieldUpgrade: fetchEquipment('field_upgrade', game),
-    fieldUpgrade2: { name: '', type: '' },
+    fieldUpgrade2: { name: '', type: '', game: '' },
   };
 
   if (hasFieldUpgrade2) {

@@ -8,13 +8,13 @@ import { fetchAttachments } from '@/helpers/fetch/fetchAttachments';
 import { fetchEquipment } from '@/helpers/fetch/fetchEquipment';
 import { fetchClassName } from '@/helpers/fetch/fetchClassName';
 // --- Types ---
-import { GeneratorData, GeneratorStatus } from '@/types/Generator';
+import { ZombiesGeneratorData, GeneratorStatus } from '@/types/Generator';
 // --- Utils ---
 import { sendEvent } from '@silocitypages/utils';
 // --- Data ---
 import defaultData from '@/data/cod/default-zombies-generator-info.json';
 
-const fetchNewMw3ZombiesLoadout = (): GeneratorData => {
+const fetchNewMw3ZombiesLoadout = (): ZombiesGeneratorData => {
   sendEvent('button_click', {
     button_id: 'mw3Zombies_fetchLoadoutData',
     label: 'ModernWarfareThreeZombies',
@@ -49,7 +49,7 @@ const fetchNewMw3ZombiesLoadout = (): GeneratorData => {
 };
 
 export const useModernWarfareThreeZombiesGenerator = () => {
-  const [data, setData] = useState<GeneratorData>(defaultData);
+  const [data, setData] = useState<ZombiesGeneratorData>(defaultData);
   const [status, setStatus] = useState<GeneratorStatus>('loading');
 
   const generateLoadout = useCallback((isInitialLoad = false) => {
