@@ -75,6 +75,10 @@ describe('useBlackOpsSixGenerator', () => {
 
     // Default mock for fetchWeapon - covers most cases
     (fetchWeapon as jest.Mock).mockImplementation((type, game, excludeName) => {
+      if (game === 'black-ops-six-launchers') {
+        // Added this condition
+        return { name: 'RPG-7', type: 'Launcher', game: 'black-ops-six', no_attach: true };
+      }
       if (type === 'primary') {
         if (!excludeName)
           return { name: 'PrimaryWeapon', type: 'Assault Rifle', game, no_attach: false };
@@ -304,6 +308,25 @@ describe('useBlackOpsSixGenerator', () => {
     expect(fetchEquipment).toHaveBeenCalledTimes(4);
   });
 
+  // Test Case 8: Wildcard - Flyswatter
+  test('should set melee weapon to a launcher if Flyswatter wildcard is selected', () => {
+    (fetchWildcard as jest.Mock).mockReturnValueOnce({
+      name: 'Flyswatter',
+      description: 'Flyswatter desc',
+    });
+
+    const result = renderHookAndAdvance();
+
+    expect(result.current.data.wildcard.name).toBe('Flyswatter');
+    expect(result.current.data.weapons.melee.name).toBe('RPG-7');
+    expect(result.current.data.weapons.melee.type).toBe('Launcher');
+    expect(fetchWeapon).toHaveBeenCalledWith(
+      'secondary',
+      'black-ops-six-launchers',
+      'SecondaryWeapon'
+    );
+  });
+
   test('should handle no_attach property on weapons', () => {
     (fetchWeapon as jest.Mock)
       .mockReturnValueOnce({
@@ -332,7 +355,7 @@ describe('useBlackOpsSixGenerator', () => {
     );
   });
 
-  // Test Case 8: Error Handling
+  // Test Case 9: Error Handling
   test('should log an error and set status to idle if fetchNewBo6Loadout throws an error', () => {
     const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => {}); // Mock console.error
     (fetchClassName as jest.Mock).mockImplementationOnce(() => {

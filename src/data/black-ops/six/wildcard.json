@@ -41,5 +41,12 @@
     "game": "black-ops-six",
     "description": "Allow 4th Streak",
     "isDlc": true
+  },
+  {
+    "name": "Flyswatter",
+    "type": "Wildcard",
+    "game": "black-ops-six",
+    "description": "Allows a player to replace their Dedicated Melee weapon with a Launcher.",
+    "isDlc": true
   }
 ]
