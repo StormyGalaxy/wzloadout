@@ -9,7 +9,6 @@ jest.mock('@/helpers/isset', () => ({
 describe('verifyBO6Attachments', () => {
   let mockModifyCount: jest.Mock;
   let baseAttachments: Record<string, string>;
-  // Updated type for baseAttachData to match verifyBO6Attachments expectation
   let baseAttachData: Record<string, string[]>;
 
   beforeEach(() => {
@@ -26,15 +25,15 @@ describe('verifyBO6Attachments', () => {
       magazine: '',
       rear_grip: '',
     };
-    // Updated baseAttachData to match Record<string, string[]> type
+    // Updated baseAttachData to include 'Stryder .22 3-Round Burst Mod'
     baseAttachData = {
       stock: ['Akimbo', 'Normal Stock'],
       underbarrel: ['Foregrip', 'G-Grip'],
       laser: ['Tactical Laser', 'Strelok Laser', 'Target Laser', 'Standard Laser'],
       barrel: ['Long Barrel', 'Short Barrel'],
-      fire_mods: ['3-Round Burst Mod'],
+      fire_mods: ['3-Round Burst Mod', 'Stryder .22 3-Round Burst Mod'], // Added new mod here
       muzzle: ['Suppressor'],
-      magazine: ['Extended Mag'],
+      magazine: ['Extended Mag', 'Fast Mag'], // Added another magazine for completeness
       optic: ['Red Dot Sight'],
       rear_grip: ['Rubberized Grip'],
     };
@@ -128,11 +127,7 @@ describe('verifyBO6Attachments', () => {
 
   test('should reduce count to 7 if Akimbo is selected and count is > 7, and passes other checks', () => {
     baseAttachments.stock = 'Akimbo';
-    // Ensure attachData.stock only contains Akimbo for this specific test case, if that's the intent of the inner `if` condition.
-    // Otherwise, the general count reduction at the end of the function should still apply.
-    // Based on the function's latest logic, this specific setup for attachData.stock won't make a difference
-    // for the *inner* `if` (as length is 1), but the *final* condition for modifyCount will apply.
-    baseAttachData.stock = ['Akimbo']; // Simplify to just Akimbo if that's the specific test
+    baseAttachData.stock = ['Akimbo']; // Simplify to just Akimbo for this specific test case
     const result = verifyBO6Attachments(
       baseAttachData,
       baseAttachments,
@@ -288,6 +283,104 @@ describe('verifyBO6Attachments', () => {
     expect(mockModifyCount).not.toHaveBeenCalled();
   });
 
+  // --- Stryder .22 3-Round Burst Mod Incompatibility Tests ---
+
+  test('should block Stryder .22 3-Round Burst Mod if a magazine is already selected', () => {
+    baseAttachments.magazine = 'Extended Mag';
+    const result = verifyBO6Attachments(
+      baseAttachData,
+      baseAttachments,
+      'Stryder .22 3-Round Burst Mod',
+      'fire_mods',
+      8,
+      mockModifyCount
+    );
+    expect(result).toBe(false);
+    expect(mockModifyCount).not.toHaveBeenCalled();
+  });
+
+  test('should block Stryder .22 3-Round Burst Mod if a barrel is already selected', () => {
+    baseAttachments.barrel = 'Long Barrel';
+    const result = verifyBO6Attachments(
+      baseAttachData,
+      baseAttachments,
+      'Stryder .22 3-Round Burst Mod',
+      'fire_mods',
+      8,
+      mockModifyCount
+    );
+    expect(result).toBe(false);
+    expect(mockModifyCount).not.toHaveBeenCalled();
+  });
+
+  test('should block a magazine if Stryder .22 3-Round Burst Mod is already selected', () => {
+    baseAttachments.fire_mods = 'Stryder .22 3-Round Burst Mod';
+    const result = verifyBO6Attachments(
+      baseAttachData,
+      baseAttachments,
+      'Fast Mag',
+      'magazine',
+      8,
+      mockModifyCount
+    );
+    expect(result).toBe(false);
+    expect(mockModifyCount).not.toHaveBeenCalled();
+  });
+
+  test('should block a barrel if Stryder .22 3-Round Burst Mod is already selected', () => {
+    baseAttachments.fire_mods = 'Stryder .22 3-Round Burst Mod';
+    const result = verifyBO6Attachments(
+      baseAttachData,
+      baseAttachments,
+      'Short Barrel',
+      'barrel',
+      8,
+      mockModifyCount
+    );
+    expect(result).toBe(false);
+    expect(mockModifyCount).not.toHaveBeenCalled();
+  });
+
+  test('should allow Stryder .22 3-Round Burst Mod if no incompatible attachments are present', () => {
+    const result = verifyBO6Attachments(
+      baseAttachData,
+      baseAttachments,
+      'Stryder .22 3-Round Burst Mod',
+      'fire_mods',
+      8,
+      mockModifyCount
+    );
+    expect(result).toBe(true);
+    // Updated expectation to 6 as per the new rule
+    expect(mockModifyCount).toHaveBeenCalledWith(6);
+  });
+
+  test('should allow a magazine if Stryder .22 3-Round Burst Mod is not selected', () => {
+    const result = verifyBO6Attachments(
+      baseAttachData,
+      baseAttachments,
+      'Extended Mag',
+      'magazine',
+      8,
+      mockModifyCount
+    );
+    expect(result).toBe(true);
+    expect(mockModifyCount).not.toHaveBeenCalled();
+  });
+
+  test('should allow a barrel if Stryder .22 3-Round Burst Mod is not selected', () => {
+    const result = verifyBO6Attachments(
+      baseAttachData,
+      baseAttachments,
+      'Long Barrel',
+      'barrel',
+      8,
+      mockModifyCount
+    );
+    expect(result).toBe(true);
+    expect(mockModifyCount).not.toHaveBeenCalled();
+  });
+
   // --- Valid Combinations ---
 
   test('should allow a normal attachment if no incompatibilities exist', () => {
@@ -304,10 +397,7 @@ describe('verifyBO6Attachments', () => {
   });
 
   test('should allow Akimbo if no incompatible attachments are present and count check passes', () => {
-    // This test case's `baseAttachData.stock` should represent the actual available stocks.
-    // If there are multiple options, the `Object.keys(attachData.stock).length === 1` check will be false.
-    // The general `modifyCount(7)` at the end of the function should still apply if result is true.
-    baseAttachData.stock = ['Akimbo', 'Normal Stock']; // Ensure it has more than 1 option for this test
+    baseAttachData.stock = ['Akimbo', 'Normal Stock'];
     const result = verifyBO6Attachments(
       baseAttachData,
       baseAttachments,

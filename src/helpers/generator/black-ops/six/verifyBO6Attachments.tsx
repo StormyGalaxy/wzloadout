@@ -1,8 +1,9 @@
 import { isset } from '@/helpers/isset';
 
 const AKIMBO = 'Akimbo';
-const BURST = '3-Round Burst Mod';
+const BURST = '3-Round Burst Mod'; // This is the generic 3-Round Burst Mod
 const G_GRIP = 'G-Grip';
+const STRYDER_BURST = 'Stryder .22 3-Round Burst Mod'; // Constant for the specific mod
 
 /**
  * Verifies attachment compatibility rules for Black Ops 6, preventing invalid attachment combinations.
@@ -26,7 +27,7 @@ const G_GRIP = 'G-Grip';
  * `false` otherwise.
  */
 export function verifyBO6Attachments(
-  attachData: Record<string, string[]>, // Changed type to match randomizeAttachments' data parameter
+  attachData: Record<string, string[]>,
   attachments: Record<string, string>,
   attachment: string,
   attachmentType: string,
@@ -41,11 +42,13 @@ export function verifyBO6Attachments(
   const hasAkimbo = issetAttachment.stock && attachments['stock'] === AKIMBO;
   const hasThreeRoundBurst = issetAttachment.fireMods && attachments['fire_mods'] === BURST;
   const hasGGrip = issetAttachment.underbarrel && attachments['underbarrel'] === G_GRIP;
+  const hasStryderBurst = issetAttachment.fireMods && attachments['fire_mods'] === STRYDER_BURST;
 
   // State of the attachment currently being considered
   const isCurrentAkimbo = attachment === AKIMBO;
   const isCurrentBurst = attachment === BURST;
   const isCurrentGGrip = attachment === G_GRIP;
+  const isCurrentStryderBurst = attachment === STRYDER_BURST;
 
   // --- Akimbo Incompatibility Checks ---
   if (
@@ -56,9 +59,6 @@ export function verifyBO6Attachments(
     (hasAkimbo && (attachmentBooleans.isStock || attachmentBooleans.isOptic)) ||
     (hasAkimbo && attachmentBooleans.isLaser && LASER_INCOMPATIBLE_WITH_AKIMBO.includes(attachment))
   ) {
-    // Note: attachData.stock will now be a string[] (e.g., ['Akimbo', 'Normal Stock'])
-    // Object.keys on an array returns array indices (e.g., ['0', '1']), and .length returns the size.
-    // So, `Object.keys(attachData.stock).length === 1` means `attachData.stock.length === 1`.
     if (Object.keys(attachData.stock || {}).length === 1 && count > 7) {
       modifyCount(7);
     }
@@ -81,14 +81,28 @@ export function verifyBO6Attachments(
     return false;
   }
 
-  // Determine if Akimbo or 3-Round Burst will be in the loadout AFTER this attachment is (potentially) added.
+  // --- Stryder .22 3-Round Burst Mod Incompatibility Checks ---
+  if (
+    (isCurrentStryderBurst &&
+      attachmentBooleans.isFireMods &&
+      (issetAttachment.magazine || issetAttachment.barrel)) ||
+    (hasStryderBurst && (attachmentBooleans.isMagazine || attachmentBooleans.isBarrel))
+  ) {
+    return false;
+  }
+
+  // Determine if Akimbo, generic 3-Round Burst, or Stryder Burst will be in the loadout AFTER this attachment is (potentially) added.
   const willHaveAkimboInFinalLoadout = hasAkimbo || (isCurrentAkimbo && attachmentType === 'stock');
   const willHaveThreeRoundBurstInFinalLoadout =
     hasThreeRoundBurst || (isCurrentBurst && attachmentType === 'fire_mods');
+  const willHaveStryderBurstInFinalLoadout =
+    hasStryderBurst || (isCurrentStryderBurst && attachmentType === 'fire_mods');
 
-  // Lower the count to 7 if it's at 8 and akimbo or 3-round burst is selected (or will be selected after this addition)
-  if ((willHaveAkimboInFinalLoadout || willHaveThreeRoundBurstInFinalLoadout) && count > 7) {
-    modifyCount(7);
+  // Adjust the total allowed attachment count based on the presence of specific mods
+  if (count > 6 && willHaveStryderBurstInFinalLoadout) {
+    modifyCount(6); // Stryder Burst limits to a maximum of 6 attachments
+  } else if (count > 7 && (willHaveAkimboInFinalLoadout || willHaveThreeRoundBurstInFinalLoadout)) {
+    modifyCount(7); // Akimbo or generic 3-Round Burst limits to a maximum of 7 attachments
   }
 
   return true;
