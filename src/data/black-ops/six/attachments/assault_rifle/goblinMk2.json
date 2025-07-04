@@ -58,5 +58,11 @@
     "Strelok Laser",
     "Target Laser"
   ],
-  "fire_mods": ["Rapid Fire", "7.62 NATO Overpressured", "Recoil Springs", "7.62 NATO FMJ"]
+  "fire_mods": [
+    "Rapid Fire",
+    "7.62 NATO Overpressured",
+    "Recoil Springs",
+    "7.62 NATO FMJ",
+    "Goblin Mk2 7.62 Mini-Rocket Conversion"
+  ]
 }
