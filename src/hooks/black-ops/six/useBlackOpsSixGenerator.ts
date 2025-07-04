@@ -11,7 +11,7 @@ import { fetchPerks } from '@/helpers/fetch/fetchPerks';
 import { fetchStreaks } from '@/helpers/fetch/fetchStreaks';
 import { fetchWildcard } from '@/helpers/fetch/fetchWildcard';
 // --- Types ---
-import { GeneratorData, GeneratorStatus, Weapon } from '@/types/Generator';
+import { GeneratorData, GeneratorStatus } from '@/types/Generator';
 // --- Utils ---
 import { sendEvent } from '@silocitypages/utils';
 // --- Data ---

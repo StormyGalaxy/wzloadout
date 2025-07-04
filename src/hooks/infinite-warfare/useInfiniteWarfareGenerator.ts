@@ -13,7 +13,7 @@ import { fetchPerk } from '@/helpers/generator/infinite-warfare/fetchPerk';
 import { fetchAttachments } from '@/helpers/generator/infinite-warfare/fetchAttachments';
 import { getLoadoutFrame } from '@/helpers/generator/infinite-warfare/frame/getLoadoutFrame';
 // --- Types ---
-import { GeneratorStatus, GeneratorData, GeneratorItem } from '@/types/Generator';
+import { GeneratorStatus, GeneratorData } from '@/types/Generator';
 import { LoadoutFrame } from '@/types/BlackOps3';
 // --- Utils ---
 import { sendEvent } from '@silocitypages/utils';

@@ -31,7 +31,7 @@ export default function BlackOpsThreeLoadout() {
     isGenerating,
   };
 
-  const formatWeapon = (weaponData: any): Weapon => {
+  const formatWeapon = (weaponData: Weapon): Weapon => {
     if (!weaponData?.name) return { name: 'None', type: '', game: '' };
     const attachments = [weaponData.optic, weaponData.attachments].filter(Boolean).join(', ');
     return { ...weaponData, attachments: attachments || 'None' };

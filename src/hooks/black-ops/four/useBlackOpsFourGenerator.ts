@@ -15,13 +15,7 @@ import { getLoadoutFrame } from '@/helpers/generator/black-ops/four/frame/getLoa
 // --- Utils ---
 import { sendEvent } from '@silocitypages/utils';
 // --- Types ---
-import type {
-  GeneratorData,
-  GeneratorStatus,
-  PerkObject,
-  Weapon,
-  GeneratorItem,
-} from '@/types/Generator';
+import type { GeneratorData, GeneratorStatus, Weapon } from '@/types/Generator';
 import type { LoadoutFrame } from '@/types/BlackOps4';
 // --- Data ---
 import defaultData from '@/data/cod/default-generator-info.json';

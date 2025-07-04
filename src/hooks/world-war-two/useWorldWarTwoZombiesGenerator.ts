@@ -12,7 +12,7 @@ import { fetchZombiesPerks } from '@/helpers/fetch/zombies/fetchZombiesPerks';
 // --- Utils ---
 import { sendEvent } from '@silocitypages/utils';
 // --- Types ---
-import { ZombiesGeneratorData, GeneratorStatus, Weapon } from '@/types/Generator';
+import { ZombiesGeneratorData, GeneratorStatus } from '@/types/Generator';
 // --- Data ---
 import defaultData from '@/data/cod/default-zombies-generator-info.json';
 

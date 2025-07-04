@@ -17,6 +17,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSkull, faGears } from '@fortawesome/free-solid-svg-icons';
 // --- Styles ---
 import styles from '@/components/generators/views/ModernLoadout.module.css';
+// --- Types ---
+import type { Augment } from '@/types/Generator';
 
 export default function BlackOpsSixZombiesLoadout() {
   const { data, settings, isLoading, isGenerating, generateLoadout, updateSettings } =
@@ -105,13 +107,23 @@ export default function BlackOpsSixZombiesLoadout() {
           <hr />
           <h3 className='text-center mb-4'>Augments</h3>
           <Row className='mb-4 text-center'>
-            {Object.values(augments).map((item: any) => (
+            {Object.values(augments).map((item: Augment) => (
               <Col key={item?.name} xs={12} sm={6} md='4' className='mb-3'>
                 <ListViewCard
                   title={item?.name}
                   values={[
-                    { title: 'Major', value: item?.major },
-                    { title: 'Minor', value: item?.minor },
+                    {
+                      title: 'Major',
+                      value: Array.isArray(item?.major)
+                        ? item.major.join(', ')
+                        : (item?.major ?? ''),
+                    },
+                    {
+                      title: 'Minor',
+                      value: Array.isArray(item?.minor)
+                        ? item.minor.join(', ')
+                        : (item?.minor ?? ''),
+                    },
                   ]}
                   {...cardProps}
                 />

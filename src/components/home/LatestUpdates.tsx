@@ -2,7 +2,6 @@
 
 // --- React ---
 import { ListGroup, Badge, Button } from 'react-bootstrap';
-import Link from 'next/link';
 
 // --- Styles ---
 import styles from './HomePage.module.css';
