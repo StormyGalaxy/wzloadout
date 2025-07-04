@@ -39,25 +39,21 @@
 }
 
 .gameCard {
-  overflow: hidden;
   position: relative;
-  transition: transform 0.3s ease;
+  overflow: hidden;
+  border: none;
 }
 
-.gameCard:hover {
-  transform: scale(1.05);
+.gameLink {
+  text-decoration: none;
 }
 
 .gameLogo {
-  margin-top: -25px;
-  object-fit: contain;
-  height: 150px;
-  filter: grayscale(50%);
-  transition: filter 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 .gameCard:hover .gameLogo {
-  filter: grayscale(0%);
+  transform: scale(1.05);
 }
 
 .gameNameOverlay {
@@ -65,15 +61,32 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
-  padding: 1.5rem 1rem 0.5rem;
+  background: rgba(0, 0, 0, 0.7);
   text-align: center;
-  font-weight: bold;
-  color: white;
 }
 
-.gameLink {
-  text-decoration: none;
+.comingSoonCard .gameLogo {
+  filter: grayscale(100%);
+}
+
+.comingSoonOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.comingSoonCard:hover .comingSoonOverlay {
+  opacity: 1;
 }
 
 .updateItem {
