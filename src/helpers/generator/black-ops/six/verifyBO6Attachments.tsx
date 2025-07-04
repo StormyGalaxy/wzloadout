@@ -11,8 +11,8 @@ const G_GRIP = 'G-Grip';
  * total allowed attachment `count` if certain conditions are met (e.g., Akimbo being selected).
  *
  * @param attachData The full pool of available attachments, typically an object where keys are
- * attachment slots (e.g., 'stock') and values are arrays of possible attachments
- * for that slot (e.g., `['Akimbo', 'No Stock']`).
+ * attachment slots (e.g., 'stock') and values are arrays of attachment names (e.g.,
+ * `['Akimbo', 'No Stock']`). This is the raw list of options for each slot.
  * @param attachments The *currently selected* attachments on the weapon, represented as an object
  * where keys are attachment slots and values are single string names of the
  * selected attachment (e.g., `{ stock: 'Akimbo', barrel: 'Long Barrel' }`).
@@ -26,7 +26,7 @@ const G_GRIP = 'G-Grip';
  * `false` otherwise.
  */
 export function verifyBO6Attachments(
-  attachData: Record<string, any>,
+  attachData: Record<string, string[]>, // Changed type to match randomizeAttachments' data parameter
   attachments: Record<string, string>,
   attachment: string,
   attachmentType: string,
@@ -40,46 +40,45 @@ export function verifyBO6Attachments(
   // Current state of attachments
   const hasAkimbo = issetAttachment.stock && attachments['stock'] === AKIMBO;
   const hasThreeRoundBurst = issetAttachment.fireMods && attachments['fire_mods'] === BURST;
-  const hasGGrip = issetAttachment.underbarrel && attachments['underbarrel'] === G_GRIP; // New check for G-Grip
+  const hasGGrip = issetAttachment.underbarrel && attachments['underbarrel'] === G_GRIP;
 
   // State of the attachment currently being considered
   const isCurrentAkimbo = attachment === AKIMBO;
   const isCurrentBurst = attachment === BURST;
-  const isCurrentGGrip = attachment === G_GRIP; // New check for proposed G-Grip
+  const isCurrentGGrip = attachment === G_GRIP;
 
   // --- Akimbo Incompatibility Checks ---
   if (
-    // Scenario 1: Proposed attachment is Akimbo, AND an incompatible existing attachment is present
     (isCurrentAkimbo && (issetAttachment.optic || issetAttachment.underbarrel)) ||
     (isCurrentAkimbo &&
       issetAttachment.laser &&
       LASER_INCOMPATIBLE_WITH_AKIMBO.includes(attachments['laser'])) ||
-    // Scenario 2: Akimbo is ALREADY selected, AND the proposed attachment is incompatible
-    (hasAkimbo && (attachmentBooleans.isStock || attachmentBooleans.isOptic)) || // If Akimbo is present, can't add another stock or an optic
-    (hasAkimbo && attachmentBooleans.isLaser && LASER_INCOMPATIBLE_WITH_AKIMBO.includes(attachment)) // If Akimbo is present, can't add certain lasers
+    (hasAkimbo && (attachmentBooleans.isStock || attachmentBooleans.isOptic)) ||
+    (hasAkimbo && attachmentBooleans.isLaser && LASER_INCOMPATIBLE_WITH_AKIMBO.includes(attachment))
   ) {
+    // Note: attachData.stock will now be a string[] (e.g., ['Akimbo', 'Normal Stock'])
+    // Object.keys on an array returns array indices (e.g., ['0', '1']), and .length returns the size.
+    // So, `Object.keys(attachData.stock).length === 1` means `attachData.stock.length === 1`.
     if (Object.keys(attachData.stock || {}).length === 1 && count > 7) {
       modifyCount(7);
     }
-    return false; // Prevent adding the attachment
+    return false;
   }
 
   // --- 3-Round Burst Mod Incompatibility Checks ---
   if (
-    // Scenario 1: Proposed attachment is 3-Round Burst, AND an incompatible existing attachment is present
     (isCurrentBurst && (issetAttachment.barrel || issetAttachment.underbarrel)) ||
-    // Scenario 2: 3-Round Burst is ALREADY selected, AND the proposed attachment is incompatible
     (hasThreeRoundBurst && (attachmentBooleans.isBarrel || attachmentBooleans.isUnderbarrel))
   ) {
-    return false; // Prevent adding the attachment
+    return false;
   }
 
-  // --- G-Grip and Laser Incompatibility Checks (NEW) ---
+  // --- G-Grip and Laser Incompatibility Checks ---
   if (
-    (isCurrentGGrip && attachmentBooleans.isUnderbarrel && issetAttachment.laser) || // Proposed G-Grip, and a laser is present
-    (attachmentBooleans.isLaser && hasGGrip) // Proposed laser, and G-Grip is present
+    (isCurrentGGrip && attachmentBooleans.isUnderbarrel && issetAttachment.laser) ||
+    (attachmentBooleans.isLaser && hasGGrip)
   ) {
-    return false; // Prevent adding the attachment
+    return false;
   }
 
   // Determine if Akimbo or 3-Round Burst will be in the loadout AFTER this attachment is (potentially) added.
@@ -92,7 +91,7 @@ export function verifyBO6Attachments(
     modifyCount(7);
   }
 
-  return true; // Allow the attachment
+  return true;
 }
 
 function getAttachmentBooleans(attachmentType: string) {

@@ -6,13 +6,11 @@ jest.mock('@/helpers/isset', () => ({
   isset: (value: unknown) => value !== undefined && value !== null && value !== '',
 }));
 
-// Define a more specific type for attachData to avoid 'any' warning
-type AttachmentPool = Record<string, Record<string, string[]>>;
-
 describe('verifyBO6Attachments', () => {
   let mockModifyCount: jest.Mock;
   let baseAttachments: Record<string, string>;
-  let baseAttachData: AttachmentPool; // Use the more specific type here
+  // Updated type for baseAttachData to match verifyBO6Attachments expectation
+  let baseAttachData: Record<string, string[]>;
 
   beforeEach(() => {
     mockModifyCount = jest.fn();
@@ -28,25 +26,17 @@ describe('verifyBO6Attachments', () => {
       magazine: '',
       rear_grip: '',
     };
-    // Simplified attachData, assuming it just needs 'stock', 'underbarrel', and 'laser'
-    // properties for the specific compatibility checks.
+    // Updated baseAttachData to match Record<string, string[]> type
     baseAttachData = {
-      stock: { Akimbo: ['description'], 'Normal Stock': ['description'] },
-      underbarrel: { Foregrip: ['desc'], 'G-Grip': ['desc'] },
-      laser: {
-        'Tactical Laser': ['desc'],
-        'Strelok Laser': ['desc'],
-        'Target Laser': ['desc'],
-        'Standard Laser': ['desc'],
-      },
-      // Add other potential attachment categories if needed for more comprehensive attachData
-      // For example, if 'barrel' or 'fire_mods' also have descriptions in attachData:
-      barrel: { 'Long Barrel': ['desc'], 'Short Barrel': ['desc'] },
-      fire_mods: { '3-Round Burst Mod': ['desc'] },
-      muzzle: { Suppressor: ['desc'] },
-      magazine: { 'Extended Mag': ['desc'] },
-      optic: { 'Red Dot Sight': ['desc'] },
-      rear_grip: { 'Rubberized Grip': ['desc'] },
+      stock: ['Akimbo', 'Normal Stock'],
+      underbarrel: ['Foregrip', 'G-Grip'],
+      laser: ['Tactical Laser', 'Strelok Laser', 'Target Laser', 'Standard Laser'],
+      barrel: ['Long Barrel', 'Short Barrel'],
+      fire_mods: ['3-Round Burst Mod'],
+      muzzle: ['Suppressor'],
+      magazine: ['Extended Mag'],
+      optic: ['Red Dot Sight'],
+      rear_grip: ['Rubberized Grip'],
     };
   });
 
@@ -138,11 +128,11 @@ describe('verifyBO6Attachments', () => {
 
   test('should reduce count to 7 if Akimbo is selected and count is > 7, and passes other checks', () => {
     baseAttachments.stock = 'Akimbo';
-    // The test's baseAttachData.stock now has 'Akimbo' and 'Normal Stock',
-    // so Object.keys(attachData.stock).length will be 2, not 1.
-    // This means the inner `if (Object.keys(attachData.stock || {}).length === 1 && count > 7)`
-    // will NOT trigger the early modifyCount(7) and return false.
-    // The general count reduction at the end of the function should still apply if result is true.
+    // Ensure attachData.stock only contains Akimbo for this specific test case, if that's the intent of the inner `if` condition.
+    // Otherwise, the general count reduction at the end of the function should still apply.
+    // Based on the function's latest logic, this specific setup for attachData.stock won't make a difference
+    // for the *inner* `if` (as length is 1), but the *final* condition for modifyCount will apply.
+    baseAttachData.stock = ['Akimbo']; // Simplify to just Akimbo if that's the specific test
     const result = verifyBO6Attachments(
       baseAttachData,
       baseAttachments,
@@ -157,6 +147,7 @@ describe('verifyBO6Attachments', () => {
 
   test('should not reduce count if Akimbo is selected and count is already 7 or less', () => {
     baseAttachments.stock = 'Akimbo';
+    baseAttachData.stock = ['Akimbo']; // Simplify for this test
     const result = verifyBO6Attachments(
       baseAttachData,
       baseAttachments,
@@ -313,9 +304,10 @@ describe('verifyBO6Attachments', () => {
   });
 
   test('should allow Akimbo if no incompatible attachments are present and count check passes', () => {
-    // This test case's `baseAttachData.stock` has multiple options,
-    // so the internal `Object.keys(attachData.stock || {}).length === 1` check is false.
-    // The general `modifyCount(7)` at the end of the function should still apply.
+    // This test case's `baseAttachData.stock` should represent the actual available stocks.
+    // If there are multiple options, the `Object.keys(attachData.stock).length === 1` check will be false.
+    // The general `modifyCount(7)` at the end of the function should still apply if result is true.
+    baseAttachData.stock = ['Akimbo', 'Normal Stock']; // Ensure it has more than 1 option for this test
     const result = verifyBO6Attachments(
       baseAttachData,
       baseAttachments,
