@@ -2,6 +2,12 @@
   {
     "Date": "July 4, 2025",
     "Type": "New",
+    "Link": { "Url": "black-ops/six", "Text": "Black Ops 6:" },
+    "Changes": "Added new season 4 wepaons LC10, Ladra, FFAR 1, Essex Model 07, Olympia"
+  },
+  {
+    "Date": "July 4, 2025",
+    "Type": "New",
     "Link": { "Url": "black-ops/seven", "Text": "Black Ops 7:" },
     "Changes": "Coming soon page created for the upcoming fall release"
   },

@@ -34,5 +34,9 @@
   { "name": "TR2", "type": "marksman_rifle", "game": "black-ops-six", "isDlc": true },
   { "name": "Kilo 141", "type": "assault_rifle", "game": "black-ops-six", "isDlc": true },
   { "name": "CR-56 Amax", "type": "assault_rifle", "game": "black-ops-six", "isDlc": true },
-  { "name": "HDR", "type": "sniper", "game": "black-ops-six", "isDlc": true }
+  { "name": "HDR", "type": "sniper", "game": "black-ops-six", "isDlc": true },
+  { "name": "LC10", "type": "smg", "game": "black-ops-six", "isDlc": true },
+  { "name": "Ladra", "type": "smg", "game": "black-ops-six", "isDlc": true },
+  { "name": "FFAR 1", "type": "assault_rifle", "game": "black-ops-six", "isDlc": true },
+  { "name": "Essex Model 07", "type": "marksman_rifle", "game": "black-ops-six", "isDlc": true }
 ]

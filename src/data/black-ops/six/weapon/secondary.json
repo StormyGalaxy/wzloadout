@@ -13,5 +13,6 @@
     "game": "black-ops-six",
     "no_attach": true,
     "isDlc": true
-  }
+  },
+  { "name": "Olympia", "type": "special", "game": "black-ops-six", "isDlc": true }
 ]

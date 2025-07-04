@@ -8,6 +8,8 @@ import tanto22 from '@/data/black-ops/six/attachments/smg/tanto22.json';
 //DLC Weapons
 import saug from '@/data/black-ops/six/attachments/smg/saug.json';
 import ppsh41 from '@/data/black-ops/six/attachments/smg/ppsh41.json';
+import lc10 from '@/data/black-ops/six/attachments/smg/lc10.json';
+import ladra from '@/data/black-ops/six/attachments/smg/ladra.json';
 // --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 
@@ -20,6 +22,8 @@ const attachmentsList: Record<string, Record<string, string[]>> = {
   tanto22,
   saug,
   ppsh41,
+  lc10,
+  ladra,
 };
 
 export function getSmgAttachments(gun: string, count: number) {
