@@ -6,7 +6,7 @@ import { Row, Col, Button } from 'react-bootstrap';
 import { useBlackOpsSixGenerator } from '@/hooks/black-ops/six/useBlackOpsSixGenerator';
 // --- Components ---
 import CodClassName from '@/components/CodClassName';
-import GeneratorSkeleton from '@/components/generators/views/skeletons/GeneratorSkeleton';
+import SpinnerComponent from '@/components/common/SpinnerComponent';
 import WeaponCard from '@/components/generators/views/WeaponCard';
 import ValueCardView from '@/components/generators/views/ValueCardView';
 import ListViewCard from '@/components/generators/views/ListViewCard';
@@ -28,7 +28,7 @@ export default function BlackOpsSixLoadout() {
   };
 
   if (isLoading) {
-    return <GeneratorSkeleton />;
+    return <SpinnerComponent />;
   }
 
   const { randClassName, perks, streaks, weapons, equipment, wildcard } = data;

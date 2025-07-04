@@ -7,7 +7,7 @@ import { Row, Col, Button } from 'react-bootstrap';
 import { useWorldWarTwoGenerator } from '@/hooks/world-war-two/useWorldWarTwoGenerator';
 // --- Components ---
 import CodClassName from '@/components/CodClassName';
-import GeneratorSkeleton from '@/components/generators/views/skeletons/GeneratorSkeleton';
+import SpinnerComponent from '@/components/common/SpinnerComponent';
 import WeaponCard from '@/components/generators/views/WeaponCard';
 import ListViewCard from '@/components/generators/views/ListViewCard';
 import StreaksView from '@/components/generators/views/StreaksView';
@@ -28,7 +28,7 @@ const WorldWarTwoLoadout: React.FC = () => {
   };
 
   if (isLoading) {
-    return <GeneratorSkeleton />;
+    return <SpinnerComponent />;
   }
 
   const { randClassName, streaks, weapons, equipment, division, basic } = data;

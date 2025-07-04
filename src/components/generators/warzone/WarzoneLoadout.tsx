@@ -8,7 +8,7 @@ import { useDatabase } from '@/contexts/DatabaseContext';
 import { useWarzoneGenerator } from '@/hooks/warzone/useWarzoneGenerator';
 // --- Components ---
 import CodClassName from '@/components/CodClassName';
-import GeneratorSkeleton from '@/components/generators/views/skeletons/GeneratorSkeleton';
+import SpinnerComponent from '@/components/common/SpinnerComponent';
 import WeaponCard from '@/components/generators/views/WeaponCard';
 import ValueCardView from '@/components/generators/views/ValueCardView';
 import ListViewCard from '@/components/generators/views/ListViewCard';
@@ -68,7 +68,7 @@ export default function WarzoneLoadout() {
   };
 
   if (isLoading) {
-    return <GeneratorSkeleton />;
+    return <SpinnerComponent />;
   }
 
   const { randClassName, perks, weapons, equipment, wildcard } = data;

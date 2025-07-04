@@ -7,7 +7,7 @@ import { Row, Col, Button } from 'react-bootstrap';
 import { useWorldWarTwoZombiesGenerator } from '@/hooks/world-war-two/useWorldWarTwoZombiesGenerator';
 // --- Components ---
 import CodClassName from '@/components/CodClassName';
-import GeneratorSkeleton from '@/components/generators/views/skeletons/GeneratorSkeleton';
+import SpinnerComponent from '@/components/common/SpinnerComponent';
 import WeaponCard from '@/components/generators/views/WeaponCard';
 import ValueCardView from '@/components/generators/views/ValueCardView';
 import ListViewCard from '@/components/generators/views/ListViewCard';
@@ -28,7 +28,7 @@ const WorldWarTwoZombiesLoadout: React.FC = () => {
   };
 
   if (isLoading) {
-    return <GeneratorSkeleton />;
+    return <SpinnerComponent />;
   }
 
   const { randClassName, weapons, lethal, special, character, zombieMap, mods } = data;

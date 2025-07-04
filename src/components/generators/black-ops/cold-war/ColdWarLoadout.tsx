@@ -8,7 +8,7 @@ import { useColdWarGenerator } from '@/hooks/black-ops/cold-war/useColdWarGenera
 // --- Components ---
 import SimpleLoadoutView from '@/components/generators/views/SimpleLoadoutView';
 import CodClassName from '@/components/CodClassName';
-import GeneratorSkeleton from '@/components/generators/views/skeletons/GeneratorSkeleton';
+import SpinnerComponent from '@/components/common/SpinnerComponent';
 // --- Font Awesome ---
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDice } from '@fortawesome/free-solid-svg-icons';
@@ -18,7 +18,7 @@ const ColdWarGenerator: React.FC = () => {
 
   if (isLoading) {
     // TODO: This should be updated!
-    return <GeneratorSkeleton />;
+    return <SpinnerComponent />;
   }
 
   const { randClassName, perkObj, streaks, weapons, equipment, wildcard } = data;

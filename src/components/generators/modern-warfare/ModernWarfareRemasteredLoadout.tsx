@@ -4,7 +4,7 @@
 import { Row, Col, Button } from 'react-bootstrap';
 // --- Components
 import CodClassName from '@/components/CodClassName';
-import GeneratorSkeleton from '@/components/generators/views/skeletons/GeneratorSkeleton';
+import SpinnerComponent from '@/components/common/SpinnerComponent';
 import ListViewCard from '@/components/generators/views/ListViewCard';
 import WeaponCard from '@/components/generators/views/WeaponCard';
 import ValueCardView from '@/components/generators/views/ValueCardView';
@@ -29,7 +29,7 @@ export default function ModernWarfareRemasteredLoadout() {
   const { randClassName, perkObj, weapons, equipment } = data;
 
   if (isLoading) {
-    return <GeneratorSkeleton />;
+    return <SpinnerComponent />;
   }
 
   const perkData = [

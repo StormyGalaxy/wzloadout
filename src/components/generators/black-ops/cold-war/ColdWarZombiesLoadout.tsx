@@ -6,7 +6,7 @@ import { Row, Col, Button } from 'react-bootstrap';
 import { useColdWarZombiesGenerator } from '@/hooks/black-ops/cold-war/useColdWarZombiesGenerator';
 // --- Components ---
 import CodClassName from '@/components/CodClassName';
-import GeneratorSkeleton from '@/components/generators/views/skeletons/GeneratorSkeleton';
+import SpinnerComponent from '@/components/common/SpinnerComponent';
 import WeaponCard from '@/components/generators/views/WeaponCard';
 import ValueCardView from '@/components/generators/views/ValueCardView';
 import ListViewCard from '@/components/generators/views/ListViewCard';
@@ -28,7 +28,7 @@ export default function ColdWarZombiesLoadout() {
 
   if (isLoading) {
     // TODO: This should be updated!
-    return <GeneratorSkeleton />;
+    return <SpinnerComponent />;
   }
 
   const { randClassName, weapons, field_upgrade, zombieMap } = data;

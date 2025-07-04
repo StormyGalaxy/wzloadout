@@ -6,7 +6,7 @@ import { Row, Col, Button } from 'react-bootstrap';
 import { useInfiniteWarfareGenerator } from '@/hooks/infinite-warfare/useInfiniteWarfareGenerator';
 // --- Components ---
 import CodClassName from '@/components/CodClassName';
-import GeneratorSkeleton from '@/components/generators/views/skeletons/GeneratorSkeleton';
+import SpinnerComponent from '@/components/common/SpinnerComponent';
 import ValueCardView from '@/components/generators/views/ValueCardView';
 import ListViewCard from '@/components/generators/views/ListViewCard';
 import StreaksView from '@/components/generators/views/StreaksView';
@@ -29,7 +29,7 @@ export default function InfiniteWarfareLoadout() {
   };
 
   if (isLoading) {
-    return <GeneratorSkeleton />;
+    return <SpinnerComponent />;
   }
 
   const { randClassName, streaks, weapons, equipment, wildcards, combat_rig } = data;

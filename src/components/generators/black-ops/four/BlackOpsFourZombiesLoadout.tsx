@@ -7,7 +7,7 @@ import { Row, Col, Button, Form } from 'react-bootstrap';
 import { useBlackOpsFourZombiesGenerator } from '@/hooks/black-ops/four/useBlackOpsFourZombiesGenerator';
 // --- Components ---
 import CodClassName from '@/components/CodClassName';
-import GeneratorSkeleton from '@/components/generators/views/skeletons/GeneratorSkeleton';
+import SpinnerComponent from '@/components/common/SpinnerComponent';
 import ValueCardView from '@/components/generators/views/ValueCardView';
 import ListViewCard from '@/components/generators/views/ListViewCard';
 import { CustomModal } from '@silocitypages/ui-core';
@@ -66,7 +66,7 @@ export default function BlackOpsFourZombiesLoadout() {
   }, [rollMap, zombieMap]);
 
   if (isLoading) {
-    return <GeneratorSkeleton />;
+    return <SpinnerComponent />;
   }
 
   return (

@@ -6,7 +6,7 @@ import { Row, Col, Button } from 'react-bootstrap';
 import { useVanguardZombiesGenerator } from '@/hooks/vanguard/useVanguardZombiesGenerator';
 // --- Components ---
 import CodClassName from '@/components/CodClassName';
-import GeneratorSkeleton from '@/components/generators/views/skeletons/GeneratorSkeleton';
+import SpinnerComponent from '@/components/common/SpinnerComponent';
 import WeaponCard from '@/components/generators/views/WeaponCard';
 import ValueCardView from '@/components/generators/views/ValueCardView';
 // --- Font Awesome ---
@@ -28,7 +28,7 @@ export default function VanguardZombiesLoadout() {
   };
 
   if (isLoading) {
-    return <GeneratorSkeleton />;
+    return <SpinnerComponent />;
   }
 
   const { randClassName, weapons, artifact, zombieMap } = data;

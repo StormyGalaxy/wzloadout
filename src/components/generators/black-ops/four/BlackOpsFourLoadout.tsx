@@ -6,7 +6,7 @@ import { Row, Col, Button } from 'react-bootstrap';
 import { useBlackOpsFourGenerator } from '@/hooks/black-ops/four/useBlackOpsFourGenerator';
 // --- Components ---
 import CodClassName from '@/components/CodClassName';
-import GeneratorSkeleton from '@/components/generators/views/skeletons/GeneratorSkeleton';
+import SpinnerComponent from '@/components/common/SpinnerComponent';
 import ListViewCard from '@/components/generators/views/ListViewCard';
 import PerkGreedLoadoutView from '@/components/generators/views/PerkGreedLoadoutView';
 import ValueCardView from '@/components/generators/views/ValueCardView';
@@ -30,7 +30,7 @@ export default function BlackOpsFourLoadout() {
   const { randClassName, perkObj, streaks, weapons, equipment, wildcards, specialist } = data;
 
   if (isLoading) {
-    return <GeneratorSkeleton />;
+    return <SpinnerComponent />;
   }
 
   return (
