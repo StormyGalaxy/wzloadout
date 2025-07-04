@@ -19,78 +19,104 @@ export function randomizeAttachments(
   count: number,
   game?: string
 ): void {
-  // --- Handle Array Data (e.g., ['Attach1', 'Attach2', ...]) ---
+  // Use type guards for better type narrowing
   if (Array.isArray(data) && Array.isArray(attachArr)) {
-    // 1. Ensure the output array is empty before we start.
-    attachArr.length = 0;
-
-    // 2. Create a shuffled copy of the data array to pick from.
-    const shuffled = [...data].sort(() => 0.5 - Math.random());
-
-    // 3. Determine the number of attachments to select, capped by availability.
-    const numToSelect = Math.min(count, shuffled.length);
-
-    // 4. Get the selected attachments.
-    const selected = shuffled.slice(0, numToSelect);
-
-    // 5. Push the selected attachments into the output array.
-    selected.forEach((item) => attachArr.push(item));
-    return; // Done with the array case.
-  }
-
-  // --- Handle Object Data (e.g., { Muzzle: [...], Barrel: [...] }) ---
-  if (
+    handleArrayData(attachArr, data, count);
+  } else if (
     typeof data === 'object' &&
+    data !== null && // Ensure data is not null
     !Array.isArray(data) &&
     typeof attachArr === 'object' &&
+    attachArr !== null && // Ensure attachArr is not null
     !Array.isArray(attachArr)
   ) {
-    // 1. Ensure the output object is empty before we start.
-    Object.keys(attachArr).forEach((key) => delete attachArr[key]);
+    handleObjectData(
+      attachArr as Record<string, string>,
+      data as Record<string, string[]>,
+      count,
+      game
+    );
+  }
+}
 
-    const keys = Object.keys(data);
-    let attachCount = 0;
+/**
+ * Handles the randomization when data and attachArr are arrays.
+ */
+function handleArrayData(attachArr: string[], data: string[], count: number): void {
+  // 1. Ensure the output array is empty before we start.
+  attachArr.length = 0;
 
-    // 2. Reset count if asking for more attachments than the weapon has slots.
-    count = Math.min(count, keys.length);
+  // 2. Create a shuffled copy of the data array to pick from.
+  const shuffled = [...data].sort(() => 0.5 - Math.random());
 
-    // 3. Safeguard against potential infinite loops.
-    const maxAttempts = keys.length * 10;
-    let attempts = 0;
+  // 3. Determine the number of attachments to select, capped by availability.
+  const numToSelect = Math.min(count, shuffled.length);
 
-    while (attachCount < count && attempts < maxAttempts) {
-      const randomKey = randomListItem(keys);
-      const attachmentOptions = data[randomKey];
+  // 4. Get the selected attachments and push them into the output array.
+  attachArr.push(...shuffled.slice(0, numToSelect));
+}
 
-      // Check if the slot isn't already taken and has valid options.
-      if (
-        !attachArr.hasOwnProperty(randomKey) &&
-        Array.isArray(attachmentOptions) &&
-        attachmentOptions.length > 0
-      ) {
-        const attachment = randomListItem(attachmentOptions);
-        let addAttachment = true;
-
-        //Only run verification for the specific game.
-        if (game === 'black-ops-six') {
-          addAttachment = verifyBO6Attachments(
-            data,
-            attachArr,
-            attachment,
-            randomKey,
-            count,
-            (newCount) => {
-              count = newCount;
-            }
-          );
-        }
-
-        if (addAttachment) {
-          attachArr[randomKey] = attachment;
-          attachCount++;
-        }
-      }
-      attempts++;
+/**
+ * Handles the randomization when data and attachArr are objects.
+ */
+function handleObjectData(
+  attachArr: Record<string, string>,
+  data: Record<string, string[]>,
+  count: number,
+  game?: string
+): void {
+  // 1. Ensure the output object is empty before we start.
+  for (const key in attachArr) {
+    if (Object.prototype.hasOwnProperty.call(attachArr, key)) {
+      delete attachArr[key];
     }
+  }
+
+  const keys = Object.keys(data);
+  let attachCount = 0;
+  let currentCount = count; // Use a mutable variable for count within this scope
+
+  // 2. Reset currentCount if asking for more attachments than the weapon has slots.
+  currentCount = Math.min(currentCount, keys.length);
+
+  // 3. Safeguard against potential infinite loops.
+  const maxAttempts = keys.length * 10;
+  let attempts = 0;
+
+  while (attachCount < currentCount && attempts < maxAttempts) {
+    const randomKey = randomListItem(keys);
+    const attachmentOptions = data[randomKey];
+
+    // Check if the slot isn't already taken and has valid options.
+    if (
+      !attachArr.hasOwnProperty(randomKey) &&
+      Array.isArray(attachmentOptions) &&
+      attachmentOptions.length > 0
+    ) {
+      const attachment = randomListItem(attachmentOptions);
+      let addAttachment = true;
+
+      // Only run verification for the specific game.
+      if (game === 'black-ops-six') {
+        // Pass a mutable reference to currentCount and update it in place if needed
+        const tempCount = currentCount;
+        addAttachment = verifyBO6Attachments(
+          data, // attachData
+          attachArr,
+          attachment,
+          randomKey,
+          tempCount,
+          (newCount) => {
+            currentCount = newCount; // Update currentCount in the outer scope
+          }
+        );
+      }
+
+      if (addAttachment) {
+        attachArr[randomKey] = attachment;
+        attachCount++;
+      }
+    }
+    attempts++;
   }
 }

@@ -45,7 +45,8 @@
     "Launcher - Smoke",
     "Launcher - High Explosive",
     "Launcher - Drill Charge",
-    "Crossbow"
+    "Crossbow",
+    "G-Grip"
   ],
   "magazine": ["Extended Mag I", "M-67 10-R Mags", "Extended Mag II", "Flip Mag"],
   "rear_grip": ["Quickdraw Grip", "Assault Grip", "Commando Grip", "Ergonomic Grip", "CQB Grip"],

@@ -48,5 +48,11 @@
     "Strelok Laser",
     "Target Laser"
   ],
-  "fire_mods": ["Rapid Fire", "7.62x54mmR Overpressured", "Recoil Springs", "7.62x54mmR FMJ"]
+  "fire_mods": [
+    "Rapid Fire",
+    "7.62x54mmR Overpressured",
+    "Recoil Springs",
+    "7.62x54mmR FMJ",
+    "SVD Full Auto Mod"
+  ]
 }

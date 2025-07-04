@@ -9,6 +9,7 @@ import krigc from '@/data/black-ops/six/attachments/assault_rifle/krigC.json';
 import cypher091 from '@/data/black-ops/six/attachments/assault_rifle/cypher091.json';
 import kilo141 from '@/data/black-ops/six/attachments/assault_rifle/kilo141.json';
 import cr56amax from '@/data/black-ops/six/attachments/assault_rifle/cr56amax.json';
+import ffar1 from '@/data/black-ops/six/attachments/assault_rifle/ffar1.json';
 // --- Helpers ---
 import { randomizeAttachments } from '@/helpers/randomizeAttachments';
 
@@ -24,6 +25,7 @@ const attachmentsList: Record<string, Record<string, string[]>> = {
   cypher091,
   kilo141,
   cr56amax,
+  ffar1,
 };
 
 export function getAssaultRifleAttachments(

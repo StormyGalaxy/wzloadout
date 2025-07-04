@@ -31,9 +31,12 @@ const fetchNewBo6Loadout = (): GeneratorData => {
 
   const primaryWeapon = fetchWeapon('primary', game);
   let secondaryWeapon = fetchWeapon('secondary', game);
+  let meleeWeapon = fetchWeapon('melee', game);
 
   if (wildcard.name === 'Overkill') {
     secondaryWeapon = fetchWeapon('primary', game, primaryWeapon.name);
+  } else if (wildcard.name === 'Flyswatter') {
+    meleeWeapon = fetchWeapon('secondary', 'black-ops-six-launchers', secondaryWeapon.name);
   }
 
   const weapons = {
@@ -49,7 +52,7 @@ const fetchNewBo6Loadout = (): GeneratorData => {
         ? implodeObject(fetchAttachments(secondaryWeapon))
         : '',
     },
-    melee: fetchWeapon('melee', game),
+    melee: meleeWeapon,
   };
 
   const equipment = {

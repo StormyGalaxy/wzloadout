@@ -55,7 +55,11 @@ export default function BlackOpsSixLoadout() {
           <WeaponCard title='Secondary' weapon={weapons.secondary} {...cardProps} />
         </Col>
         <Col xs={12} md={4} className='mb-3'>
-          <ValueCardView title='Melee' value={weapons?.melee?.name ?? ''} {...cardProps} />
+          <ValueCardView
+            title={wildcard?.name === 'Flyswatter' ? 'Launcher' : 'Melee'}
+            value={weapons?.melee?.name ?? ''}
+            {...cardProps}
+          />
         </Col>
       </Row>
       <hr />

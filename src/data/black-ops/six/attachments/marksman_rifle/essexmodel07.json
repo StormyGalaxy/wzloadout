@@ -34,20 +34,22 @@
   ],
   "barrel": ["Gain-Twist Barrel", "Long Barrel", "Short Barrel", "CHF Barrel", "Reinforced Barrel"],
   "underbarrel": [
-    "Vertical Foregrip",
-    "Lightweight Foregrip",
-    "Marksman Foregrip",
-    "Precision Foregrip",
-    "Ranger Foregrip",
-    "Launcher - Standard",
-    "Launcher - Smoke",
-    "Launcher - High Explosive",
-    "Launcher - Drill Charge",
-    "Crossbow"
+    "Weighted Hanguard",
+    "Lightweight Hanguard",
+    "Marksman Hanguard",
+    "Precision Hanguard",
+    "Ranger Hanguard"
   ],
-  "magazine": ["Extended Mag I", "Fast Mag I", "Extended Mag II", "Flip Mag"],
-  "rear_grip": ["Quickdraw Grip", "Assault Grip", "Commando Grip", "Ergonomic Grip", "CQB Grip"],
-  "stock": ["Light Stock", "Infiltrator Stock", "Heavy Stock", "Balanced Stock", "Combat Stock"],
+  "magazine": ["Extended Mag I", "Stripper Clip", "Extended Mag II"],
+  "lever": ["Quickdraw Lever", "Assault Lever", "Commando Lever", "Ergonomic Lever", "CQB Lever"],
+  "stock": [
+    "Heavy Stock",
+    "Light Stock",
+    "Balanced Stock",
+    "Infiltrator Stock",
+    "Combat Stock",
+    "Cut-Off Stock"
+  ],
   "laser": [
     "Steady Aim Laser",
     "Fast Motion Laser",
@@ -55,11 +57,5 @@
     "Strelok Laser",
     "Target Laser"
   ],
-  "fire_mods": [
-    "Rapid Fire",
-    "5.56 NATO Overpressured",
-    "Recoil Springs",
-    "5.56 NATO FMJ",
-    "TR2 CQB Auto Conversion"
-  ]
+  "fire_mods": ["Rapid Fire", "7.62 NATO Overpressured", "Recoil Springs", "7.62 NATO FMJ"]
 }

@@ -19,44 +19,31 @@
     "Jason Armory 2x",
     "Willis 3x",
     "PrismaTech 4x",
-    "Dobrych 4x",
+    "K&S Thermal Holo",
     "Pinpoint Hybrid",
-    "PrismaPoint Hybrid",
     "R&K Multizoom",
-    "Blandwell 7x Scope",
-    "Otero Thermal 2x",
-    "SVD Scope",
-    "Hawker Hybrid"
+    "VMF Variable Scope",
+    "Otero Thermal 2x"
   ],
-  "barrel": [
-    "Suppressed Gain-Twist Barrel",
-    "Suppressed Long Barrel",
-    "Suppressed Reinforced Barrel",
-    "Suppressed CHF Barrel"
+  "muzzle": [
+    "Suppressor",
+    "Compensator",
+    "Muzzle Brake",
+    "Ported Compensator",
+    "Monolithic Suppressor"
   ],
+  "barrel": ["Gain-Twist Barrel", "Long Barrel", "Reinforced Barrel", "Short Barrel", "CHF Barrel"],
   "underbarrel": [
     "Vertical Foregrip",
     "Lightweight Foregrip",
     "Marksman Foregrip",
     "Precision Foregrip",
-    "Launcher - Standard",
-    "Launcher - Smoke",
-    "Launcher - High Explosive",
-    "Launcher - Drill Charge",
     "Ranger Foregrip",
-    "Crossbow",
     "G-Grip"
   ],
-  "magazine": ["Flip Mag", "Extended Mag I", "Extended Mag II", "Extended Mag III"],
+  "magazine": ["Extended Mag I", "Fast Mag I", "Extended Mag II", "Fast Mag II"],
   "rear_grip": ["Quickdraw Grip", "Assault Grip", "Commando Grip", "Ergonomic Grip", "CQB Grip"],
-  "stock": [
-    "No Stock",
-    "Infiltrator Stock",
-    "Heavy Stock",
-    "Balanced Stock",
-    "Combat Stock",
-    "Full Stock"
-  ],
+  "stock": ["No Stock", "Infiltrator Stock", "Heavy Stock", "Balanced Stock", "Combat Stock"],
   "laser": [
     "Steady Aim Laser",
     "Fast Motion Laser",
@@ -64,5 +51,10 @@
     "Strelok Laser",
     "Target Laser"
   ],
-  "fire_mods": ["Rapid Fire", "9x39mm Soviet Overpressured", "Recoil Springs", "9x39mm Soviet FMJ"]
+  "fire_mods": [
+    "Rapid Fire",
+    "9x19mm Parabellum Overpressured",
+    "Recoil Springs",
+    "9x19mm Parabellum FMJ"
+  ]
 }

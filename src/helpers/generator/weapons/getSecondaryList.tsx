@@ -1,9 +1,13 @@
 // --- Utils ---
 import { mergeObjectsWithRekey } from '@silocitypages/utils';
 // --- Data ---
+// --- BO6 ---
 import bo6List from '@/data/black-ops/six/weapon/secondary.json';
+import bo6LauncherList from '@/data/black-ops/six/weapon/launcher.json';
+// --- MW3 ---
 import mw3List from '@/data/modern-warfare/three/weapon/secondary.json';
 import mw3MeleeList from '@/data/modern-warfare/three/weapon/melee.json';
+// --- MW2 ---
 import mw2List from '@/data/modern-warfare/two/weapon/secondary.json';
 import mw2MeleeList from '@/data/modern-warfare/two/weapon/melee.json';
 import vanguardList from '@/data/vanguard/weapon/secondary.json';
@@ -21,8 +25,9 @@ import { Weapon } from '@/types/Generator';
 type ItemList = Weapon[] | Record<string, Weapon>;
 
 const weapons: Record<string, ItemList> = {
-  warzone: mergeObjectsWithRekey(bo6List, mw3List, mw2List),
-  'black-ops-six': bo6List,
+  warzone: mergeObjectsWithRekey(bo6List, bo6LauncherList, mw3List, mw2List),
+  'black-ops-six': mergeObjectsWithRekey(bo6List, bo6LauncherList),
+  'black-ops-six-launchers': bo6LauncherList,
   // "modern-warfare-three": mergeObjectsWithRekey(
   //   mw3List,
   //   mw2List,

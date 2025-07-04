@@ -32,11 +32,11 @@
   ],
   "barrel": ["Gain-Twist Barrel", "Long Barrel", "Reinforced Barrel", "Short Barrel", "CHF Barrel"],
   "underbarrel": [
-    "Vertical Foregrip",
+    "Weighted Handguard",
     "Lightweight Bipod",
     "Marksman Bipod",
-    "Precision Foregrip",
-    "Ranger Foregrip"
+    "Precision Handguard",
+    "Ranger Handguard"
   ],
   "magazine": ["Extended Mag I", "Fast Mag I", "Extended Mag II", "Fast Mag II"],
   "rear_grip": ["Quickdraw Grip", "Assault Grip", "Commando Grip", "Ergonomic Grip", "CQB Grip"],

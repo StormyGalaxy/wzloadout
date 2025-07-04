@@ -25,5 +25,11 @@
     "Strelok Laser",
     "Target Laser"
   ],
-  "fire_mods": ["Rapid Fire", ".22 WMR Overpressured", "Recoil Springs", ".22 WMR FMJ"]
+  "fire_mods": [
+    "Rapid Fire",
+    ".22 WMR Overpressured",
+    "Recoil Springs",
+    ".22 WMR FMJ",
+    "Stryder .22 3-Round Burst Mod"
+  ]
 }

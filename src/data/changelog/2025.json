@@ -2,6 +2,12 @@
   {
     "Date": "July 4, 2025",
     "Type": "New",
+    "Link": { "Url": "black-ops/six", "Text": "Black Ops 6:" },
+    "Changes": "Season 4 delivered a substantial content injection. New weaponry arrived with the LC10 (SMG), Ladra (SMG), FFAR 1 (Assault Rifle), Essex Model 07 (Marksman Rifle), Olympia (Special Shotgun), and Pickaxe (Melee Weapon). The Gunsmith expanded with new attachments: G-Grip (Underbarrel), Stryder .22 3-Round Burst Mod (Fire Mods), SVD Full Auto Mod (Fire Mods), TR2 CQB Auto Conversion (Fire Mods), and Goblin Mk2 7.62 Mini-Rocket Conversion (Fire Mods). Furthermore, the Grim Reaper killstreak was added, alongside the new Flyswatter wildcard, offering fresh tactical opportunities."
+  },
+  {
+    "Date": "July 4, 2025",
+    "Type": "New",
     "Link": { "Url": "black-ops/seven", "Text": "Black Ops 7:" },
     "Changes": "Coming soon page created for the upcoming fall release"
   },
