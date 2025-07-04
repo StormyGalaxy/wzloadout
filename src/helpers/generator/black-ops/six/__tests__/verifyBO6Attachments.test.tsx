@@ -27,7 +27,7 @@ describe('verifyBO6Attachments', () => {
     };
     baseAttachData = {
       stock: ['Akimbo', 'Normal Stock'],
-      underbarrel: ['Foregrip', 'G-Grip'],
+      underbarrel: ['Foregrip', 'G-Grip', 'Crossbow'],
       laser: ['Tactical Laser', 'Strelok Laser', 'Target Laser', 'Standard Laser'],
       barrel: ['Long Barrel', 'Short Barrel'],
       fire_mods: [
@@ -840,6 +840,63 @@ describe('verifyBO6Attachments', () => {
       'Red Dot Sight',
       'optic',
       6, // Assuming count is already adjusted
+      mockModifyCount
+    );
+    expect(result).toBe(true);
+    expect(mockModifyCount).not.toHaveBeenCalled();
+  });
+
+  // --- NEW: Crossbow and Tactical Laser Incompatibility Tests ---
+
+  test('should block Crossbow if Tactical Laser is already selected', () => {
+    baseAttachments.laser = 'Tactical Laser';
+    const result = verifyBO6Attachments(
+      baseAttachData,
+      baseAttachments,
+      'Crossbow',
+      'underbarrel',
+      8,
+      mockModifyCount
+    );
+    expect(result).toBe(false);
+    expect(mockModifyCount).not.toHaveBeenCalled();
+  });
+
+  test('should block Tactical Laser if Crossbow is already selected', () => {
+    baseAttachments.underbarrel = 'Crossbow';
+    const result = verifyBO6Attachments(
+      baseAttachData,
+      baseAttachments,
+      'Tactical Laser',
+      'laser',
+      8,
+      mockModifyCount
+    );
+    expect(result).toBe(false);
+    expect(mockModifyCount).not.toHaveBeenCalled();
+  });
+
+  test('should allow Crossbow if no Tactical Laser is selected', () => {
+    const result = verifyBO6Attachments(
+      baseAttachData,
+      baseAttachments,
+      'Crossbow',
+      'underbarrel',
+      8,
+      mockModifyCount
+    );
+    expect(result).toBe(true);
+    expect(mockModifyCount).not.toHaveBeenCalled();
+  });
+
+  test('should allow a non-Tactical Laser if Crossbow is selected', () => {
+    baseAttachments.underbarrel = 'Crossbow';
+    const result = verifyBO6Attachments(
+      baseAttachData,
+      baseAttachments,
+      'Standard Laser', // Not Tactical Laser
+      'laser',
+      8,
       mockModifyCount
     );
     expect(result).toBe(true);

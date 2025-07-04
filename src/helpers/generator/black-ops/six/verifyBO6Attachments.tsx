@@ -8,6 +8,7 @@ const SVD_FULL_AUTO_MOD = 'SVD Full Auto Mod';
 const TR2_CQB_AUTO_CONVERSION = 'TR2 CQB Auto Conversion';
 const SWAT_GRAU_CONVERSION = 'Swat 5.56 Grau Conversion'; // New constant for Swat 5.56 Grau Conversion
 const GOBLIN_MK2_CONVERSION = 'Goblin Mk2 7.62 Mini-Rocket Conversion';
+const CROSSBOW = 'Crossbow'; // New constant for Crossbow underbarrel
 
 /**
  * Verifies attachment compatibility rules for Black Ops 6, preventing invalid attachment combinations.
@@ -41,6 +42,7 @@ export function verifyBO6Attachments(
   const attachmentBooleans = getAttachmentBooleans(attachmentType);
   const issetAttachment = getIssetAttachments(attachments);
   const LASER_INCOMPATIBLE_WITH_AKIMBO = ['Tactical Laser', 'Strelok Laser', 'Target Laser'];
+  const LASER_INCOMPATIBLE_WITH_CROSSBOW = ['Tactical Laser']; // Specific laser for Crossbow incompatibility
 
   // Current state of attachments
   const hasAkimbo = issetAttachment.stock && attachments['stock'] === AKIMBO;
@@ -55,6 +57,7 @@ export function verifyBO6Attachments(
     issetAttachment.fireMods && attachments['fire_mods'] === SWAT_GRAU_CONVERSION;
   const hasGoblinMk2Conversion =
     issetAttachment.fireMods && attachments['fire_mods'] === GOBLIN_MK2_CONVERSION;
+  const hasCrossbow = issetAttachment.underbarrel && attachments['underbarrel'] === CROSSBOW;
 
   // State of the attachment currently being considered
   const isCurrentAkimbo = attachment === AKIMBO;
@@ -65,6 +68,7 @@ export function verifyBO6Attachments(
   const isCurrentTR2CQBAutoConversion = attachment === TR2_CQB_AUTO_CONVERSION;
   const isCurrentSWATGrauConversion = attachment === SWAT_GRAU_CONVERSION;
   const isCurrentGoblinMk2Conversion = attachment === GOBLIN_MK2_CONVERSION;
+  const isCurrentCrossbow = attachment === CROSSBOW;
 
   // --- Akimbo Incompatibility Checks ---
   if (
@@ -151,6 +155,19 @@ export function verifyBO6Attachments(
       (attachmentBooleans.isMuzzle || attachmentBooleans.isBarrel || attachmentBooleans.isMagazine))
   ) {
     return false; // Prevent adding the incompatible attachment
+  }
+
+  // --- Crossbow and Tactical Laser Incompatibility Checks ---
+  if (
+    (isCurrentCrossbow &&
+      attachmentType === 'underbarrel' &&
+      issetAttachment.laser &&
+      LASER_INCOMPATIBLE_WITH_CROSSBOW.includes(attachments['laser'])) ||
+    (hasCrossbow &&
+      attachmentBooleans.isLaser &&
+      LASER_INCOMPATIBLE_WITH_CROSSBOW.includes(attachment))
+  ) {
+    return false;
   }
 
   // Determine if Akimbo, generic 3-Round Burst, Stryder Burst, SVD Full Auto Mod,
