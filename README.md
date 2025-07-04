@@ -2,13 +2,13 @@
 
 [![Visit Site](https://img.shields.io/badge/Visit-codrcg.com-blue?style=for-the-badge&logo=rocket)](https://codrcg.com)
 
-Welcome to the **Call of Duty Random Class Generator (CoD RCG)**! This is your essential utility website and toolkit for the popular [Call of Duty](https://store.steampowered.com/app/1938090/Call_of_Duty/) franchise, providing helpful tools and information to enhance your gameplay experience. You can also refer to it as the **CoD RCG**.
+Welcome to the **Call of Duty Random Class Generator (COD RCG)**! This is your essential utility website and toolkit for the popular [Call of Duty](https://store.steampowered.com/app/1938090/Call_of_Duty/) franchise, providing helpful tools and information to enhance your gameplay experience. You can also refer to it as the **COD RCG**.
 
 This project is built using the [SiloCityPages](https://github.com/SiloCityLabs/SiloCityPages) Next.js starter. You can find the original SiloCityPages README [in our wiki: [README]-SiloCityPages](https://github.com/SiloCityLabs/codrcg.com/wiki/%5BREADME%5D-SiloCityPages).
 
 ## ✨ Key Features
 
-The **CoD RCG** offers several tools to assist players across various Call of Duty titles:
+The **COD RCG** offers several tools to assist players across various Call of Duty titles:
 
 - **🎲 Random Loadout Generator:**
   - Can't decide on your next class setup? Get a completely random loadout including:
@@ -55,7 +55,7 @@ The **CoD RCG** offers several tools to assist players across various Call of Du
 
 ## 🖥️ Running Locally
 
-To get a local copy up and running for development or testing the CoD RCG:
+To get a local copy up and running for development or testing the COD RCG:
 
 1.  **Clone the repository:**
     ```bash
@@ -75,9 +75,9 @@ To get a local copy up and running for development or testing the CoD RCG:
 
 For more detailed information on the underlying framework structure, linting, testing, etc., please refer to the original [SiloCityPages documentation in our wiki: [README]-SiloCityPages](https://github.com/SiloCityLabs/codrcg.com/wiki/%5BREADME%5D-SiloCityPages).
 
-## 🤝 Contributing to the CoD RCG
+## 🤝 Contributing to the COD RCG
 
-Contributions are welcome! Whether it's bug reports, feature requests, or direct code contributions to the **CoD RCG**, your help is appreciated.
+Contributions are welcome! Whether it's bug reports, feature requests, or direct code contributions to the **COD RCG**, your help is appreciated.
 
 - **Found a bug?** Please submit a [Bug Report](https://github.com/SiloCityLabs/codrcg.com/issues/new?assignees=&labels=bug&template=bug_report.md&title=%5BBUG%5D).
 - **Have an idea for a new feature?** Submit a [Feature Request](https://github.com/SiloCityLabs/codrcg.com/issues/new?assignees=&labels=enhancement&template=feature-request-template.md&title=%5BFEATURE%5D).
@@ -117,4 +117,4 @@ Under the following terms:
 
 ---
 
-The **CoD RCG** is made with ❤️ by SiloCityLabs for the Call of Duty community.
+The **COD RCG** is made with ❤️ by SiloCityLabs for the Call of Duty community.
