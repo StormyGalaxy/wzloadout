@@ -1,0 +1,34 @@
+{
+  "optic": [
+    "Remunda Mini Reflex",
+    "Otero Micro Dot",
+    "Kepler Microflex",
+    "Merlin Mini",
+    "Accu-Spot Reflex",
+    "Kepler Pistol Scope"
+  ],
+  "muzzle": [
+    "Suppressor",
+    "Compensator",
+    "Muzzle Brake",
+    "Ported Compensator",
+    "Monolithic Suppressor"
+  ],
+  "barrel": ["Gain-Twist Barrel", "Long Barrel", "Reinforced Barrel", "Short Barrel", "CHF Barrel"],
+  "magazine": ["Extended Mag I", "Fast Mag I", "Extended Mag II", "Extended Mag III"],
+  "rear_grip": ["Quickdraw Grip", "Assault Grip", "Commando Grip", "Ergonomic Grip", "CQB Grip"],
+  "stock": ["Weighted Stock", "Akimbo Grekhova"],
+  "laser": [
+    "Steady Aim Laser",
+    "Fast Motion Laser",
+    "Tactical Laser",
+    "Strelok Laser",
+    "Target Laser"
+  ],
+  "fire_mods": [
+    "Rapid Fire",
+    "9x18mm Makarov Overpressured",
+    "Recoil Springs",
+    "9x18mm Makarov FMJ"
+  ]
+}

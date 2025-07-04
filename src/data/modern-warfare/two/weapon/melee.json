@@ -1,0 +1,7 @@
+[
+  { "name": "Tonfa", "type": "melee", "game": "modern-warfare-two", "no_attach": true },
+  { "name": "Combat Knife", "type": "melee", "game": "modern-warfare-two", "no_attach": true },
+  { "name": "Dual Kodachis", "type": "melee", "game": "modern-warfare-two", "no_attach": true },
+  { "name": "Dual Kamas", "type": "melee", "game": "modern-warfare-two", "no_attach": true },
+  { "name": "Pickaxe", "type": "melee", "game": "modern-warfare-two", "no_attach": true }
+]

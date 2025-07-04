@@ -1,0 +1,52 @@
+{
+  "optic": [
+    "Remuda Mini Reflex",
+    "Otero Micro Dot",
+    "Kepler Microflex",
+    "Merlin Mini",
+    "PrismaTech Reflex",
+    "Volzhskiy Reflex",
+    "Dobrych MF Reflex",
+    "Accu-Spot Reflex",
+    "K&S Red Dot",
+    "Kepler Red Dot",
+    "Otero Red Dot",
+    "OM3 '92 Holo",
+    "Accu-Spot Ultra Holo",
+    "Jason Armory 2x",
+    "Willis 3x",
+    "K&S Thermal Holo",
+    "Pinpoint Hybrid"
+  ],
+  "muzzle": ["Suppressor", "Full Choke", "Modified Choke", "Muzzle Brake", "Monolithic Suppressor"],
+  "barrel": [
+    "Long Barrel",
+    "Heavy Barrel",
+    "Reinforced Barrel",
+    "Combat Barrel",
+    "Quick Load Barrel"
+  ],
+  "underbarrel": [
+    "Weighted Foregrip",
+    "Lightweight Foregrip",
+    "Precision Foregrip",
+    "Ranger Foregrip"
+  ],
+  "stock": [
+    "Infiltrator Stock",
+    "Quickdraw Stock",
+    "Agility Stock",
+    "Ergonomic Stock",
+    "Combat Stock",
+    "Balanced Stock",
+    "Light Stock"
+  ],
+  "laser": [
+    "Steady Aim Laser",
+    "Fast Motion Laser",
+    "Tactical Laser",
+    "Strelok Laser",
+    "Target Laser"
+  ],
+  "fire_mods": ["Rapid Fire", "12 Gauge Slug", "12 Gauge Dragon's Breath"]
+}

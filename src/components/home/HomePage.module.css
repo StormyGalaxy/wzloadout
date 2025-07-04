@@ -1,0 +1,82 @@
+.hero {
+  position: relative;
+  height: 60vh;
+  min-height: 400px;
+  background: url('/images/home-hero.webp') no-repeat center center;
+  background-size: cover;
+  margin-top: -25px;
+}
+
+.heroOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1; /* Places the overlay on the first layer */
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2; /* This ensures the content is above the overlay (z-index: 1) */
+  height: 100%; /* This allows the Bootstrap h-100 class to work correctly inside */
+}
+
+.sectionWrapper {
+  padding: 4rem 0;
+}
+
+.toolCard {
+  transition:
+    transform 0.2s ease-in-out,
+    box-shadow 0.2s ease-in-out;
+}
+
+.toolCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.gameCard {
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.gameCard:hover {
+  transform: scale(1.05);
+}
+
+.gameLogo {
+  margin-top: -25px;
+  object-fit: contain;
+  height: 150px;
+  filter: grayscale(50%);
+  transition: filter 0.3s ease;
+}
+
+.gameCard:hover .gameLogo {
+  filter: grayscale(0%);
+}
+
+.gameNameOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+  padding: 1.5rem 1rem 0.5rem;
+  text-align: center;
+  font-weight: bold;
+  color: white;
+}
+
+.gameLink {
+  text-decoration: none;
+}
+
+.updateItem {
+  background-color: transparent !important;
+  border-color: #dee2e6 !important;
+}

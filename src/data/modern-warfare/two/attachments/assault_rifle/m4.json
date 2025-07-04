@@ -1,0 +1,11 @@
+{
+  "optic": ["Slate Reflector", "VLK 4.0 Optic"],
+  "muzzle": ["Quartermaster Suppressor", "RF Crown 50"],
+  "barrel": ["Prime MNX Barrel", "Prowl-IV Barrel"],
+  "underbarrel": ["XRK Edge BW-4 Handstop", "Bruen Tactical Vertical Grip"],
+  "magazine": ["40 Round Mag", "60 Round Mag"],
+  "rear_grip": ["Channel-M Grip", "Tidal Tac Grip"],
+  "stock": ["Clarent Light Stock", "Ardent Tac Stock", "Sandbar Heavy Stock"],
+  "laser": ["SL Razorhawk Laser Light", "1mW Laser Box", "Canted Vibro-Dot 7"],
+  "ammunition": ["5.7x28mm Frangible", "5.7x28mm Overpressured P+"]
+}

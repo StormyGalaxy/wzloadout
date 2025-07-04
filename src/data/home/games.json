@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Black Ops 6",
+    "link": "/black-ops/six",
+    "logoUrl": "/images/games/black-ops-6-v2.webp"
+  },
+  {
+    "name": "Modern Warfare 3",
+    "link": "/modern-warfare/three",
+    "logoUrl": "/images/games/mw3.webp"
+  },
+  {
+    "name": "Modern Warfare 2",
+    "link": "/modern-warfare/two",
+    "logoUrl": "/images/games/mw2.webp"
+  },
+  { "name": "Vanguard", "link": "/vanguard", "logoUrl": "/images/games/vanguard.webp" },
+  {
+    "name": "Cold War",
+    "link": "/black-ops/cold-war",
+    "logoUrl": "/images/games/black-ops-cold-war.webp"
+  },
+  { "name": "Warzone", "link": "/warzone", "logoUrl": "/images/games/warzone.webp" },
+  { "name": "Black Ops 4", "link": "/black-ops/four", "logoUrl": "/images/games/black-ops-4.webp" },
+  { "name": "WWII", "link": "/world-war-two", "logoUrl": "/images/games/world-war-2.webp" },
+  {
+    "name": "Infinite Warfare",
+    "link": "/infinite-warfare",
+    "logoUrl": "/images/games/infinite-warfare.webp"
+  },
+  {
+    "name": "MW Remastered",
+    "link": "/modern-warfare/remastered",
+    "logoUrl": "/images/games/mwr.webp"
+  },
+  {
+    "name": "Black Ops 3",
+    "link": "/black-ops/three",
+    "logoUrl": "/images/games/black-ops-3.webp"
+  },
+  { "name": "World at War", "link": "/world-at-war", "logoUrl": "/images/games/world-at-war.webp" }
+]

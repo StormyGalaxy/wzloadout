@@ -1,0 +1,9 @@
+[
+  { "name": "Reflexes", "type": "Perk 1", "game": "warzone", "color": "Blue" },
+  { "name": "Veteran", "type": "Perk 1", "game": "warzone", "color": "Blue" },
+  { "name": "Grenadier", "type": "Perk 1", "game": "warzone", "color": "Blue" },
+  { "name": "Scavenger", "type": "Perk 1", "game": "warzone", "color": "Blue" },
+  { "name": "Survivor", "type": "Perk 1", "game": "warzone", "color": "Blue" },
+  { "name": "Mountaineer", "type": "Perk 1", "game": "warzone", "color": "Blue", "isDlc": true },
+  { "name": "Low Profile", "type": "Perk 1", "game": "warzone", "color": "Blue", "isDlc": true }
+]

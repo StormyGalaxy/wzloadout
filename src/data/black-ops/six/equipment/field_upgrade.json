@@ -1,0 +1,13 @@
+[
+  { "name": "Assault Pack", "type": "Field Upgrade", "game": "black-ops-six" },
+  { "name": "Spring Mine", "type": "Field Upgrade", "game": "black-ops-six" },
+  { "name": "Trophy System", "type": "Field Upgrade", "game": "black-ops-six" },
+  { "name": "Scrambler", "type": "Field Upgrade", "game": "black-ops-six" },
+  { "name": "Signal Lure", "type": "Field Upgrade", "game": "black-ops-six" },
+  { "name": "War Cry", "type": "Field Upgrade", "game": "black-ops-six" },
+  { "name": "Tactical Insertion", "type": "Field Upgrade", "game": "black-ops-six" },
+  { "name": "Acoustic Amp", "type": "Field Upgrade", "game": "black-ops-six" },
+  { "name": "Morphine Injector", "type": "Field Upgrade", "game": "black-ops-six" },
+  { "name": "Neurogas", "type": "Field Upgrade", "game": "black-ops-six" },
+  { "name": "Sleeper Agent", "type": "Field Upgrade", "game": "black-ops-six" }
+]

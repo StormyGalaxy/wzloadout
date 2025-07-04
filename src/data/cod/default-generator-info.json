@@ -1,0 +1,45 @@
+{
+  "randClassName": "",
+  "perks": "",
+  "perkObj": {
+    "perk1": "",
+    "perk2": "",
+    "perk3": "",
+    "perk1Greed": "",
+    "perk2Greed": "",
+    "perk3Greed": "",
+    "vehiclePerk": ""
+  },
+  "streaks": "",
+  "weapons": {
+    "primary": {
+      "name": "",
+      "type": "",
+      "game": "",
+      "no_attach": false,
+      "optic": "",
+      "attachments": ""
+    },
+    "secondary": {
+      "name": "",
+      "type": "",
+      "game": "",
+      "no_attach": false,
+      "optic": "",
+      "attachments": ""
+    }
+  },
+  "equipment": {
+    "tactical": { "name": "", "type": "", "game": "" },
+    "lethal": { "name": "", "type": "", "game": "" },
+    "fieldUpgrade": { "name": "", "type": "", "game": "" },
+    "fieldUpgrade2": { "name": "", "type": "", "game": "" },
+    "gear": "",
+    "equipment": ""
+  },
+  "wildcard": { "name": "", "description": "" },
+  "wildcards": "",
+  "basic": null,
+  "specialist": { "name": "", "type": "", "game": "" },
+  "combat_rig": ""
+}

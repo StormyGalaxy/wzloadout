@@ -1,0 +1,398 @@
+[
+  {
+    "Date": "July 2, 2025",
+    "Type": "Upgrade",
+    "Link": { "Url": "warzone", "Text": "Warzone:" },
+    "Changes": "Redesigned the entire game's hub, including all generators and the information hub, and added a new landing page for easier navigation and access."
+  },
+  {
+    "Date": "July 2, 2025",
+    "Type": "Upgrade",
+    "Link": { "Url": "vanguard", "Text": "Vanguard:" },
+    "Changes": "Redesigned the entire game's hub, including all generators and the information hub, and added a new landing page for easier navigation and access."
+  },
+  {
+    "Date": "July 1, 2025",
+    "Type": "Upgrade",
+    "Link": { "Url": "modern-warfare/three", "Text": "Modern Warfare 3:" },
+    "Changes": "Redesigned the entire game's hub, including all generators and the information hub, and added a new landing page for easier navigation and access."
+  },
+  {
+    "Date": "July 1, 2025",
+    "Type": "Upgrade",
+    "Link": { "Url": "modern-warfare/two", "Text": "Modern Warfare 2:" },
+    "Changes": "Redesigned the entire game's hub, including all generators and the information hub, and added a new landing page for easier navigation and access."
+  },
+  {
+    "Date": "July 1, 2025",
+    "Type": "Upgrade",
+    "Link": { "Url": "modern-warfare/remastered", "Text": "Modern Warfare Remastered:" },
+    "Changes": "Redesigned the entire game's hub, including all generators and the information hub, and added a new landing page for easier navigation and access."
+  },
+  {
+    "Date": "June 30, 2025",
+    "Type": "Upgrade",
+    "Link": { "Url": "world-at-war", "Text": "World At War:" },
+    "Changes": "Redesigned the entire game's hub, including all generators and the information hub, and added a new landing page for easier navigation and access."
+  },
+  {
+    "Date": "June 29, 2025",
+    "Type": "Upgrade",
+    "Link": { "Url": "infinite-warfare", "Text": "Infinite Warfare:" },
+    "Changes": "Redesigned the entire game's hub, including all generators and the information hub, and added a new landing page for easier navigation and access."
+  },
+  {
+    "Date": "June 28, 2025",
+    "Type": "Upgrade",
+    "Link": { "Url": "black-ops/three", "Text": "Black Ops 3:" },
+    "Changes": "Redesigned the entire game's hub, including all generators and the information hub, and added a new landing page for easier navigation and access."
+  },
+  {
+    "Date": "June 27, 2025",
+    "Type": "Upgrade",
+    "Link": { "Url": "black-ops/six", "Text": "Black Ops 6:" },
+    "Changes": "Redesigned the entire game's hub, including all generators and the information hub, and added a new landing page for easier navigation and access."
+  },
+  {
+    "Date": "June 27, 2025",
+    "Type": "Upgrade",
+    "Link": { "Url": "black-ops/four", "Text": "Black Ops 4:" },
+    "Changes": "Redesigned the entire game's hub, including all generators and the information hub, and added a new landing page for easier navigation and access."
+  },
+  {
+    "Date": "June 26, 2025",
+    "Type": "Upgrade",
+    "Link": { "Url": "world-war-two", "Text": "World War 2:" },
+    "Changes": "Redesigned the entire game's hub, including all generators and the information hub, and added a new landing page for easier navigation and access."
+  },
+  {
+    "Date": "June 20, 2025",
+    "Type": "Upgrade",
+    "Link": { "Url": "black-ops/cold-war", "Text": "Black Ops Cold War:" },
+    "Changes": "Redesigned the entire game's hub, including all generators and the information hub, and added a new landing page for easier navigation and access."
+  },
+  {
+    "Date": "May 29, 2025",
+    "Type": "Upgrade",
+    "Link": { "Url": "black-ops/six/zombies-generator", "Text": "Black Ops 6 Zombies:" },
+    "Changes": "Season 4 - Added Shatter Blast Ammo Mod and all new gobblegums (Explosive Flourish, Flavor Hex, Rainburps)"
+  },
+  {
+    "Date": "May 29, 2025",
+    "Type": "Upgrade",
+    "Link": { "Url": "black-ops/six/zombies-generator", "Text": "Black Ops 6 Zombies:" },
+    "Changes": "Season 3 Reloaded - Added Frost Blast Field Upgrade"
+  },
+  {
+    "Date": "May 29, 2025",
+    "Type": "New",
+    "Link": { "Url": "black-ops/six/generator", "Text": "Black Ops 6:" },
+    "Changes": "Season 3 Reloaded - Added Vendetta Perk"
+  },
+  {
+    "Date": "April 19, 2025",
+    "Type": "New",
+    "Link": { "Url": "black-ops/six/generator", "Text": "Black Ops 6:" },
+    "Changes": "Added new Nail Gun"
+  },
+  {
+    "Date": "April 19, 2025",
+    "Type": "New",
+    "Link": { "Url": "warzone/generator", "Text": "Warzone" },
+    "Changes": "Added Thermite!"
+  },
+  {
+    "Date": "April 5, 2025",
+    "Type": "New",
+    "Link": { "Url": "warzone/where-we-droppin", "Text": "Warzone - Where We Droppin?" },
+    "Changes": "Added Verdansk!"
+  },
+  {
+    "Date": "April 5, 2025",
+    "Type": "New",
+    "Link": { "Url": "black-ops/six/zombies-generator", "Text": "Black Ops 6 Zombies:" },
+    "Changes": "Added Shattered Veil"
+  },
+  {
+    "Date": "April 5, 2025",
+    "Type": "Upgrade",
+    "Link": { "Url": "black-ops/six/zombies-generator", "Text": "Black Ops 6 Zombies:" },
+    "Changes": "Added Season 03 gobblegums & double tap augments"
+  },
+  {
+    "Date": "April 5, 2025",
+    "Type": "New",
+    "Link": { "Url": "black-ops/six/generator", "Text": "Black Ops 6:" },
+    "Changes": "Added Death Machine Streak"
+  },
+  {
+    "Date": "April 5, 2025",
+    "Type": "New",
+    "Link": { "Url": "black-ops/six/generator", "Text": "Black Ops 6:" },
+    "Changes": "Added Close Shave Perk"
+  },
+  {
+    "Date": "April 5, 2025",
+    "Type": "Upgrade",
+    "Link": { "Url": "black-ops/six/generator", "Text": "Black Ops 6:" },
+    "Changes": "Added the Swat 5.56 Grau Conversion attachment to the Swat 5.56"
+  },
+  {
+    "Date": "April 5, 2025",
+    "Type": "Upgrade",
+    "Link": { "Url": "black-ops/six/generator", "Text": "Black Ops 6:" },
+    "Changes": "Added the Monolithic Suppressor attachment to all weapons"
+  },
+  {
+    "Date": "April 5, 2025",
+    "Type": "New",
+    "Link": { "Url": "black-ops/six/generator", "Text": "Black Ops 6:" },
+    "Changes": "Added new Kilo 141, CR-56 Amax, HDR, & Kali Sticks"
+  },
+  {
+    "Date": "March 2, 2025",
+    "Type": "Upgrade",
+    "Link": { "Url": "https://github.com/SiloCityLabs/SiloCityPages", "Text": "SiloCityPages" },
+    "Changes": "Updated our site to leverage our powerful framework"
+  },
+  {
+    "Date": "March 1, 2025",
+    "Type": "New",
+    "Link": { "Url": "feedback", "Text": "feedback page" },
+    "Changes": "Added feedback page to create issues on our github page"
+  },
+  {
+    "Date": "February 28, 2025",
+    "Type": "New",
+    "Link": { "Url": "black-ops/six/generator", "Text": "Black Ops 6:" },
+    "Changes": "Added Hunter's Instinct Perk"
+  },
+  {
+    "Date": "February 28, 2025",
+    "Type": "New",
+    "Link": { "Url": "black-ops/six/generator", "Text": "Black Ops 6:" },
+    "Changes": "Added new TR2 - Marksman Rifle!"
+  },
+  {
+    "Date": "February 28, 2025",
+    "Type": "New",
+    "Link": { "Url": "black-ops/six/generator", "Text": "Black Ops 6:" },
+    "Changes": "Added new D1.3 Sector weapon!"
+  },
+  {
+    "Date": "February 28, 2025",
+    "Type": "New",
+    "Link": { "Url": "warzone/generator", "Text": "Warzone:" },
+    "Changes": "Added Low Profile Perk"
+  },
+  {
+    "Date": "February 28, 2025",
+    "Type": "New",
+    "Link": { "Url": "black-ops/six/generator", "Text": "Black Ops 6:" },
+    "Changes": "Added new TMNT melee weapons! (Skateboard, Katanas, Bo Staff, Sai and Nunchaku)"
+  },
+  {
+    "Date": "February 28, 2025",
+    "Type": "Upgrade",
+    "Link": { "Url": "black-ops/six/generator", "Text": "Black Ops 6:" },
+    "Changes": "Added Belt-Fed Mag to all LMGs"
+  },
+  {
+    "Date": "February 20, 2025",
+    "Type": "Upgrade",
+    "Link": { "Url": "black-ops/six/generator", "Text": "Black Ops 6:" },
+    "Changes": "Added Full Auto Mod to AEK-973"
+  },
+  {
+    "Date": "February 19, 2025",
+    "Type": "New",
+    "Link": { "Url": "world-at-war/info", "Text": "World At War Generator Information" },
+    "Changes": ""
+  },
+  {
+    "Date": "February 19, 2025",
+    "Type": "New",
+    "Link": { "Url": "world-at-war/generator", "Text": "World At War:" },
+    "Changes": "Generator is now available!"
+  },
+  {
+    "Date": "February 4, 2025",
+    "Type": "New",
+    "Link": { "Url": "infinite-warfare/generator", "Text": "Infinite Warfare:" },
+    "Changes": "Generator is now available!"
+  },
+  {
+    "Date": "February 4, 2025",
+    "Type": "New",
+    "Link": { "Url": "infinite-warfare/info", "Text": "Infinite Warfare Generator Information" },
+    "Changes": ""
+  },
+  {
+    "Date": "February 4, 2025",
+    "Type": "New",
+    "Link": { "Url": "modern-warfare/two/generator", "Text": "Modern Warfare 2:" },
+    "Changes": "Generator is now available!"
+  },
+  {
+    "Date": "February 4, 2025",
+    "Type": "New",
+    "Link": { "Url": "modern-warfare/two/info", "Text": "Modern Warfare 2 Generator Information" },
+    "Changes": ""
+  },
+  {
+    "Date": "January 31, 2025",
+    "Type": "New",
+    "Link": { "Url": "world-war-two/custom-match", "Text": "World War 2 Custom Match:" },
+    "Changes": "Generator is now available!"
+  },
+  {
+    "Date": "January 30, 2025",
+    "Type": "New",
+    "Link": { "Url": "world-war-two/generator", "Text": "World War 2:" },
+    "Changes": "Generator is now available!"
+  },
+  {
+    "Date": "January 30, 2025",
+    "Type": "New",
+    "Link": { "Url": "world-war-two/info", "Text": "World War 2 Generator Information" },
+    "Changes": ""
+  },
+  {
+    "Date": "January 30, 2025",
+    "Type": "New",
+    "Link": { "Url": "world-war-two/zombies-generator", "Text": "World War 2 Zombies:" },
+    "Changes": "Generator is now available!"
+  },
+  {
+    "Date": "January 10, 2025",
+    "Type": "New",
+    "Link": { "Url": "black-ops/four/zombies/custom-mutations", "Text": "Black Ops 4 Zombies :" },
+    "Changes": "Custom Mutations Generator is now available!"
+  },
+  {
+    "Date": "January 29, 2025",
+    "Type": "Upgrade",
+    "Link": { "Url": "black-ops/six/generator", "Text": "Black Ops 6:" },
+    "Changes": "Added Slipstream perk & War Machine scorestreak"
+  },
+  {
+    "Date": "January 29, 2025",
+    "Type": "New",
+    "Link": { "Url": "black-ops/six/generator", "Text": "Black Ops 6:" },
+    "Changes": "Added Cypher 091, PPSH-41 & Feng 82 season 2 weapons"
+  },
+  {
+    "Date": "January 28, 2025",
+    "Type": "New",
+    "Link": { "Url": "black-ops/six/zombies-generator", "Text": "Black Ops 6 Zombies:" },
+    "Changes": "Added The Tomb"
+  },
+  {
+    "Date": "January 28, 2024",
+    "Type": "Upgrade",
+    "Link": { "Url": "black-ops/six/zombies-generator", "Text": "Black Ops 6 Zombies:" },
+    "Changes": "Added season 02 gobblegums & death perception augments"
+  },
+  {
+    "Date": "January 24, 2025",
+    "Type": "New",
+    "Link": { "Url": "warzone/info", "Text": "Warzone Generator Information" },
+    "Changes": ""
+  },
+  {
+    "Date": "January 24, 2025",
+    "Type": "New",
+    "Link": {
+      "Url": "modern-warfare/remastered/info",
+      "Text": "Modern Warfare Remastered Generator Information"
+    },
+    "Changes": ""
+  },
+  {
+    "Date": "January 24, 2025",
+    "Type": "New",
+    "Link": { "Url": "black-ops/three/info", "Text": "Black Ops 3 Generator Information" },
+    "Changes": ""
+  },
+  {
+    "Date": "January 24, 2025",
+    "Type": "New",
+    "Link": {
+      "Url": "modern-warfare/three/info",
+      "Text": "Modern Warfare 3 Generator Information"
+    },
+    "Changes": ""
+  },
+  {
+    "Date": "January 24, 2025",
+    "Type": "New",
+    "Link": { "Url": "warzone/where-we-droppin", "Text": "Warzone - Where We Droppin?" },
+    "Changes": "is now available!"
+  },
+  {
+    "Date": "January 19, 2025",
+    "Type": "New",
+    "Link": { "Url": "modern-warfare/remastered/generator", "Text": "Modern Warfare Remastered" },
+    "Changes": "Generator is now available!"
+  },
+  {
+    "Date": "January 18, 2025",
+    "Type": "New",
+    "Link": {
+      "Url": "black-ops/cold-war/info",
+      "Text": "Black Ops Cold War Generator Information"
+    },
+    "Changes": ""
+  },
+  {
+    "Date": "January 17, 2025",
+    "Type": "New",
+    "Link": {
+      "Url": "black-ops/cold-war/zombies-generator",
+      "Text": "Black Ops Cold War Zombies:"
+    },
+    "Changes": "Generator is now available!"
+  },
+  {
+    "Date": "January 16, 2025",
+    "Type": "New",
+    "Link": { "Url": "black-ops/cold-war/generator", "Text": "Black Ops Cold War:" },
+    "Changes": "Generator is now available!"
+  },
+  {
+    "Date": "January 15, 2025",
+    "Type": "New",
+    "Link": { "Url": "black-ops/four/info", "Text": "Black Ops 4 Generator Information" },
+    "Changes": ""
+  },
+  {
+    "Date": "January 12, 2025",
+    "Type": "New",
+    "Link": { "Url": "vanguard/info", "Text": "Vanguard Generator Information" },
+    "Changes": ""
+  },
+  {
+    "Date": "January 11, 2025",
+    "Type": "New",
+    "Link": { "Url": "black-ops/six/info", "Text": "Black Ops 6 Generator Information" },
+    "Changes": ""
+  },
+  {
+    "Date": "January 10, 2025",
+    "Type": "New",
+    "Link": { "Url": "black-ops/four/zombies/generator", "Text": "Black Ops 4 Zombies:" },
+    "Changes": "Generator is now available!"
+  },
+  {
+    "Date": "January 9, 2025",
+    "Type": "New",
+    "Link": { "Url": "black-ops/four/generator", "Text": "Black Ops 4:" },
+    "Changes": "Generator is now available!"
+  },
+  {
+    "Date": "January 4, 2025",
+    "Type": "New",
+    "Link": { "Url": "black-ops/three/generator", "Text": "Black Ops 3:" },
+    "Changes": "Generator is now available!"
+  }
+]
