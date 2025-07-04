@@ -6,6 +6,7 @@ const G_GRIP = 'G-Grip';
 const STRYDER_BURST = 'Stryder .22 3-Round Burst Mod'; // Constant for the specific mod
 const SVD_FULL_AUTO_MOD = 'SVD Full Auto Mod';
 const TR2_CQB_AUTO_CONVERSION = 'TR2 CQB Auto Conversion';
+const SWAT_GRAU_CONVERSION = 'Swat 5.56 Grau Conversion'; // New constant for Swat 5.56 Grau Conversion
 
 /**
  * Verifies attachment compatibility rules for Black Ops 6, preventing invalid attachment combinations.
@@ -49,6 +50,8 @@ export function verifyBO6Attachments(
     issetAttachment.fireMods && attachments['fire_mods'] === SVD_FULL_AUTO_MOD;
   const hasTR2CQBAutoConversion =
     issetAttachment.fireMods && attachments['fire_mods'] === TR2_CQB_AUTO_CONVERSION;
+  const hasSWATGrauConversion =
+    issetAttachment.fireMods && attachments['fire_mods'] === SWAT_GRAU_CONVERSION; // New check
 
   // State of the attachment currently being considered
   const isCurrentAkimbo = attachment === AKIMBO;
@@ -57,6 +60,7 @@ export function verifyBO6Attachments(
   const isCurrentStryderBurst = attachment === STRYDER_BURST;
   const isCurrentSVDFullAutoMod = attachment === SVD_FULL_AUTO_MOD;
   const isCurrentTR2CQBAutoConversion = attachment === TR2_CQB_AUTO_CONVERSION;
+  const isCurrentSWATGrauConversion = attachment === SWAT_GRAU_CONVERSION; // New check
 
   // --- Akimbo Incompatibility Checks ---
   if (
@@ -116,10 +120,18 @@ export function verifyBO6Attachments(
     return false;
   }
 
-  // --- TR2 CQB Auto Conversion Incompatibility Checks (NEW) ---
+  // --- TR2 CQB Auto Conversion Incompatibility Checks ---
   if (
-    (isCurrentTR2CQBAutoConversion && attachmentBooleans.isFireMods && issetAttachment.barrel) || // Proposed TR2 CQB, and a barrel is present
-    (hasTR2CQBAutoConversion && attachmentBooleans.isBarrel) // TR2 CQB is present, and a barrel is proposed
+    (isCurrentTR2CQBAutoConversion && attachmentBooleans.isFireMods && issetAttachment.barrel) ||
+    (hasTR2CQBAutoConversion && attachmentBooleans.isBarrel)
+  ) {
+    return false;
+  }
+
+  // --- Swat 5.56 Grau Conversion Incompatibility Checks (NEW) ---
+  if (
+    (isCurrentSWATGrauConversion && attachmentBooleans.isFireMods && issetAttachment.barrel) || // Proposed Swat Grau, and a barrel is present
+    (hasSWATGrauConversion && attachmentBooleans.isBarrel) // Swat Grau is present, and a barrel is proposed
   ) {
     return false; // Prevent adding the incompatible attachment
   }

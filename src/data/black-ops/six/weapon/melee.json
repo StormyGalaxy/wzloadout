@@ -38,5 +38,6 @@
     "game": "black-ops-six",
     "no_attach": true,
     "isDlc": true
-  }
+  },
+  { "name": "Pickaxe", "type": "melee", "game": "black-ops-six", "no_attach": true, "isDlc": true }
 ]

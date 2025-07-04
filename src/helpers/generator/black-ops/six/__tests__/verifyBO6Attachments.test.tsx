@@ -36,6 +36,7 @@ describe('verifyBO6Attachments', () => {
         'Stryder .22 3-Round Burst Mod',
         'SVD Full Auto Mod',
         'TR2 CQB Auto Conversion',
+        'Swat 5.56 Grau Conversion', // Added new mod here
       ],
       muzzle: ['Suppressor'],
       magazine: ['Extended Mag', 'Fast Mag'],
@@ -131,8 +132,8 @@ describe('verifyBO6Attachments', () => {
   });
 
   test('should reduce count to 7 if Akimbo is selected and count is > 7, and passes other checks', () => {
-    baseAttachments.stock = 'Akimbo'; // Corrected to string
-    baseAttachData.stock = ['Akimbo']; // Ensure only Akimbo is an option in attachData for this specific test case
+    baseAttachments.stock = 'Akimbo';
+    baseAttachData.stock = ['Akimbo']; // Simplify to just Akimbo for this specific test case
     const result = verifyBO6Attachments(
       baseAttachData,
       baseAttachments,
@@ -146,7 +147,7 @@ describe('verifyBO6Attachments', () => {
   });
 
   test('should not reduce count if Akimbo is selected and count is already 7 or less', () => {
-    baseAttachments.stock = 'Akimbo'; // Corrected to string
+    baseAttachments.stock = 'Akimbo';
     baseAttachData.stock = ['Akimbo']; // Simplify for this test
     const result = verifyBO6Attachments(
       baseAttachData,
@@ -636,6 +637,62 @@ describe('verifyBO6Attachments', () => {
   });
 
   test('should allow a barrel if TR2 CQB Auto Conversion is not selected', () => {
+    const result = verifyBO6Attachments(
+      baseAttachData,
+      baseAttachments,
+      'Long Barrel',
+      'barrel',
+      8,
+      mockModifyCount
+    );
+    expect(result).toBe(true);
+    expect(mockModifyCount).not.toHaveBeenCalled();
+  });
+
+  // --- Swat 5.56 Grau Conversion Incompatibility Tests (NEW) ---
+
+  test('should block Swat 5.56 Grau Conversion if a barrel is already selected', () => {
+    baseAttachments.barrel = 'Long Barrel';
+    const result = verifyBO6Attachments(
+      baseAttachData,
+      baseAttachments,
+      'Swat 5.56 Grau Conversion',
+      'fire_mods',
+      8,
+      mockModifyCount
+    );
+    expect(result).toBe(false);
+    expect(mockModifyCount).not.toHaveBeenCalled();
+  });
+
+  test('should block a barrel if Swat 5.56 Grau Conversion is already selected', () => {
+    baseAttachments.fire_mods = 'Swat 5.56 Grau Conversion';
+    const result = verifyBO6Attachments(
+      baseAttachData,
+      baseAttachments,
+      'Short Barrel',
+      'barrel',
+      8,
+      mockModifyCount
+    );
+    expect(result).toBe(false);
+    expect(mockModifyCount).not.toHaveBeenCalled();
+  });
+
+  test('should allow Swat 5.56 Grau Conversion if no barrel is selected', () => {
+    const result = verifyBO6Attachments(
+      baseAttachData,
+      baseAttachments,
+      'Swat 5.56 Grau Conversion',
+      'fire_mods',
+      8,
+      mockModifyCount
+    );
+    expect(result).toBe(true);
+    expect(mockModifyCount).not.toHaveBeenCalled(); // Swat Grau Conversion does not change count
+  });
+
+  test('should allow a barrel if Swat 5.56 Grau Conversion is not selected', () => {
     const result = verifyBO6Attachments(
       baseAttachData,
       baseAttachments,
