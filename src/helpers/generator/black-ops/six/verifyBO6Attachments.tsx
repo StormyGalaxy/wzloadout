@@ -7,6 +7,7 @@ const STRYDER_BURST = 'Stryder .22 3-Round Burst Mod'; // Constant for the speci
 const SVD_FULL_AUTO_MOD = 'SVD Full Auto Mod';
 const TR2_CQB_AUTO_CONVERSION = 'TR2 CQB Auto Conversion';
 const SWAT_GRAU_CONVERSION = 'Swat 5.56 Grau Conversion'; // New constant for Swat 5.56 Grau Conversion
+const GOBLIN_MK2_CONVERSION = 'Goblin Mk2 7.62 Mini-Rocket Conversion';
 
 /**
  * Verifies attachment compatibility rules for Black Ops 6, preventing invalid attachment combinations.
@@ -51,7 +52,9 @@ export function verifyBO6Attachments(
   const hasTR2CQBAutoConversion =
     issetAttachment.fireMods && attachments['fire_mods'] === TR2_CQB_AUTO_CONVERSION;
   const hasSWATGrauConversion =
-    issetAttachment.fireMods && attachments['fire_mods'] === SWAT_GRAU_CONVERSION; // New check
+    issetAttachment.fireMods && attachments['fire_mods'] === SWAT_GRAU_CONVERSION;
+  const hasGoblinMk2Conversion =
+    issetAttachment.fireMods && attachments['fire_mods'] === GOBLIN_MK2_CONVERSION;
 
   // State of the attachment currently being considered
   const isCurrentAkimbo = attachment === AKIMBO;
@@ -60,7 +63,8 @@ export function verifyBO6Attachments(
   const isCurrentStryderBurst = attachment === STRYDER_BURST;
   const isCurrentSVDFullAutoMod = attachment === SVD_FULL_AUTO_MOD;
   const isCurrentTR2CQBAutoConversion = attachment === TR2_CQB_AUTO_CONVERSION;
-  const isCurrentSWATGrauConversion = attachment === SWAT_GRAU_CONVERSION; // New check
+  const isCurrentSWATGrauConversion = attachment === SWAT_GRAU_CONVERSION;
+  const isCurrentGoblinMk2Conversion = attachment === GOBLIN_MK2_CONVERSION;
 
   // --- Akimbo Incompatibility Checks ---
   if (
@@ -128,16 +132,29 @@ export function verifyBO6Attachments(
     return false;
   }
 
-  // --- Swat 5.56 Grau Conversion Incompatibility Checks (NEW) ---
+  // --- Swat 5.56 Grau Conversion Incompatibility Checks ---
   if (
-    (isCurrentSWATGrauConversion && attachmentBooleans.isFireMods && issetAttachment.barrel) || // Proposed Swat Grau, and a barrel is present
-    (hasSWATGrauConversion && attachmentBooleans.isBarrel) // Swat Grau is present, and a barrel is proposed
+    (isCurrentSWATGrauConversion && attachmentBooleans.isFireMods && issetAttachment.barrel) ||
+    (hasSWATGrauConversion && attachmentBooleans.isBarrel)
+  ) {
+    return false;
+  }
+
+  // --- Goblin Mk2 7.62 Mini-Rocket Conversion Incompatibility Checks ---
+  if (
+    // Scenario 1: Proposing Goblin Mk2, but an incompatible attachment is ALREADY present
+    (isCurrentGoblinMk2Conversion &&
+      attachmentType === 'fire_mods' && // Added attachmentType check for safety
+      (issetAttachment.muzzle || issetAttachment.barrel || issetAttachment.magazine)) ||
+    // Scenario 2: Goblin Mk2 is ALREADY present, and we're proposing an incompatible attachment
+    (hasGoblinMk2Conversion &&
+      (attachmentBooleans.isMuzzle || attachmentBooleans.isBarrel || attachmentBooleans.isMagazine))
   ) {
     return false; // Prevent adding the incompatible attachment
   }
 
-  // Determine if Akimbo, generic 3-Round Burst, Stryder Burst, or SVD Full Auto Mod
-  // will be in the loadout AFTER this attachment is (potentially) added.
+  // Determine if Akimbo, generic 3-Round Burst, Stryder Burst, SVD Full Auto Mod,
+  // or Goblin Mk2 will be in the loadout AFTER this attachment is (potentially) added.
   const willHaveAkimboInFinalLoadout = hasAkimbo || (isCurrentAkimbo && attachmentType === 'stock');
   const willHaveThreeRoundBurstInFinalLoadout =
     hasThreeRoundBurst || (isCurrentBurst && attachmentType === 'fire_mods');
@@ -145,10 +162,15 @@ export function verifyBO6Attachments(
     hasStryderBurst || (isCurrentStryderBurst && attachmentType === 'fire_mods');
   const willHaveSVDFullAutoModInFinalLoadout =
     hasSVDFullAutoMod || (isCurrentSVDFullAutoMod && attachmentType === 'fire_mods');
+  const willHaveGoblinMk2InFinalLoadout =
+    hasGoblinMk2Conversion || (isCurrentGoblinMk2Conversion && attachmentType === 'fire_mods');
 
   // Adjust the total allowed attachment count based on the presence of specific mods
+  // Order of priority is important here: stricter limits should come first.
   if (count > 5 && willHaveSVDFullAutoModInFinalLoadout) {
     modifyCount(5); // SVD Full Auto Mod limits to a maximum of 5 attachments (highest priority)
+  } else if (count > 6 && willHaveGoblinMk2InFinalLoadout) {
+    modifyCount(6); // Goblin Mk2 limits to a maximum of 6 attachments
   } else if (count > 6 && willHaveStryderBurstInFinalLoadout) {
     modifyCount(6); // Stryder Burst limits to a maximum of 6 attachments
   } else if (count > 7 && (willHaveAkimboInFinalLoadout || willHaveThreeRoundBurstInFinalLoadout)) {

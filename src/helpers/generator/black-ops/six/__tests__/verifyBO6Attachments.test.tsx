@@ -25,7 +25,6 @@ describe('verifyBO6Attachments', () => {
       magazine: '',
       rear_grip: '',
     };
-    // Updated baseAttachData to include all fire mods for testing
     baseAttachData = {
       stock: ['Akimbo', 'Normal Stock'],
       underbarrel: ['Foregrip', 'G-Grip'],
@@ -36,10 +35,11 @@ describe('verifyBO6Attachments', () => {
         'Stryder .22 3-Round Burst Mod',
         'SVD Full Auto Mod',
         'TR2 CQB Auto Conversion',
-        'Swat 5.56 Grau Conversion', // Added new mod here
+        'Swat 5.56 Grau Conversion',
+        'Goblin Mk2 7.62 Mini-Rocket Conversion',
       ],
-      muzzle: ['Suppressor'],
-      magazine: ['Extended Mag', 'Fast Mag'],
+      muzzle: ['Suppressor', 'Muzzle Brake'],
+      magazine: ['Extended Mag', 'Fast Mag', 'Drum Mag'],
       optic: ['Red Dot Sight'],
       rear_grip: ['Rubberized Grip'],
     };
@@ -518,7 +518,7 @@ describe('verifyBO6Attachments', () => {
     const result = verifyBO6Attachments(
       baseAttachData,
       baseAttachments,
-      'Muzzle Break',
+      'Muzzle Brake',
       'muzzle',
       7,
       mockModifyCount
@@ -532,7 +532,7 @@ describe('verifyBO6Attachments', () => {
     const result = verifyBO6Attachments(
       baseAttachData,
       baseAttachments,
-      'Muzzle Break',
+      'Muzzle Brake',
       'muzzle',
       5,
       mockModifyCount
@@ -705,7 +705,148 @@ describe('verifyBO6Attachments', () => {
     expect(mockModifyCount).not.toHaveBeenCalled();
   });
 
-  // --- Valid Combinations ---
+  // --- NEW: Goblin Mk2 7.62 Mini-Rocket Conversion Incompatibility Tests ---
+
+  test('should block Goblin Mk2 Conversion if a muzzle is already selected', () => {
+    baseAttachments.muzzle = 'Suppressor';
+    const result = verifyBO6Attachments(
+      baseAttachData,
+      baseAttachments,
+      'Goblin Mk2 7.62 Mini-Rocket Conversion',
+      'fire_mods',
+      8,
+      mockModifyCount
+    );
+    expect(result).toBe(false);
+    expect(mockModifyCount).not.toHaveBeenCalled();
+  });
+
+  test('should block Goblin Mk2 Conversion if a barrel is already selected', () => {
+    baseAttachments.barrel = 'Long Barrel';
+    const result = verifyBO6Attachments(
+      baseAttachData,
+      baseAttachments,
+      'Goblin Mk2 7.62 Mini-Rocket Conversion',
+      'fire_mods',
+      8,
+      mockModifyCount
+    );
+    expect(result).toBe(false);
+    expect(mockModifyCount).not.toHaveBeenCalled();
+  });
+
+  test('should block Goblin Mk2 Conversion if a magazine is already selected', () => {
+    baseAttachments.magazine = 'Extended Mag';
+    const result = verifyBO6Attachments(
+      baseAttachData,
+      baseAttachments,
+      'Goblin Mk2 7.62 Mini-Rocket Conversion',
+      'fire_mods',
+      8,
+      mockModifyCount
+    );
+    expect(result).toBe(false);
+    expect(mockModifyCount).not.toHaveBeenCalled();
+  });
+
+  test('should block a muzzle if Goblin Mk2 Conversion is already selected', () => {
+    baseAttachments.fire_mods = 'Goblin Mk2 7.62 Mini-Rocket Conversion';
+    const result = verifyBO6Attachments(
+      baseAttachData,
+      baseAttachments,
+      'Muzzle Brake',
+      'muzzle',
+      8,
+      mockModifyCount
+    );
+    expect(result).toBe(false);
+    expect(mockModifyCount).not.toHaveBeenCalled();
+  });
+
+  test('should block a barrel if Goblin Mk2 Conversion is already selected', () => {
+    baseAttachments.fire_mods = 'Goblin Mk2 7.62 Mini-Rocket Conversion';
+    const result = verifyBO6Attachments(
+      baseAttachData,
+      baseAttachments,
+      'Short Barrel',
+      'barrel',
+      8,
+      mockModifyCount
+    );
+    expect(result).toBe(false);
+    expect(mockModifyCount).not.toHaveBeenCalled();
+  });
+
+  test('should block a magazine if Goblin Mk2 Conversion is already selected', () => {
+    baseAttachments.fire_mods = 'Goblin Mk2 7.62 Mini-Rocket Conversion';
+    const result = verifyBO6Attachments(
+      baseAttachData,
+      baseAttachments,
+      'Drum Mag',
+      'magazine',
+      8,
+      mockModifyCount
+    );
+    expect(result).toBe(false);
+    expect(mockModifyCount).not.toHaveBeenCalled();
+  });
+
+  test('should allow Goblin Mk2 Conversion if no incompatible attachments are present', () => {
+    const result = verifyBO6Attachments(
+      baseAttachData,
+      baseAttachments,
+      'Goblin Mk2 7.62 Mini-Rocket Conversion',
+      'fire_mods',
+      8, // Initial count
+      mockModifyCount
+    );
+    expect(result).toBe(true);
+    expect(mockModifyCount).toHaveBeenCalledWith(6); // Should reduce count to 6
+  });
+
+  test('should reduce count to 6 if Goblin Mk2 Conversion is present and count is > 6', () => {
+    baseAttachments.fire_mods = 'Goblin Mk2 7.62 Mini-Rocket Conversion';
+    const result = verifyBO6Attachments(
+      baseAttachData,
+      baseAttachments,
+      'Red Dot Sight', // A compatible attachment
+      'optic',
+      8, // Current count > 6
+      mockModifyCount
+    );
+    expect(result).toBe(true);
+    expect(mockModifyCount).toHaveBeenCalledWith(6);
+  });
+
+  test('should not reduce count if Goblin Mk2 Conversion is present and count is 6 or less', () => {
+    baseAttachments.fire_mods = 'Goblin Mk2 7.62 Mini-Rocket Conversion';
+    const result = verifyBO6Attachments(
+      baseAttachData,
+      baseAttachments,
+      'Red Dot Sight',
+      'optic',
+      6, // Current count is 6
+      mockModifyCount
+    );
+    expect(result).toBe(true);
+    expect(mockModifyCount).not.toHaveBeenCalled();
+  });
+
+  test('should allow an optic if Goblin Mk2 Conversion is selected', () => {
+    baseAttachments.fire_mods = 'Goblin Mk2 7.62 Mini-Rocket Conversion';
+    const result = verifyBO6Attachments(
+      baseAttachData,
+      baseAttachments,
+      'Red Dot Sight',
+      'optic',
+      6, // Assuming count is already adjusted
+      mockModifyCount
+    );
+    expect(result).toBe(true);
+    expect(mockModifyCount).not.toHaveBeenCalled();
+  });
+
+  // --- Valid Combinations (existing tests, ensuring they still pass) ---
 
   test('should allow a normal attachment if no incompatibilities exist', () => {
     const result = verifyBO6Attachments(
