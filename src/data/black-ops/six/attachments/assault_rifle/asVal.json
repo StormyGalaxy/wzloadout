@@ -44,7 +44,8 @@
     "Launcher - High Explosive",
     "Launcher - Drill Charge",
     "Ranger Foregrip",
-    "Crossbow"
+    "Crossbow",
+    "G-Grip"
   ],
   "magazine": ["Flip Mag", "Extended Mag I", "Extended Mag II", "Extended Mag III"],
   "rear_grip": ["Quickdraw Grip", "Assault Grip", "Commando Grip", "Ergonomic Grip", "CQB Grip"],

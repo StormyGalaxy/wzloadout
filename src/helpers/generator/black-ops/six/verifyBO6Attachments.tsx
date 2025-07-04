@@ -4,54 +4,64 @@ const AKIMBO = 'Akimbo';
 const BURST = '3-Round Burst Mod';
 
 export function verifyBO6Attachments(
-  attachData,
-  attachments,
-  attachment: string,
-  attachmentType: string,
-  count,
+  attachData: Record<string, any>, // This is the full pool of available attachments, e.g., {stock: ['Akimbo', 'No Stock']}
+  attachments: Record<string, string>, // This is the *currently selected* attachments, e.g., {stock: 'Akimbo'}
+  attachment: string, // The attachment currently being considered for addition (a single string)
+  attachmentType: string, // The type/slot of the attachment being considered (e.g., 'stock', 'laser')
+  count: number,
   modifyCount: (newCount: number) => void
-) {
+): boolean {
   const attachmentBooleans = getAttachmentBooleans(attachmentType);
-  const issetAttachment = getIssetAttachments(attachments);
-  const lasers = ['Tactical Laser', 'Strelok Laser', 'Target Laser'];
-  const hasAkimbo = issetAttachment.stock && attachments['stock'].includes(AKIMBO);
-  const hasThreeRoundBurst = issetAttachment.fireMods && attachments['fire_mods'].includes(BURST);
+  const issetAttachment = getIssetAttachments(attachments); // This will now correctly receive Record<string, string>
+  const LASER_INCOMPATIBLE_WITH_AKIMBO = ['Tactical Laser', 'Strelok Laser', 'Target Laser'];
 
-  // Combine Akimbo checks
+  // These checks now correctly compare single strings
+  const hasAkimbo = issetAttachment.stock && attachments['stock'] === AKIMBO;
+  const hasThreeRoundBurst = issetAttachment.fireMods && attachments['fire_mods'] === BURST;
+
+  // --- Akimbo Incompatibility Checks ---
+  const isCurrentAkimbo = attachment === AKIMBO; // Check if the NEW attachment is Akimbo
+
   if (
-    (attachment.includes(AKIMBO) && (issetAttachment.optic || issetAttachment.underbarrel)) ||
-    (hasAkimbo && (attachmentBooleans.isStock || attachmentBooleans.isOptic)) ||
-    (issetAttachment.laser && attachment.includes(AKIMBO) && lasers.includes(attachments['laser']))
+    // Scenario 1: New attachment is Akimbo, AND an incompatible existing attachment is present
+    (isCurrentAkimbo && (issetAttachment.optic || issetAttachment.underbarrel)) ||
+    (isCurrentAkimbo &&
+      issetAttachment.laser &&
+      LASER_INCOMPATIBLE_WITH_AKIMBO.includes(attachments['laser'])) ||
+    // Scenario 2: Akimbo is ALREADY selected, AND the new attachment is incompatible
+    (hasAkimbo && (attachmentBooleans.isStock || attachmentBooleans.isOptic)) || // If Akimbo is present, can't add another stock or an optic
+    (hasAkimbo && attachmentBooleans.isLaser && LASER_INCOMPATIBLE_WITH_AKIMBO.includes(attachment)) // If Akimbo is present, can't add certain lasers
   ) {
-    if (Object.keys(attachData.stock).length === 1 && count > 7) {
+    if (Object.keys(attachData.stock || {}).length === 1 && count > 7) {
+      // This logic is specific to your game's rules. Ensure it's what you intend.
+      // It reduces the total attachment count if only Akimbo is available in 'stock' and count is high.
       modifyCount(7);
     }
-    return false;
+    return false; // Prevent adding the attachment
   }
 
-  //3-Round Burst Mod fire mod check
-  const isBurst = attachment.includes(BURST);
+  // --- 3-Round Burst Mod Incompatibility Checks ---
+  const isCurrentBurst = attachment === BURST; // Check if the NEW attachment is 3-Round Burst
+
   if (
-    (isBurst && (issetAttachment.barrel || issetAttachment.underbarrel)) ||
+    // Scenario 1: New attachment is 3-Round Burst, AND an incompatible existing attachment is present
+    (isCurrentBurst && (issetAttachment.barrel || issetAttachment.underbarrel)) ||
+    // Scenario 2: 3-Round Burst is ALREADY selected, AND the new attachment is incompatible
     (hasThreeRoundBurst && (attachmentBooleans.isBarrel || attachmentBooleans.isUnderbarrel))
   ) {
-    return false;
+    return false; // Prevent adding the attachment
   }
 
-  // Dont allow specific lasers if akimbo is already selected
-  if (attachmentBooleans.isLaser && lasers.includes(attachment) && hasAkimbo) {
-    return false;
-  }
-
-  // Lower the count to 7 if it's at 8 and akimbo is selected
+  // Lower the count to 7 if it's at 8 and akimbo or 3-round burst is selected
+  // This is a general adjustment to the total attachment count.
   if ((hasAkimbo || hasThreeRoundBurst) && count > 7) {
     modifyCount(7);
   }
 
-  return true;
+  return true; // Allow the attachment
 }
 
-function getAttachmentBooleans(attachmentType) {
+function getAttachmentBooleans(attachmentType: string) {
   return {
     isBarrel: attachmentType === 'barrel',
     isUnderbarrel: attachmentType === 'underbarrel',
@@ -65,7 +75,7 @@ function getAttachmentBooleans(attachmentType) {
   };
 }
 
-function getIssetAttachments(attachments) {
+function getIssetAttachments(attachments: Record<string, string>) {
   return {
     barrel: isset(attachments['barrel']),
     underbarrel: isset(attachments['underbarrel']),

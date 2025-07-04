@@ -38,7 +38,8 @@
     "Lightweight Foregrip",
     "Marksman Foregrip",
     "Precision Foregrip",
-    "Ranger Foregrip"
+    "Ranger Foregrip",
+    "G-Grip"
   ],
   "magazine": ["Extended Mag I", "Flip Mag", "Extended Mag II", "Fast Mag I"],
   "stock": [
