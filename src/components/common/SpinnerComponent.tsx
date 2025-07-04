@@ -15,7 +15,7 @@ const SpinnerComponent = () => {
         <Spinner animation='grow' variant='light' className='m-1' />
         <Spinner animation='grow' variant='dark' className='m-1' />
       </div>
-      <h3 className='text-white'>Generating Initial Loadout...</h3>
+      <h3>Generating Initial Loadout...</h3>
     </Container>
   );
 };
