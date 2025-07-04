@@ -1,7 +1,6 @@
 # COD RCG
 
 [![Visit Site](https://img.shields.io/badge/Visit-codrcg.com-blue?style=for-the-badge&logo=rocket)](https://codrcg.com)
-[![Official Game](https://img.shields.io/badge/Call%20Of%20Duty%20Game-callofduty.com-lightgrey?style=for-the-badge)](https://www.callofduty.com)
 
 Welcome to the **Call of Duty Random Class Generator (CoD RCG)**! This is your essential utility website and toolkit for the popular [Call of Duty](https://store.steampowered.com/app/1938090/Call_of_Duty/) franchise, providing helpful tools and information to enhance your gameplay experience. You can also refer to it as the **CoD RCG**.
 
