@@ -1,14 +1,3 @@
-:root {
-  /* Default theme color if no theme class is applied */
-  --theme-color: #c8c8cd;
-
-  /* Footer-specific variables */
-  --footer-white: #ffffff;
-  --footer-light-gray: #c8c8cd;
-  --footer-dark-gray: #191919;
-  --footer-text: #191919;
-}
-
 /* Theme Colors */
 :root {
   --theme-color: #0a74da; /* Default theme color */
@@ -16,6 +5,12 @@
   --theme-color-dark: #212529; /* Dark theme color */
   --theme-color-accent: #00c4ff; /* Accent color */
   --header-link-color: #fff;
+  
+  /* Footer-specific variables */
+  --footer-white: #ffffff;
+  --footer-light-gray: #c8c8cd;
+  --footer-dark-gray: #191919;
+  --footer-text: #191919;
 }
 
 body {
