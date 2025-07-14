@@ -23,11 +23,15 @@ export const metadata: Metadata = {
   keywords: APP_KEYWORDS?.split(',').map((k) => k.trim()),
   manifest: '/manifest.json',
   appleWebApp: { title: 'COD RCG', statusBarStyle: 'default', capable: true },
-  icons: { icon: [{ url: '/icon.svg', type: 'image/svg+xml' }] },
 };
 
 // --- Viewport ---
-export const viewport: Viewport = { width: 'device-width', initialScale: 1, maximumScale: 1 };
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  themeColor: '#f8f9fa',
+};
 
 // Setup a font
 const inter = Inter({ subsets: ['latin'] });
