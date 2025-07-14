@@ -24,8 +24,10 @@ export const metadata: Metadata = {
   manifest: '/manifest.json',
   appleWebApp: { title: 'COD RCG', statusBarStyle: 'default', capable: true },
   icons: {
-    // For the SVG favicon
-    icon: { url: '/icon.svg', type: 'image/svg+xml' },
+    icon: [
+      { url: '/icon.png', type: 'image/png' },
+      { url: '/icon.svg', type: 'image/svg+xml' },
+    ],
     // For the Apple touch icon
     apple: { url: '/apple-icon.png', type: 'image/png' },
   },
