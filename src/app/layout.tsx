@@ -4,7 +4,6 @@ import type { Metadata, Viewport } from 'next';
 import { Inter } from 'next/font/google';
 // --- Components ---
 import { GoogleAnalytics } from '@silocitypages/ui-core';
-import ClientDatabaseProviderWrapper from '@/components/ClientDatabaseProviderWrapper';
 
 // --- Styles ---
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -18,12 +17,8 @@ const APP_DESC = process.env.NEXT_PUBLIC_APP_DESC || 'Default description';
 const APP_KEYWORDS = process.env.NEXT_PUBLIC_APP_KEYWORDS || 'default, keywords';
 
 // --- Metadata ---
-// Define static metadata for the entire application
 export const metadata: Metadata = {
-  title: {
-    default: APP_NAME,
-    template: `%s | ${APP_NAME}`, // Example: "About | SiloCityPages"
-  },
+  title: { default: APP_NAME, template: `%s | ${APP_NAME}` },
   description: APP_DESC,
   keywords: APP_KEYWORDS?.split(',').map((k) => k.trim()),
   manifest: '/manifest.json',
@@ -39,7 +34,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang='en'>
       <body className={inter.className}>
-        <ClientDatabaseProviderWrapper>{children}</ClientDatabaseProviderWrapper>
+        {children}
 
         {GA_TRACKING_ID && (
           <Suspense fallback={null}>

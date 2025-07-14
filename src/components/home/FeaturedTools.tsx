@@ -7,9 +7,9 @@ import styles from './HomePage.module.css';
 
 interface Tool {
   title: string;
+  game: string;
   description: string;
   link: string;
-  game: string;
 }
 
 interface FeaturedToolsProps {
@@ -17,13 +17,10 @@ interface FeaturedToolsProps {
 }
 
 const FeaturedTools = ({ tools }: FeaturedToolsProps) => {
-  // Shuffle the tools array and select the first 3 for a random selection
-  const selectedTools = [...tools].sort(() => 0.5 - Math.random()).slice(0, 3);
-
   return (
     <Row>
-      {selectedTools.map((tool, index) => (
-        <Col md={4} key={index} className='mb-4'>
+      {tools.map((tool, index) => (
+        <Col md={4} className='mb-4' key={index}>
           <Card className={`h-100 ${styles.toolCard}`}>
             <Card.Body className='d-flex flex-column text-dark'>
               <Card.Title>{tool.title}</Card.Title>

@@ -13,8 +13,8 @@ import CommunitySupport from '@/components/home/CommunitySupport';
 import FAQ from '@/components/home/FAQ';
 // --- Data ---
 import games from '@/data/home/games.json';
-import featuredTools from '@/data/home/featured-tools.json';
-import updates from '@/data/changelog/2025.json';
+import featuredToolsData from '@/data/home/featured-tools.json';
+import updatesData from '@/data/changelog/2025.json';
 import faqData from '@/data/home/faq.json';
 
 // --- Metadata ---
@@ -42,6 +42,13 @@ export const metadata: Metadata = {
 };
 
 export default function HomePage() {
+  // --- Prepare Data on the Server ---
+  // Sort tools to prevent hydration errors on the client.
+  const sortedTools = [...featuredToolsData].sort(() => 0.5 - Math.random()).slice(0, 3);
+
+  // Get the most recent update from the changelog.
+  const latestThreeUpdates = updatesData.slice(0, 3);
+
   return (
     <PageLayout>
       {/* Hero Section */}
@@ -50,7 +57,8 @@ export default function HomePage() {
       {/* Featured Tools Section */}
       <Container className='my-5'>
         <h2 className='text-center mb-4'>Featured Tools</h2>
-        <FeaturedTools tools={featuredTools} />
+        {/* Pass the pre-sorted array to the component */}
+        <FeaturedTools tools={sortedTools} />
       </Container>
 
       {/* Games Showcase Section */}
@@ -61,14 +69,13 @@ export default function HomePage() {
         </Container>
       </div>
 
-      {/* Latest Updates Section */}
+      {/* Latest Updates & Community Section */}
       <Container className='my-5'>
         <Row>
           <Col md={6}>
             <h2 className='mb-4'>Latest Updates</h2>
-            <LatestUpdates updates={updates} />
+            <LatestUpdates updates={latestThreeUpdates} />
           </Col>
-          {/* Community & Support Section */}
           <Col md={6}>
             <h2 className='mb-4'>Join the Community</h2>
             <CommunitySupport />

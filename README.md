@@ -117,4 +117,4 @@ Under the following terms:
 
 ---
 
-The **COD RCG** is made with ❤️ by SiloCityLabs for the Call of Duty community.
+**COD RCG** is a collaborative effort by OneBuffaloLabs and SiloCityLabs, created for the Call of Duty community.
