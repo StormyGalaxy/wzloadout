@@ -33,13 +33,10 @@ const getBadgeVariant = (type: string) => {
 };
 
 const LatestUpdates = ({ updates }: LatestUpdatesProps) => {
-  // Ensure we only process the first 3 updates passed in the props
-  const latestThreeUpdates = updates.slice(0, 3);
-
   return (
     <>
       <ListGroup variant='flush'>
-        {latestThreeUpdates.map((update, index) => (
+        {updates.map((update, index) => (
           <ListGroup.Item
             key={index}
             className={`d-flex justify-content-between align-items-start ${styles.updateItem}`}>

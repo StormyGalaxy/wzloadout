@@ -2,6 +2,9 @@
 
 // --- React ---
 import { Row, Col, Card } from 'react-bootstrap';
+// --- Next ---
+import Image from 'next/image';
+import Link from 'next/link';
 // --- Styles ---
 import styles from './HomePage.module.css';
 
@@ -22,13 +25,14 @@ const GamesShowcase = ({ games }: GamesShowcaseProps) => {
       {games.map((game, index) => (
         <Col xs={6} md={4} lg={3} xl={2} key={index}>
           {game.status === 'coming-soon' ? (
-            <a href={game.link} className={styles.gameLink}>
+            <Link href={game.link} className={styles.gameLink}>
               <Card className={`${styles.gameCard} ${styles.comingSoonCard}`}>
-                <Card.Img
-                  variant='top'
+                <Image
                   src={game.logoUrl}
                   alt={`${game.name} Logo`}
-                  className={styles.gameLogo}
+                  width={200}
+                  height={110}
+                  className={`card-img-top ${styles.gameLogo}`}
                   loading='lazy'
                 />
                 <div className={styles.comingSoonOverlay}>
@@ -38,22 +42,23 @@ const GamesShowcase = ({ games }: GamesShowcaseProps) => {
                   <span className='text-white'>{game.name}</span>
                 </div>
               </Card>
-            </a>
+            </Link>
           ) : (
-            <a href={game.link} className={styles.gameLink}>
+            <Link href={game.link} className={styles.gameLink}>
               <Card className={styles.gameCard}>
-                <Card.Img
-                  variant='top'
+                <Image
                   src={game.logoUrl}
                   alt={`${game.name} Logo`}
-                  className={styles.gameLogo}
+                  width={200}
+                  height={110}
+                  className={`card-img-top ${styles.gameLogo}`}
                   loading='lazy'
                 />
                 <div className={styles.gameNameOverlay}>
                   <span className='text-white'>{game.name}</span>
                 </div>
               </Card>
-            </a>
+            </Link>
           )}
         </Col>
       ))}
