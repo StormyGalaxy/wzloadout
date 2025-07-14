@@ -22,6 +22,14 @@ export const metadata: Metadata = {
   description: APP_DESC,
   keywords: APP_KEYWORDS?.split(',').map((k) => k.trim()),
   manifest: '/manifest.json',
+  appleWebApp: { title: 'COD RCG', statusBarStyle: 'default', capable: true },
+  icons: {
+    icon: [
+      { url: '/icons/icon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/icons/icon-32x32.png', sizes: '32x32', type: 'image/png' },
+    ],
+    apple: '/icons/apple-touch-icon.png',
+  },
 };
 
 // --- Viewport ---
@@ -33,6 +41,7 @@ const inter = Inter({ subsets: ['latin'] });
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang='en'>
+      <meta name='apple-mobile-web-app-title' content='COD RCG' />
       <body className={inter.className}>
         {children}
 

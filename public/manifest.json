@@ -1,8 +1,8 @@
 {
   "id": "codrcg.com",
-  "name": "CODRCG",
-  "short_name": "CODRCG",
-  "description": "Your hub for all call of duty random class generators past, present and future.",
+  "name": "COD RCG",
+  "short_name": "COD RCG",
+  "description": "Your central hub for all things Call of Duty. Featuring random class generators, weapon and perk information, and tools for every major title, including Modern Warfare, Black Ops, Warzone, and more. Find the best loadouts and challenge yourself with our randomizers.",
   "lang": "en-US",
   "dir": "ltr",
   "theme_color": "#ff7800",
@@ -12,10 +12,14 @@
   "scope": "/",
   "start_url": "/",
   "icons": [
-    { "src": "/icons/icon-192x192.png", "sizes": "192x192", "type": "image/png" },
-    { "src": "/icons/icon-512x512.png", "sizes": "512x512", "type": "image/png" },
     {
-      "src": "/icons/icon512_maskable.png",
+      "src": "/icons/web-app-manifest-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icons/web-app-manifest-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
