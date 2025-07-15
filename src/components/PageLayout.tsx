@@ -23,6 +23,9 @@ interface PageLayoutProps {
   headerShowBadge?: boolean;
   containerClassName?: string;
   contentClassName?: string;
+  headerLogoUrl?: string;
+  headerLogoWidth?: number | string;
+  headerLogoHeight?: number | string;
 }
 
 export default function PageLayout({
@@ -37,6 +40,9 @@ export default function PageLayout({
   headerShowBadge = false,
   containerClassName = '',
   contentClassName = '',
+  headerLogoUrl,
+  headerLogoWidth,
+  headerLogoHeight,
 }: PageLayoutProps) {
   return (
     <div className={`main-container ${containerClassName}`}>
@@ -46,6 +52,9 @@ export default function PageLayout({
           navLinks={navLinks}
           darkLinks={headerDarkLinks}
           showBadge={headerShowBadge}
+          logoUrl={headerLogoUrl}
+          logoWidth={headerLogoWidth}
+          logoHeight={headerLogoHeight}
         />
       )}
       <main className={`main-content ${contentClassName}`}>{children}</main>
