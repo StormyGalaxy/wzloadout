@@ -1,4 +1,8 @@
-# COD RCG
+<div align="center">
+  <img src="/public/icons/logo-banner-blue-trans.png" alt="COD RCG Logo and Title"> 
+</div>
+
+<hr />
 
 [![Visit Site](https://img.shields.io/badge/Visit-codrcg.com-blue?style=for-the-badge&logo=rocket)](https://codrcg.com)
 
