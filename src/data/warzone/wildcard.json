@@ -12,12 +12,6 @@
     "description": "Get 3 extra attachment points for your Primary weapon"
   },
   {
-    "name": "Bandolier",
-    "type": "Wildcard",
-    "game": "warzone",
-    "description": "Your loadout provides a Munitions Satchel"
-  },
-  {
     "name": "Battle Ready",
     "type": "Wildcard",
     "game": "warzone",
